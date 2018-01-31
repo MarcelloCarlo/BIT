@@ -1,10 +1,10 @@
 $(function () {
     $('#form_validation').validate({
         rules: {
-            'checkbox': {
+            'group1': {
                 required: true
             },
-            'gender': {
+            'group2': {
                 required: true
             }
         },

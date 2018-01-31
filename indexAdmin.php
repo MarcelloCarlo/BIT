@@ -108,17 +108,18 @@
                         </h2>
                     </div>
                     <div class="body">
+                    <form id="form_validation" method="POST">
                         <div class="row clearfix margin-0">
                             <h3 class="card-inside-title">City or Municipality?</h3>
-                            <div class="demo-radio-button">
-                                <input name="group1" type="radio" id="radio_1" checked />
+                            <div class="form-group">
+                                <input name="group1" type="radio" id="radio_1" />
                                 <label for="radio_1">City</label>
                                 <input name="group1" type="radio" id="radio_2" />
                                 <label for="radio_2">Municipality</label>
                             </div>
                             <h3 class="card-inside-title">Independent or Component?</h3>
-                            <div class="demo-radio-button">
-                                <input name="group2" type="radio" id="radio_3" checked />
+                            <div class="form-group">
+                                <input name="group2" type="radio" id="radio_3" />
                                 <label for="radio_3">Independent</label>
                                 <input name="group2" type="radio" id="radio_4" />
                                 <label for="radio_4">Component</label>
@@ -127,28 +128,28 @@
                             <h3 class="card-inside-title">Province Name</h3>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" name="province_name" required/>
                                     <label class="form-label">Province Name</label>
                                 </div>
                             </div>
                             <h3 class="card-inside-title">City/Municipality Name</h3>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" required />
                                     <label class="form-label">City/Municipality Name</label>
                                 </div>
                             </div>
                             <h3 class="card-inside-title">Barangay Name</h3>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" required/>
                                     <label class="form-label">Barangay Name</label>
                                 </div>
                             </div>
                             <h3 class="card-inside-title">Signatory (Barangay Chairman)</h3>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" class="form-control" required/>
                                     <label class="form-label">Signatory (Barangay Chairman)</label>
                                 </div>
                             </div>
@@ -169,7 +170,7 @@
                                             <em>City/Municipal Seal Image File</em>
                                         </div>
                                         <div class="fallback">
-                                            <input name="file" type="file" multiple />
+                                            <input name="file" type="file" multiple required/>
                                         </div>
                                     </form>
                                 </div>
@@ -190,18 +191,20 @@
                                             <em>Barangay Seal Image File</em>
                                         </div>
                                         <div class="fallback">
-                                            <input name="file" type="file" multiple />
+                                            <input name="file" type="file" multiple required />
                                         </div>
                                     </form>
                                 </div>
                                 <!-- #END# File Upload | Drag & Drop OR With Click & Choose -->
-                                <button type="button" class="btn btn-success waves-effect" data-type="confirm">UPDATE</button>
+                                <button type="button" class="btn btn-success waves-effect" data-type="confirm" type="submit">UPDATE</button>
                             </div>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- #END# Input -->
 
                                             </div>
