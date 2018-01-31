@@ -1,0 +1,32 @@
+sa admin, 
+>site configuration 
+>yung positions sa barangay
+>officials
+>citizen's info
+>users>>levels of authority
+>ordinances >> categories
+
+sa secretary, treasurer etc na level 1 authority
+main dashboard
+>Citizen's info
+>business info
+>issuance
+>blotter
+>patawag
+>Project monitoring
+>ordinances
+
+sa brgy captain
+>main dashboard
+>blotter
+>view only sa: 
+>>>Citizen's info
+>>>business info
+>>>issuance
+>>>blotter
+>>>patawag
+>>>Project monitoring
+>>>ordinances
+
+census officer
+>citizens
