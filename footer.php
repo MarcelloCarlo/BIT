@@ -39,6 +39,10 @@
     <!-- SweetAlert Plugin Js -->
     <script src="plugins/sweetalert/sweetalert.min.js"></script>
 
+    <!-- Bootstrap Notify Plugin Js -->
+    <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
+
      <!-- Jquery Validation Plugin Css -->
      <script src="plugins/jquery-validation/jquery.validate.js"></script>
 
@@ -60,7 +64,11 @@
     <script src="js/admin.js"></script>
     <script src="js/pages/tables/jquery-datatable.js"></script>
     <script src="js/pages/forms/form-validation.js"></script>
+    <script src="js/pages/forms/basic-form-elements.js"></script>
     <script src="js/pages/ui/dialogs.js"></script>
+    <script src="Js/pages/examples/sign-in.js"></script>
+    <script src="js/pages/ui/modals.js"></script>
+
 
 
     <!-- Demo Js -->

@@ -21,10 +21,7 @@
                                 <small>The current list of officials of the Barangay. Click "Add New" to add an official or "Edit" to modify on the existing official </small>
                             </h2>
                             <br/>
-                            <button type="button" class="btn bg-indigo waves-effect">
-                            <i class="material-icons">add_circle_outline</i>
-                            <span>ADD NEW</span>
-                        </button>
+
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -35,8 +32,8 @@
                                             <th>Position</th>
                                             <th>Gender</th>
                                             <th>Birthdate</th>
-                                            <th>Street</th>
-                                            <th>Sitio</th>
+                                            <th>Street/Block</th>
+                                            <th>Zone(Sitio)</th>
                                             <th class="hide"></th>
                                         </tr>
                                     </thead>
@@ -48,7 +45,7 @@
                                             <td>1977/04/25</td>
                                             <td>Parupao St.</td>
                                             <td>Takbuhan</td>
-                                            <td><button type="button" class="btn btn-success waves-effect">
+                                            <td><button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#delegateOfcModal">
                                                             <i class="material-icons">mode_edit</i>
                                                             <span>EDIT</span>
                                                         </button></td>
@@ -62,34 +59,24 @@
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-          
-            <!-- Advanced Select -->
-            
-            
-            
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
+
+             <div class="modal fade" id="delegateOfcModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
                             <h2>
                                 Assign/Unassign
+                                <br/>
                                 <small>Select A User to Assign/Unassign A Position</small>
                             </h2>
                         </div>
-                        <div class="body">
-                            <div class="row clearfix">
-                                <h3 class="card-inside-title">Insert Name</h3>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" />
-                                        <label class="form-label">Search For Names of Citizen</label>
-                                    </div>
-                                </div>
+                        <div class="modal-body">
+                             <div class="row clearfix margin-0">
+                                <h4 class="card-inside-title">Position For: </h4>
+                                <br/>
                                 <div class="col-md-3">
 
-                                    <p>
-                                        <b>Position</b>
-                                    </p>
+                                  <h4>Position</h4>
                                     <select class="form-control show-tick">
                                             <option>None</option>
                                             <option>Captain</option>
@@ -100,17 +87,16 @@
 
 
                             </div>
-                            <button type="button" class="btn btn-success waves-effect">UPDATE</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-link waves-effect">UPDATE</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Advanced Select -->
-
-
-
-
-
+          
+        
         </div>
 
       <?php include('footer.php'); ?>
