@@ -59,13 +59,13 @@
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
-                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4></h4>
+                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4>
                                     <p class="list-group-item-text">
                                        (Not Set)
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
-                                    <h4 class="list-group-item-heading">Barangay Seal</h4></h4>
+                                    <h4 class="list-group-item-heading">Barangay Seal</h4>
                                     <p class="list-group-item-text">
                                        (Not Set)
                                     </p>
@@ -146,7 +146,7 @@
                                 <div class="form-group form-float">
                                     <h3 class="card-inside-title">Signatory (Barangay Chairman)</h3>
                                     <div class="form-line">
-                                        <input name="description" cols="30" rows="5" class="form-control no-resize" required></input>
+                                        <input name="description" cols="30" rows="5" class="form-control no-resize" required/>
                                         <label class="form-label">Signatory (Barangay Chairman)</label>
                                     </div>
                                 </div>
