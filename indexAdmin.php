@@ -1,7 +1,14 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'indexAdmin';?>
-<?php include('head.php'); ?>
-<?php include('AdminNavbar.php'); ?>
+<?php 
+session_start();
+$title = 'Welcome | BarangayIT MK.II';
+$currentPage = 'indexAdmin';
+
+include_once('AdminConfig.php');
+include('head.php');
+include('AdminNavbar.php');
+
+?>
+
 
 <section class="content">
         <div class="container-fluid">
@@ -25,49 +32,49 @@
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">City/Municipality</h4>
                                     <p class="list-group-item-text">
-                                        (None)
+                                        <?php echo $c_Type?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Independent/Component</h4>
                                     <p class="list-group-item-text">
-                                       (None)
+                                       <?php echo $b_Type?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Province Name</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $ProvinceName?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">City/Municipality Name</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $Municipality?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Barangay Name</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $BarangayName?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $WName?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">City/Municipal Seal</h4></h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $Municipality?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Barangay Seal</h4></h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $Municipality?> 
                                     </p>
                                 </a>
                             </div>
@@ -105,49 +112,49 @@
                             <h2>Update Barangay Information<small>Fill out required fields and click "UPDATE" button to update the Barangay Information.</small></h2>
                         </div>
                         <div class="body js-sweetalert">
-                            <form id="form_validation" method="POST">
+                            <form id="form_validation" action="updateBarangayConfig.php" method="POST" enctype="multipart/form-data">
                                 <div class="form-group form-float">
                                     <h3 class="card-inside-title">Barangay Name</h3>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required>
+                                        <input type="text" class="form-control" name="BarangayName" required>
                                         <label class="form-label">Barangay Name</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                      <h3 class="card-inside-title">City/Municipal Name</h3>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="surname" required>
+                                        <input type="text" class="form-control" name="MunicipalName" required>
                                         <label class="form-label">City/Municipal Name</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <h3 class="card-inside-title">Province Name</h3>
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="email" required>
+                                        <input type="text" class="form-control" name="ProvinceName" required>
                                         <label class="form-label">Province Name</label>
                                     </div>
                                 </div>
                                 <h3 class="card-inside-title">City or Municipality?</h3>
                                 <div class="form-group">
-                                    <input type="radio" name="group1" id="optCity" class="with-gap">
+                                    <input type="radio" name="morcRadio" id="optCity" value="City" class="with-gap">
                                     <label for="optCity">City</label>
 
-                                    <input type="radio" name="group1" id="optMunicipal" class="with-gap">
+                                    <input type="radio" name="morcRadio" id="optMunicipal" value="Municipality" class="with-gap">
                                     <label for="optMunicipal" class="m-l-20">Municipality</label>
                                 </div>
                                 <h3 class="card-inside-title">Independent or Component?</h3>
                                 <div class="form-group">
-                                    <input type="radio" name="group2" id="optIndependent" class="with-gap">
+                                    <input type="radio" name="iorcRadio" id="optIndependent" value="Independent" class="with-gap">
                                     <label for="optIndependent">Independent</label>
 
-                                    <input type="radio" name="group2" id="optComponent" class="with-gap">
+                                    <input type="radio" name="iorcRadio" id="optComponent" value="Component" class="with-gap">
                                     <label for="optComponent" class="m-l-20">Component</label>
                                 </div>
                                 <div class="form-group form-float">
                                     <h3 class="card-inside-title">Signatory (Barangay Chairman)</h3>
                                     <div class="form-line">
-                                        <input name="description" cols="30" rows="5" class="form-control no-resize" required></input>
-                                        <label class="form-label">Signatory (Barangay Chairman)</label>
+                                        <input name="Signatory" cols="30" rows="5" class="form-control no-resize" Placeholder="<?php echo $WName?> "></input>
+                                        <label class="form-label"> </label>
                                     </div>
                                 </div>
 
@@ -162,7 +169,7 @@
                                             </div>
                                             <em>Barangay Seal Image File</em>
                                              <div class="fallback">
-                                            <input name="file" type="file" multiple required />
+                                            <input name="BarangaySeal" type="file" multiple required />
                                         </div>
                                         </div>
                                        
@@ -180,7 +187,7 @@
                                             </div>
                                             <em>Municipal Seal Image File</em>
                                              <div class="fallback">
-                                            <input name="file" type="file" multiple required />
+                                            <input name="MunicipalSeal" type="file" multiple required />
                                         </div>
                                         </div>
                                        

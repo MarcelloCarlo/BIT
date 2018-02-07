@@ -1,7 +1,10 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'indexAdmin';?>
-<?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
+<?php 
+	$title = 'Welcome | BarangayIT MK.II';
+	$currentPage = 'indexLevel1';
+	include('head.php'); 
+	include('Level1Navbar.php'); 
+	include('dbconn.php');
+?>
 
 <section class="content">
         <div class="container-fluid">
@@ -182,9 +185,10 @@
                     </div>
                 </div>
             </div>
-            <!-- #END# Input -->
+        </div>  <!-- #END# Input -->
+    
+   
 <?php include('footer.php'); ?>
-           
 
 
 

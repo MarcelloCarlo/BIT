@@ -80,7 +80,7 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="sign-in.php"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -90,8 +90,8 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='indexAdmin' ) {echo 'class="active"';} ?>>
-                        <a href="indexAdmin.php">
+                    <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
+                        <a href="indexLevel1.php">
                             <i class="material-icons">settings_applications</i>
                             <span>Site Configuration</span>
                         </a>
