@@ -1,5 +1,5 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'indexAdmin';?>
+<?php $currentPage = 'indexLevel1';?>
 <?php include('head.php'); ?>
 <?php include('Level1Navbar.php'); ?>
 
@@ -83,7 +83,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Main Dashboar
+                                Main Dashboard
                                 <small>Barangay Information Fields</small>
                             </h2>
                         </div>
@@ -182,9 +182,10 @@
                     </div>
                 </div>
             </div>
-            <!-- #END# Input -->
+        </div>  <!-- #END# Input -->
+    
+   
 <?php include('footer.php'); ?>
-           
 
 
 
