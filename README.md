@@ -1,6 +1,6 @@
 # BRGYIT-UI
 A revolutionary Barangay system with the aims of helping our Filipino Communities
-{Naming Convention}
+### Naming Convention}
 [Level ng authority][add or Edit][Kung ano man yun] 
 Example:
     Level1AddBusinesses.php
