@@ -1,7 +1,8 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'SecBlotterView';?>
+<?php $currentPage = 'CaptainViewBlotter';?>
 <?php include('head.php'); ?>
-<?php include('SecBlotterNavigation.php'); ?>
+<?php include('CaptainBlotterNavigation.php'); ?>
+
 <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
 <!-- Google Fonts -->
@@ -197,5 +198,5 @@
 
        <!-- Demo Js -->
        <script src="../../js/demo.js"></script>
-        
-<?php include('footer.php'); ?>
+
+       <?php include('footer.php'); ?>

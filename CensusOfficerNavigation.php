@@ -86,17 +86,17 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='CapBlotter' ) {echo 'class="active"';} ?>>
-                        <a href="CapBlotter.php">
+                    <li <?php if ($currentPage==='CensusOfficerAddCitizen' ) {echo 'class="active"';} ?>>
+                        <a href="CensusOfficerAddCitizen.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Captain Blotter Navigation</span>
+                            <span>Census Navigation</span>
                         </a>
                     </li>
 
-                    <li <?php if ($currentPage==='CapBlotterView' ) {echo 'class="active"';} ?>>
-                        <a href="CapBlotterView.php">
+                     <li <?php if ($currentPage==='CensusOfficerViewCitizen' ) {echo 'class="active"';} ?>>
+                        <a href="CensusOfficerViewCitizen.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Captain View Blotter Information</span>
+                            <span>Census Officer View</span>
                         </a>
                     </li>
                    

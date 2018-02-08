@@ -86,8 +86,8 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='TanodBlotter' ) {echo 'class="active"';} ?>>
-                        <a href="TanodBlotter.php">
+                    <li <?php if ($currentPage==='ChiefTanodAddBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="ChiefTanodAddBlotter.php">
                             <i class="material-icons">settings_applications</i>
                             <span>Chief Tanod Navigation</span>
                         </a>

@@ -1,7 +1,7 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'TanodBlotter';?>
+<?php $currentPage = 'ChiefTanodAddBlotter';?>
 <?php include('head.php'); ?>
-<?php include('ChiedTanodNavigation.php'); ?>
+<?php include('ChiefTanodNavigation.php'); ?>
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">

@@ -1,7 +1,7 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'CapBlotterView';?>
+<?php $currentPage = 'CensusOfficerViewCitizen';?>
 <?php include('head.php'); ?>
-<?php include('CapBlotterNavigation.php'); ?>
+<?php include('CensusOfficerNavigation.php'); ?>
 
 <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
@@ -27,7 +27,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Blotter Inforamtion List</h2>
+            <h2>CITIZEN INFORMATION LIST</h2>
         </div>
         
         <!-- Basic Examples -->
@@ -36,8 +36,8 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            BLOTTER INFORMATION LIST 
-                            <small>The current list of barangay blotter.</small>
+                            CITIZEN INFORMATION LIST 
+                            <small>The current list of barangay citizen information.</small>
                         </h2>
                         <br/>
 

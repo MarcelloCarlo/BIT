@@ -86,10 +86,17 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='AddCitizenInformations' ) {echo 'class="active"';} ?>>
-                        <a href="AddCitizenInformations.php">
+                    <li <?php if ($currentPage==='CaptainEditBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="CaptainEditBlotter.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Census Navigation</span>
+                            <span>Captain Blotter Navigation</span>
+                        </a>
+                    </li>
+
+                    <li <?php if ($currentPage==='CaptainViewBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="CaptainViewBlotterView.php">
+                            <i class="material-icons">settings_applications</i>
+                            <span>Captain View Blotter Information</span>
                         </a>
                     </li>
                    
