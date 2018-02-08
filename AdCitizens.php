@@ -116,43 +116,64 @@
                                     <label class="form-label">First Name</label>
                                 </div>
                             </div>
-                            
-                             <h4 class="card-inside-title">Middle Name</h4>
+
+                            <h4 class="card-inside-title">Middle Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" />
                                     <label class="form-label">Middle Name</label>
                                 </div>
                             </div>
-                             <h4 class="card-inside-title">Last Name</h4>
+                            <h4 class="card-inside-title">Last Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" />
                                     <label class="form-label">Last Name</label>
                                 </div>
                             </div>
-                             <h4 class="card-inside-title">Extension Name (Optional)</h4>
+                            <h4 class="card-inside-title">Extension Name (Optional)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" />
                                     <label class="form-label">Jr./Sr./III</label>
                                 </div>
                             </div>
-                             <h4 class="card-inside-title">Height (ft)</h4>
+                            <h4 class="card-inside-title">Height (ft)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" />
                                     <label class="form-label">ft</label>
                                 </div>
                             </div>
-                             <h4 class="card-inside-title">Weight (kg)</h4>
+                            <h4 class="card-inside-title">Weight (kg)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" />
                                     <label class="form-label">kg</label>
                                 </div>
                             </div>
-                            
+                            <h4 class="card-inside-title">Place of Birth</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Place of Birth</label>
+                                </div>
+                            </div>
+                              <h4 class="card-inside-title">Birthdate</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control date" />
+                                    <label class="form-label">mm/dd/yyyy</label>
+                                </div>
+                            </div>
+                              <h4 class="card-inside-title">Gender</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Gender</label>
+                                </div>
+                            </div>
+
 
                             <h4 class="card-inside-title">Status</h4>
                             <div class="demo-switch">
@@ -218,7 +239,6 @@
             </div>
         </div>
     </div>
-</section>
 
 
 <?php include('footer.php'); ?>
