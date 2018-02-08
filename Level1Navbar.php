@@ -91,62 +91,123 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
-                        <a href="indexLevel1.php">
-                            <i class="material-icons">settings_applications</i>
+                            <a href="indexLevel1.php">
+                            <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li <?php if ($currentPage==='Level1AddCirtizen' | $currentPage==='Level1ViewEditCitizen') {echo 'class="active"';} ?>>
-                        <a href="Level1AddCirtizen.php">
-                            <i class="material-icons">view_module</i>
+                    
+                    <li <?php if ($currentPage==='Level1ViewExpCitizen' | $currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">people</i>
                             <span>Citizens</span>
                         </a>
-
+                        <ul class="ml-menu">
+                            <li  <?php if ($currentPage==='Level1ViewExpCitizen') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpCitizen.php">View/Export</a>
+                            </li>
+                            <li  <?php if ($currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditCitizen.php">Add/Edit</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='Level1AddBusinesses' | $currentPage==='Level1ViewEditBusinesses' ) {echo 'class="active"';} ?>>
-                        <a href="Level1AddBusinesses.php">
-                            <i class="material-icons">people_outline</i>
+                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
+                         <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">business</i>
                             <span>Businesses</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li <?php if ($currentPage==='Level1ViewExpBusinesses') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpBusinesses.php">View/Export</a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
+                                <a href="Level1AddEditBusinesses.php">Add/Edit</a>
+                            </li>
+                        </ul>
+                       <!-- <a href="businesses.html">
+                            <i class="material-icons">business</i>
+                            <span>Businesses</span>
+                        </a>-->
+
                     </li>
-                    <li <?php if ($currentPage==='AdCitizens.php' ) {echo 'class="active"';} ?>>
-                        <a href="Level1Issuance.php">
-                            <i class="material-icons">people</i>
+
+                    <li <?php if ($currentPage==='Level1IssuanceBarangayCert' | $currentPage==='Level1IssuancePermit' | $currentPage==='Level1IssuanceBarangayClearance' | $currentPage==='Level1IssuancePolice' | $currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">featured_play_list</i>
                             <span>Issuance</span>
                         </a>
-
+                        <ul class="ml-menu">
+                            <li <?php if ($currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuanceBarangayId.php">Barangay ID</a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1IssuanceBarangayCert') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuanceBarangayCert.php">Barangay Certificate</a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1IssuanceBarangayClearance') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuanceBarangayClearance.php">Barangay Clearance</a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1IssuancePermit') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuancePermit.php">Business Permit </a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1IssuancePolice') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuancePolice.php">Police Clearance</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='AdUsers.php' ) {echo 'class="active"';} ?>>
-                        <a href="Level1Blotter.php">
-                            <i class="material-icons">account_circle</i>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">report_problem</i>
                             <span>Blotter</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="AddBlotter.html">View Blotter</a>
+                            </li>
+                            <li>
+                                <a href="BlotterList.html">Add/Edit</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
 
-                        <a href="Level1Patawag.php">
-                            <i class="material-icons">view_list</i>
+                    <li>
+                       <a href="ordinances.html">
+                            <i class="material-icons">gavel</i>
+                            <span>Patawag</span></a>
+                    </li>
+                       <!-- </a>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">gavel</i>
                             <span>Patawag</span>
                         </a>
-                    </li>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/maps/google.html">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/yandex.html">YandexMap</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/jvectormap.html">jVectorMap</a>
+                            </li>
+                        </ul> -->
+                    
 
-                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
-
-                        <a href="Level1ProjectMonitoring.php">
-                            <i class="material-icons">view_list</i>
-                            <span>Project Monitoring</span>
-                        </a>
-                    </li>
-
-                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
-
-                        <a href="Level1Ordinances.php">
-                            <i class="material-icons">view_list</i>
+                    <li>
+                        <a href="ordinances.html">
+                            <i class="material-icons">assignment</i>
                             <span>Ordinances</span>
                         </a>
                     </li>
+                                       
+                    <li>
+                        <a href="javascript:void(0);" > <!--class="menu-toggle"-->
+                            <i class="material-icons">assessment</i>
+                            <span>Project Monitoring</span>
+                        </a>
+                    </li>
                 </ul>
-            </div> 
+            </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
