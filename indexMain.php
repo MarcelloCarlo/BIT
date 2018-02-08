@@ -306,7 +306,7 @@
                     <li class="header">MAIN NAVIGATION</li>
                     <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
                         <a href="indexLevel1.php">
-                            <i class="material-icons">people</i>
+                            <i class="material-icons">settings_applications</i>
                             <span>Home</span>
                         </a>
                     </li>

@@ -97,31 +97,31 @@
                         </a>
                     </li>
                     
-                    <li>
+                    <li <?php if ($currentPage==='Level1ViewExpCitizen' | $currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">people</i>
                             <span>Citizens</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="positions.html">View/Export</a>
+                            <li  <?php if ($currentPage==='Level1ViewExpCitizen') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpCitizen.php">View/Export</a>
                             </li>
-                            <li>
-                                <a href="officials.html">Add/Edit</a>
+                            <li  <?php if ($currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditCitizen.php">Add/Edit</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
                          <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">business</i>
                             <span>Businesses</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="positions.html">View/Export</a>
+                            <li <?php if ($currentPage==='Level1ViewExpBusinesses') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpBusinesses.php">View/Export</a>
                             </li>
-                            <li>
-                                <a href="officials.html">Add/Edit</a>
+                            <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
+                                <a href="Level1AddEditBusinesses.php">Add/Edit</a>
                             </li>
                         </ul>
                        <!-- <a href="businesses.html">
@@ -131,26 +131,26 @@
 
                     </li>
 
-                    <li>
+                    <li <?php if ($currentPage==='Level1IssuanceBarangayCert' | $currentPage==='Level1IssuancePermit' | $currentPage==='Level1IssuanceBarangayClearance' | $currentPage==='Level1IssuancePolice' | $currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">featured_play_list</i>
                             <span>Issuance</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="pages/charts/morris.html">Barangay Certificate</a>
+                            <li <?php if ($currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuanceBarangayId.php">Barangay ID</a>
                             </li>
-                            <li>
-                                <a href="pages/charts/flot.html">Business Permit </a>
+                            <li <?php if ($currentPage==='Level1IssuanceBarangayCert') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuanceBarangayCert.php">Barangay Certificate</a>
                             </li>
-                            <li>
-                                <a href="pages/charts/chartjs.html">Police Clearance</a>
+                            <li <?php if ($currentPage==='Level1IssuanceBarangayClearance') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuanceBarangayClearance.php">Barangay Clearance</a>
                             </li>
-                            <li>
-                                <a href="pages/charts/sparkline.html">Barangay Clearance</a>
+                            <li <?php if ($currentPage==='Level1IssuancePermit') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuancePermit.php">Business Permit </a>
                             </li>
-                            <li>
-                                <a href="pages/charts/jquery-knob.html">Barangay ID</a>
+                            <li <?php if ($currentPage==='Level1IssuancePolice') {echo 'class="active"';} ?>>
+                                <a href="Level1IssuancePolice.php">Police Clearance</a>
                             </li>
                         </ul>
                     </li>
@@ -199,18 +199,13 @@
                             <span>Ordinances</span>
                         </a>
                     </li>
-                    
-                    
+                                       
                     <li>
                         <a href="javascript:void(0);" > <!--class="menu-toggle"-->
                             <i class="material-icons">assessment</i>
                             <span>Project Monitoring</span>
                         </a>
-                        
                     </li>
-                    
-                   
-
                 </ul>
             </div>
             <!-- #Menu -->

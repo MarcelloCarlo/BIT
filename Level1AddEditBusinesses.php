@@ -1,5 +1,5 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1ViewEditBusinesses';?>
+<?php $currentPage = 'Level1AddEditBusinesses';?>
 <?php include('head.php'); ?>
 <?php include('Level1navbar.php'); ?>
 
@@ -19,11 +19,11 @@
                     </h2>
                     <br/>
                           
-                            <button type="button" class="btn bg-indigo waves-effect" href="Level1AddBusinesses.php"> 
+                        <!--    <button type="button" class="btn bg-indigo waves-effect" href="Level1AddBusinesses.php"> 
                             <a href="Level1AddBusinesses.php" style= "text-decoration: none;"> 
                             <i class="material-icons">add_circle_outline</i>
                             <span>Add/Edit</span></a>
-                        </button>
+                        </button> -->
                         </div>
                         <div class="body">
                             <div class="table-responsive">
