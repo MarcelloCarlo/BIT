@@ -1,7 +1,7 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'SecBlotterView';?>
+<?php $currentPage = 'SecretaryViewBlotter';?>
 <?php include('head.php'); ?>
-<?php include('SecBlotterNavigation.php'); ?>
+<?php include('SecretaryBlotterNavigation.php'); ?>
 <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 
 <!-- Google Fonts -->
