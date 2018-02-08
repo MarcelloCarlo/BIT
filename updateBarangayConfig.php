@@ -23,7 +23,7 @@
 		$CheckQuery1 = mysqli_query($bitMysqli,$CheckQuery) or die(mysqli_error($bitMysqli));
 		if (mysqli_num_rows($RQuery0) > 0)
 		{
-			$UpdateQuery = "UPDATE bitdb_r_config SET ProvinceName='".$PName."', CityType='".$morcRadio."', Municipality='".$MName."', BarangayType='".$iorcRadio."', BarangayName='".$BName."', MunicipalSeal='".$MunicipalSealData."',BarangaySeal='".$BarangaySeal."'";
+			$UpdateQuery = "UPDATE bitdb_r_config SET ProvinceName='".$PName."', CityType='".$morcRadio."', Municipality='".$MName."', BarangayType='".$iorcRadio."', BarangayName='".$BName."', MunicipalSeal='".$MunicipalSealData."',BarangaySeal='".$BarangaySealData."'";
 			mysqli_query($bitMysqli,$UpdateQuery);
 			$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			header($header);

@@ -86,20 +86,20 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='SecBlotter' ) {echo 'class="active"';} ?>>
-                        <a href="SecBlotter.php">
+                    <li <?php if ($currentPage==='CaptainEditBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="CaptainEditBlotter.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Secretary Blotter Navigation</span>
-                        </a>
-                    </li>
-                   
-                      <li <?php if ($currentPage==='CapBlotterView' ) {echo 'class="active"';} ?>>
-                        <a href="CapBlotterView.php">
-                            <i class="material-icons">settings_applications</i>
-                            <span>Secretary View Blotter Information</span>
+                            <span>Captain Blotter Navigation</span>
                         </a>
                     </li>
 
+                    <li <?php if ($currentPage==='CaptainViewBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="CaptainViewBlotterView.php">
+                            <i class="material-icons">settings_applications</i>
+                            <span>Captain View Blotter Information</span>
+                        </a>
+                    </li>
+                   
                 </ul>
             </div>
             <!-- #Menu -->

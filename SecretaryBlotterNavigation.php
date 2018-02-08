@@ -86,13 +86,20 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='AddCitizenInformations' ) {echo 'class="active"';} ?>>
-                        <a href="AddCitizenInformations.php">
+                    <li <?php if ($currentPage==='SecBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="SecBlotter.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Census Navigation</span>
+                            <span>Secretary Blotter Navigation</span>
                         </a>
                     </li>
                    
+                      <li <?php if ($currentPage==='SecBlotterView' ) {echo 'class="active"';} ?>>
+                        <a href="SecBlotterView.php">
+                            <i class="material-icons">view_list</i>
+                            <span>Secretary View Blotter Information</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
             <!-- #Menu -->

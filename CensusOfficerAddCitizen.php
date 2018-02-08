@@ -1,11 +1,11 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'AddCitizenInformations';?>
+<?php $currentPage = 'CensusOfficerAddCitizen';?>
 <?php include('head.php'); ?>
-<?php include('CENSUSNAVBA.php'); ?>
+<?php include('CensusOfficerNavigation.php'); ?>
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>CITIZEN'S INFORMATION</h2>
+                <h2>CITIZEN INFORMATION</h2>
             </div>
  <!--CUSTOM BLOCK INSERT HERE-->
             <!--CUSTOM BLOCK INSERT HERE-->
@@ -16,7 +16,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                CITIZEN's INFORMATION LIST
+                                CITIZEN INFORMATION LIST
                                 <small>The current list of barangay citizen. Click "Add New" to add a position or "Edit" to modify on the existing position</small>
                             </h2>
                             <br/>

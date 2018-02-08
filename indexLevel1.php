@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 	$title = 'Welcome | BarangayIT MK.II';
 	$currentPage = 'indexLevel1';
@@ -5,6 +6,12 @@
 	include('Level1Navbar.php'); 
 	include('dbconn.php');
 ?>
+=======
+<?php $title = 'Welcome | BarangayIT MK.II';?>
+<?php $currentPage = 'indexLevel1';?>
+<?php include('head.php'); ?>
+<?php include('Level1Navbar.php'); ?>
+>>>>>>> c6b28a28f7ce92b177ac24e9b2322df096fae32b
 
 <section class="content">
         <div class="container-fluid">
@@ -86,7 +93,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Main Dashboar
+                                Main Dashboard
                                 <small>Barangay Information Fields</small>
                             </h2>
                         </div>

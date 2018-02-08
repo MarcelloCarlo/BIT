@@ -1,7 +1,10 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'AdOfficePositions';?>
-<?php include('head.php'); ?>
-<?php include('AdminNavbar.php'); ?>
+<?php 
+	session_start();
+	$title = 'Welcome | BarangayIT MK.II';
+	$currentPage = 'AdOfficePositions';
+	include('head.php');
+	include('AdminNavbar.php'); 
+ ?>
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -37,8 +40,47 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+									<?php
+									include_once('dbconn.php');
 
-                                        <tr>
+									$PViewSQL = "SELECT * FROM bitdb_r_barangayposition";
+									$PViewQuery = mysqli_query($bitMysqli,$PViewSQL) or die(mysqli_error($bitMysqli));
+									if (mysqli_num_rows($PViewQuery) > 0)
+									{
+										while($row = mysqli_fetch_assoc($PViewQuery))
+												{	
+													$PosID = $row['PosID'];
+													$PosName = $row['PosName'];
+													$PosDesc = $row['PosDesc'];
+													$PosStat = $row['PosStat'];
+													if ($PosStat == 1)
+													{
+														$PosStat = "Active";
+													}
+													else
+													{
+														$PosStat = "Inactive";
+													}
+													echo
+													'<tr>
+														<td class="hide">'.$PosID.'</td>
+														<td>'.$PosName.'</td>
+														<td>'.$PosDesc.'</td>
+														<td>'.$PosStat.'</td>
+														<td>
+															<button type="button" class="btn btn-success waves-effect" data-toggle="modal" 
+														data-target="#editPosModal">
+																<i class="material-icons">mode_edit</i>
+																<span>EDIT</span>
+															</button>
+														</td>
+													</tr>';
+													
+												}
+									}
+									?>
+<!--
+                                    <tr>
 
                                         <td>Captain</td>
                                         <td>Lead</td>
@@ -62,7 +104,7 @@
                                                         </button>
                                         </td>
                                     </tr>
-                                       
+-->
                                     </tbody>
                                 </table>
                             </div>
@@ -71,7 +113,7 @@
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-
+			
              <div class="modal fade" id="addPosModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -82,19 +124,20 @@
                                 <small>Add Position Fields</small>
                             </h2>
                         </div>
+						<form id="PositionAdd" action ="AdminAddPosition.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
                                 <h4 class="card-inside-title">Position Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="PositionName"/>
                                         <label class="form-label">Position Name</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Description(Optional)</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="PositionDesc"/>
                                         <label class="form-label">Description(Optional)</label>
                                     </div>
                                 </div>
@@ -102,17 +145,19 @@
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="demo-switch">
                                     <div class="switch">
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
+                                        <label>Inactive<input type="checkbox" name="PositionStat" checked><span class="lever switch-col-orange"></span>Active</label>
                                     </div>
                                 </div>
 
                             </div>
                             <br/>
                         </div>
+						
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect">ADD</button>
+                            <button type="submit" class="btn btn-link waves-effect" >ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
+						</form>
                     </div>
                 </div>
             </div>
@@ -127,10 +172,17 @@
                                 <small>Modify Position Fields</small>
                             </h2>
                         </div>
+						<form id="PositionEdit" action ="AdminEditPosition.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
                             <h4 class="card-inside-title">Position: </h4>
-                            <br/>
+								<div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="hide" name="PositionID"/>
+                                        <input type="text" class="form-control" name="PositionName"/>
+                                        <label class="form-label">Position Name</label>
+                                    </div>
+                                </div>
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -150,9 +202,10 @@
                             <br/>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect">UPDATE</button>
+                            <button type="submit" class="btn btn-link waves-effect">UPDATE</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
+						</form>
                     </div>
                 </div>
             </div>

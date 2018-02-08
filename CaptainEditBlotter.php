@@ -1,7 +1,7 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'CapBlotter';?>
+<?php $currentPage = 'CaptainEditBlotter';?>
 <?php include('head.php'); ?>
-<?php include('CapBlotterNavigation.php'); ?>
+<?php include('CaptainBlotterNavigation.php'); ?>
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">

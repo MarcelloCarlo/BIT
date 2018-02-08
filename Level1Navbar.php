@@ -93,55 +93,56 @@
                     <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
                         <a href="indexLevel1.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Site Configuration</span>
+                            <span>Home</span>
                         </a>
                     </li>
-                    <li <?php if ($currentPage==='AdOfficePositions' ) {echo 'class="active"';} ?>>
-                        <a href="AdOfficePositions.php">
+                    <li <?php if ($currentPage==='Level1AddCirtizen' | $currentPage==='Level1ViewEditCitizen') {echo 'class="active"';} ?>>
+                        <a href="Level1AddCirtizen.php">
                             <i class="material-icons">view_module</i>
-                            <span>Positions</span>
-                        </a>
-                    </li>
-                    <li <?php if ($currentPage==='AdOfficials' ) {echo 'class="active"';} ?>>
-                        <a href="AdOfficials.php">
-                            <i class="material-icons">people_outline</i>
-                            <span>Officials</span>
-                        </a>
-                    </li>
-                    <li <?php if ($currentPage==='AdCitizens' ) {echo 'class="active"';} ?>>
-                        <a href="AdCitizens.php">
-                            <i class="material-icons">people</i>
                             <span>Citizens</span>
                         </a>
 
                     </li>
-                    <li <?php if ($currentPage==='AdUsers' ) {echo 'class="active"';} ?>>
-                        <a href="AdUsers.php">
+                    <li <?php if ($currentPage==='Level1AddBusinesses' | $currentPage==='Level1ViewEditBusinesses' ) {echo 'class="active"';} ?>>
+                        <a href="Level1AddBusinesses.php">
+                            <i class="material-icons">people_outline</i>
+                            <span>Businesses</span>
+                        </a>
+                    </li>
+                    <li <?php if ($currentPage==='AdCitizens.php' ) {echo 'class="active"';} ?>>
+                        <a href="Level1Issuance.php">
+                            <i class="material-icons">people</i>
+                            <span>Issuance</span>
+                        </a>
+
+                    </li>
+                    <li <?php if ($currentPage==='AdUsers.php' ) {echo 'class="active"';} ?>>
+                        <a href="Level1Blotter.php">
                             <i class="material-icons">account_circle</i>
-                            <span>User Authorities</span>
+                            <span>Blotter</span>
                         </a>
                     </li>
-                    <li <?php if ($currentPage==='AdCategoryOrdinance' ) {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
 
-                        <a href="AdCategoryOrdinance.php">
+                        <a href="Level1Patawag.php">
                             <i class="material-icons">view_list</i>
-                            <span>Ordinance Category</span>
-                        </a>
-                    </li>
-
-                    <li <?php if ($currentPage==='AdCategoryOrdinance' ) {echo 'class="active"';} ?>>
-
-                        <a href="AdCategoryOrdinance.php">
-                            <i class="material-icons">view_list</i>
-                            <span>Ordinance Category</span>
+                            <span>Patawag</span>
                         </a>
                     </li>
 
-                    <li <?php if ($currentPage==='AdCategoryOrdinance' ) {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
 
-                        <a href="AdCategoryOrdinance.php">
+                        <a href="Level1ProjectMonitoring.php">
                             <i class="material-icons">view_list</i>
-                            <span>Ordinance Category</span>
+                            <span>Project Monitoring</span>
+                        </a>
+                    </li>
+
+                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
+
+                        <a href="Level1Ordinances.php">
+                            <i class="material-icons">view_list</i>
+                            <span>Ordinances</span>
                         </a>
                     </li>
                 </ul>
