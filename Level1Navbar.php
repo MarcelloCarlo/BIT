@@ -91,62 +91,128 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
-                        <a href="indexLevel1.php">
-                            <i class="material-icons">settings_applications</i>
+                            <a href="indexLevel1.php">
+                            <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li <?php if ($currentPage==='Level1AddCirtizen' | $currentPage==='Level1ViewEditCitizen') {echo 'class="active"';} ?>>
-                        <a href="Level1AddCirtizen.php">
-                            <i class="material-icons">view_module</i>
+                    
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">people</i>
                             <span>Citizens</span>
                         </a>
-
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="positions.html">View/Export</a>
+                            </li>
+                            <li>
+                                <a href="officials.html">Add/Edit</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='Level1AddBusinesses' | $currentPage==='Level1ViewEditBusinesses' ) {echo 'class="active"';} ?>>
-                        <a href="Level1AddBusinesses.php">
-                            <i class="material-icons">people_outline</i>
+                    <li>
+                         <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">business</i>
                             <span>Businesses</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="positions.html">View/Export</a>
+                            </li>
+                            <li>
+                                <a href="officials.html">Add/Edit</a>
+                            </li>
+                        </ul>
+                       <!-- <a href="businesses.html">
+                            <i class="material-icons">business</i>
+                            <span>Businesses</span>
+                        </a>-->
+
                     </li>
-                    <li <?php if ($currentPage==='AdCitizens.php' ) {echo 'class="active"';} ?>>
-                        <a href="Level1Issuance.php">
-                            <i class="material-icons">people</i>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">featured_play_list</i>
                             <span>Issuance</span>
                         </a>
-
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/charts/morris.html">Barangay Certificate</a>
+                            </li>
+                            <li>
+                                <a href="pages/charts/flot.html">Business Permit </a>
+                            </li>
+                            <li>
+                                <a href="pages/charts/chartjs.html">Police Clearance</a>
+                            </li>
+                            <li>
+                                <a href="pages/charts/sparkline.html">Barangay Clearance</a>
+                            </li>
+                            <li>
+                                <a href="pages/charts/jquery-knob.html">Barangay ID</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='AdUsers.php' ) {echo 'class="active"';} ?>>
-                        <a href="Level1Blotter.php">
-                            <i class="material-icons">account_circle</i>
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">report_problem</i>
                             <span>Blotter</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="AddBlotter.html">View Blotter</a>
+                            </li>
+                            <li>
+                                <a href="BlotterList.html">Add/Edit</a>
+                            </li>
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
 
-                        <a href="Level1Patawag.php">
-                            <i class="material-icons">view_list</i>
+                    <li>
+                       <a href="ordinances.html">
+                            <i class="material-icons">gavel</i>
+                            <span>Patawag</span></a>
+                    </li>
+                       <!-- </a>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">gavel</i>
                             <span>Patawag</span>
                         </a>
-                    </li>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/maps/google.html">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/yandex.html">YandexMap</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/jvectormap.html">jVectorMap</a>
+                            </li>
+                        </ul> -->
+                    
 
-                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
-
-                        <a href="Level1ProjectMonitoring.php">
-                            <i class="material-icons">view_list</i>
-                            <span>Project Monitoring</span>
-                        </a>
-                    </li>
-
-                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
-
-                        <a href="Level1Ordinances.php">
-                            <i class="material-icons">view_list</i>
+                    <li>
+                        <a href="ordinances.html">
+                            <i class="material-icons">assignment</i>
                             <span>Ordinances</span>
                         </a>
                     </li>
+                    
+                    
+                    <li>
+                        <a href="javascript:void(0);" > <!--class="menu-toggle"-->
+                            <i class="material-icons">assessment</i>
+                            <span>Project Monitoring</span>
+                        </a>
+                        
+                    </li>
+                    
+                   
+
                 </ul>
-            </div> 
+            </div>
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
