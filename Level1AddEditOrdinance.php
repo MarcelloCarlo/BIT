@@ -33,24 +33,24 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Ordinance Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Actions</th>
+                                            <th>Ordinance ID</th>
+                                            <th>Title</th>
+                                            <th>Category</th>
+                                            <th>Authors</th>
+                                            <th>Description</th>
+                                            <th>Date of Implementation</th>
+                                            <th>Status</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                            <th>Actions</th>
+                                            <th>Ordinance ID</th>
+                                            <th>Titles</th>
+                                            <th>Category</th>
+                                            <th>Authors</th>
+                                            <th>Description</th>
+                                            <th>Date of Implementation</th>
+                                            <th>Status</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
