@@ -1,9 +1,9 @@
 
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'indexLevel1';
-      include('head.php');
-      include('Level1Navbar.php');
-      include('dbconn.php');?>
+<?php $currentPage = 'indexLevel1';?>
+<?php include('head.php'); ?>
+<?php include('Level1Navbar.php'); ?>
+<?php include('dbconn.php'); ?>
 
 
 <section class="content">

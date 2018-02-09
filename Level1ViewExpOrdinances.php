@@ -50,12 +50,20 @@
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>Status Not Set</td>
-                                            <td>Insert Title Here</td>
-                                            <td>Insert Category Here</td>
-                                            <td>Insert Authors here</td>
-                                            <td>Insert Description</td>
-                                            <td>Insert Date Here</td>
+                                            <td>Active</td>
+                                            <td>No Smoking</td>
+                                            <td>N/A</td>
+                                            <td>Remmel Ocay</td>
+                                            <td>So ayon po ano Bawal mag yosi hahahaha</td>
+                                            <td>February 10,2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Active</td>
+                                            <td>Oplan No Tambay</td>
+                                            <td>N/A</td>
+                                            <td>Remmel Ocay</td>
+                                            <td>Insert your description Here</td>
+                                            <td>February 10,2018</td>
                                         </tr>
                                     </tbody>
                                 </table>
