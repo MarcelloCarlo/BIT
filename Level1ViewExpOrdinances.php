@@ -15,7 +15,7 @@
                         <div class="header">
                         <h2>
                         ORDINANCE LIST
-                        <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
+                        <small>The list of all the ordinances of the Barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                     </h2>
                     <br/>
                           
