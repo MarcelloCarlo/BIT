@@ -1,17 +1,10 @@
-<<<<<<< HEAD
-<?php 
-	$title = 'Welcome | BarangayIT MK.II';
-	$currentPage = 'indexLevel1';
-	include('head.php'); 
-	include('Level1Navbar.php'); 
-	include('dbconn.php');
-?>
-=======
+
 <?php $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'indexLevel1';?>
 <?php include('head.php'); ?>
 <?php include('Level1Navbar.php'); ?>
->>>>>>> c6b28a28f7ce92b177ac24e9b2322df096fae32b
+<?php include('dbconn.php');?>
+
 
 <section class="content">
         <div class="container-fluid">
