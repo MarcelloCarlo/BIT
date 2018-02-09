@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 <?php 
 include ("dbconn.php");
 ?>
+=======
+
+
+
+>>>>>>> 294634c2414efbb0ca6a55d0a5b179bffe1a1720
 <!DOCTYPE html>
 <html>
 
@@ -125,7 +131,7 @@ include ("dbconn.php");
                 </div>
             </div>
             <!-- #User Info -->
-            <!-- Menu -->
+            <!-- Menu --
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>

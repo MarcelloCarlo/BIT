@@ -127,7 +127,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="active">
-                        <a href="indexCaptain.html">
+                        <a href="indexCaptain.php">
                             <i class="material-icons">dashboard</i>
                             <span>Dashboard</span>
                         </a>

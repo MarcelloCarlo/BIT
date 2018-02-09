@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<?php $currentPage = 'indexLevel1';?>
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -53,7 +55,7 @@
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
     <!-- #END# Overlay For Sidebars -->
-    <!-- Search Bar -->
+    <!-- Search Bar 
     <div class="search-bar">
         <div class="search-icon">
             <i class="material-icons">search</i>
@@ -74,7 +76,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
+                    <!-- Call Search 
                     <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
@@ -122,7 +124,7 @@
                 </div>
             </div>
             <!-- #User Info -->
-            <!-- Menu -->
+            <!-- Menu -
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
@@ -297,6 +299,71 @@
                 </ul>
             </div>
             <!-- #Menu -->
+
+             <!-- Menu -->
+            <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
+                        <a href="indexLevel1.php">
+                            <i class="material-icons">settings_applications</i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li <?php if ($currentPage==='Level1AddCirtizen' | $currentPage==='Level1ViewEditCitizen') {echo 'class="active"';} ?>>
+                        <a href="Level1AddCirtizen.php">
+                            <i class="material-icons">view_module</i>
+                            <span>Citizens</span>
+                        </a>
+
+                    </li>
+                    <li <?php if ($currentPage==='Level1AddBusinesses' | $currentPage==='Level1ViewEditBusinesses' ) {echo 'class="active"';} ?>>
+                        <a href="Level1AddBusinesses.php">
+                            <i class="material-icons">people_outline</i>
+                            <span>Businesses</span>
+                        </a>
+                    </li>
+                    <li <?php if ($currentPage==='AdCitizens.php' ) {echo 'class="active"';} ?>>
+                        <a href="Level1Issuance.php">
+                            <i class="material-icons">people</i>
+                            <span>Issuance</span>
+                        </a>
+
+                    </li>
+                    <li <?php if ($currentPage==='AdUsers.php' ) {echo 'class="active"';} ?>>
+                        <a href="Level1Blotter.php">
+                            <i class="material-icons">account_circle</i>
+                            <span>Blotter</span>
+                        </a>
+                    </li>
+                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
+
+                        <a href="Level1Patawag.php">
+                            <i class="material-icons">view_list</i>
+                            <span>Patawag</span>
+                        </a>
+                    </li>
+
+                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
+
+                        <a href="Level1ProjectMonitoring.php">
+                            <i class="material-icons">view_list</i>
+                            <span>Project Monitoring</span>
+                        </a>
+                    </li>
+
+                    <li <?php if ($currentPage==='AdCategoryOrdinance.php' ) {echo 'class="active"';} ?>>
+
+                        <a href="Level1Ordinances.php">
+                            <i class="material-icons">view_list</i>
+                            <span>Ordinances</span>
+                        </a>
+                    </li>
+                </ul>
+            </div> 
+            <!-- #Menu -->
+
+
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">

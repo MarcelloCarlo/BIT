@@ -1,4 +1,4 @@
-<?php 
+f<?php 
 	session_start();
 	$title = 'Welcome | BarangayIT MK.II';
 	$currentPage = 'AdOfficePositions';
@@ -68,8 +68,8 @@
 														<td>'.$PosDesc.'</td>
 														<td>'.$PosStat.'</td>
 														<td>
-															<button type="button" class="btn btn-success waves-effect" data-toggle="modal" 
-														data-target="#editPosModal">
+															<button type="button" class="btn btn-success waves-effect editPos" data-toggle="modal" 
+														data-target="#editPosModal" value="'.$PosID.'">
 																<i class="material-icons">mode_edit</i>
 																<span>EDIT</span>
 															</button>
@@ -178,23 +178,23 @@
                             <h4 class="card-inside-title">Position: </h4>
 								<div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="hide" name="PositionID"/>
-                                        <input type="text" class="form-control" name="PositionName"/>
-                                        <label class="form-label">Position Name</label>
+                                        <input id="editPosID" type="text" class="hide" name="PositionID"/>
+                                        <input id="editPos" type="text" class="form-control" name="PositionName" placeholder="Position Name" />
+                                        <!-- <label class="form-label">Position Name</label> -->
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
-                                        <label class="form-label">Description</label>
+                                        <input id="editDesc" type="text" class="form-control" placeholder="Description" />
+                                        <!-- <label class="form-label">Description</label> -->
                                     </div>
                                 </div>
 
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="demo-switch">
                                     <div class="switch">
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
+                                        <label>Inactive<input type="checkbox" id="editCheck" checked><span class="lever switch-col-orange"></span>Active</label>
                                     </div>
                                 </div>
 
@@ -210,5 +210,4 @@
                 </div>
             </div>
 
-        
 <?php include('footer.php'); ?>
