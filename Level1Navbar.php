@@ -193,11 +193,23 @@
                         </ul> -->
                     
 
-                    <li>
-                        <a href="ordinances.html">
+                    <li<?php if ($currentPage==='Level1ViewExpOrdinances' | $currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Ordinances</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li  <?php if ($currentPage==='Level1ViewExpOrdinances') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpOrdinances.php">View/Export</a>
+                            </li>
+                            <li  <?php if ($currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditOrdinance.php">Add/Edit</a>
+                            </li>
+                        </ul>
+                        <!--<a href="ordinances.html">
+                            <i class="material-icons">assignment</i>
+                            <span>Ordinances</span>
+                        </a>-->
                     </li>
                                        
                     <li>
