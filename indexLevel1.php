@@ -1,4 +1,3 @@
-
 <?php $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'indexLevel1';?>
 <?php include('head.php'); ?>
