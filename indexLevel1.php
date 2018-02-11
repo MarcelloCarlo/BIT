@@ -1,8 +1,11 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'indexLevel1';?>
-<?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
-<?php include('dbconn.php'); ?>
+<?php 
+    $title = 'Welcome | BarangayIT MK.II';
+    $currentPage = 'indexLevel1';
+    include('AdminConfig.php');
+    include('head.php');
+    include('Level1Navbar.php');
+    include('dbconn.php');
+ ?>
 
 
 <section class="content">
@@ -171,49 +174,49 @@
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">City/Municipality</h4>
                                     <p class="list-group-item-text">
-                                        (None)
+                                        <?php echo $c_Type?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Independent/Component</h4>
                                     <p class="list-group-item-text">
-                                       (None)
+                                       <?php echo $b_Type?>
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Province Name</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $ProvinceName?>
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">City/Municipality Name</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $Municipality?>
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Barangay Name</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $BarangayName?>
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $WName?>
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">City/Municipal Seal</h4></h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $Municipality?>
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Barangay Seal</h4></h4>
                                     <p class="list-group-item-text">
-                                       (Not Set)
+                                       <?php echo $Municipality?>
                                     </p>
                                 </a>
                             </div>
