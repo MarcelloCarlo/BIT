@@ -72,11 +72,11 @@
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Si Admin</div>
-                    <div class="email">System Administrator</div>
+                    <div class="email">Superuser</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="index.php"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -87,39 +87,39 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li <?php if ($currentPage==='indexAdmin' ) {echo 'class="active"';} ?>>
-                        <a href="indexAdmin.php">
+                        <a href="indexAdmin.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">settings_applications</i>
                             <span>Site Configuration</span>
                         </a>
                     </li>
                     <li <?php if ($currentPage==='AdOfficePositions' ) {echo 'class="active"';} ?>>
-                        <a href="AdOfficePositions.php">
+                        <a href="AdOfficePositions.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">view_module</i>
                             <span>Positions</span>
                         </a>
                     </li>
                     <li <?php if ($currentPage==='AdOfficials' ) {echo 'class="active"';} ?>>
-                        <a href="AdOfficials.php">
+                        <a href="AdOfficials.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">people_outline</i>
                             <span>Officials</span>
                         </a>
                     </li>
                     <li <?php if ($currentPage==='AdCitizens' ) {echo 'class="active"';} ?>>
-                        <a href="AdCitizens.php">
+                        <a href="AdCitizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">people</i>
                             <span>Citizens</span>
                         </a>
 
                     </li>
                     <li <?php if ($currentPage==='AdUsers' ) {echo 'class="active"';} ?>>
-                        <a href="AdUsers.php">
+                        <a href="AdUsers.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">account_circle</i>
                             <span>User Authorities</span>
                         </a>
                     </li>
                     <li <?php if ($currentPage==='AdCategoryOrdinance' ) {echo 'class="active"';} ?>>
 
-                        <a href="AdCategoryOrdinance.php">
+                        <a href="AdCategoryOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">view_list</i>
                             <span>Ordinance Category</span>
                         </a>

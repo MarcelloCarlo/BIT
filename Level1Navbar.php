@@ -1,6 +1,6 @@
 <body class="theme-orange">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
+    <div class="page-loader-wrapper"> 
         <div class="loader">
             <div class="preloader">
                 <div class="spinner-layer pl-orange">
@@ -80,7 +80,7 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="sign-in.php"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -193,11 +193,23 @@
                         </ul> -->
                     
 
-                    <li>
-                        <a href="ordinances.html">
+                    <li<?php if ($currentPage==='Level1ViewExpOrdinances' | $currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Ordinances</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li  <?php if ($currentPage==='Level1ViewExpOrdinances') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpOrdinances.php">View/Export</a>
+                            </li>
+                            <li  <?php if ($currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditOrdinance.php">Add/Edit</a>
+                            </li>
+                        </ul>
+                        <!--<a href="ordinances.html">
+                            <i class="material-icons">assignment</i>
+                            <span>Ordinances</span>
+                        </a>-->
                     </li>
                                        
                     <li>

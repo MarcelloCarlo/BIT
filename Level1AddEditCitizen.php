@@ -1380,7 +1380,7 @@
                             <h2>
                                 Add Citizen
                                 <br/>
-                                <button type="button" class="btn btn-link waves-effect">Import from Excel</button>
+                                <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
                             </h2>
                         </div>
                         <div class="modal-body">

@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+<?php 
+include ("dbconn.php");
+?>
+=======
 
 
 
+>>>>>>> 294634c2414efbb0ca6a55d0a5b179bffe1a1720
 <!DOCTYPE html>
 <html>
 
@@ -119,7 +125,7 @@
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="user_login.html"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>

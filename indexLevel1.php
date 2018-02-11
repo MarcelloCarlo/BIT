@@ -2,6 +2,8 @@
 <?php $currentPage = 'indexLevel1';?>
 <?php include('head.php'); ?>
 <?php include('Level1Navbar.php'); ?>
+<?php include('dbconn.php'); ?>
+
 
 <section class="content">
         <div class="container-fluid">

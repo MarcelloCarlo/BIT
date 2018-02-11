@@ -14,15 +14,6 @@
 </footer>
 </section>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        // Javascript method's body can be found in assets/js/demos.js
-        demo.initDashboardPageCharts();
-
-    });
-
-</script>
 <!-- Jquery Core Js -->
 <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -73,7 +64,7 @@
 <script src="plugins/jquery-steps/jquery.steps.js"></script>
 
 <!-- Jquery DataTable Plugin Js -->
-<script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+<!-- <script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
 <script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
@@ -82,21 +73,56 @@
 <script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
 <script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+ -->
+
+
 
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
-<script src="js/pages/tables/jquery-datatable.js"></script>
+<!-- <script src="js/pages/tables/jquery-datatable.js"></script>
 <script src="js/pages/forms/form-validation.js"></script>
 <script src="js/pages/forms/basic-form-elements.js"></script>
 <script src="js/pages/ui/dialogs.js"></script>
 <script src="Js/pages/examples/sign-in.js"></script>
 <script src="js/pages/ui/modals.js"></script>
 <script src="js/pages/forms/advanced-form-elements.js"></script>
-
+ -->
 
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        // Javascript method's body can be found in assets/js/demos.js
+        // demo.initDashboardPageCharts();
+
+			$(".editPos").click(function(){
+				console.log("HELLOW");
+                $("#editPosID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#editPos").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                $("#editDesc").val($(this).closest("tbody tr").find("td:eq(2)").html());
+                if($(this).closest("tbody tr").find("td:eq(3)").text() === 'Active')
+                {
+                 $("#editCheck").prop("checked");  
+                }
+                else
+                {
+                  $("#editCheck").removeAttr("checked");  
+                }
+                
+				console.log($(this).closest("tr").find("td:eq(3)").text());
+
+
+
+			});
+		
+		
+    });
+
+</script>
+
 </body>
 
 </html>
