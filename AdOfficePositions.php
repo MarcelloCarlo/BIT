@@ -1,4 +1,3 @@
-f
 <?php 
 	session_start();
 	$title = 'Welcome | BarangayIT MK.II';
@@ -145,10 +144,10 @@ f
 
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="recOfcPosRadio" id="optAddPosActive" value="Active" class="with-gap">
+                                    <input type="radio" name="PositionStatus" id="optAddPosActive" value="Active" class="with-gap">
                                     <label for="optAddPosActive">Active</label>
 
-                                    <input type="radio" name="recOfcPosRadio" id="optAddPosInactive" value="Inactive" class="with-gap">
+                                    <input type="radio" name="PositionStatus" id="optAddPosInactive" value="Inactive" class="with-gap">
                                     <label for="optAddPosInactive" class="m-l-20">Inactive</label>
                                 </div>
 

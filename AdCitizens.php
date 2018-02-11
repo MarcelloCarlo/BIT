@@ -32,6 +32,7 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
+                                        <th>Posistion</th>
                                         <th>P.O.B</th>
                                         <th>Birthdate</th>
                                         <th>Nationality</th>
@@ -45,8 +46,89 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                <?php
+                                include_once('dbconn.php');
+
+                                $AddOffCitizenSQL = "SELECT 
+                                                        bitdb_r_citizen.Salutation,
+                                                        bitdb_r_citizen.First_Name,
+                                                        IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name,
+                                                        bitdb_r_citizen.Last_Name,
+                                                        IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext,
+                                                        bitdb_r_barangayposition.PosName,
+                                                        IFNULL(bitdb_r_citizen.Birth_Place,'N/A') AS Birth_Place,
+                                                        bitdb_r_citizen.Birthdate,
+                                                        bitdb_r_citizen.Nationality,
+                                                        bitdb_r_citizen.Res_Status,
+                                                        bitdb_r_citizen.Civil_Status,
+                                                        bitdb_r_citizen.Gender,
+                                                        bitdb_r_citizen.Zone,
+                                                        bitdb_r_citizen.Street,
+                                                        bitdb_r_citizen.House_No,
+                                                        bitdb_r_citizen.Date_Rec
+                                                    FROM
+                                                        bitdb_r_barangayofficial
+                                                    INNER JOIN
+                                                        bitdb_r_citizen
+                                                        ON 
+                                                            bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                                                    INNER JOIN
+                                                        bitdb_r_barangayposition
+                                                        ON
+                                                            bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
+                                                    ";
+                                $AddOffCitizenQuery = mysqli_query($bitMysqli,$AddOffCitizenSQL) or die(mysqli_error($bitMysqli));
+                                    if (mysqli_num_rows($AddOffCitizenQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($AddOffCitizenQuery))
+                                        {   
+                                            $Name = "".$row['Salutation']." ".$row['First_Name']." ".$row['Middle_Name']." ".$row['Last_Name']." ".$row['Name_Ext']."";
+                                            $PosName = $row['PosName'];
+                                            $Birth_Place = $row['Birth_Place'];
+                                            $Birthdate = $row['Birthdate'];
+                                            $Nationality = $row['Nationality'];
+                                            $Civil_Status = $row['Civil_Status'];
+                                            $Gender = $row['Gender'];
+                                            $Zone = $row['Zone'];
+                                            $Street = $row['Street'];
+                                            $House_No = $row['House_No'];
+                                            $Date_Rec = $row['Date_Rec'];
+
+                                            if($row['Res_Status']==1)
+                                            {
+                                                $Res_Status = "Active";
+                                            }
+                                            else
+                                            {
+                                                $Res_Status = "Inactive";
+                                            }
+
+                                            echo
+                                            '<tr>
+                                                <td>'.$Name.'</td>
+                                                <td>'.$PosName.'</td>
+                                                <td>'.$Birth_Place.'</td>
+                                                <td>'.$Birthdate.'</td>
+                                                <td>'.$Nationality.'</td>
+                                                <td>'.$Res_Status.'</td>
+                                                <td>'.$Civil_Status.'</td>
+                                                <td>'.$Gender.'</td>
+                                                <td>'.$Zone.'</td>
+                                                <td>'.$Street.'</td>
+                                                <td>'.$Date_Rec.'</td>
+                                                <td>
+                                                <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editCitizModal">
+                                                    <i class="material-icons">mode_edit</i>
+                                                    <span>EDIT</span>
+                                                </button>
+                                                </td>
+                                            </tr>';
+                                        }
+                                    }
+                                ?>
+                                    <!-- <tr>
                                         <td>Mr. Josef Ginitna Cruz XIV</td>
+                                        <td>Mayor Mayoran</td>
                                         <td>Duruging Bato</td>
                                         <td>01/02/1820</td>
                                         <td>Filipino-Russian</td>
@@ -66,6 +148,7 @@
 
                                     <tr>
                                         <td>Mrs. Rina Hausser Panga</td>
+                                        <td>Mayor Mayoran</td>
                                         <td>Duruging Bato</td>
                                         <td>01/02/1720</td>
                                         <td>Filipino-German</td>
@@ -81,7 +164,7 @@
                                                         <span>EDIT</span>
                                                     </button>
                                         </td>
-                                    </tr>
+                                    </tr> -->
 
                                 </tbody>
                             </table>
@@ -92,7 +175,7 @@
         </div>
         <!-- #END# Basic Examples -->
 
-
+        <form id="AdminAddOffCitizen" action="AdminAddCitizenOfficial.php" method="POST">
         <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -108,14 +191,14 @@
                             <h4 class="card-inside-title">Salutation</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Salutation" class="form-control" />
                                     <label class="form-label">Mr./Ms./Mrs.</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">First Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="First_Name" class="form-control" />
                                     <label class="form-label">First Name</label>
                                 </div>
                             </div>
@@ -123,95 +206,104 @@
                             <h4 class="card-inside-title">Middle Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Middle_Name" class="form-control" />
                                     <label class="form-label">Middle Name</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Last Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Last_Name" class="form-control" />
                                     <label class="form-label">Last Name</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Extension Name (Optional)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Name_Ext" class="form-control" />
                                     <label class="form-label">Jr./Sr./III</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Height (ft)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Height" class="form-control" />
                                     <label class="form-label">ft</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Weight (kg)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Weight" class="form-control" />
                                     <label class="form-label">kg</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Place of Birth</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Birth_Place" class="form-control" />
                                     <label class="form-label">Place of Birth</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Birthdate</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control date" />
+                                    <input type="text" name="Birthdate" class="form-control date" />
                                     <label class="form-label">mm/dd/yyyy</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Gender</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Gender" class="form-control" />
                                     <label class="form-label">Gender</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Blood Type</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Blood_Type" class="form-control" />
                                     <label class="form-label">O/A/B</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">House Number</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="House_No" class="form-control" />
                                     <label class="form-label">House Number</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Street/Block</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Street" class="form-control" />
                                     <label class="form-label">Street/Block</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Zone(Block)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
+                                    <input type="text" name="Zone" class="form-control" />
                                     <label class="form-label">Zone(Block)</label>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <h4 class="card-inside-title">Barangay Position</h4>
                                 <select class="form-control show-tick">
-                                            <option>None</option>
-                                            <option>Captain</option>
-                                            <option>Treasurer</option>
-                                            <option>Secretary</option>
-                                        </select>
+                                    <?php
+                                    include_once('dbconn.php');
+                                    $PostionSQL = "SELECT * FROM bitdb_r_barangayposition";
+                                    $PositionQuery = mysqli_query($bitMysqli,$AddOffCitizenSQL) or die(mysqli_error($bitMysqli));
+                                    if(mysqli_num_rows($PositionQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($PositionQuery))
+                                        {
+                                            echo '<option>'.$row['PosName'].'</option>';
+                                            
+                                        }
+                                    }
+                                    ?>
+                                </select>
                             </div>
                             <h4 class="card-inside-title">Residence Status</h4>
                             <div class="form-group">
@@ -226,12 +318,13 @@
                     </div> <br/>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-link waves-effect">ADD</button>
+                        <button type="submit" class="btn btn-link waves-effect">ADD</button>
                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                     </div>
                 </div>
             </div>
         </div>
+        </form>
         <!--ModalEdit-->
         <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">

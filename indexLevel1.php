@@ -216,7 +216,7 @@
                                 <a href="javascript:void(0);" class="list-group-item">
                                     <h4 class="list-group-item-heading">Barangay Seal</h4></h4>
                                     <p class="list-group-item-text">
-                                       <?php echo $Municipality?>
+                                       <?php echo $Municipality?>sss
                                     </p>
                                 </a>
                             </div>
