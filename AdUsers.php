@@ -16,8 +16,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                OFFICIALS LIST
-                                <small>The current list of officials of the Barangay. Click "Add New" to add an official or "Edit" to modify on the existing official </small>
+                                USERS LIST
+                                <small>The current list of officials of the Barangay. Click "Edit" to modify the level of authority of official </small>
                             </h2>
                             <br/>
 
@@ -42,7 +42,7 @@
                                             <td>Male</td>
                                             <td>2</td>
                                             <td>Active</td>
-                                            <td><button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#delegateOfcModal">
+                                            <td><button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#delegateUsrModal">
                                                             <i class="material-icons">mode_edit</i>
                                                             <span>EDIT</span>
                                                         </button></td>
@@ -53,7 +53,7 @@
                                             <td>Female</td>
                                             <td>1</td>
                                             <td>Active</td>
-                                            <td><button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#delegateOfcModal">
+                                            <td><button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#delegateUsrModal">
                                                             <i class="material-icons">mode_edit</i>
                                                             <span>EDIT</span>
                                                         </button></td>
@@ -68,7 +68,7 @@
             </div>
             <!-- #END# Basic Examples -->
 
-            <div class="modal fade" id="delegateOfcModal" tabindex="-1" role="dialog">
+            <div class="modal fade" id="delegateUsrModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">

@@ -17,8 +17,8 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                USERS LIST
-                                <small>The current list of officials of the Barangay. Click "Edit" to add level of authority on the existing official </small>
+                                OFFICIALS LIST
+                                <small>The current list of officials of the Barangay. Click "Edit" to assign a barangay official. </small>
                             </h2>
                             <br/>
 
