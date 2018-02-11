@@ -21,7 +21,7 @@ include('AdminNavbar.php');
                         <div class="header">
                             <h2>
                                 OFFICIALS LIST
-                                <small>The current list of officials of the Barangay. Click "Add New" to add an official or "Edit" to modify on the existing official </small>
+                                <small>The current list of officials of the Barangay. Click "Edit" to assign a barangay official. </small>
                             </h2>
                             <br/>
 
