@@ -81,42 +81,37 @@
                                 <small>Select A User to Assign/Unassign Level of Authority</small>
                             </h2>
                         </div>
-
-
-                        <div class="card">
-                            <div class="body">
-                                <form action="" id="sign_in" method="POST">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                            <i class="material-icons">person</i>
-                        </span>
-                                        <div class="form-line">
-                                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
-                                        </div>
+                        <div class="modal-body">
+                            <form action="" id="sign_in" method="POST">
+                                <h4 class="card-inside-title">Username</h4>
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
                                     </div>
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                            <i class="material-icons">lock</i>
-                        </span>
-                                        <div class="form-line">
-                                            <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                        </div>
+                                </div>
+                                <h4 class="card-inside-title">Password</h4>
+                                <div class="input-group">
+                                    <div class="form-line">
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
                                     </div>
+                                </div>
 
-                                    <div class="modal-body">
-                                        <div class="row clearfix margin-0">
-                                            <h4 class="card-inside-title">Status</h4>
-                                            <div class="demo-switch">
-                                                <div class="switch">
-                                                    <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
-                                                </div>
-                                            </div>
-                                            <h4 class="card-inside-title">Position For: </h4>
-                                            <br/>
+                                <div class="modal-body">
+                                    <div class="row clearfix margin-0">
+                                        <h4 class="card-inside-title">Status</h4>
+                                        <div class="form-group">
+                                            <input type="radio" name="recUsrRadio" id="optUsrActive" value="Active" class="with-gap">
+                                            <label for="optUsrActive">Active</label>
+
+                                            <input type="radio" name="recUsrRadio" id="optUsrInactive" value="Inactive" class="with-gap">
+                                            <label for="optUsrInactive" class="m-l-20">Inactive</label>
+                                        </div>
+                                        <h4 class="card-inside-title">Position For: </h4>
+                                        <br/>
 
 
-                                            <h5>Authority Level</h5>
-                                            <select class="form-control show-tick">
+                                        <h5 class="card-inside-title">Authority Level</h5>
+                                        <select class="form-control show-tick">
                                             <option>None</option>
                                             <option>1</option>
                                             <option>2</option>
@@ -125,12 +120,12 @@
 
 
 
-                                        </div>
                                     </div>
+                                </div>
 
-                                </form>
-                            </div>
+                            </form>
                         </div>
+
 
 
                         <div class="modal-footer">

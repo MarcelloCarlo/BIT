@@ -66,13 +66,13 @@ include('AdminNavbar.php');
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
-                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4></h4>
+                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4>
                                     <p class="list-group-item-text">
                                        <?php echo $Municipality?> 
                                     </p>
                                 </a>
                                 <a href="javascript:void(0);" class="list-group-item">
-                                    <h4 class="list-group-item-heading">Barangay Seal</h4></h4>
+                                    <h4 class="list-group-item-heading">Barangay Seal</h4>
                                     <p class="list-group-item-text">
                                        <?php echo $Municipality?> 
                                     </p>
@@ -150,14 +150,6 @@ include('AdminNavbar.php');
                                     <input type="radio" name="iorcRadio" id="optComponent" value="Component" class="with-gap">
                                     <label for="optComponent" class="m-l-20">Component</label>
                                 </div>
-                                <div class="form-group form-float">
-                                    <h3 class="card-inside-title">Signatory (Barangay Chairman)</h3>
-                                    <div class="form-line">
-                                        <input name="Signatory" cols="30" rows="5" class="form-control no-resize" Placeholder="<?php echo $WName?> "></input>
-                                        <label class="form-label"> </label>
-                                    </div>
-                                </div>
-
                                 <!-- File Upload | Drag & Drop OR With Click & Choose -->
                                     <h3 class="card-inside-title">
                                         Barangay Seal
