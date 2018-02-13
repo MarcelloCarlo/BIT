@@ -1,12 +1,12 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'Level1ViewExpProjects';?>
 <?php include('head.php'); ?>
-<?php include('Level1navbar.php'); ?>
+<?php include('Level1Navbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Project Monitoring</h2>
+                <h2>PROJECT MONITORING</h2>
 </div>
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="header">
                         <h2>
-                        Project Monitoring
+                        PROJECT MONITORING
                         <small>The list of all the projects in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                     </h2>
                     <br/>

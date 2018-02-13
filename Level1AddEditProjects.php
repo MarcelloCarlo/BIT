@@ -1,12 +1,12 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1AddEditOrdinance';?>
+<?php $currentPage = 'Level1AddEditProjects';?>
 <?php include('head.php'); ?>
 <?php include('Level1Navbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>ORDINANCES</h2>
+                <h2>PROJECT MONITORING</h2>
 </div>
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -14,8 +14,8 @@
                     <div class="card">
                         <div class="header">
                         <h2>
-                        EDIT ORDINANCES
-                        <small>The list of all ordinances of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
+                        EDIT PROJECTS
+                        <small>The list of all projects of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
                     <br/>
                     </h2>
                     <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
@@ -33,44 +33,31 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Ordinance ID</th>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>Authors</th>
+                                            <th>Project Name</th>
+                                            <th>Location</th>
                                             <th>Description</th>
-                                            <th>Date of Implementation</th>
+                                            <th>Phases</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                             <th>Status</th>
+                                            <th>Sponsors</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Ordinance ID</th>
-                                            <th>Titles</th>
-                                            <th>Category</th>
-                                            <th>Authors</th>
+                                            <th>Project Name</th>
+                                            <th>Location</th>
                                             <th>Description</th>
-                                            <th>Date of Implementation</th>                                            
+                                            <th>Phases</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                             <th>Status</th>
+                                            <th>Sponsors</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>01</td>
-                                            <td>No Smoking</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>So ayon po ano Bawal mag yosi hahahaha</td>
-                                            <td>February 10,2018</td>
-                                            <td>Not Set</td>
-                                            <td>
-                                            <button type="button" class="btn btn-success waves-effect">
-                                                        <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
-                                                    </button>
-                                            </td>
-                                        </tr>
                                         <tr>
                                             <td>02</td>
                                             <td>Oplan No Tambay</td>
@@ -79,6 +66,7 @@
                                             <td>Insert your description Here</td>
                                             <td>February 10,2018</td>
                                             <td>Not Set</td>
+                                            <td>Remmel Ocay</td>
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
@@ -102,48 +90,61 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                Add Ordinance
+                                Add Project
                                 <br/>
                                 <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
                             </h2>
                         </div>
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Title</h4>
+                                <h4 class="card-inside-title">Project Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Title</label>
+                                        <label class="form-label">Name of the project</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Category</h4>
+                                <h4 class="card-inside-title">Location</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Sample Category</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Authors</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" />
-                                        <label class="form-label">Authors</label>
+                                        <label class="form-label">Place of Event</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Description</label>
+                                        <label class="form-label">Project Details</label>
                                     </div>
-                                <h4 class="card-inside-title">Date</h4>
+                                </div>
+                                <h4 class="card-inside-title">Phases</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Project stages</label>
+                                    </div>
+                                <h4 class="card-inside-title">Start Date</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="data-target" class="form-control" />
-                                        <label class="form-label">Date</label>
+                                        <label class="form-label">Date started</label>
                                     </div>    
                                 </div>
-
+                                <h4 class="card-inside-title">End Date</h4>
+                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="data-target" class="form-control" />
+                                        <label class="form-label">Expiry date of a project</label>
+                                    </div>    
+                                </div>
+                                <h4 class="card-inside-title">Sponsors</h4>
+                                 <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="data-target" class="form-control" />
+                                        <label class="form-label">People involve</label>
+                                    </div>    
+                                </div>
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="demo-switch">
                                     <div class="switch">
