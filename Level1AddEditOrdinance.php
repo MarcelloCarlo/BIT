@@ -612,18 +612,32 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                Add Citizen
+                                Add Ordinance
                                 <br/>
                                 <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
                             </h2>
                         </div>
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Position Name</h4>
+                                <h4 class="card-inside-title">Title</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Position Name</label>
+                                        <label class="form-label">Title</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Category</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Sample Category</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Authors</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Authors</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Description(Optional)</h4>
@@ -632,6 +646,12 @@
                                         <input type="text" class="form-control" />
                                         <label class="form-label">Description(Optional)</label>
                                     </div>
+                                <h4 class="card-inside-title">Date</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="data-target" class="form-control" />
+                                        <label class="form-label">Date</label>
+                                    </div>    
                                 </div>
 
                                 <h4 class="card-inside-title">Status</h4>
