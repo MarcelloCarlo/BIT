@@ -1,12 +1,12 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1AddEditOrdinance';?>
+<?php $currentPage = 'Level1ViewExpProjects';?>
 <?php include('head.php'); ?>
 <?php include('Level1navbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>ORDINANCES</h2>
+                <h2>Project Monitoring</h2>
 </div>
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -14,18 +14,19 @@
                     <div class="card">
                         <div class="header">
                         <h2>
-                        EDIT ORDINANCES
-                        <small>The list of all ordinances of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
-                    <br/>
+                        Project Monitoring
+                        <small>The list of all the projects in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                     </h2>
-                    <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
+                    <br/>
+                     <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
-                         <!--   <button type="button" class="btn bg-indigo waves-effect">
+                          
+                        <!--    <button type="button" class="btn bg-indigo waves-effect" href="Level1AddBusinesses.php"> 
+                            <a href="Level1AddBusinesses.php" style= "text-decoration: none;"> 
                             <i class="material-icons">add_circle_outline</i>
-                            <a  href="Level1AddCirtizen.php" style= "text-decoration: none;"> 
-                            <span>View</span></a>
+                            <span>Add/Edit</span></a>
                         </button> -->
                         </div>
                         <div class="body">
@@ -33,60 +34,48 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <th>Ordinance ID</th>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>Authors</th>
+                                            <th>Project Name</th>
+                                            <th>Location</th>
                                             <th>Description</th>
-                                            <th>Date of Implementation</th>
+                                            <th>Phases</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                             <th>Status</th>
+                                            <th>Sponsors</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Ordinance ID</th>
-                                            <th>Titles</th>
-                                            <th>Category</th>
-                                            <th>Authors</th>
+                                           <th>Project Name</th>
+                                            <th>Location</th>
                                             <th>Description</th>
-                                            <th>Date of Implementation</th>                                            
+                                            <th>Phases</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
                                             <th>Status</th>
+                                            <th>Sponsors</th>
                                             <th>Actions</th>
+
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         <tr>
-                                            <td>01</td>
-                                            <td>No Smoking</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>So ayon po ano Bawal mag yosi hahahaha</td>
-                                            <td>February 10,2018</td>
+                                            <td>Kasalang Barangay</td>
+                                            <td>Barangay Hall</td>
+                                            <td>Insert Description Here</td>
                                             <td>Not Set</td>
-                                            <td>
-                                            <button type="button" class="btn btn-success waves-effect">
+                                            <td>Feb 14, 2018</td>
+                                            <td>Feb 20, 2018</td>
+                                            <td>Not Set</td>
+                                            <td>Remmel Ocay</td>
+                                            <td> 
+                                                 <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
                                                         <span>EDIT</span>
                                                     </button>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td>02</td>
-                                            <td>Oplan No Tambay</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>Insert your description Here</td>
-                                            <td>February 10,2018</td>
-                                            <td>Not Set</td>
-                                            <td>
-                                            <button type="button" class="btn btn-success waves-effect">
-                                                        <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
-                                                    </button>
-                                            </td>
-                                        </tr>
-                                       
+                                                                                   
                                     </tbody>
                                 </table>
                             </div>
@@ -94,54 +83,48 @@
                     </div>
                 </div>
             </div>
-
+           
         </div>
-<form>
+        <form>
 <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                Add Ordinance
+                                Add Project
                                 <br/>
                                 <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
                             </h2>
                         </div>
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Title</h4>
+                                <h4 class="card-inside-title">Business Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Title</label>
+                                        <label class="form-label">Business Name</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Category</h4>
+                                <h4 class="card-inside-title">Location</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Sample Category</label>
+                                        <label class="form-label">Location</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Authors</h4>
+                                <h4 class="card-inside-title">Manager</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Authors</label>
+                                        <label class="form-label">Manager</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Description</h4>
+                                <h4 class="card-inside-title">Manager Address</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" />
-                                        <label class="form-label">Description</label>
+                                        <label class="form-label">Manager Address</label>
                                     </div>
-                                <h4 class="card-inside-title">Date</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="data-target" class="form-control" />
-                                        <label class="form-label">Date</label>
-                                    </div>    
                                 </div>
 
                                 <h4 class="card-inside-title">Status</h4>
@@ -162,7 +145,6 @@
 </div>
 </div>
 </form>
-
     </section>
 
 
