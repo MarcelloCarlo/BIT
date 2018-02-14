@@ -31,6 +31,7 @@
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
+                                        <th class="hide"></th>
                                         <th>Title</th>
                                         <th class="hide"></th>
                                     </tr>
@@ -50,9 +51,10 @@
                                                     
                                                     echo
                                                     '<tr>
+                                                        <td class="hide">'.$OrdID.'</td>
                                                         <td>'.$OrdTitle.'</td>
                                                         <td>
-                                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editOrdiCatModal">
+                                                            <button type="button" class="btn btn-success waves-effect editCatOrd" data-toggle="modal" data-target="#editOrdiCatModal">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 <span>EDIT</span>
                                                             </button>
@@ -103,6 +105,7 @@
             </div>
         </div>
         </form>
+        <form id="editCategoryOrd" action="AdminEditOrdinanceCategory.php" method="POST">
         <div class="modal fade" id="editOrdiCatModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -113,13 +116,26 @@
                             <small>Edit Ordinance</small>
                         </h2>
                     </div>
+                    <div class="modal-body hide">
+                        <div class="row clearfix margin-0 hide">
+                            <h4 class="card-inside-title hide">Ordinance ID</h4>
+                            <div class="form-group form-float hide">
+                                <div class="form-line hide">
+                                    <input id="editOrdID" type="text" name="OrdinanceID" class="form-control hide" />
+                                   <!--  <label class="form-label hide">Ordinance ID</label> -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <br/>
+                    </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
                             <h4 class="card-inside-title">Ordinance Title</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" />
-                                    <label class="form-label">Ordinance Title</label>
+                                    <input id="editOrdTitle" type="text" name="OrdinanceTitle" class="form-control" />
+                                    <!-- <label class="form-label">Ordinance Title</label> -->
                                 </div>
                             </div>
 
@@ -127,11 +143,24 @@
                         <br/>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-link waves-effect">UPDATE</button>
+                        <button type="submit" class="btn btn-link waves-effect">UPDATE</button>
                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                     </div>
                 </div>
             </div>
         </div>
-
+        </form>
         <?php include('footer.php'); ?>
+
+        <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $(".editCatOrd").click(function()
+        {
+            $("#editOrdID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+            $("#editOrdTitle").val($(this).closest("tbody tr").find("td:eq(1)").html());
+
+        });
+    });
+
+</script>

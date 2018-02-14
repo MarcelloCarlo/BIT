@@ -33,6 +33,7 @@
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
+                                        <th class="hide"></th>
                                         <th>Position</th>
                                         <th>Description</th>
                                         <th>Status</th>
@@ -79,32 +80,6 @@
 												}
 									}
 									?>
-                                        <!--
-                                    <tr>
-
-                                        <td>Captain</td>
-                                        <td>Lead</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editPosModal">
-                                                        <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
-                                                    </button>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>Chairman</td>
-                                        <td>Lorem</td>
-                                        <td>Active</td>
-                                        <td>
-                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editPosModal">
-                                                            <i class="material-icons">mode_edit</i>
-                                                            <span>EDIT</span>
-                                                        </button>
-                                        </td>
-                                    </tr>
--->
                                 </tbody>
                             </table>
                         </div>
@@ -177,10 +152,16 @@
                     <form id="PositionEdit" action="AdminEditPosition.php" method="POST">
                         <div class="modal-body">
                             <div class="row clearfix margin-0">
+                                <h4 class="card-inside-title hide">Position ID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="editPosID" type="text" class="hide" name="PositionID" />
+                                        <label class="form-label hide">Position ID</label>
+                                    </div>
+                                </div>
                                 <h4 class="card-inside-title">Position: </h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editPosID" type="text" class="hide" name="PositionID" />
                                         <input id="editPos" type="text" class="form-control" name="PositionName" placeholder="Position Name" />
                                         <!-- <label class="form-label">Position Name</label> -->
                                     </div>
@@ -188,18 +169,18 @@
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editDesc" type="text" class="form-control" placeholder="Description" />
+                                        <input id="editDesc" type="text" class="form-control" placeholder="Description" name="Description"/>
                                         <!-- <label class="form-label">Description</label> -->
                                     </div>
                                 </div>
 
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="recOfcPosRadio" id="opteditPosActive" value="Active" class="with-gap">
-                                    <label for="optEditPosActive">Active</label>
+                                    <input type="radio" name="PositionStatus" id="editCheckA" value="Active" class="with-gap">
+                                    <label for="editCheckA">Active</label>
 
-                                    <input type="radio" name="recOfcPosRadio" id="optEditPosInactive" value="Inactive" class="with-gap">
-                                    <label for="optEditPosInactive" class="m-l-20">Inactive</label>
+                                    <input type="radio" name="PositionStatus" id="editCheckI" value="Inactive" class="with-gap">
+                                    <label for="editCheckI" class="m-l-20">Inactive</label>
                                 </div>
 
                             </div>
@@ -214,4 +195,26 @@
             </div>
         </div>
 
-        <?php include('footer.php'); ?>
+<?php include('footer.php'); ?>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $(".editPos").click(function()
+        {
+            $("#editPosID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+            $("#editPos").val($(this).closest("tbody tr").find("td:eq(1)").html());
+            $("#editDesc").val($(this).closest("tbody tr").find("td:eq(2)").html());
+            if($(this).closest("tbody tr").find("td:eq(3)").text() === "Active")
+            {
+                $("#editCheckA").prop("checked", true).trigger('click');
+            }
+            else
+            {
+                $("#editCheckI").prop("checked", true).trigger('click');
+            }
+
+        });
+    });
+
+</script>

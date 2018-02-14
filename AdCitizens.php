@@ -32,7 +32,7 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Posistion</th>
+                                        <th>Position</th>
                                         <th>P.O.B</th>
                                         <th>Birthdate</th>
                                         <th>Nationality</th>
@@ -224,6 +224,13 @@
                                     <label class="form-label">Jr./Sr./III</label>
                                 </div>
                             </div>
+                            <h4 class="card-inside-title">Email Address (Optional)</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" name="Email" class="form-control" />
+                                    <label class="form-label">example@example.com</label>
+                                </div>
+                            </div>
                             <h4 class="card-inside-title">Height (ft)</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
@@ -250,6 +257,20 @@
                                 <div class="form-line">
                                     <input type="text" name="Birthdate" class="form-control date" />
                                     <label class="form-label">mm/dd/yyyy</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Nationality</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" name="Name_Ext" class="form-control" />
+                                    <label class="form-label">Nationality</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Occupation (Optional)</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" name="Occupation" class="form-control" />
+                                    <label class="form-label">Occupation</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Gender</h4>
@@ -289,7 +310,7 @@
                             </div>
                             <div class="col-md-3">
                                 <h4 class="card-inside-title">Barangay Position</h4>
-                                <select class="form-control show-tick">
+                                <select class="form-control show-tick" name="Position">
                                     <?php
                                     include_once('dbconn.php');
                                     $PostionSQL = "SELECT * FROM bitdb_r_barangayposition";
@@ -299,7 +320,6 @@
                                         while($row = mysqli_fetch_assoc($PositionQuery))
                                         {
                                             echo '<option>'.$row['PosName'].'</option>';
-                                            
                                         }
                                     }
                                     ?>
@@ -307,10 +327,10 @@
                             </div>
                             <h4 class="card-inside-title">Residence Status</h4>
                             <div class="form-group">
-                                <input type="radio" name="recStatRadio" id="optCitActive" value="Active" class="with-gap">
+                                <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
                                 <label for="optCitActive">Active</label>
 
-                                <input type="radio" name="recStatRadio" id="optCitInactive" value="Inactive" class="with-gap">
+                                <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
                                 <label for="optCitInactive" class="m-l-20">Inactive</label>
                             </div>
                         </div>
