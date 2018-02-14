@@ -6,42 +6,42 @@ include('head.php');
 include('AdminNavbar.php'); 
 ?>
 
-    <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>OFFICIALS</h2>
-            </div>
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>OFFICIALS</h2>
+        </div>
 
-              <!--CUSTOM BLOCK INSERT HERE-->
+        <!--CUSTOM BLOCK INSERT HERE-->
 
-             <!-- Basic Examples -->
-             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                OFFICIALS LIST
-                                <small>The current list of officials of the Barangay. Click "Edit" to assign a barangay official. </small>
-                            </h2>
-                            <br/>
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            OFFICIALS LIST
+                            <small>The current list of officials of the Barangay. Click "Edit" to assign a barangay official. </small>
+                        </h2>
+                        <br/>
 
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Gender</th>
-                                            <th>Birthdate</th>
-                                            <th>Street/Block</th>
-                                            <th>Zone(Sitio)</th>
-                                            <th class="hide"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-										<?php
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Position</th>
+                                        <th>Gender</th>
+                                        <th>Birthdate</th>
+                                        <th>Street/Block</th>
+                                        <th>Zone(Sitio)</th>
+                                        <th class="hide"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
 										include_once('dbconn.php');
 									 
 										$SelectOfficialSQL = "SELECT bitdb_r_citizen.Salutation, bitdb_r_citizen.First_Name, IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name, bitdb_r_citizen.Last_Name, IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext, bitdb_r_citizen.Gender, bitdb_r_citizen.Birthdate, bitdb_r_citizen.Street, bitdb_r_citizen.Zone, bitdb_r_barangayposition.PosName FROM bitdb_r_barangayofficial INNER JOIN bitdb_r_citizen ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID INNER JOIN bitdb_r_barangayposition ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID";
@@ -81,7 +81,7 @@ include('AdminNavbar.php');
 											
 										}
 										?>
-<!--                                    <tr>
+                                        <!--                                    <tr>
                                             <td>Tiger Nixon</td>
                                             <td>Barangay Captain</td>
                                             <td>M</td>
@@ -95,51 +95,71 @@ include('AdminNavbar.php');
                                                 </button>
 											</td>
                                         </tr>
--->                                       
-                                    </tbody>
-                                </table>
-                            </div>
+-->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #END# Basic Examples -->
+        </div>
+        <!-- #END# Basic Examples -->
 
-             <div class="modal fade" id="delegateOfcModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2>
-                                Assign/Unassign
-                                <br/>
-                                <small>Select A User to Assign/Unassign A Position</small>
-                            </h2>
-                        </div>
-                        <div class="modal-body">
-                             <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Position For: </h4>
-                                <br/>
-                                <div class="col-md-3">
+        <div class="modal fade" id="delegateOfcModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>
+                            Assign/Unassign
+                            <br/>
+                            <small>Select A User to Assign/Unassign A Position</small>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row clearfix margin-0">
+                            <h4 class="card-inside-title">Position For: </h4>
+                            <br/>
+                            <div class="col-md-3">
 
-                                  <h4>Position</h4>
-                                    <select class="form-control show-tick">
+                                <h4>Position</h4>
+                                <select class="form-control show-tick">
                                             <option>None</option>
                                             <option>Captain</option>
                                             <option>Treasurer</option>
                                             <option>Secretary</option>
                                         </select>
-                                </div>
                             </div>
+
+                            <div class="col-sm-3">
+                                <h4 class="card-inside-title">Start Term</h4>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 class="card-inside-title">End Term</h4>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                    </div>
+                                </div>
+
+                            </div>
+
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect">UPDATE</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect">UPDATE</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                     </div>
                 </div>
             </div>
-          
-        
         </div>
 
-      <?php include('footer.php'); ?>
+
+    </div>
+
+    <?php include('footer.php'); ?>
