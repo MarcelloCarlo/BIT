@@ -193,7 +193,8 @@
                         </ul> -->
                     
 
-                    <li<?php if ($currentPage==='Level1ViewExpOrdinances' | $currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='Level1ViewExpOrdinances' | $currentPage==='Level1AddEditOrdinance')
+                    {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Ordinances</span>
@@ -211,13 +212,22 @@
                             <span>Ordinances</span>
                         </a>-->
                     </li>
+
                                        
-                    <li>
-                        <a href="javascript:void(0);" > <!--class="menu-toggle"-->
+                    <li <?php if ($currentPage==='Level1ViewExpProjects' | $currentPage==='Level1AddEditProjects') 
+                    {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assessment</i>
                             <span>Project Monitoring</span>
                         </a>
-                    </li>
+                        <ul class="ml-menu">
+                            <li  <?php if ($currentPage==='Level1ViewExpProjects') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpProjects.php">View/Export</a>
+                            </li>
+                            <li  <?php if ($currentPage==='Level1AddEditProjects') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditProjects.php">Add/Edit</a>
+                            </li>
+                        </ul>
                 </ul>
             </div>
             <!-- #Menu -->

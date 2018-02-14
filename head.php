@@ -14,6 +14,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
+    <!-- Offline Google Fonts -->
+    <link href="css/materialIcons.css" rel="stylesheet" type="text/css"/>
+    <link href="css/robotoFont.css" rel="stylesheet" type="text/css"/>
+
     <!-- Bootstrap Core Css -->
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
 
