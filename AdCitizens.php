@@ -224,7 +224,6 @@
                                         <label class="form-label">Jr./Sr./III</label>
                                     </div>
                                 </div>
-<<<<<<< HEAD
                             </div>
                             <h4 class="card-inside-title">Email Address (Optional)</h4>
                             <div class="form-group form-float">
@@ -238,96 +237,93 @@
                                 <div class="form-line">
                                     <input type="text" name="Height" class="form-control" />
                                     <label class="form-label">ft</label>
-=======
-                                <h4 class="card-inside-title">Height (ft)</h4>
+                                    <h4 class="card-inside-title">Height (ft)</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Height" class="form-control" />
+                                            <label class="form-label">ft</label>
+                                        </div>
+                                    </div>
+                                    <h4 class="card-inside-title">Weight (kg)</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Weight" class="form-control" />
+                                            <label class="form-label">kg</label>
+                                        </div>
+                                    </div>
+                                    <h4 class="card-inside-title">Place of Birth</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Birth_Place" class="form-control" />
+                                            <label class="form-label">Place of Birth</label>
+                                        </div>
+                                    </div>
+                                    <h4 class="card-inside-title">Birthdate</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Birthdate" class="form-control date" />
+                                            <label class="form-label">mm/dd/yyyy</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Nationality</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="Height" class="form-control" />
-                                        <label class="form-label">ft</label>
+                                        <input type="text" name="Name_Ext" class="form-control" />
+                                        <label class="form-label">Nationality</label>
                                     </div>
->>>>>>> de9265e485636a90cd0e5672d4bb66ac46b62dff
                                 </div>
-                                <h4 class="card-inside-title">Weight (kg)</h4>
+                                <h4 class="card-inside-title">Occupation (Optional)</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="Weight" class="form-control" />
-                                        <label class="form-label">kg</label>
+                                        <input type="text" name="Occupation" class="form-control" />
+                                        <label class="form-label">Occupation</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Place of Birth</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Birth_Place" class="form-control" />
-                                        <label class="form-label">Place of Birth</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Birthdate</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Birthdate" class="form-control date" />
-                                        <label class="form-label">mm/dd/yyyy</label>
-                                    </div>
-                                </div>
-<<<<<<< HEAD
-                            </div>
-                            <h4 class="card-inside-title">Nationality</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" name="Name_Ext" class="form-control" />
-                                    <label class="form-label">Nationality</label>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Occupation (Optional)</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" name="Occupation" class="form-control" />
-                                    <label class="form-label">Occupation</label>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Gender</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" name="Gender" class="form-control" />
-                                    <label class="form-label">Gender</label>
-=======
                                 <h4 class="card-inside-title">Gender</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Gender" class="form-control" />
                                         <label class="form-label">Gender</label>
-                                    </div>
->>>>>>> de9265e485636a90cd0e5672d4bb66ac46b62dff
-                                </div>
-                                <h4 class="card-inside-title">Blood Type</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Blood_Type" class="form-control" />
-                                        <label class="form-label">O/A/B</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">House Number</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="House_No" class="form-control" />
-                                        <label class="form-label">House Number</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Street/Block</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Street" class="form-control" />
-                                        <label class="form-label">Street/Block</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Zone(Block)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Zone" class="form-control" />
-                                        <label class="form-label">Zone(Block)</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Barangay Position</h4>
-                                <select class="form-control show-tick" name="Position">
+
+                                        <h4 class="card-inside-title">Gender</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="Gender" class="form-control" />
+                                                <label class="form-label">Gender</label>
+                                            </div>
+
+                                        </div>
+                                        <h4 class="card-inside-title">Blood Type</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="Blood_Type" class="form-control" />
+                                                <label class="form-label">O/A/B</label>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-inside-title">House Number</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="House_No" class="form-control" />
+                                                <label class="form-label">House Number</label>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-inside-title">Street/Block</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="Street" class="form-control" />
+                                                <label class="form-label">Street/Block</label>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-inside-title">Zone(Block)</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input type="text" name="Zone" class="form-control" />
+                                                <label class="form-label">Zone(Block)</label>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-inside-title">Barangay Position</h4>
+                                        <select class="form-control show-tick" name="Position">
                                     <?php
                                     include_once('dbconn.php');
                                     $PostionSQL = "SELECT * FROM bitdb_r_barangayposition";
@@ -341,57 +337,57 @@
                                     }
                                     ?>
                                 </select>
-<<<<<<< HEAD
-                            </div>
-                            <h4 class="card-inside-title">Residence Status</h4>
-                            <div class="form-group">
-                                <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
-                                <label for="optCitActive">Active</label>
 
-                                <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
-                                <label for="optCitInactive" class="m-l-20">Inactive</label>
-=======
-                                <br/>
-                                <br/>
-                                <div class="col-sm-3">
-                                    <h4 class="card-inside-title">Start Term</h4>
-                                    <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
-                                        </div>
                                     </div>
-                                   
-                                </div>
-                                <div class="col-sm-3">
-                                    <h4 class="card-inside-title">End Term</h4>
+                                    <h4 class="card-inside-title">Residence Status</h4>
                                     <div class="form-group">
-                                        <div class="form-line">
-                                            <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                        <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
+                                        <label for="optCitActive">Active</label>
+
+                                        <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
+                                        <label for="optCitInactive" class="m-l-20">Inactive</label>
+
+                                        <br/>
+                                        <br/>
+                                        <div class="col-sm-3">
+                                            <h4 class="card-inside-title">Start Term</h4>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                                </div>
+                                            </div>
+
                                         </div>
+                                        <div class="col-sm-3">
+                                            <h4 class="card-inside-title">End Term</h4>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <h4 class="card-inside-title">Residence Status</h4>
+                                        <div class="form-group">
+                                            <input type="radio" name="recStatRadio" id="optCitActive" value="Active" class="with-gap">
+                                            <label for="optCitActive">Active</label>
+
+                                            <input type="radio" name="recStatRadio" id="optCitInactive" value="Inactive" class="with-gap">
+                                            <label for="optCitInactive" class="m-l-20">Inactive</label>
+                                        </div>
+
                                     </div>
-                                   
-                                </div>
-                                
-                                <h4 class="card-inside-title">Residence Status</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="recStatRadio" id="optCitActive" value="Active" class="with-gap">
-                                    <label for="optCitActive">Active</label>
+                                    <br/>
+                                </div> <br/>
 
-                                    <input type="radio" name="recStatRadio" id="optCitInactive" value="Inactive" class="with-gap">
-                                    <label for="optCitInactive" class="m-l-20">Inactive</label>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-link waves-effect">ADD</button>
+                                    <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                                 </div>
->>>>>>> de9265e485636a90cd0e5672d4bb66ac46b62dff
                             </div>
-                            <br/>
-                        </div> <br/>
-
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-link waves-effect">ADD</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
-                </div>
-            </div>
         </form>
         <!--ModalEdit-->
         <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
@@ -533,7 +529,7 @@
             </div>
         </div>
         <!--EndModal-->
-    </div>
+        </div>
 
 
-    <?php include('footer.php'); ?>
+        <?php include('footer.php'); ?>
