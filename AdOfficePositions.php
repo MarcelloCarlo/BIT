@@ -11,8 +11,6 @@
             <h2>POSITIONS</h2>
         </div>
         <!--CUSTOM BLOCK INSERT HERE-->
-        <!--CUSTOM BLOCK INSERT HERE-->
-
         <!-- Basic Examples -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -88,7 +86,6 @@
             </div>
         </div>
         <!-- #END# Basic Examples -->
-
         <div class="modal fade" id="addPosModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -116,7 +113,6 @@
                                         <label class="form-label">Description(Optional)</label>
                                     </div>
                                 </div>
-
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="form-group">
                                     <input type="radio" name="PositionStatus" id="optAddPosActive" value="Active" class="with-gap">
@@ -125,11 +121,9 @@
                                     <input type="radio" name="PositionStatus" id="optAddPosInactive" value="Inactive" class="with-gap">
                                     <label for="optAddPosInactive" class="m-l-20">Inactive</label>
                                 </div>
-
                             </div>
                             <br/>
                         </div>
-
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-link waves-effect">ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
@@ -138,7 +132,6 @@
                 </div>
             </div>
         </div>
-
         <div class="modal fade" id="editPosModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -169,11 +162,10 @@
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editDesc" type="text" class="form-control" placeholder="Description" name="Description"/>
+                                        <input id="editDesc" type="text" class="form-control" placeholder="Description" name="Description" />
                                         <!-- <label class="form-label">Description</label> -->
                                     </div>
                                 </div>
-
                                 <h4 class="card-inside-title">Status</h4>
                                 <div class="form-group">
                                     <input type="radio" name="PositionStatus" id="editCheckA" value="Active" class="with-gap">
@@ -182,7 +174,6 @@
                                     <input type="radio" name="PositionStatus" id="editCheckI" value="Inactive" class="with-gap">
                                     <label for="editCheckI" class="m-l-20">Inactive</label>
                                 </div>
-
                             </div>
                             <br/>
                         </div>
@@ -194,27 +185,20 @@
                 </div>
             </div>
         </div>
+        <?php include('footer.php'); ?>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".editPos").click(function() {
+                    $("#editPosID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                    $("#editPos").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                    $("#editDesc").val($(this).closest("tbody tr").find("td:eq(2)").html());
+                    if ($(this).closest("tbody tr").find("td:eq(3)").text() === "Active") {
+                        $("#editCheckA").prop("checked", true).trigger('click');
+                    } else {
+                        $("#editCheckI").prop("checked", true).trigger('click');
+                    }
 
-<?php include('footer.php'); ?>
+                });
+            });
 
-<script type="text/javascript">
-    $(document).ready(function()
-    {
-        $(".editPos").click(function()
-        {
-            $("#editPosID").val($(this).closest("tbody tr").find("td:eq(0)").html());
-            $("#editPos").val($(this).closest("tbody tr").find("td:eq(1)").html());
-            $("#editDesc").val($(this).closest("tbody tr").find("td:eq(2)").html());
-            if($(this).closest("tbody tr").find("td:eq(3)").text() === "Active")
-            {
-                $("#editCheckA").prop("checked", true).trigger('click');
-            }
-            else
-            {
-                $("#editCheckI").prop("checked", true).trigger('click');
-            }
-
-        });
-    });
-
-</script>
+        </script>
