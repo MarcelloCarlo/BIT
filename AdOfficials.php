@@ -6,26 +6,25 @@ include('head.php');
 include('AdminNavbar.php'); 
 ?>
 
-<section class="content">
-    <div class="container-fluid">
-        <div class="block-header">
-            <h2>OFFICIALS</h2>
-        </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="block-header">
+                <h2>OFFICIALS</h2>
+            </div>
 
-        <!--CUSTOM BLOCK INSERT HERE-->
+              <!--CUSTOM BLOCK INSERT HERE-->
 
-        <!-- Basic Examples -->
-        <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="card">
-                    <div class="header">
-                        <h2>
-                            OFFICIALS LIST
-                            <small>The current list of officials of the Barangay. Click "Edit" to assign a barangay official. </small>
-                        </h2>
-                        <br/>
+             <!-- Basic Examples -->
+             <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                OFFICIALS LIST
+                                <small>The current list of officials of the Barangay. Click "Edit" to assign a barangay official. </small>
+                            </h2>
+                            <br/>
 
-<<<<<<< HEAD
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -46,25 +45,6 @@ include('AdminNavbar.php');
                                     </thead>
                                     <tbody>
 										<?php
-=======
-                    </div>
-                    <div class="body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Gender</th>
-                                        <th>Birthdate</th>
-                                        <th>Street/Block</th>
-                                        <th>Zone(Sitio)</th>
-                                        <th class="hide"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
->>>>>>> de9265e485636a90cd0e5672d4bb66ac46b62dff
 										include_once('dbconn.php');
 									 
 										$SelectOfficialSQL = "SELECT bitdb_r_barangayofficial.Brgy_Official_ID, bitdb_r_Citizen.Citizen_ID, bitdb_r_barangayposition.PosID, bitdb_r_citizen.Salutation, bitdb_r_citizen.First_Name, IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name, bitdb_r_citizen.Last_Name, IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext, bitdb_r_citizen.Gender, bitdb_r_citizen.Birthdate, bitdb_r_citizen.Street, bitdb_r_citizen.Zone, bitdb_r_barangayposition.PosName FROM bitdb_r_barangayofficial INNER JOIN bitdb_r_citizen ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID INNER JOIN bitdb_r_barangayposition ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID WHERE bitdb_r_barangayposition.PosStat = 1 AND bitdb_r_citizen.Res_Status = 1";
@@ -110,7 +90,7 @@ include('AdminNavbar.php');
 											
 										}
 										?>
-                                        <!--                                    <tr>
+<!--                                    <tr>
                                             <td>Tiger Nixon</td>
                                             <td>Barangay Captain</td>
                                             <td>M</td>
@@ -124,14 +104,14 @@ include('AdminNavbar.php');
                                                 </button>
 											</td>
                                         </tr>
--->
-                                </tbody>
-                            </table>
+-->                                       
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
             <!-- #END# Basic Examples -->
             <form id="OfficalEdit" action="AdminEditOfficial.php" method="POST">
              <div class="modal fade" id="delegateOfcModal" tabindex="-1" role="dialog">
@@ -155,52 +135,6 @@ include('AdminNavbar.php');
                                             <option value="None">None</option>
                                             <?php
                                                 include_once('dbconn.php');
-=======
-        </div>
-        <!-- #END# Basic Examples -->
-
-        <div class="modal fade" id="delegateOfcModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2>
-                            Assign/Unassign
-                            <br/>
-                            <small>Select A User to Assign/Unassign A Position</small>
-                        </h2>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Position For: </h4>
-                            <br/>
-                            <div class="col-md-3">
-
-                                <h4>Position</h4>
-                                <select class="form-control show-tick">
-                                            <option>None</option>
-                                            <option>Captain</option>
-                                            <option>Treasurer</option>
-                                            <option>Secretary</option>
-                                        </select>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <h4 class="card-inside-title">Start Term</h4>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="col-sm-3">
-                                <h4 class="card-inside-title">End Term</h4>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
-                                    </div>
-                                </div>
->>>>>>> de9265e485636a90cd0e5672d4bb66ac46b62dff
 
                                                 $ViewPosSql = "SELECT * FROM bitdb_r_barangayposition WHERE bitdb_r_barangayposition.PosStat = 1";
                                                 $ViewPosQuery = mysqli_query($bitMysqli,$ViewPosSql) or die (mysqli_error($bitMysqli));
@@ -220,9 +154,7 @@ include('AdminNavbar.php');
                                     <input id="CitizenID" type="text" class="form-control hide" name="CID"/>
                                 </div>
                             </div>
-
                         </div>
-<<<<<<< HEAD
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-link waves-effect">UPDATE</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
@@ -241,26 +173,12 @@ include('AdminNavbar.php');
             $(".editBOff").click(function()
             {
                 $("#BarangayOffID").val($(this).closest("tbody tr").find("td:eq(0)").html());
-                $("#CitizenID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#BarangayOffID").val($(this).closest("tbody tr").find("td:eq(0)").html());
                 $("#PositionOption").val($(this).closest("tbody tr").find("td:eq(4)").html()).trigger("change");
+                console.log($(this).closest("tbody tr").find("td:eq(4)").html());
                 // ActOption = "option[value="+val($(this).closest("tbody tr").find("td:eq(4)").html())+"]";
                 // $("#PositionOption").find(ActOption).prop("selected",true);
             });
         });
 
     </script> 
-=======
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-link waves-effect">UPDATE</button>
-                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-    <?php include('footer.php'); ?>
->>>>>>> de9265e485636a90cd0e5672d4bb66ac46b62dff
