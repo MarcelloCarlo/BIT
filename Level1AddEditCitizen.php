@@ -195,12 +195,7 @@
             </div>
         </div>
     </div>
-
-
-    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editCitizModal">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                <span>EDIT</span>
-                                                            </button>
+    <!--Edit-->
     <form id="Level1CitizenEdit" action="Level1EditCitizen.php" method="POST">
         <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -341,6 +336,7 @@
             </div>
         </div>
     </form>
+    <!--Add-->
     <form id="Level1CitizenAdd" action="Level1AddCitizen.php" method="POST">
         <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -516,7 +512,6 @@
             </div>
         </div>
     </form>
-
 </section>
 
 <?php include('footer.php'); ?>
