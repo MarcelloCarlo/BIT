@@ -197,8 +197,6 @@
                     } else {
                         $("#editCheckI").prop("checked", true).trigger('click');
                     }
-
                 });
             });
-
         </script>

@@ -75,8 +75,35 @@
                     <img src="images/femaleuser.jpg" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Name here ng Secretary</div>
-                    <div class="email">Secretary</div>
+                    <?php
+                        include('dbconn.php');
+                        $ID = $_SESSION['Logged_In'];
+
+
+                        $UserInfoSQL = 'SELECT bitdb_r_citizen.Salutation,
+                                                bitdb_r_citizen.First_Name,
+                                                IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
+                                                bitdb_r_citizen.Last_Name,
+                                                IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
+                                                bitdb_r_barangayposition.PosName
+                                        FROM bitdb_r_barangayofficial
+                                        INNER JOIN bitdb_r_citizen
+                                        ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                                        INNER JOIN bitdb_r_barangayposition
+                                        ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
+                                        WHERE bitdb_r_barangayofficial.Brgy_Official_ID = '.$ID.'';
+                        $UserInfoSQLQuery = mysqli_query($bitMysqli,$UserInfoSQL) or die (mysqli_error($bitMysqli));
+                        if(mysqli_num_rows($UserInfoSQLQuery) > 0)
+                        {
+                            while($row = mysqli_fetch_assoc($UserInfoSQLQuery))
+                            {
+                                $WName = ''.$row['Salutation'].' '.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].'';
+                                $Pos = $row['PosName'];
+                                echo '<div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$WName.'</div>
+                                        <div class="email">'.$Pos.'</div>';
+                            }
+                        }
+                    ?>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -91,7 +118,7 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                     <li <?php if ($currentPage==='indexLevel1' ) {echo 'class="active"';} ?>>
-                            <a href="indexLevel1.php">
+                            <a href="indexLevel1.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
@@ -104,10 +131,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li  <?php if ($currentPage==='Level1ViewExpCitizen') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpCitizen.php">View/Export</a>
+                                <a href="Level1ViewExpCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
                             </li>
                             <li  <?php if ($currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
-                                 <a href="Level1AddEditCitizen.php">Add/Edit</a>
+                                 <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
                     </li>
@@ -118,10 +145,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li <?php if ($currentPage==='Level1ViewExpBusinesses') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpBusinesses.php">View/Export</a>
+                                <a href="Level1ViewExpBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
                             </li>
                             <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
-                                <a href="Level1AddEditBusinesses.php">Add/Edit</a>
+                                <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
                        <!-- <a href="businesses.html">
@@ -138,19 +165,19 @@
                         </a>
                         <ul class="ml-menu">
                             <li <?php if ($currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayId.php">Barangay ID</a>
+                                <a href="Level1IssuanceBarangayId.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay ID</a>
                             </li>
                             <li <?php if ($currentPage==='Level1IssuanceBarangayCert') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayCert.php">Barangay Certificate</a>
+                                <a href="Level1IssuanceBarangayCert.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay Certificate</a>
                             </li>
                             <li <?php if ($currentPage==='Level1IssuanceBarangayClearance') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayClearance.php">Barangay Clearance</a>
+                                <a href="Level1IssuanceBarangayClearance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay Clearance</a>
                             </li>
                             <li <?php if ($currentPage==='Level1IssuancePermit') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuancePermit.php">Business Permit </a>
+                                <a href="Level1IssuancePermit.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Business Permit </a>
                             </li>
                             <li <?php if ($currentPage==='Level1IssuancePolice') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuancePolice.php">Police Clearance</a>
+                                <a href="Level1IssuancePolice.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Police Clearance</a>
                             </li>
                         </ul>
                     </li>
@@ -162,10 +189,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="AddBlotter.html">View Blotter</a>
+                                <a href="AddBlotter.html?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Blotter</a>
                             </li>
                             <li>
-                                <a href="BlotterList.html">Add/Edit</a>
+                                <a href="BlotterList.html?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
                     </li>
@@ -201,10 +228,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li  <?php if ($currentPage==='Level1ViewExpOrdinances') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpOrdinances.php">View/Export</a>
+                                <a href="Level1ViewExpOrdinances.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
                             </li>
                             <li  <?php if ($currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
-                                 <a href="Level1AddEditOrdinance.php">Add/Edit</a>
+                                 <a href="Level1AddEditOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
                         <!--<a href="ordinances.html">
@@ -222,10 +249,10 @@
                         </a>
                         <ul class="ml-menu">
                             <li  <?php if ($currentPage==='Level1ViewExpProjects') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpProjects.php">View/Export</a>
+                                <a href="Level1ViewExpProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
                             </li>
                             <li  <?php if ($currentPage==='Level1AddEditProjects') {echo 'class="active"';} ?>>
-                                 <a href="Level1AddEditProjects.php">Add/Edit</a>
+                                 <a href="Level1AddEditProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
                 </ul>

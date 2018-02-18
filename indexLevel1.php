@@ -1,10 +1,10 @@
 <?php 
+    session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'indexLevel1';
     include('AdminConfig.php');
     include('head.php');
     include('Level1Navbar.php');
-    include('dbconn.php');
  ?>
 
 

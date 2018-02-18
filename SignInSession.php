@@ -13,6 +13,8 @@
 					bitdb_r_barangayuseraccounts.AccountPassword,
 					bitdb_r_barangayuseraccounts.AccountUserType,
 					bitdb_r_barangayofficial.Brgy_Official_ID,
+					bitdb_r_barangayofficial.ActUser,
+					bitdb_r_barangayposition.PosName,
 					bitdb_r_citizen.Salutation,
 					bitdb_r_citizen.First_Name,
 					bitdb_r_citizen.Last_Name,
@@ -39,6 +41,8 @@
 				$OfficialLName = $row['Last_Name'];
 				$OfficialXName = $row['Name_Ext'];
 				$OfficialPos = $row['AccountUserType'];
+				$OfficialPosName = $row['PosName'];
+				$OfficialActUser = $row['ActUser'];
 			}
 			echo 'Session Started.';
 			session_start();
@@ -47,15 +51,15 @@
 			$_SESSION['Last_Name'] = $OfficialLName;
 			$_SESSION['Name_Extension'] = $OfficialXName;
 			$_SESSION['AccountUserType'] = $OfficialPos;
-			if($_SESSION['AccountUserType'] == "1")
+			if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
 			{
 				$header ='Location:/BIT/indexLevel1.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
-			else if ($_SESSION['AccountUserType'] == "2")
+			else if ($_SESSION['AccountUserType'] == "2" && $OfficialPosName == "Barangay Captain" && $OfficialActUser == 1)
 			{
 				$header ='Location:/BIT/indexCaptain.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
-			else if ($_SESSION['AccountUserType'] == "0")
+			else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
 			{
 				$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
