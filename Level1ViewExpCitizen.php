@@ -3,7 +3,7 @@
     $title = 'Welcome | BarangayIT MK.II'; 
     $currentPage = 'Level1ViewExpCitizen';
     include('head.php'); 
-    include('Level1navbar.php'); 
+    include('Level1Navbar.php'); 
 ?>
 
  <section class="content">
