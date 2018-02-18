@@ -25,14 +25,20 @@
 		{
 			$UpdateQuery = "UPDATE bitdb_r_config SET ProvinceName='".$PName."', CityType='".$morcRadio."', Municipality='".$MName."', BarangayType='".$iorcRadio."', BarangayName='".$BName."', MunicipalSeal='".$MunicipalSealData."',BarangaySeal='".$BarangaySealData."'";
 			mysqli_query($bitMysqli,$UpdateQuery);
-			$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+            //Developent Build
+            $header = 'Location:/BRGYIT-UI/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+            //Testing and Deployment Build
+			//$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].''; 
 			header($header);
 		}
 		else
 		{
 			$InsertQuery = "INSERT INTO bitdb_r_config(ProvinceName,CityType,Municipality,BarangayType,BarangayName,Signatory,MunicipalSeal,BarangaySeal) VALUES ('".$PName."','".$morcRadio."','".$MName."','".$iorcRadio."','".$BName."',".$OfficialID.",'".$MunicipalSealData."','".$BarangaySealData."')";
 			mysqli_query($bitMysqli,$InsertQuery);
-			$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+            //Development Build
+			$header = 'Location:/BRGYIT-UI/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+            //Testing and Deployment Build
+			//$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			header($header);
 		}
 		
