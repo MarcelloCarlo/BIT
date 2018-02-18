@@ -1,4 +1,4 @@
 ﻿<?php
-    $header = 'Location:/BIT/sign-in.php';
+    $header = 'Location:/BRGYIT-UI/sign-in.php';
     header($header);
 ?>
