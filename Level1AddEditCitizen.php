@@ -6,88 +6,88 @@
     include('Level1Navbar.php'); 
 ?>
 
- <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>CITIZENS</h2>
-            </div>
-            <!-- Basic Examples -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>CITIZENS</h2>
+        </div>
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
                         <h2>
-                        EDIT CITIZENS
-                        <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
-                    </h2>
-                    <br/>
-                    <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
+                            EDIT CITIZENS
+                            <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
+                        </h2>
+                        <br/>
+                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitizModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
-                         <!--   <button type="button" class="btn bg-indigo waves-effect">
+                        <!--   <button type="button" class="btn bg-indigo waves-effect">
                             <i class="material-icons">add_circle_outline</i>
                             <a  href="Level1AddCirtizen.php" style= "text-decoration: none;"> 
                             <span>View</span></a>
                         </button> -->
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th class="hide">ID</th>
-                                            <th>Salutation</th>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                            <th>Name Extension</th>
-                                            <th>Email</th>
-                                            <th>Height</th>
-                                            <th>Weight</th>
-                                            <th>Birthdate</th>
-                                            <th>Birth Place</th>
-                                            <th>Nationality</th>
-                                            <th>Status</th>
-                                            <th>Civil Status</th>
-                                            <th>Occupation</th>
-                                            <th>Gender</th>
-                                            <th>Blood Type</th>
-                                            <th>Address</th>
-                                            <th>Person in Contact</th>
-                                            <th>Contact</th>
-                                            <th>Date Recorded</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th class="hide">ID</th>
-                                            <th>Salutation</th>
-                                            <th>First Name</th>
-                                            <th>Middle Name</th>
-                                            <th>Last Name</th>
-                                            <th>Name Extension</th>
-                                            <th>Email</th>
-                                            <th>Height</th>
-                                            <th>Weight</th>
-                                            <th>Birthdate</th>
-                                            <th>Birth Place</th>
-                                            <th>Nationality</th>
-                                            <th>Status</th>
-                                            <th>Civil Status</th>
-                                            <th>Occupation</th>
-                                            <th>Gender</th>
-                                            <th>Blood Type</th>
-                                            <th>Address</th>
-                                            <th>Person in Contact</th>
-                                            <th>Contact</th>
-                                            <th>Date Recorded</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead>
+                                    <tr>
+                                        <th class="hide">ID</th>
+                                        <th>Salutation</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Name Extension</th>
+                                        <th>Email</th>
+                                        <th>Height</th>
+                                        <th>Weight</th>
+                                        <th>Birthdate</th>
+                                        <th>Birth Place</th>
+                                        <th>Nationality</th>
+                                        <th>Status</th>
+                                        <th>Civil Status</th>
+                                        <th>Occupation</th>
+                                        <th>Gender</th>
+                                        <th>Blood Type</th>
+                                        <th>Address</th>
+                                        <th>Person in Contact</th>
+                                        <th>Contact</th>
+                                        <th>Date Recorded</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th class="hide">ID</th>
+                                        <th>Salutation</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Name Extension</th>
+                                        <th>Email</th>
+                                        <th>Height</th>
+                                        <th>Weight</th>
+                                        <th>Birthdate</th>
+                                        <th>Birth Place</th>
+                                        <th>Nationality</th>
+                                        <th>Status</th>
+                                        <th>Civil Status</th>
+                                        <th>Occupation</th>
+                                        <th>Gender</th>
+                                        <th>Blood Type</th>
+                                        <th>Address</th>
+                                        <th>Person in Contact</th>
+                                        <th>Contact</th>
+                                        <th>Date Recorded</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <?php
                                             include_once('dbconn.php');
 
                                             $CitizenSQL = "SELECT 
@@ -178,8 +178,7 @@
                                                             <td>'.$Person_Con.'</td>
                                                             <td>'.$Contact.'</td>
                                                             <td>'.$Date_Rec.'</td>
-                                                            <td>
-                                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editCitizModal">
+                                                            <td>  <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editCitizModal">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 <span>EDIT</span>
                                                             </button>
@@ -188,28 +187,173 @@
                                                     }
                                                 }
                                             ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-           
         </div>
-        <form id="Level1CitizenAdd" action="Level1AddCitizen.php" method="POST">
-            <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2>
-                                Add Citizen
-                                <br/>
-                                <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
-                            </h2>
+    </div>
+
+
+    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editCitizModal">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>EDIT</span>
+                                                            </button>
+    <form id="Level1CitizenEdit" action="Level1EditCitizen.php" method="POST">
+        <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>
+                            Edit
+                            <br/>
+                            <small>Modify Position Fields</small>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row clearfix margin-0">
+                            <h4 class="card-inside-title">Salutation</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Mr./Ms./Mrs.</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">First Name</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">First Name</label>
+                                </div>
+                            </div>
+
+                            <h4 class="card-inside-title">Middle Name</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Middle Name</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Last Name</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Last Name</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Extension Name (Optional)</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Jr./Sr./III</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Height (ft)</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">ft</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Weight (kg)</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">kg</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Place of Birth</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Place of Birth</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Birthdate</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control date" />
+                                    <label class="form-label">mm/dd/yyyy</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Gender</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Gender</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Blood Type</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">O/A/B</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">House Number</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">House Number</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Street/Block</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Street/Block</label>
+                                </div>
+                            </div>
+                            <h4 class="card-inside-title">Zone(Block)</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" />
+                                    <label class="form-label">Zone(Block)</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <h4 class="card-inside-title">Barangay Position</h4>
+                                <select class="form-control show-tick">
+                                            <option>None</option>
+                                            <option>Captain</option>
+                                            <option>Treasurer</option>
+                                            <option>Secretary</option>
+                                        </select>
+                            </div>
+                            <h4 class="card-inside-title">Residence Status</h4>
+                            <div class="form-group">
+                                <input type="radio" name="recStatRadio" id="optCitActive" value="Active" class="with-gap">
+                                <label for="optCitActive">Active</label>
+
+                                <input type="radio" name="recStatRadio" id="optCitInactive" value="Inactive" class="with-gap">
+                                <label for="optCitInactive" class="m-l-20">Inactive</label>
+                            </div>
                         </div>
+                        <br/>
+                    </div> <br/>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-link waves-effect">EDIT</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form id="Level1CitizenAdd" action="Level1AddCitizen.php" method="POST">
+        <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>
+                            Add Citizen
+                            <br/>
+                            <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
                         <div class="modal-body">
-                           <div class="modal-body">
                             <div class="row clearfix margin-0">
                                 <h4 class="card-inside-title">Salutation</h4>
                                 <div class="form-group form-float">
@@ -370,183 +514,9 @@
                     </div>
                 </div>
             </div>
-        </form>
-        <!--ModalEdit-->
-        <form>
-        <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2>
-                            Edit
-                            <br/>
-                            <small>Modify Position Fields</small>
-                        </h2>
-                    </div>
-                    <div class="modal-body">
-                           <div class="modal-body">
-                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Salutation</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Salutation" class="form-control" />
-                                        <label class="form-label">Mr./Ms./Mrs.</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">First Name</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="First_Name" class="form-control" />
-                                        <label class="form-label">First Name</label>
-                                    </div>
-                                </div>
-
-                                <h4 class="card-inside-title">Middle Name (Optional)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Middle_Name" class="form-control" />
-                                        <label class="form-label">Middle Name</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Last Name</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Last_Name" class="form-control" />
-                                        <label class="form-label">Last Name</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Extension Name (Optional)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Name_Ext" class="form-control" />
-                                        <label class="form-label">Jr./Sr./III</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Email Address (Optional)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Email" class="form-control" />
-                                        <label class="form-label">example@example.com</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Height (ft)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Height" class="form-control" />
-                                        <label class="form-label">ft</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Weight (kg)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Weight" class="form-control" />
-                                        <label class="form-label">kg</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Place of Birth</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Birth_Place" class="form-control" />
-                                        <label class="form-label">Place of Birth</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Birthdate</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Birthdate" class="form-control date" />
-                                        <label class="form-label">YYYY-MM-DD</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Nationality</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Nationality" class="form-control" />
-                                        <label class="form-label">Nationality</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Occupation (Optional)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Occupation" class="form-control" />
-                                        <label class="form-label">Occupation</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Gender</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Gender" class="form-control" />
-                                        <label class="form-label">Gender</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Civil Status</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Civil_Status" class="form-control" />
-                                        <label class="form-label">Civil Status</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Blood Type</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Blood_Type" class="form-control" />
-                                        <label class="form-label">O/A/B</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">House Number</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="House_No" class="form-control" />
-                                        <label class="form-label">House Number</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Street/Block</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Street" class="form-control" />
-                                        <label class="form-label">Street/Block</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Zone(Block)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Zone" class="form-control" />
-                                        <label class="form-label">Zone(Block)</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Person to contact in case of emergencies (Optional)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Person_Con" class="form-control" />
-                                        <label class="form-label">Name</label>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Contact (Optional)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Contact" class="form-control" />
-                                        <label class="form-label">Contact</label>
-                                    </div>
-                                </div>
-
-                                <h4 class="card-inside-title">Status</h4>
-                                <div class="demo-switch">
-                                    <div class="switch">
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
-                                    </div>
-                                </div>
-
-                            </div><br/>
-                        </div><br/>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect">EDIT</button>
-                         <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
-        </form>
-        <!--EndModal-->
-    </section>
+    </form>
+
+</section>
 
 <?php include('footer.php'); ?>

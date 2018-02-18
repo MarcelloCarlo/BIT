@@ -51,7 +51,7 @@
 			$_SESSION['Last_Name'] = $OfficialLName;
 			$_SESSION['Name_Extension'] = $OfficialXName;
 			$_SESSION['AccountUserType'] = $OfficialPos;
-            // Legacy Option
+            //Development Build
             if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
 			{
 				$header ='Location:/BRGYIT-UI/indexLevel1.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
@@ -65,7 +65,7 @@
 				$header = 'Location:/BRGYIT-UI/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
             }
             
-            //For Lowell
+            //Testing and Deployment Build
 		/*	if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
 			{
 				$header ='Location:/BIT/indexLevel1.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
@@ -82,9 +82,9 @@
 		}
 		else
 		{   
-            // Legacy Option
+            //Development Build
             $header = 'Location:/BRGYIT-UI/sign-in.php';
-            // For Lowell
+            //Testing and Deployment Build
 			//$header = 'Location:/BIT/sign-in.php';
 			
 		}

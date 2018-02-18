@@ -466,6 +466,4 @@
         </div>
         <!--EndModal-->
     </div>
-
-
     <?php include('footer.php'); ?>
