@@ -42,7 +42,7 @@
                                         <th>Zone(Sitio)</th>
                                         <th>Street/Block</th>
                                         <th>Recorded</th>
-                                        <th class="hide"></th>
+                                      
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -116,12 +116,7 @@
                                                 <td>'.$Zone.'</td>
                                                 <td>'.$Street.'</td>
                                                 <td>'.$Date_Rec.'</td>
-                                                <td>
-                                                <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editCitizModal">
-                                                    <i class="material-icons">mode_edit</i>
-                                                    <span>EDIT</span>
-                                                </button>
-                                                </td>
+                                               
                                             </tr>';
                                         }
                                     }
