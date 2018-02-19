@@ -52,21 +52,21 @@
 			$_SESSION['Name_Extension'] = $OfficialXName;
 			$_SESSION['AccountUserType'] = $OfficialPos;
             //Development Build
-            if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
-			{
-				$header ='Location:/BRGYIT-UI/indexLevel1.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-			}
-			else if ($_SESSION['AccountUserType'] == "2" && $OfficialPosName == "Barangay Captain" && $OfficialActUser == 1)
-			{
-				$header ='Location:/BRGYIT-UI/indexCaptain.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-			}
-			else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
-			{
-				$header = 'Location:/BRGYIT-UI/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-            }
+   //          if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
+			// {
+			// 	$header ='Location:/BRGYIT-UI/indexLevel1.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+			// }
+			// else if ($_SESSION['AccountUserType'] == "2" && $OfficialPosName == "Barangay Captain" && $OfficialActUser == 1)
+			// {
+			// 	$header ='Location:/BRGYIT-UI/indexCaptain.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+			// }
+			// else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
+			// {
+			// 	$header = 'Location:/BRGYIT-UI/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+   //          }
             
             //Testing and Deployment Build
-		/*	if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
+			if($_SESSION['AccountUserType'] == "1" && $OfficialPosName == "Secretary" && $OfficialActUser == 1)
 			{
 				$header ='Location:/BIT/indexLevel1.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
@@ -77,15 +77,15 @@
 			else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
 			{
 				$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-			} */
+			} 
 			header($header);
 		}
 		else
 		{   
             //Development Build
-            $header = 'Location:/BRGYIT-UI/sign-in.php';
+            // $header = 'Location:/BRGYIT-UI/sign-in.php';
             //Testing and Deployment Build
-			//$header = 'Location:/BIT/sign-in.php';
+			$header = 'Location:/BIT/sign-in.php';
 			
 		}
 	}

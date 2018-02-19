@@ -1,8 +1,10 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1AddEditOrdinance';?>
-<?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
-
+<?php
+    session_start(); 
+    $title = 'Welcome | BarangayIT MK.II'; 
+    $currentPage = 'Level1AddEditOrdinance';
+    include('head.php');
+    include('Level1Navbar.php'); 
+?>
  <section class="content">
         <div class="container-fluid">
             <div class="block-header">

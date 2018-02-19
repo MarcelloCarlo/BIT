@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2018 at 10:41 AM
+-- Generation Time: Feb 19, 2018 at 03:45 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -44,7 +44,12 @@ CREATE TABLE `bitdb_r_barangayofficial` (
 INSERT INTO `bitdb_r_barangayofficial` (`Brgy_Official_ID`, `CitizenID`, `PosID`, `StartTerm`, `EndTerm`, `ActUser`) VALUES
 (1, 1, 1, '2018-02-01', '2018-02-02', b'1'),
 (2, 2, 2, '2018-02-06', '2018-02-21', b'1'),
-(3, 3, 3, '2018-02-06', '2018-02-28', b'1');
+(3, 3, 3, '2018-02-06', '2018-02-28', b'1'),
+(4, 3, 1, '0000-00-00', '0000-00-00', b'0'),
+(5, 3, 1, '0000-00-00', '0000-00-00', b'0'),
+(6, 3, 1, '0000-00-00', '0000-00-00', b'0'),
+(7, 3, 1, '0000-00-00', '0000-00-00', b'0'),
+(8, 4, 1, '0000-00-00', '0000-00-00', b'0');
 
 -- --------------------------------------------------------
 
@@ -64,9 +69,9 @@ CREATE TABLE `bitdb_r_barangayposition` (
 --
 
 INSERT INTO `bitdb_r_barangayposition` (`PosID`, `PosName`, `PosDesc`, `PosStat`) VALUES
-(1, 'Secretary', 'Taga ayos ng mga bagay bagay ', b'1'),
+(1, 'Secretary', 'Taga ayos ng mga bagay bagay sa kahit saan', b'1'),
 (2, 'Barangay Captain', 'Tagapamuno ~ !', b'1'),
-(3, 'Admin', 'Tagapamalaga~ !', b'0'),
+(3, 'Admin', 'Tagapamalaga~ !', b'1'),
 (4, 'Census Officer', 'Taga add ni citizen ~!', b'1'),
 (5, 'Chief Tanod', 'Blotter Log', b'1');
 
@@ -81,7 +86,7 @@ CREATE TABLE `bitdb_r_barangayuseraccounts` (
   `Brgy_Official_ID` int(11) DEFAULT NULL,
   `AccountUsername` varchar(12) NOT NULL,
   `AccountPassword` varchar(12) NOT NULL,
-  `AccountUserType` int(11) NOT NULL
+  `AccountUserType` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -140,7 +145,7 @@ CREATE TABLE `bitdb_r_citizen` (
   `Middle_Name` varchar(100) DEFAULT NULL,
   `Last_Name` varchar(100) NOT NULL,
   `Name_Ext` varchar(10) DEFAULT NULL,
-  `Citizen_Email` varchar(50) NOT NULL,
+  `Citizen_Email` varchar(50) DEFAULT NULL,
   `Height` float(18,4) NOT NULL,
   `Weight` float(18,4) NOT NULL,
   `Birthdate` date NOT NULL,
@@ -168,7 +173,9 @@ CREATE TABLE `bitdb_r_citizen` (
 INSERT INTO `bitdb_r_citizen` (`Citizen_ID`, `Salutation`, `First_Name`, `Middle_Name`, `Last_Name`, `Name_Ext`, `Citizen_Email`, `Height`, `Weight`, `Birthdate`, `Birth_Place`, `Nationality`, `Res_Status`, `Civil_Status`, `Occupation`, `Gender`, `Blood_Type`, `House_No`, `Street`, `Zone`, `Date_Rec`, `Person_Con`, `Contact`, `ProfilePicture`, `DigitalSign`) VALUES
 (1, 'Mr.', 'Lowell Dave', 'Elba', 'Agnir', NULL, 'lowell.agnir@yahoo.com', 5.6000, 56.0000, '2018-02-14', NULL, 'Filipino', b'1', 'Single', 'Video Editor', 'M', 'O', '17', 'St. Matthew St.', '6', '2018-02-01', 'Me,Myself and I', '9123456789', NULL, NULL),
 (2, 'Dr.', 'Soul', NULL, 'Extinction', NULL, 'soul.extinction@gmail.com', 5.1100, 66.0000, '2017-11-16', NULL, 'Astral', b'1', 'Single', NULL, 'M', 'A', '23', '41', '123', '2018-02-06', NULL, NULL, NULL, NULL),
-(3, 'Legend', 'Soy', NULL, 'Sauce', NULL, 'soy.sauce@yahoo.com', 4.5000, 33.0000, '2018-02-15', NULL, 'Datu Puti', b'1', 'Married', 'pampasarap kasama si suka', 'M', 'Z', '34', '234', 'ads', '2018-02-06', NULL, NULL, NULL, NULL);
+(3, 'Legend', 'Soy', NULL, 'Sauce', NULL, 'soy.sauce@yahoo.com', 4.5000, 33.0000, '2018-02-15', NULL, 'Datu Puti', b'1', 'Married', 'pampasarap kasama si suka', 'M', 'Z', '34', '234', 'ads', '2018-02-06', NULL, NULL, NULL, NULL),
+(4, 'Mr.', 'Bui', 'Bui', 'Bui', 'LVII', 'wew.gsdfgs@gmail.com', 67.0000, 68.0000, '0000-00-00', 'Kung San man', 'Ugandan', b'1', 'Single', 'Kahit ano', 'M', 'Z', '34', '34', '234', '2018-02-15', NULL, NULL, NULL, NULL),
+(5, 'Ms.', 'wew', 'wew', 'wew', '', 'wew@wew.com', 43.0000, 34.0000, '2018-09-23', 'wewewew', 'Filipino', b'0', 'Single', 'Worker', 'F', 'X', '34', '32', '54', '2018-02-18', 'woi', '9876543212', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -250,6 +257,13 @@ CREATE TABLE `bitdb_r_ordinancecategory` (
   `OrdCategoryID` int(11) NOT NULL,
   `OrdinanceTitle` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bitdb_r_ordinancecategory`
+--
+
+INSERT INTO `bitdb_r_ordinancecategory` (`OrdCategoryID`, `OrdinanceTitle`) VALUES
+(1, 'ORD01');
 
 -- --------------------------------------------------------
 
@@ -383,7 +397,7 @@ ALTER TABLE `bitdb_r_summons`
 -- AUTO_INCREMENT for table `bitdb_r_barangayofficial`
 --
 ALTER TABLE `bitdb_r_barangayofficial`
-  MODIFY `Brgy_Official_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Brgy_Official_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `bitdb_r_barangayposition`
@@ -413,7 +427,7 @@ ALTER TABLE `bitdb_r_business`
 -- AUTO_INCREMENT for table `bitdb_r_citizen`
 --
 ALTER TABLE `bitdb_r_citizen`
-  MODIFY `Citizen_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Citizen_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `bitdb_r_config`
@@ -443,7 +457,7 @@ ALTER TABLE `bitdb_r_ordinance`
 -- AUTO_INCREMENT for table `bitdb_r_ordinancecategory`
 --
 ALTER TABLE `bitdb_r_ordinancecategory`
-  MODIFY `OrdCategoryID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrdCategoryID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `bitdb_r_project`

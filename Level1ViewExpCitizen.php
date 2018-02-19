@@ -1,1032 +1,590 @@
 <?php 
     session_start();
     $title = 'Welcome | BarangayIT MK.II'; 
-    $currentPage = 'Level1ViewExpCitizen';
+    $currentPage = 'Level1ViewExpCitizen'; 
     include('head.php'); 
     include('Level1Navbar.php'); 
 ?>
 
- <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>CITIZENS</h2>
-</div>
-            <!-- Basic Examples -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                        <h2>
-                        CITIZENS LIST
-                        <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
-                    </h2>
-                    <br/>
-                          
-                         <!--   <button type="button" class="btn bg-indigo waves-effect" href="Level1ViewEditCitizen.php"> 
-                            <a href="Level1ViewEditCitizen.php" style= "text-decoration: none;"> 
-                            <i class="material-icons">add_circle_outline</i>
-                            <span>Add/Edit</span></a>
-                        </button> -->
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quinn Flynn</td>
-                                            <td>Support Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2013/03/03</td>
-                                            <td>$342,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Charde Marshall</td>
-                                            <td>Regional Director</td>
-                                            <td>San Francisco</td>
-                                            <td>36</td>
-                                            <td>2008/10/16</td>
-                                            <td>$470,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Haley Kennedy</td>
-                                            <td>Senior Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>43</td>
-                                            <td>2012/12/18</td>
-                                            <td>$313,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana Fitzpatrick</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>19</td>
-                                            <td>2010/03/17</td>
-                                            <td>$385,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Byrd</td>
-                                            <td>Chief Financial Officer (CFO)</td>
-                                            <td>New York</td>
-                                            <td>64</td>
-                                            <td>2010/06/09</td>
-                                            <td>$725,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gloria Little</td>
-                                            <td>Systems Administrator</td>
-                                            <td>New York</td>
-                                            <td>59</td>
-                                            <td>2009/04/10</td>
-                                            <td>$237,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dai Rios</td>
-                                            <td>Personnel Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>35</td>
-                                            <td>2012/09/26</td>
-                                            <td>$217,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenette Caldwell</td>
-                                            <td>Development Lead</td>
-                                            <td>New York</td>
-                                            <td>30</td>
-                                            <td>2011/09/03</td>
-                                            <td>$345,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yuri Berry</td>
-                                            <td>Chief Marketing Officer (CMO)</td>
-                                            <td>New York</td>
-                                            <td>40</td>
-                                            <td>2009/06/25</td>
-                                            <td>$675,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td>$106,450</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Doris Wilder</td>
-                                            <td>Sales Assistant</td>
-                                            <td>Sidney</td>
-                                            <td>23</td>
-                                            <td>2010/09/20</td>
-                                            <td>$85,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Joyce</td>
-                                            <td>Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>42</td>
-                                            <td>2010/12/22</td>
-                                            <td>$92,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Chang</td>
-                                            <td>Regional Director</td>
-                                            <td>Singapore</td>
-                                            <td>28</td>
-                                            <td>2010/11/14</td>
-                                            <td>$357,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fiona Green</td>
-                                            <td>Chief Operating Officer (COO)</td>
-                                            <td>San Francisco</td>
-                                            <td>48</td>
-                                            <td>2010/03/11</td>
-                                            <td>$850,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shou Itou</td>
-                                            <td>Regional Marketing</td>
-                                            <td>Tokyo</td>
-                                            <td>20</td>
-                                            <td>2011/08/14</td>
-                                            <td>$163,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michelle House</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Sidney</td>
-                                            <td>37</td>
-                                            <td>2011/06/02</td>
-                                            <td>$95,400</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suki Burks</td>
-                                            <td>Developer</td>
-                                            <td>London</td>
-                                            <td>53</td>
-                                            <td>2009/10/22</td>
-                                            <td>$114,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Prescott Bartlett</td>
-                                            <td>Technical Author</td>
-                                            <td>London</td>
-                                            <td>27</td>
-                                            <td>2011/05/07</td>
-                                            <td>$145,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Cortez</td>
-                                            <td>Team Leader</td>
-                                            <td>San Francisco</td>
-                                            <td>22</td>
-                                            <td>2008/10/26</td>
-                                            <td>$235,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Martena Mccray</td>
-                                            <td>Post-Sales support</td>
-                                            <td>Edinburgh</td>
-                                            <td>46</td>
-                                            <td>2011/03/09</td>
-                                            <td>$324,050</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vivian Harrell</td>
-                                            <td>Financial Controller</td>
-                                            <td>San Francisco</td>
-                                            <td>62</td>
-                                            <td>2009/02/14</td>
-                                            <td>$452,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thor Walton</td>
-                                            <td>Developer</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2013/08/11</td>
-                                            <td>$98,540</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Finn Camacho</td>
-                                            <td>Support Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/07/07</td>
-                                            <td>$87,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Serge Baldwin</td>
-                                            <td>Data Coordinator</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2012/04/09</td>
-                                            <td>$138,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zenaida Frank</td>
-                                            <td>Software Engineer</td>
-                                            <td>New York</td>
-                                            <td>63</td>
-                                            <td>2010/01/04</td>
-                                            <td>$125,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zorita Serrano</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>56</td>
-                                            <td>2012/06/01</td>
-                                            <td>$115,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Acosta</td>
-                                            <td>Junior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>43</td>
-                                            <td>2013/02/01</td>
-                                            <td>$75,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cara Stevens</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td>$145,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hermione Butler</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2011/03/21</td>
-                                            <td>$356,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lael Greer</td>
-                                            <td>Systems Administrator</td>
-                                            <td>London</td>
-                                            <td>21</td>
-                                            <td>2009/02/27</td>
-                                            <td>$103,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jonas Alexander</td>
-                                            <td>Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>30</td>
-                                            <td>2010/07/14</td>
-                                            <td>$86,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shad Decker</td>
-                                            <td>Regional Director</td>
-                                            <td>Edinburgh</td>
-                                            <td>51</td>
-                                            <td>2008/11/13</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Bruce</td>
-                                            <td>Javascript Developer</td>
-                                            <td>Singapore</td>
-                                            <td>29</td>
-                                            <td>2011/06/27</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Basic Examples -->
-            <!-- Exportable Table -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2>
-                                EXPORT TABLE
-                            </h2>
-                            <ul class="header-dropdown m-r--5">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">more_vert</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brielle Williamson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2012/12/02</td>
-                                            <td>$372,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Herrod Chandler</td>
-                                            <td>Sales Assistant</td>
-                                            <td>San Francisco</td>
-                                            <td>59</td>
-                                            <td>2012/08/06</td>
-                                            <td>$137,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rhona Davidson</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Tokyo</td>
-                                            <td>55</td>
-                                            <td>2010/10/14</td>
-                                            <td>$327,900</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Colleen Hurst</td>
-                                            <td>Javascript Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>39</td>
-                                            <td>2009/09/15</td>
-                                            <td>$205,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sonya Frost</td>
-                                            <td>Software Engineer</td>
-                                            <td>Edinburgh</td>
-                                            <td>23</td>
-                                            <td>2008/12/13</td>
-                                            <td>$103,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jena Gaines</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>30</td>
-                                            <td>2008/12/19</td>
-                                            <td>$90,560</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Quinn Flynn</td>
-                                            <td>Support Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2013/03/03</td>
-                                            <td>$342,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Charde Marshall</td>
-                                            <td>Regional Director</td>
-                                            <td>San Francisco</td>
-                                            <td>36</td>
-                                            <td>2008/10/16</td>
-                                            <td>$470,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Haley Kennedy</td>
-                                            <td>Senior Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>43</td>
-                                            <td>2012/12/18</td>
-                                            <td>$313,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tatyana Fitzpatrick</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>19</td>
-                                            <td>2010/03/17</td>
-                                            <td>$385,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Silva</td>
-                                            <td>Marketing Designer</td>
-                                            <td>London</td>
-                                            <td>66</td>
-                                            <td>2012/11/27</td>
-                                            <td>$198,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Paul Byrd</td>
-                                            <td>Chief Financial Officer (CFO)</td>
-                                            <td>New York</td>
-                                            <td>64</td>
-                                            <td>2010/06/09</td>
-                                            <td>$725,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gloria Little</td>
-                                            <td>Systems Administrator</td>
-                                            <td>New York</td>
-                                            <td>59</td>
-                                            <td>2009/04/10</td>
-                                            <td>$237,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bradley Greer</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>41</td>
-                                            <td>2012/10/13</td>
-                                            <td>$132,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dai Rios</td>
-                                            <td>Personnel Lead</td>
-                                            <td>Edinburgh</td>
-                                            <td>35</td>
-                                            <td>2012/09/26</td>
-                                            <td>$217,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jenette Caldwell</td>
-                                            <td>Development Lead</td>
-                                            <td>New York</td>
-                                            <td>30</td>
-                                            <td>2011/09/03</td>
-                                            <td>$345,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Yuri Berry</td>
-                                            <td>Chief Marketing Officer (CMO)</td>
-                                            <td>New York</td>
-                                            <td>40</td>
-                                            <td>2009/06/25</td>
-                                            <td>$675,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Caesar Vance</td>
-                                            <td>Pre-Sales Support</td>
-                                            <td>New York</td>
-                                            <td>21</td>
-                                            <td>2011/12/12</td>
-                                            <td>$106,450</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Doris Wilder</td>
-                                            <td>Sales Assistant</td>
-                                            <td>Sidney</td>
-                                            <td>23</td>
-                                            <td>2010/09/20</td>
-                                            <td>$85,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Angelica Ramos</td>
-                                            <td>Chief Executive Officer (CEO)</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2009/10/09</td>
-                                            <td>$1,200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Joyce</td>
-                                            <td>Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>42</td>
-                                            <td>2010/12/22</td>
-                                            <td>$92,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Chang</td>
-                                            <td>Regional Director</td>
-                                            <td>Singapore</td>
-                                            <td>28</td>
-                                            <td>2010/11/14</td>
-                                            <td>$357,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Brenden Wagner</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>28</td>
-                                            <td>2011/06/07</td>
-                                            <td>$206,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fiona Green</td>
-                                            <td>Chief Operating Officer (COO)</td>
-                                            <td>San Francisco</td>
-                                            <td>48</td>
-                                            <td>2010/03/11</td>
-                                            <td>$850,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shou Itou</td>
-                                            <td>Regional Marketing</td>
-                                            <td>Tokyo</td>
-                                            <td>20</td>
-                                            <td>2011/08/14</td>
-                                            <td>$163,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michelle House</td>
-                                            <td>Integration Specialist</td>
-                                            <td>Sidney</td>
-                                            <td>37</td>
-                                            <td>2011/06/02</td>
-                                            <td>$95,400</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Suki Burks</td>
-                                            <td>Developer</td>
-                                            <td>London</td>
-                                            <td>53</td>
-                                            <td>2009/10/22</td>
-                                            <td>$114,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Prescott Bartlett</td>
-                                            <td>Technical Author</td>
-                                            <td>London</td>
-                                            <td>27</td>
-                                            <td>2011/05/07</td>
-                                            <td>$145,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gavin Cortez</td>
-                                            <td>Team Leader</td>
-                                            <td>San Francisco</td>
-                                            <td>22</td>
-                                            <td>2008/10/26</td>
-                                            <td>$235,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Martena Mccray</td>
-                                            <td>Post-Sales support</td>
-                                            <td>Edinburgh</td>
-                                            <td>46</td>
-                                            <td>2011/03/09</td>
-                                            <td>$324,050</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Unity Butler</td>
-                                            <td>Marketing Designer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/12/09</td>
-                                            <td>$85,675</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Howard Hatfield</td>
-                                            <td>Office Manager</td>
-                                            <td>San Francisco</td>
-                                            <td>51</td>
-                                            <td>2008/12/16</td>
-                                            <td>$164,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hope Fuentes</td>
-                                            <td>Secretary</td>
-                                            <td>San Francisco</td>
-                                            <td>41</td>
-                                            <td>2010/02/12</td>
-                                            <td>$109,850</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Vivian Harrell</td>
-                                            <td>Financial Controller</td>
-                                            <td>San Francisco</td>
-                                            <td>62</td>
-                                            <td>2009/02/14</td>
-                                            <td>$452,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Timothy Mooney</td>
-                                            <td>Office Manager</td>
-                                            <td>London</td>
-                                            <td>37</td>
-                                            <td>2008/12/11</td>
-                                            <td>$136,200</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jackson Bradshaw</td>
-                                            <td>Director</td>
-                                            <td>New York</td>
-                                            <td>65</td>
-                                            <td>2008/09/26</td>
-                                            <td>$645,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Olivia Liang</td>
-                                            <td>Support Engineer</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2011/02/03</td>
-                                            <td>$234,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bruno Nash</td>
-                                            <td>Software Engineer</td>
-                                            <td>London</td>
-                                            <td>38</td>
-                                            <td>2011/05/03</td>
-                                            <td>$163,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sakura Yamamoto</td>
-                                            <td>Support Engineer</td>
-                                            <td>Tokyo</td>
-                                            <td>37</td>
-                                            <td>2009/08/19</td>
-                                            <td>$139,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thor Walton</td>
-                                            <td>Developer</td>
-                                            <td>New York</td>
-                                            <td>61</td>
-                                            <td>2013/08/11</td>
-                                            <td>$98,540</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Finn Camacho</td>
-                                            <td>Support Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>47</td>
-                                            <td>2009/07/07</td>
-                                            <td>$87,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Serge Baldwin</td>
-                                            <td>Data Coordinator</td>
-                                            <td>Singapore</td>
-                                            <td>64</td>
-                                            <td>2012/04/09</td>
-                                            <td>$138,575</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zenaida Frank</td>
-                                            <td>Software Engineer</td>
-                                            <td>New York</td>
-                                            <td>63</td>
-                                            <td>2010/01/04</td>
-                                            <td>$125,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Zorita Serrano</td>
-                                            <td>Software Engineer</td>
-                                            <td>San Francisco</td>
-                                            <td>56</td>
-                                            <td>2012/06/01</td>
-                                            <td>$115,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jennifer Acosta</td>
-                                            <td>Junior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>43</td>
-                                            <td>2013/02/01</td>
-                                            <td>$75,650</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cara Stevens</td>
-                                            <td>Sales Assistant</td>
-                                            <td>New York</td>
-                                            <td>46</td>
-                                            <td>2011/12/06</td>
-                                            <td>$145,600</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Hermione Butler</td>
-                                            <td>Regional Director</td>
-                                            <td>London</td>
-                                            <td>47</td>
-                                            <td>2011/03/21</td>
-                                            <td>$356,250</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Lael Greer</td>
-                                            <td>Systems Administrator</td>
-                                            <td>London</td>
-                                            <td>21</td>
-                                            <td>2009/02/27</td>
-                                            <td>$103,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jonas Alexander</td>
-                                            <td>Developer</td>
-                                            <td>San Francisco</td>
-                                            <td>30</td>
-                                            <td>2010/07/14</td>
-                                            <td>$86,500</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shad Decker</td>
-                                            <td>Regional Director</td>
-                                            <td>Edinburgh</td>
-                                            <td>51</td>
-                                            <td>2008/11/13</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Michael Bruce</td>
-                                            <td>Javascript Developer</td>
-                                            <td>Singapore</td>
-                                            <td>29</td>
-                                            <td>2011/06/27</td>
-                                            <td>$183,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Donna Snider</td>
-                                            <td>Customer Support</td>
-                                            <td>New York</td>
-                                            <td>27</td>
-                                            <td>2011/01/25</td>
-                                            <td>$112,000</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Exportable Table -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+            <h2>CITIZENS</h2>
         </div>
-    </section>
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            EDIT CITIZENS
+                            <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
+                        </h2>
+                        <br/>
+                     
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive"> 
+                                         
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
+                                <thead>
+                                    <tr>
+                                        <th class="hide">ID</th>
+                                        <th>Salutation</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Name Extension</th>
+                                        <th>Email</th>
+                                        <th>Height</th>
+                                        <th>Weight</th>
+                                        <th>Birthdate</th>
+                                        <th>Birth Place</th>
+                                        <th>Nationality</th>
+                                        <th>Status</th>
+                                        <th>Civil Status</th>
+                                        <th>Occupation</th>
+                                        <th>Gender</th>
+                                        <th>Blood Type</th>
+                                        <th class="hide">HouseNo</th>
+                                        <th class="hide">Street</th>
+                                        <th class="hide">Zone</th>
+                                        <th>Address</th>
+                                        <th>Person in Contact</th>
+                                        <th>Contact</th>
+                                        <th>Date Recorded</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th class="hide">ID</th>
+                                        <th>Salutation</th>
+                                        <th>First Name</th>
+                                        <th>Middle Name</th>
+                                        <th>Last Name</th>
+                                        <th>Name Extension</th>
+                                        <th>Email</th>
+                                        <th>Height</th>
+                                        <th>Weight</th>
+                                        <th>Birthdate</th>
+                                        <th>Birth Place</th>
+                                        <th>Nationality</th>
+                                        <th>Status</th>
+                                        <th>Civil Status</th>
+                                        <th>Occupation</th>
+                                        <th>Gender</th>
+                                        <th>Blood Type</th>
+                                        <th class="hide">HouseNo</th>
+                                        <th class="hide">Street</th>
+                                        <th class="hide">Zone</th>
+                                        <th>Address</th>
+                                        <th>Person in Contact</th>
+                                        <th>Contact</th>
+                                        <th>Date Recorded</th>
+                                        
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+                                    <?php
+                                            include_once('dbconn.php');
 
+                                            $CitizenSQL = "SELECT 
+                                                                    bitdb_r_citizen.Citizen_ID,
+                                                                    bitdb_r_citizen.Salutation,
+                                                                    bitdb_r_citizen.First_Name,
+                                                                    IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name,
+                                                                    bitdb_r_citizen.Last_Name,
+                                                                    IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext,
+                                                                    IFNULL(bitdb_r_citizen.Citizen_Email,'') AS Citizen_Email,
+                                                                    bitdb_r_citizen.Height,
+                                                                    bitdb_r_citizen.Weight,
+                                                                    IFNULL(bitdb_r_citizen.Birth_Place,'') AS Birth_Place,
+                                                                    bitdb_r_citizen.Birthdate,
+                                                                    bitdb_r_citizen.Nationality,
+                                                                    bitdb_r_citizen.Res_Status,
+                                                                    bitdb_r_citizen.Civil_Status,
+                                                                    IFNULL(bitdb_r_citizen.Occupation,'') AS Occupation,
+                                                                    bitdb_r_citizen.Gender,
+                                                                    bitdb_r_citizen.Blood_Type,
+                                                                    bitdb_r_citizen.Zone,
+                                                                    bitdb_r_citizen.Street,
+                                                                    bitdb_r_citizen.House_No,
+                                                                    IFNULL(bitdb_r_citizen.Person_Con,'') AS Person_Con,
+                                                                    IFNULL(bitdb_r_citizen.Contact,'') AS Contact,
+                                                                    bitdb_r_citizen.Date_Rec
+                                                                FROM
+                                                                    bitdb_r_citizen
+                                                                ";
+                                            $CitizenQuery = mysqli_query($bitMysqli,$CitizenSQL) or die(mysqli_error($bitMysqli));
+                                                if (mysqli_num_rows($CitizenQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($CitizenQuery))
+                                                    {   
+                                                        $ID = $row['Citizen_ID'];
+                                                        $Salutation = $row['Salutation'];
+                                                        $FName = $row['First_Name'];
+                                                        $MName = $row['Middle_Name'];
+                                                        $LName = $row['Last_Name'];
+                                                        $Name_Ext = $row['Name_Ext'];
+                                                        $Email = $row['Citizen_Email'];
+                                                        $Height = $row['Height'];
+                                                        $Weight = $row['Weight'];
+                                                        $Birthdate = $row['Birthdate'];
+                                                        $Birth_Place = $row['Birth_Place'];
+                                                        $Nationality = $row['Nationality'];
+                                                        $Civil_Status = $row['Civil_Status'];
+                                                        $Occupation = $row['Occupation'];
+                                                        $Gender = $row['Gender'];
+                                                        $BloodType = $row['Blood_Type'];
+                                                        $Zone = $row['Zone'];
+                                                        $Street = $row['Street'];
+                                                        $House_No = $row['House_No'];
+                                                        $Person_Con = $row['Person_Con'];
+                                                        $Contact = $row['Contact'];
+                                                        $Date_Rec = $row['Date_Rec'];
+
+                                                        if($row['Res_Status'] == 1)
+                                                        {
+                                                            $Res_Status = "Active";
+                                                        }
+                                                        else
+                                                        {
+                                                            $Res_Status = "Inactive";
+                                                        }
+                                                        $Address = ''.$House_No.' '.$Street.' '.$Zone.' ';
+
+                                                        echo
+                                                        '<tr>
+                                                            <td class="hide">'.$ID.'</td>
+                                                            <td>'.$Salutation.'</td>
+                                                            <td>'.$FName.'</td>
+                                                            <td>'.$MName.'</td>
+                                                            <td>'.$LName.'</td>
+                                                            <td>'.$Name_Ext.'</td>
+                                                            <td>'.$Email.'</td>
+                                                            <td>'.$Height.'</td>
+                                                            <td>'.$Weight.'</td>
+                                                            <td>'.$Birthdate.'</td>
+                                                            <td>'.$Birth_Place.'</td>
+                                                            <td>'.$Nationality.'</td>
+                                                            <td>'.$Res_Status.'</td>
+                                                            <td>'.$Civil_Status.'</td>
+                                                            <td>'.$Occupation.'</td>
+                                                            <td>'.$Gender.'</td>
+                                                            <td>'.$BloodType.'</td>
+                                                            <td class="hide">'.$House_No.'</td>
+                                                            <td class="hide">'.$Street.'</td>
+                                                            <td class="hide">'.$Zone.'</td>
+                                                            <td>'.$Address.'</td>
+                                                            <td>'.$Person_Con.'</td>
+                                                            <td>'.$Contact.'</td>
+                                                            <td>'.$Date_Rec.'</td>
+                                                                                                                    </tr>';
+                                                    }
+                                                }
+                                            ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Edit-->
+    <form id="Level1CitizenEdit" action="Level1EditCitizen.php" method="POST">
+        <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>
+                            Edit
+                            <br/>
+                            <small>Modify Position Fields</small>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                           <div class="modal-body">
+                            <div class="row clearfix margin-0">
+                                <h4 class="card-inside-title hide">ID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="CID" type="text" name="CitizenID" class="form-control hide" />
+                                        <!-- <label class="form-label">Mr./Ms./Mrs.</label> -->
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Salutation</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiSalutation" type="text" name="Salutation" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">First Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiFName" type="text" name="First_Name" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <h4 class="card-inside-title">Middle Name (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiMName" type="text" name="Middle_Name" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Last Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiLName" type="text" name="Last_Name" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Extension Name (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiNExt" type="text" name="Name_Ext" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Email Address (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiEmail" type="text" name="Email" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Height (ft)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiHeight" type="text" name="Height" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Weight (kg)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiWeight" type="text" name="Weight" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Place of Birth</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiPOB" type="text" name="Birth_Place" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Birthdate</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiBDate" type="text" name="Birthdate" class="form-control date" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Nationality</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiNationality" type="text" name="Nationality" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Occupation (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiOccupation" type="text" name="Occupation" class="form-control"/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Gender</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiGender" type="text" name="Gender" class="form-control"/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Civil Status</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiCivilStatus" type="text" name="Civil_Status" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Blood Type</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiBloodType" type="text" name="Blood_Type" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">House Number</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiHouseNo" type="text" name="House_No" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Street/Block</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiStreet" type="text" name="Street" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Zone(Block)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiZone" type="text" name="Zone" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Person to contact in case of emergencies (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiPerCon" type="text" name="Person_Con" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Contact (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiContact" type="text" name="Contact" class="form-control" />
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Resident Status</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
+                                    <label for="editCheckA">Active</label>
+
+                                    <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
+                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                </div>
+                                <!-- <h4 class="card-inside-title">Status</h4>
+                                <div class="demo-switch">
+                                    <div class="switch">
+                                        <label>Inactive
+                                            <input id="CitiResStat" type="checkbox" checked>
+                                            <span class="lever switch-col-orange"></span>Active
+                                        </label>
+                                    </div>
+                                </div> -->
+                        </div>
+                        <br/>
+                    </div> <br/>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-link waves-effect">EDIT</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <!--Add-->
+    <form id="Level1CitizenAdd" action="Level1AddCitizen.php" method="POST">
+        <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>
+                            Add Citizen
+                            <br/>
+                            <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
+                        </h2>
+                    </div>
+                    <div class="modal-body">
+                           <div class="modal-body">
+                            <div class="row clearfix margin-0">
+                                <h4 class="card-inside-title">Salutation</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Salutation" class="form-control" />
+                                        <label class="form-label">Mr./Ms./Mrs.</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">First Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="First_Name" class="form-control" />
+                                        <label class="form-label">First Name</label>
+                                    </div>
+                                </div>
+
+                                <h4 class="card-inside-title">Middle Name (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Middle_Name" class="form-control" />
+                                        <label class="form-label">Middle Name</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Last Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Last_Name" class="form-control" />
+                                        <label class="form-label">Last Name</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Extension Name (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Name_Ext" class="form-control" />
+                                        <label class="form-label">Jr./Sr./III</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Email Address (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Email" class="form-control" />
+                                        <label class="form-label">example@example.com</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Height (ft)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Height" class="form-control" />
+                                        <label class="form-label">ft</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Weight (kg)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Weight" class="form-control" />
+                                        <label class="form-label">kg</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Place of Birth</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Birth_Place" class="form-control" />
+                                        <label class="form-label">Place of Birth</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Birthdate</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Birthdate" class="form-control date" />
+                                        <label class="form-label">YYYY-MM-DD</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Nationality</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Nationality" class="form-control" />
+                                        <label class="form-label">Nationality</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Occupation (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Occupation" class="form-control" />
+                                        <label class="form-label">Occupation</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Gender</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Gender" class="form-control" />
+                                        <label class="form-label">Gender</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Civil Status</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Civil_Status" class="form-control" />
+                                        <label class="form-label">Civil Status</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Blood Type</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Blood_Type" class="form-control" />
+                                        <label class="form-label">O/A/B</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">House Number</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="House_No" class="form-control" />
+                                        <label class="form-label">House Number</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Street/Block</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Street" class="form-control" />
+                                        <label class="form-label">Street/Block</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Zone(Block)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Zone" class="form-control" />
+                                        <label class="form-label">Zone(Block)</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Person to contact in case of emergencies (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Person_Con" class="form-control" />
+                                        <label class="form-label">Name</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Contact (Optional)</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Contact" class="form-control" />
+                                        <label class="form-label">Contact</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Residence Status</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
+                                    <label for="optCitActive">Active</label>
+
+                                    <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
+                                    <label for="optCitInactive" class="m-l-20">Inactive</label>
+                                </div>
+                                <!-- <h4 class="card-inside-title">Status</h4>
+                                <div class="demo-switch">
+                                    <div class="switch">
+                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
+                                    </div>
+                                </div> -->
+
+                            </div>
+                            <br/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-link waves-effect">ADD</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
 
 <?php include('footer.php'); ?>
+
+<script type="text/javascript">
+        $(document).ready(function()
+        {
+            $(".editCiti").click(function()
+            {
+                $("#CID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#CitiSalutation").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                $("#CitiFName").val($(this).closest("tbody tr").find("td:eq(2)").html());
+                $("#CitiMName").val($(this).closest("tbody tr").find("td:eq(3)").html());
+                $("#CitiLName").val($(this).closest("tbody tr").find("td:eq(4)").html());
+                $("#CitiNExt").val($(this).closest("tbody tr").find("td:eq(5)").html());
+                $("#CitiEmail").val($(this).closest("tbody tr").find("td:eq(6)").html());
+                $("#CitiHeight").val($(this).closest("tbody tr").find("td:eq(7)").html());
+                $("#CitiWeight").val($(this).closest("tbody tr").find("td:eq(8)").html());
+                $("#CitiBDate").val($(this).closest("tbody tr").find("td:eq(9)").html());
+                $("#CitiPOB").val($(this).closest("tbody tr").find("td:eq(10)").html());
+                $("#CitiNationality").val($(this).closest("tbody tr").find("td:eq(11)").html());
+                $("#CitiCivilStatus").val($(this).closest("tbody tr").find("td:eq(13)").html());
+                $("#CitiOccupation").val($(this).closest("tbody tr").find("td:eq(14)").html());
+                $("#CitiGender").val($(this).closest("tbody tr").find("td:eq(15)").html());
+                $("#CitiBloodType").val($(this).closest("tbody tr").find("td:eq(16)").html());
+                $("#CitiHouseNo").val($(this).closest("tbody tr").find("td:eq(17)").html());
+                $("#CitiStreet").val($(this).closest("tbody tr").find("td:eq(18)").html());
+                $("#CitiZone").val($(this).closest("tbody tr").find("td:eq(19)").html());
+                $("#CitiPerCon").val($(this).closest("tbody tr").find("td:eq(21)").html());
+                $("#CitiContact").val($(this).closest("tbody tr").find("td:eq(22)").html());
+                if ($(this).closest("tbody tr").find("td:eq(12)").text() === "Active") {
+                        $("#editCheckA").prop("checked", true).trigger('click');
+                    } else {
+                        $("#editCheckI").prop("checked", true).trigger('click');
+                    }
+                // ActOption = "option[value="+val($(this).closest("tbody tr").find("td:eq(4)").html())+"]";
+                // $("#PositionOption").find(ActOption).prop("selected",true);
+            });
+        });
+
+    </script> 
