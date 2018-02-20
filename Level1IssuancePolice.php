@@ -1,12 +1,12 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1ViewEditCitizen';?>
+<?php $currentPage = 'Level1IssuancePolice';?>
 <?php include('head.php'); ?>
-<?php include('Level1navbar.php'); ?>
+<?php include('Level1Navbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>CITIZENS</h2>
+                <h2>Issuance</h2>
 </div>
             <!-- Basic Examples -->
             <div class="row clearfix">
@@ -14,17 +14,17 @@
                     <div class="card">
                         <div class="header">
                         <h2>
-                        EDIT CITIZENS
-                        <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
+                        Police Clearance
+                        <small>The list of all the citizens of the barangay. Click "ISSUE" to isssue a Police Clearance.</small>
                     </h2>
                     <br/>
-                            <button type="button" class="btn bg-indigo waves-effect">
+                         <!--   <button type="button" class="btn bg-indigo waves-effect">
                             <i class="material-icons">add_circle_outline</i>
                             <a  href="Level1AddCirtizen.php" style= "text-decoration: none;"> 
                             <span>View</span></a>
-                        </button>
+                        </button> -->
                         </div>
-                        <div class="body">
+                        <div class="body"
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
@@ -60,7 +60,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -74,7 +74,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -88,7 +88,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -102,7 +102,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -116,7 +116,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -130,7 +130,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -144,7 +144,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -158,7 +158,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -172,7 +172,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -186,7 +186,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -200,7 +200,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -214,7 +214,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -228,7 +228,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -242,7 +242,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -256,7 +256,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -270,7 +270,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -284,7 +284,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -298,7 +298,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -312,7 +312,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -326,7 +326,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -340,7 +340,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -354,7 +354,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -368,7 +368,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -382,7 +382,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -396,7 +396,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -410,7 +410,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -424,7 +424,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -438,7 +438,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -452,7 +452,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -466,7 +466,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -480,7 +480,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -494,7 +494,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -508,7 +508,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -522,7 +522,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -536,7 +536,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -550,7 +550,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -564,7 +564,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -578,7 +578,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -592,7 +592,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
 
@@ -607,7 +607,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -621,7 +621,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -635,7 +635,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -649,7 +649,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -663,7 +663,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -677,7 +677,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -691,7 +691,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -705,7 +705,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -719,7 +719,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -733,7 +733,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -747,7 +747,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -761,7 +761,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -775,7 +775,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -789,7 +789,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -803,7 +803,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -817,7 +817,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -831,7 +831,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>
@@ -845,7 +845,7 @@
                                             <td>
                                             <button type="button" class="btn btn-success waves-effect">
                                                         <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
+                                                        <span>ISSUE</span>
                                                     </button>
                                             </td>
                                         </tr>

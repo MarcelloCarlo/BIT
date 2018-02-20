@@ -1,0 +1,176 @@
+CREATE DATABASE	bitDB
+
+USE bitDB
+
+CREATE TABLE bitDB_R_Citizen
+(
+	Citizen_ID	INT AUTO_INCREMENT NOT NULL, 
+		CONSTRAINT PK_CitizenID PRIMARY KEY(Citizen_ID),
+	Salutation	VARCHAR(10)	NOT NULL,
+	First_Name	VARCHAR(100) NOT NULL,
+	Middle_Name	VARCHAR(100),
+	Last_Name	VARCHAR(100) NOT NULL,
+	Name_Ext	VARCHAR(10)	NOT NULL,
+	Citizen_Email VARCHAR(50) NOT NULL,
+	Height		FLOAT(18,4) NOT NULL,
+	Weight		FLOAT(18,4) NOT NULL,
+	Birthdate	DATE NOT NULL,
+	Birth_Place	VARCHAR(200),
+	Nationality	VARCHAR(100) NOT NULL,
+	Res_Status	BIT	NOT NULL DEFAULT 1,
+	Civil_Status VARCHAR(10) NOT NULL,
+	Occupation	VARCHAR(100),
+	Gender		CHAR(1)	NOT NULL,
+	Blood_Type	VARCHAR(3) NOT NULL,
+	House_No	VARCHAR (10) NOT NULL,
+	Street		VARCHAR(100) NOT NULL,
+	Zone		VARCHAR(100) NOT NULL,
+	Date_Rec	DATE NOT NULL,
+	Person_Con	VARCHAR(100),
+	Contact		NUMERIC(11),
+	ProfilePicture BLOB,
+	DigitalSign	BLOB
+)
+
+CREATE TABLE bitDB_R_BarangayPosition
+(
+	PosID   INT AUTO_INCREMENT NOT NULL, 
+    	CONSTRAINT PK_BarPosID PRIMARY KEY(PosID),
+	PosName VARCHAR(50) NOT NULL,
+	PosDesc VARCHAR(200) NOT NULL,
+	PosStat BIT NOT NULL DEFAULT 1
+)
+
+CREATE TABLE bitDB_R_BarangayOfficial
+(
+	Brgy_Official_ID INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_OfficialID PRIMARY KEY(Brgy_Official_ID),
+	CitizenID 	INT NOT NULL, 
+    	CONSTRAINT FK_CitizenID FOREIGN KEY (CitizenID) REFERENCES bitDB_R_Citizen(Citizen_ID),
+	PosID 		INT NOT NULL,
+    	CONSTRAINT FK_PosID FOREIGN KEY (PosID) REFERENCES bitDB_R_BarangayPosition(PosID),
+	StartTerm 	DATE NOT NULL,
+	EndTerm 	DATE NOT NULL,
+	ActUser 	BIT NOT NULL DEFAULT 1
+)
+
+CREATE TABLE bitDB_R_BarangayUserAccounts
+(
+	AccountID INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_BarOff_Account PRIMARY KEY(AccountID),
+	Brgy_Official_ID INT,
+    	CONSTRAINT FK_OfficialUserAccounts FOREIGN KEY (Brgy_Official_ID) REFERENCES bitDB_R_BarangayOfficial (Brgy_Official_ID),
+	AccountUsername VARCHAR(12) NOT NULL,
+	AccountPassword VARCHAR(12) NOT NULL,
+	AccountUserType INT NOT NULL
+)
+
+CREATE TABLE bitDB_R_Business
+(
+	BusinessID		INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_BusinessID PRIMARY KEY(BusinessID),
+	Business_Name	VARCHAR(100) NOT NULL,
+	BusinessLoc		VARCHAR(100) NOT NULL,
+	Manager		VARCHAR(100) NOT NULL,
+	Mgr_Address VARCHAR(200) NOT NULL,
+	Date_Issued DATE NOT NULL,
+	BusinessStatus BIT NOT NULL DEFAULT 1
+)
+
+CREATE TABLE bitDB_R_OrdinanceCategory
+(
+	OrdCategoryID INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_OrdCategoryID PRIMARY KEY(OrdCategoryID),
+	OrdinanceTitle VARCHAR(200) NOT NULL
+)
+
+CREATE TABLE bitDB_R_Ordinance
+(
+	OrdinanceID		INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_OrdinanceNo PRIMARY KEY(OrdinanceID),
+	OrdinanceTitle	VARCHAR(100) NOT NULL,
+	CategoryID		INT NOT NULL,
+    	CONSTRAINT FK_OrdCategory FOREIGN KEY(CategoryID) REFERENCES bitDB_R_OrdinanceCategory(OrdCategoryID),
+	Author			VARCHAR(200) NOT NULL,
+	Persons_Involved INT,
+    	CONSTRAINT FK_OdinanceInvolved FOREIGN KEY(Persons_Involved) REFERENCES bitDB_R_BarangayOfficial(Brgy_Official_ID),
+	OrdDesc			VARCHAR(200) NOT NULL,
+	DateImplemented DATE NOT NULL,
+	OrdStatus		BIT NOT NULL DEFAULT 1,
+	Sanction		VARCHAR(200) NOT NULL
+)
+
+CREATE TABLE bitDB_R_Blotter
+(
+	BlotterID	INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_BlotterID PRIMARY KEY(BlotterID),
+	IncidentDate DATE NOT NULL,
+	Complainant VARCHAR(200) NOT NULL,
+	Accused		INT ,
+    	CONSTRAINT FK_BlotterAccused FOREIGN KEY(Accused) REFERENCES bitDB_R_Citizen(Citizen_ID),
+	ComplaintStatement VARCHAR(100) NOT NULL,
+	ComplaintStatus BIT NOT NULL DEFAULT 1,
+	Resolution	VARCHAR(200) NOT NULL,
+	BlotterType	VARCHAR(50) NOT NULL,
+	ComplaintDate DATE NOT NULL
+)
+
+CREATE TABLE bitDB_R_Summons
+(
+	BlotterID INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT FK_BlotterID FOREIGN KEY (BlotterID) REFERENCES bitDB_R_Blotter(BlotterID),
+	SummonSched DATETIME NOT NULL,
+	SummonPlace VARCHAR(100) NOT NULL
+)
+
+CREATE TABLE bitDB_R_Config
+(
+	BarangayIdentity INT AUTO_INCREMENT NOT NULL,
+		CONSTRAINT PK_BarangayIdentity PRIMARY KEY(BarangayIdentity),
+	ProvinceName VARCHAR(100) NOT NULL,
+	CityType	CHAR(1) NOT NULL,
+	Municipality VARCHAR(100) NOT NULL,
+	BarangayType CHAR NOT NULL,
+	BarangayName VARCHAR(100) NOT NULL,
+	Signatory INT,
+		CONSTRAINT FK_Signatories FOREIGN KEY(Signatory) REFERENCES  bitDB_R_BarangayOfficial (Brgy_Official_ID),
+	MunicipalSeal BLOB NOT NULL,
+	BarangaySeal BLOB NOT NULL
+)
+CREATE TABLE bitDB_R_IssuanceType
+(
+	IssuanceID		INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_IssuanceType PRIMARY KEY(IssuanceID),
+	IssuanceType	VARCHAR(100),
+	BarangayIdentity INT, 
+    	CONSTRAINT FK_BarangayIdentity FOREIGN KEY(BarangayIdentity) REFERENCES bitDB_R_Config (BarangayIdentity)
+)
+
+CREATE TABLE bitDB_R_Issuance
+(
+	IssuanceID	INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_IssuanceID PRIMARY KEY(IssuanceID),
+	CitizenID	INT,
+    	CONSTRAINT FK_IssuanceCitizenID FOREIGN KEY(CitizenID) REFERENCES bitDB_R_Citizen(Citizen_ID),
+	Name VARCHAR(200),
+	BusinessID	INT,
+    	CONSTRAINT FK_IssuanceBusinessID FOREIGN KEY(BusinessID) REFERENCES bitDB_R_Business(BusinessID),
+	IssuanceType INT NOT NULL,
+    	CONSTRAINT FK_IssuanceType FOREIGN KEY(IssuanceType) REFERENCES bitDB_R_IssuanceType(IssuanceID),
+	IssuanceDate DATE NOT NULL
+)
+
+CREATE TABLE bitDB_R_Project
+(
+	ProjectID	INT AUTO_INCREMENT NOT NULL,
+    	CONSTRAINT PK_Project PRIMARY KEY(ProjectID),
+	ProjectName	VARCHAR(100) NOT NULL,
+	ProjectLoc	VARCHAR(200) NOT NULL,
+	ProjectDesc VARCHAR(500) NOT NULL,
+	ProjectPhases INT,
+	DateStart	DATE NOT NULL,
+	DateFinish	DATE NOT NULL,
+	ProjectStatus	INT NOT NULL,
+	PeopleInvolved	INT ,
+    	CONSTRAINT FK_ProjectInvolved FOREIGN KEY(PeopleInvolved) REFERENCES bitDB_R_BarangayOfficial(Brgy_Official_ID)
+)
