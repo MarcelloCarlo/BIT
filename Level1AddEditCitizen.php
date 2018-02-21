@@ -301,11 +301,13 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Gender</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input id="CitiGender" type="text" name="Gender" class="form-control"/>
-                                    </div>
-                                </div>
+                                <div class="form-group">
+                                    <input type="radio" name="Gender" id="EditGendM" value="Male" class="with-gap">
+                                    <label for="EditGendM">Male</label>
+
+                                    <input type="radio" name="Gender" id="EditGendF" value="Female" class="with-gap">
+                                    <label for="EditGendF" class="m-l-20">Female</label>
+                                </div>   
                                 <h4 class="card-inside-title">Civil Status</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -478,11 +480,12 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Gender</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Gender" class="form-control" />
-                                        <label class="form-label">Gender</label>
-                                    </div>
+                                <div class="form-group">
+                                    <input type="radio" name="Gender" id="optGendM" value="Male" class="with-gap">
+                                    <label for="optGendM">Male</label>
+
+                                    <input type="radio" name="Gender" id="optGendF" value="Female" class="with-gap">
+                                    <label for="optGendF" class="m-l-20">Female</label>       
                                 </div>
                                 <h4 class="card-inside-title">Civil Status</h4>
                                 <div class="form-group form-float">
