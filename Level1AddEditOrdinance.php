@@ -46,49 +46,64 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
                                             <th>Ordinance ID</th>
-                                            <th>Titles</th>
+                                            <th>Title</th>
                                             <th>Category</th>
                                             <th>Authors</th>
                                             <th>Description</th>
-                                            <th>Date of Implementation</th>                                            
+                                            <th>Date of Implementation</th>
                                             <th>Status</th>
                                             <th>Actions</th>
-                                        </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>01</td>
-                                            <td>No Smoking</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>So ayon po ano Bawal mag yosi hahahaha</td>
-                                            <td>February 10,2018</td>
-                                            <td>Not Set</td>
-                                            <td>
-                                            <button type="button" class="btn btn-success waves-effect">
-                                                        <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
-                                                    </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>02</td>
-                                            <td>Oplan No Tambay</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>Insert your description Here</td>
-                                            <td>February 10,2018</td>
-                                            <td>Not Set</td>
-                                            <td>
-                                            <button type="button" class="btn btn-success waves-effect">
-                                                        <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
-                                                    </button>
-                                            </td>
-                                        </tr>
-                                       
+                                            <?php
+                                            include_once('dbconn.php');
+
+                                            $OrdinanceSQL = "SELECT 
+                                                                    bitdb_r_ordinance.OrdinanceID,
+                                                                    bitdb_r_ordinance.OrdinanceTitle,
+                                                                    bitdb_r_ordinance.CategoryID,
+                                                                    bitdb_r_ordinance.Author,
+                                                                    IFNULL(bitdb_r_ordinance.Persons_Involved,'') AS Persons_Involved,
+                                                                    bitdb_r_ordinance.OrdDesc,
+                                                                    bitdb_r_ordinance.DateImplemented,
+                                                                    bitdb_r_ordinance.OrdStatus,
+                                                                    bitdb_r_ordinance.Sanction
+                                                    
+                                                                FROM
+                                                                    bitdb_r_ordinance
+                                                                ";
+                                            $OrdinanceQuery = mysqli_query($bitMysqli,$OrdinanceSQL) or die(mysqli_error($bitMysqli));
+                                                if (mysqli_num_rows($OrdinanceQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($OrdinanceQuery))
+                                                    {   
+                                                        $OrdinanceID = $row['OrdinanceID'];
+                                                        $OrdinanceTitle = $row['OrdinanceTitle'];
+                                                        $CategoryID = $row['CategoryID'];
+                                                        $Author = $row['Author'];
+                                                        $Persons_Involved = $row['Persons_Involved'];
+                                                        $OrdDesc = $row['OrdDesc'];
+                                                        $DateImplemented = $row['DateImplemented'];
+                                                        $OrdStatus = $row['OrdStatus'];
+                                                        $Sanction = $row['Sanction'];
+
+                                                        echo
+                                                        '<tr>
+                                                            <td class="hide">'.$OrdinanceID.'</td>
+                                                            <td>'.$OrdinanceTitle.'</td>
+                                                            <td>'.$CategoryID.'</td>
+                                                            <td>'.$Author.'</td>
+                                                            <td>'.$Persons_Involved.'</td>
+                                                            <td>'.$OrdDesc.'</td>
+                                                            <td>'.$DateImplemented.'</td>
+                                                            <td>'.$OrdStatus.'</td>
+                                                            <td>'.$Sanction.'</td>
+                                                            
+                                                                                                                    </tr>';
+                                                    }
+                                                }
+                                            ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -98,9 +113,9 @@
             </div>
 
         </div>
-<form>
-<div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
-<div class="modal-dialog" role="document">
+<form id="Level1EditOrdinance" action="Level1EditOrdinance.php" Method="POST">
+    <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
@@ -161,11 +176,10 @@
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
-</div>
-</div>
+        </div>
+    </div>
 </form>
 
-    </section>
+</section>
 
 
-<?php include('footer.php'); ?>
