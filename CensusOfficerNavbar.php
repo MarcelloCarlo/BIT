@@ -68,11 +68,11 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/user.png" width="48" height="48" alt="User" />
+                    <img src="images/femaleuser.jpg" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Si Admin</div>
-                    <div class="email">Superuser</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Census Officer's Name Here</div>
+                    <div class="email">Census Officer</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -83,17 +83,17 @@
             </div>
             <!-- #User Info -->
             <!-- Menu -->
-            <div class="menu">
+            <!-- <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='CensusOfficerAddCitizen' ) {echo 'class="active"';} ?>>
-                        <a href="CensusOfficerAddCitizen.php">
-                            <i class="material-icons">settings_applications</i>
+                    <li <?php if ($currentPage==='CensusOfficerAddEditCitizen' ) {echo 'class="active"';} ?>>
+                        <a href="CensusOfficerAddEditCitizen.php">
+                            <i class="material-icons">people</i>
                             <span>Census Navigation</span>
                         </a>
                     </li>
 
-                     <li <?php if ($currentPage==='CensusOfficerViewCitizen' ) {echo 'class="active"';} ?>>
+                     <li <?php if ($currentPage==='CensusOfficerViewExpCitizen' ) {echo 'class="active"';} ?>>
                         <a href="CensusOfficerViewCitizen.php">
                             <i class="material-icons">settings_applications</i>
                             <span>Census Officer View</span>
@@ -101,7 +101,30 @@
                     </li>
                    
                 </ul>
+            </div> -->
+             <div class="menu">
+                <ul class="list">
+                    <li class="header">MAIN NAVIGATION</li>
+                                        
+                    <li <?php if ($currentPage==='CensusOfficerAddEditCitizen' | $currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">people</i>
+                            <span>Citizens</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li  <?php if ($currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
+                                <a href="CensusOfficerViewExpCitizen.php">View/Export</a>
+                            </li>
+                            <li  <?php if ($currentPage==='CensusOfficerAddEditCitizen') {echo 'class="active"';} ?>>
+                                 <a href="CensusOfficerAddEditCitizen.php">Add/Edit</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
+
+
+
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">
