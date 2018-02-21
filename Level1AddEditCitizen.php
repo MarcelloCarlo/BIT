@@ -285,7 +285,7 @@
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="CitiBDate" type="text" name="Birthdate" class="form-control date" />
+                                        <input id="CitiBDate" type="date" name="Birthdate" class="form-control date" />
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>
@@ -459,8 +459,8 @@
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="Birthdate" class="form-control date" />
-                                        <label class="form-label">YYYY-MM-DD</label>
+                                        <input type="date" name="Birthdate" class="form-control date" />
+                                       <!--  <label class="form-label">YYYY-MM-DD</label> -->
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>
