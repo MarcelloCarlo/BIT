@@ -1,9 +1,9 @@
 <?php 
     session_start();
     $title = 'Welcome | BarangayIT MK.II'; 
-    $currentPage = 'Level1AddEditCitizen'; 
+    $currentPage = 'CensusOfficerViewExpCitizen'; 
     include('head.php'); 
-    include('Level1Navbar.php'); 
+    include('CensusOfficerNavbar.php'); 
 ?>
 
 <section class="content">
@@ -21,20 +21,12 @@
                             <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
                         </h2>
                         <br/>
-                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitizModal">
-                            <i class="material-icons">add_circle_outline</i>
-                            <span>ADD NEW</span>
-                        </button>
-                        <!--   <button type="button" class="btn bg-indigo waves-effect">
-                            <i class="material-icons">add_circle_outline</i>
-                            <a  href="Level1AddCirtizen.php" style= "text-decoration: none;"> 
-                            <span>View</span></a>
-                        </button> -->
+                     
                     </div>
                     <div class="body">
                         <div class="table-responsive"> 
-                                     <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                         
+                            <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>
@@ -61,7 +53,7 @@
                                         <th>Person in Contact</th>
                                         <th>Contact</th>
                                         <th>Date Recorded</th>
-                                        <th>Actions</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -90,7 +82,7 @@
                                         <th>Person in Contact</th>
                                         <th>Contact</th>
                                         <th>Date Recorded</th>
-                                        <th>Actions</th>
+                                        
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -188,12 +180,7 @@
                                                             <td>'.$Person_Con.'</td>
                                                             <td>'.$Contact.'</td>
                                                             <td>'.$Date_Rec.'</td>
-                                                            <td>  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                <span>EDIT</span>
-                                                            </button>
-                                                            </td>
-                                                        </tr>';
+                                                                                                                    </tr>';
                                                     }
                                                 }
                                             ?>
@@ -206,7 +193,7 @@
         </div>
     </div>
     <!--Edit-->
-    <form id="Level1CitizenEdit" action="Level1EditCitizen.php" method="POST">
+    <form id="CensusOfficerCitizenEdit" action="CensusOfficerEditCitizen.php" method="POST">
         <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -285,7 +272,7 @@
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="CitiBDate" type="date" name="Birthdate" class="form-control date" />
+                                        <input id="CitiBDate" type="text" name="Birthdate" class="form-control date" />
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>
@@ -301,13 +288,11 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Gender</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="Gender" id="EditGendM" value="Male" class="with-gap">
-                                    <label for="EditGendM">Male</label>
-
-                                    <input type="radio" name="Gender" id="EditGendF" value="Female" class="with-gap">
-                                    <label for="EditGendF" class="m-l-20">Female</label>
-                                </div>   
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="CitiGender" type="text" name="Gender" class="form-control"/>
+                                    </div>
+                                </div>
                                 <h4 class="card-inside-title">Civil Status</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -380,7 +365,7 @@
     </div>
     </form>
     <!--Add-->
-    <form id="Level1CitizenAdd" action="Level1AddCitizen.php" method="POST">
+    <form id="CensusOfficerCitizenAdd" action="CensusOfficerAddCitizen.php" method="POST">
         <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -461,8 +446,8 @@
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" name="Birthdate" class="form-control date" />
-                                       <!--  <label class="form-label">YYYY-MM-DD</label> -->
+                                        <input type="text" name="Birthdate" class="form-control date" />
+                                        <label class="form-label">YYYY-MM-DD</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>
@@ -480,12 +465,11 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Gender</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="Gender" id="optGendM" value="Male" class="with-gap">
-                                    <label for="optGendM">Male</label>
-
-                                    <input type="radio" name="Gender" id="optGendF" value="Female" class="with-gap">
-                                    <label for="optGendF" class="m-l-20">Female</label>       
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" name="Gender" class="form-control" />
+                                        <label class="form-label">Gender</label>
+                                    </div>
                                 </div>
                                 <h4 class="card-inside-title">Civil Status</h4>
                                 <div class="form-group form-float">

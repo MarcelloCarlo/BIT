@@ -46,8 +46,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                include_once('dbconn.php');
+                                <?php
 
                                 $AddOffCitizenSQL = "SELECT 
                                                         bitdb_r_citizen.Salutation,
@@ -72,7 +71,7 @@
                                                         bitdb_r_citizen
                                                         ON 
                                                             bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
-                                                    INNER JOIN
+                                                    LEFT JOIN
                                                         bitdb_r_barangayposition
                                                         ON
                                                             bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
@@ -275,7 +274,7 @@
                                     <?php
                                     include_once('dbconn.php');
                                     $PostionSQL = "SELECT * FROM bitdb_r_barangayposition";
-                                    $PositionQuery = mysqli_query($bitMysqli,$AddOffCitizenSQL) or die(mysqli_error($bitMysqli));
+                                    $PositionQuery = mysqli_query($bitMysqli,$PostionSQL) or die(mysqli_error($bitMysqli));
                                     if(mysqli_num_rows($PositionQuery) > 0)
                                     {
                                         while($row = mysqli_fetch_assoc($PositionQuery))
