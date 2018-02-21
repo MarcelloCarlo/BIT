@@ -1,4 +1,6 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
+<?php 
+  session_start();
+$title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'Level1AddEditProjects';?>
 <!DOCTYPE html>
 <html>
