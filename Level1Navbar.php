@@ -17,7 +17,7 @@
     </div>
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
+    <div class="overlay">
     <!-- #END# Overlay For Sidebars -->
     <!-- Search Bar -->
  <!--REMOVED Search    <div class="search-bar">
