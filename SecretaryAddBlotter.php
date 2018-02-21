@@ -1,7 +1,7 @@
 <?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'SecBlotter';?>
+<?php $currentPage = 'SecretaryAddBlotter';?>
 <?php include('head.php'); ?>
-<?php include('SecBlotterNavigation.php'); ?>
+<?php include('SecretaryBlotterNavigation.php'); ?>
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">

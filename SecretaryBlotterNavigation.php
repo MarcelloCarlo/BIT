@@ -86,15 +86,15 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='SecBlotter' ) {echo 'class="active"';} ?>>
-                        <a href="SecBlotter.php">
+                    <li <?php if ($currentPage==='SecretaryAddBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="SecretaryAddBlotter.php">
                             <i class="material-icons">settings_applications</i>
                             <span>Secretary Blotter Navigation</span>
                         </a>
                     </li>
                    
-                      <li <?php if ($currentPage==='SecBlotterView' ) {echo 'class="active"';} ?>>
-                        <a href="SecBlotterView.php">
+                      <li <?php if ($currentPage==='SecretaryViewBlotter' ) {echo 'class="active"';} ?>>
+                        <a href="SecretaryViewBlotter.php">
                             <i class="material-icons">view_list</i>
                             <span>Secretary View Blotter Information</span>
                         </a>
