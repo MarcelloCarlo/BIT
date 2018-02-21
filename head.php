@@ -15,8 +15,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Offline Google Fonts -->
-    <link href="css/materialIcons.css" rel="stylesheet" type="text/css"/>
-    <link href="css/robotoFont.css" rel="stylesheet" type="text/css"/>
+    <link href="css/materialIcons.css" rel="stylesheet" type="text/css" />
+    <link href="css/robotoFont.css" rel="stylesheet" type="text/css" />
 
     <!-- Bootstrap Core Css -->
     <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -65,4 +65,5 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
+
 </head>
