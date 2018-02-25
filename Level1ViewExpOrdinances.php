@@ -21,12 +21,6 @@
                         <small>The list of all the ordinances of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                     </h2>
                     <br/>
-                          
-                         <!--   <button type="button" class="btn bg-indigo waves-effect" href="Level1ViewEditCitizen.php"> 
-                            <a href="Level1ViewEditCitizen.php" style= "text-decoration: none;"> 
-                            <i class="material-icons">add_circle_outline</i>
-                            <span>Add/Edit</span></a>
-                        </button> -->
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -52,22 +46,54 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Active</td>
-                                            <td>No Smoking</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>So ayon po ano Bawal mag yosi hahahaha</td>
-                                            <td>February 10,2018</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Active</td>
-                                            <td>Oplan No Tambay</td>
-                                            <td>N/A</td>
-                                            <td>Remmel Ocay</td>
-                                            <td>Insert your description Here</td>
-                                            <td>February 10,2018</td>
-                                        </tr>
+                                         <?php
+                                            include_once('dbconn.php');
+
+                                            $OrdinanceSQL = "SELECT 
+                                                                    bitdb_r_ordinance.OrdinanceID,
+                                                                    bitdb_r_ordinance.OrdinanceTitle,
+                                                                    bitdb_r_ordinance.CategoryID,
+                                                                    bitdb_r_ordinance.Author,
+                                                                    IFNULL(bitdb_r_ordinance.Persons_Involved,'') AS Persons_Involved,
+                                                                    bitdb_r_ordinance.OrdDesc,
+                                                                    bitdb_r_ordinance.DateImplemented,
+                                                                    bitdb_r_ordinance.OrdStatus,
+                                                                    bitdb_r_ordinance.Sanction
+                                                    
+                                                                FROM
+                                                                    bitdb_r_ordinance
+                                                                ";
+                                            $OrdinanceQuery = mysqli_query($bitMysqli,$OrdinanceSQL) or die(mysqli_error($bitMysqli));
+                                                if (mysqli_num_rows($OrdinanceQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($OrdinanceQuery))
+                                                    {   
+                                                        $OrdinanceID = $row['OrdinanceID'];
+                                                        $OrdinanceTitle = $row['OrdinanceTitle'];
+                                                        $CategoryID = $row['CategoryID'];
+                                                        $Author = $row['Author'];
+                                                        $Persons_Involved = $row['Persons_Involved'];
+                                                        $OrdDesc = $row['OrdDesc'];
+                                                        $DateImplemented = $row['DateImplemented'];
+                                                        $OrdStatus = $row['OrdStatus'];
+                                                        $Sanction = $row['Sanction'];
+
+                                                        echo
+                                                        '<tr>
+                                                            <td class="hide">'.$OrdinanceID.'</td>
+                                                            <td>'.$OrdinanceTitle.'</td>
+                                                            <td>'.$CategoryID.'</td>
+                                                            <td>'.$Author.'</td>
+                                                            <td>'.$Persons_Involved.'</td>
+                                                            <td>'.$OrdDesc.'</td>
+                                                            <td>'.$DateImplemented.'</td>
+                                                            <td>'.$OrdStatus.'</td>
+                                                            <td>'.$Sanction.'</td>
+                                                            
+                                                                                                                    </tr>';
+                                                    }
+                                                }
+                                            ?>
                                     </tbody>
                                 </table>
                             </div>
