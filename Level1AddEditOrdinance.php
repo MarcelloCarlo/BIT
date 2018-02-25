@@ -159,7 +159,7 @@
                                     {
                                         while($row = mysqli_fetch_assoc($CategoryQuery))
                                         {
-                                            echo '<option value="'.$row['OrdCategoryID'].'">'.$row['OrdinanceTitle'].'</option>';
+                                            echo '<option>'.$row['OrdinanceTitle'].'</option>';
                                         }
                                     }
                                     ?>

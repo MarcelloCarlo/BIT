@@ -8,30 +8,8 @@
 	}
 	else
 	{
-		$query = "SELECT
-					bitdb_r_barangayuseraccounts.AccountUsername,
-					bitdb_r_barangayuseraccounts.AccountPassword,
-					bitdb_r_barangayuseraccounts.AccountUserType,
-					bitdb_r_barangayofficial.Brgy_Official_ID,
-					bitdb_r_barangayofficial.ActUser,
-					bitdb_r_barangayposition.PosName,
-					bitdb_r_citizen.Salutation,
-					bitdb_r_citizen.First_Name,
-					bitdb_r_citizen.Last_Name,
-					IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Extension,
-					bitdb_r_barangayposition.PosName
-					FROM bitdb_r_barangayuseraccounts
-					INNER JOIN bitdb_r_barangayofficial
-					ON bitdb_r_barangayuseraccounts.Brgy_Official_ID = bitdb_r_barangayofficial.Brgy_Official_ID
-					INNER JOIN bitdb_r_barangayposition
-					ON bitdb_r_barangayposition.PosID = bitdb_r_barangayofficial.PosID
-					INNER JOIN bitdb_r_citizen
-					ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
-					WHERE
-					bitdb_r_barangayuseraccounts.AccountUsername = '".$User."'
-					AND
-					bitdb_r_barangayuseraccounts.AccountPassword = '".$Pass."'";
-		$RQuery = mysqli_query($bitMysqli,$query) or die(mysqli_error());
+		$query = 'SELECT bitdb_r_barangayuseraccounts.AccountUsername,bitdb_r_barangayuseraccounts.AccountPassword,bitdb_r_barangayuseraccounts.AccountUserType,bitdb_r_barangayofficial.Brgy_Official_ID,bitdb_r_barangayofficial.ActUser,bitdb_r_barangayposition.PosName,bitdb_r_citizen.Salutation,bitdb_r_citizen.First_Name,bitdb_r_citizen.Last_Name,IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Extension,bitdb_r_barangayposition.PosName FROM bitdb_r_barangayuseraccounts INNER JOIN bitdb_r_barangayofficial ON bitdb_r_barangayuseraccounts.Brgy_Official_ID = bitdb_r_barangayofficial.Brgy_Official_ID INNER JOIN bitdb_r_barangayposition ON bitdb_r_barangayposition.PosID = bitdb_r_barangayofficial.PosID INNER JOIN bitdb_r_citizen ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID WHERE bitdb_r_barangayuseraccounts.AccountUsername = "'.$User.'" AND bitdb_r_barangayuseraccounts.AccountPassword = "'.$Pass.'"';
+		$RQuery = mysqli_query($bitMysqli,$query) or die(mysqli_error($bitMysqli));
 		if (mysqli_num_rows($RQuery) > 0)
 		{
 			while($row = mysqli_fetch_assoc($RQuery))
@@ -39,7 +17,7 @@
 				$OfficialID = $row['Brgy_Official_ID'];
 				$OfficialFName = $row['First_Name'];
 				$OfficialLName = $row['Last_Name'];
-				$OfficialXName = $row['Name_Ext'];
+				$OfficialXName = $row['Name_Extension'];
 				$OfficialPos = $row['AccountUserType'];
 				$OfficialPosName = $row['PosName'];
 				$OfficialActUser = $row['ActUser'];
@@ -74,11 +52,32 @@
 			{
 				$header ='Location:/BIT/indexCaptain.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
+			else if ($_SESSION['AccountUserType'] == "3" && $OfficialPosName == "Chief Tanod" && $OfficialActUser == 1)
+			{
+				$header ='Location:/BIT/ChiefTanodAddBlotter.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+			}
+			else if ($_SESSION['AccountUserType'] == "4" && $OfficialPosName == "Census Officer" && $OfficialActUser == 1)
+			{
+				$header = 'Location:/BIT/CensusOfficerAddEditCitizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+			}
 			else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
 			{
 				$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-			} 
-			header($header);
+			}
+
+			else
+			{   
+	            //Development Build
+	            // $header = 'Location:/BRGYIT-UI/sign-in.php';
+	            //Testing and Deployment Build
+				$header = 'Location:/BIT/sign-in.php';
+				
+			}
+			// echo $OfficialPosName;
+			// echo $_SESSION['First_Name'];
+			// echo $_SESSION['Last_Name'];
+			// echo $_SESSION['Name_Extension'];
+			// echo $_SESSION['AccountUserType'];
 		}
 		else
 		{   
@@ -88,6 +87,7 @@
 			$header = 'Location:/BIT/sign-in.php';
 			
 		}
+		header($header);
 	}
 
 ?>

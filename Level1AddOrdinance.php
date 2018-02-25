@@ -28,10 +28,17 @@
 			$OrdCatTitle = $row['OrdinanceTitle'];
 		}
 	}
+	echo $Title;
+	echo $OrdCategory;
+	echo $OrdCatID;
+	echo $OrdAuthor;
+	echo $PerInv;
+	echo $OrdDesc;
+	echo $OrdSanction;
+	echo $DateImplemented;
+	// $Level1AddOrdinanceSQL = 'INSERT INTO bitdb_r_ordinance(OrdinanceTitle,CategoryID,Author,Persons_Involved,OrdDesc,DateImplemented,OrdStatus,Sanction) VALUES ("'.$Title.'",'.$OrdCatID.',"'.$OrdAuthor.'","'.$PerInv.'","'.$OrdDesc.'","'.$DateImplemented.'","'.$Ord_Status.'","'.$OrdSanction.'")';
+	// $Level1AddOrdinanceQuery = mysqli_query($bitMysqli,$Level1AddOrdinanceSQL) or die (mysqli_error($bitMysqli));
 
-	$Level1AddOrdinanceSQL = 'INSERT INTO bitdb_r_ordinance(OrdinanceTitle,CategoryID,Author,Persons_Involved,OrdDesc,DateImplemented,OrdStatus,Sanction) VALUES ("'.$Title.'","'.$OrdCatID.'","'.$OrdAuthor.'","'.$PerInv.'","'.$OrdDesc.'","'.$DateImplemented.'","'.$Ord_Status.'","'.$OrdSanction.'")';
-	$Level1AddOrdinanceQuery = mysqli_query($bitMysqli,$Level1AddOrdinanceSQL) or die (mysqli_error($bitMysqli));
-
-	$header = 'Location:/BIT/Level1AddEditOrdinance.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-	header($header);
+	// $header = 'Location:/BIT/Level1AddEditOrdinance.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	// header($header);
 ?>
