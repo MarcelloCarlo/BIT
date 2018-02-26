@@ -2,6 +2,9 @@
   session_start();
 $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'Level1AddEditProjects';?>
+<?php include('head.php'); ?>
+<?php include('Level1Navbar.php'); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -175,7 +178,6 @@ $title = 'Welcome | BarangayIT MK.II';?>
     </script>
 
 </head>
-<?php include('Level1Navbar.php'); ?>
 
 <section class="content">
     <div class="container-fluid">

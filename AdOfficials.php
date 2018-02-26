@@ -40,7 +40,7 @@ include('AdminNavbar.php');
                                             <th>Birthdate</th>
                                             <th>Street/Block</th>
                                             <th>Zone(Sitio)</th>
-                                            <th class="hide"></th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>

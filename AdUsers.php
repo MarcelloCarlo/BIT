@@ -38,7 +38,7 @@
                                             <th>Gender</th>
                                             <th>Authority</th>
                                             <th>Status</th>
-                                            <th class="hide"></th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
