@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php 
 	include_once('dbconn.php');
 
@@ -30,7 +30,7 @@
 							WHERE 	bitdb_r_citizen.Citizen_ID = "'.$CID.'" ';
 	$Level1EditCitizenQuery = mysqli_query($bitMysqli,$Level1EditCitizenSQL) or die (mysqli_error($bitMysqli));
 	$header = 'Location:/BIT/Level1AddEditCitizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-=======
+
 <?php
 	include_once('dbconn.php');
 
@@ -84,6 +84,5 @@
 								WHERE 	bitdb_r_ordinance.OrdinanceID = '.$OID.' ';
 	$Level1EditOrdinanceQuery = mysqli_query($bitMysqli,$Level1EditOrdinanceSQL) or die (mysqli_error($bitMysqli));
 	$header = 'Location:/BIT/Level1AddEditOrdinance.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
 	header($header);
 ?>
