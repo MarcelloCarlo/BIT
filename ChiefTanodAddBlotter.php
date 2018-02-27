@@ -5,6 +5,30 @@
     include('head.php');
     include('ChiefTanodNavigation.php'); 
 ?>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("citizenSearchBackend.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -160,14 +184,17 @@ c.  Report Print -->
                                         <label class="form-label">Complainant's Name</label>
                                     </div>
                                 </div>
-
+<!--Add Search-->
+                               
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
+                                    <div class="form-line search-box">
                                         <input type="text" class="form-control" name="name" required/>
                                         <label class="form-label">Accused' Name</label>
+                                        <div class="result"/>
                                     </div>
                                 </div>
+<!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
