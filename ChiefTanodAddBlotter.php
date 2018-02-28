@@ -5,30 +5,6 @@
     include('head.php');
     include('ChiefTanodNavigation.php'); 
 ?>
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("citizenSearchBackend.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
-
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -166,17 +142,16 @@ c.  Report Print -->
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" class="form-control" name="IncidentDate" required/>
-                                        <label class="form-label">Date of incident</label>
+                            
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Complaint Date</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" class="form-control" name="ComplaintDate" required/>
-                                        <label class="form-label">Complaint Date</label>
+                                        
                                     </div>
                                 </div>
-
                                 <h4 class="card-inside-title">Complainant's Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -191,7 +166,7 @@ c.  Report Print -->
                                     <div class="form-line search-box">
                                         <input type="text" class="form-control" name="name" required/>
                                         <label class="form-label">Accused' Name</label>
-                                        <div class="result"/>
+                                        <div class="result"></div>
                                     </div>
                                 </div>
 <!--end search-->
@@ -237,5 +212,29 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
-        
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("citizenSearchBackend.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+
 <?php include('footer.php'); ?>
