@@ -4,7 +4,7 @@
 	$Title = $_POST['OrdTitle'];
 	$OrdCategory = $_POST['OrdCategory'];
 	$OrdAuthor = $_POST['OrdAuthor'];
-	$PerInv = $_POST['PerInv'];
+	$PerInv = $_POST['Persons_Involved'];
 	$OrdDesc = $_POST['OrdDesc'];
 	$OrdSanction = $_POST['OrdSanction'];
 	$DateImplemented = $_POST['DateImplemented'];
@@ -29,7 +29,8 @@
 		}
 	}
 
-	$Level1AddOrdinanceSQL = 'INSERT INTO bitdb_r_ordinance(OrdinanceTitle,CategoryID,Author,Persons_Involved,OrdDesc,DateImplemented,OrdStatus,Sanction) VALUES ("'.$Title.'","'.$OrdCatID.'","'.$OrdAuthor.'","'.$PerInv.'","'.$OrdDesc.'","'.$DateImplemented.'","'.$Ord_Status.'","'.$OrdSanction.'")';
+	$Level1AddOrdinanceSQL = 'INSERT INTO bitdb_r_ordinance(OrdinanceTitle,CategoryID,Author,Persons_Involved,OrdDesc,DateImplemented,OrdStatus,Sanction) VALUES 
+	("'.$Title.'","'.$OrdCategory.'","'.$OrdAuthor.'","'.$PerInv.'","'.$OrdDesc.'","'.$DateImplemented.'","'.$Ord_Status.'","'.$OrdSanction.'")';
 	$Level1AddOrdinanceQuery = mysqli_query($bitMysqli,$Level1AddOrdinanceSQL) or die (mysqli_error($bitMysqli));
 
 	$header = 'Location:/BIT/Level1AddEditOrdinance.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';

@@ -48,29 +48,19 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
-<<<<<<< HEAD
-                                            <th>Ordinance ID</th>
-                                            <th>Title</th>
-=======
-                                        <tr>
                                             <th class="hide">Ordinance ID</th>
-                                            <th>Titles</th>
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
+                                            <th>Title</th>
                                             <th>Category</th>
                                             <th>Authors</th>
                                             <th>Persons Involved</th>
                                             <th>Description</th>
-<<<<<<< HEAD
-                                            <th>Date of Implementation</th>
-=======
                                             <th>Sanction</th>
-                                            <th>Date of Implementation</th>                                            
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
+                                            <th>Date of Implementation</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                     </tfoot>
                                     <tbody>
-<<<<<<< HEAD
+
                                             <?php
                                             include_once('dbconn.php');
 
@@ -119,7 +109,7 @@
                                                     }
                                                 }
                                             ?>
-=======
+
                                         <?php
                                             include_once('dbconn.php');
 
@@ -163,7 +153,7 @@
                                                                 <td>'.$OrdTitle.'</td>
                                                                 <td>'.$Category.'</td>
                                                                 <td>'.$Author.'</td>
-                                                                <td>'.$PerInv.'</td>
+                                                                <td>'.$Persons_Involved.'</td>
                                                                 <td>'.$OrdDesc.'</td>
                                                                 <td>'.$Sanction.'</td>
                                                                 <td>'.$Date.'</td>
@@ -178,7 +168,6 @@
                                                 }
                                             }
                                         ?>
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
                                     </tbody>
                                 </table>
                             </div>
@@ -188,15 +177,9 @@
             </div>
 
         </div>
-<<<<<<< HEAD
-<form id="Level1EditOrdinance" action="Level1EditOrdinance.php" Method="POST">
-    <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-=======
         <form id="Level1AddOrdinance" action="Level1AddOrdinance.php" method="POST">
             <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
@@ -236,11 +219,11 @@
                                         <label class="form-label">Authors</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Person Involved</h4>
+                                <h4 class="card-inside-title">Person Involve</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input name="PerInv" type="text" class="form-control" />
-                                        <label class="form-label">Person Involved</label>
+                                        <input name="Persons_Involved" type="text" class="form-control" />
+                                        <label class="form-label">Authors</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Description</h4>
@@ -267,26 +250,22 @@
 
                                 <h4 class="card-inside-title">Ordinance Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Ord_Status" id="editCheckA" value="Active" class="with-gap">
-                                    <label for="editCheckA">Active</label>
+                                    <input type="radio" name="Ord_Status" id="OrdStatA" value="Active" class="with-gap">
+                                    <label for="OrdStatA">Active</label>
 
-                                    <input type="radio" name="Ord_Status" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                    <input type="radio" name="Ord_Status" id="OrdStatI" value="Inactive" class="with-gap">
+                                    <label for="OrdStatI" class="m-l-20">Inactive</label>
                                 </div>
-
                             </div>
                             <br/>
-                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-link waves-effect">ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
-<<<<<<< HEAD
         </div>
     </div>
 </form>
-=======
                 </div>
             </div>
         </form>
@@ -388,13 +367,10 @@
             </div>
         </div>
         </form>
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
 
 </section>
 
 
-<<<<<<< HEAD
-=======
 <?php include('footer.php'); ?>
 
         <script type="text/javascript">
@@ -417,4 +393,4 @@
                         });
                     });
         </script>
->>>>>>> 4dd7bda9284d70456b79d0ba08dc577ccb3d7eb2
+
