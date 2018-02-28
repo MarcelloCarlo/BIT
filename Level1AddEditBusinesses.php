@@ -36,6 +36,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
+                                            <th class="hide">BusinessID</th>
                                             <th>Business Name</th>
                                             <th>Location</th>
                                             <th>Manager</th>
@@ -46,7 +47,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                           <th>Business Name</th>
+                                            <th class="hide">BusinessID</th>
+                                            <th>Business Name</th>
                                             <th>Location</th>
                                             <th>Manager</th>
                                             <th>Man. Address</th>
@@ -55,18 +57,57 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Siomai Stall</td>
-                                            <td>Sitio Huhhu,  SJDC</td>
-                                            <td>Edinburgh</td>
-                                            <td>61St. asaehere</td>
-                                            <td>Active</td>
-                                            <td> 
-                                                 <button type="button" class="btn btn-success waves-effect">
-                                                        <i class="material-icons">mode_edit</i>
-                                                        <span>EDIT</span>
-                                                    </button>
-                                            </td>
+                                        
+                                            <?php
+                                                include('dbconn.php');
+
+                                                $Level1BusinessSQL = 'SELECT    bitdb_r_business.BusinessID,
+                                                                                bitdb_r_business.Business_Name,
+                                                                                bitdb_r_business.BusinessLoc,
+                                                                                bitdb_r_business.Manager,
+                                                                                bitdb_r_business.Mgr_Address,
+                                                                                bitdb_r_business.Date_Issued,
+                                                                                bitdb_r_business.BusinessStatus
+                                                                        FROM    bitdb_r_business';
+                                                $Level1BusinessQuery = mysqli_query($bitMysqli,$Level1BusinessSQL) or die (mysqli_error($bitMysqli));
+                                                if(mysqli_num_rows($Level1BusinessQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($Level1BusinessQuery))
+                                                    {
+                                                        $BusinessID = $row['BusinessID'];
+                                                        $Business_Name = $row['Business_Name'];
+                                                        $BusinessLoc = $row['BusinessLoc'];
+                                                        $Manager = $row['Manager'];
+                                                        $ManagerAdd = $row['Mgr_Address'];
+                                                        $Date_Issued = $row['Date_Issued'];
+
+                                                        if($row['BusinessStatus'] == 1)
+                                                        {
+                                                            $BusinessStatus = "Active";
+                                                        }
+                                                        else
+                                                        {
+                                                            $BusinessStatus = "Inactive";
+                                                        }
+
+                                                        echo '  
+                                                        <tr>    
+                                                                <td class="hide">'.$BusinessID.'</td>
+                                                                <td>'.$Business_Name.'</td>
+                                                                <td>'.$BusinessLoc.'</td>
+                                                                <td>'.$Manager.'</td>
+                                                                <td>'.$ManagerAdd.'</td>
+                                                                <td>'.$BusinessStatus.'</td>
+                                                                <td> 
+                                                                    <button type="button" class="btn btn-success waves-effect">
+                                                                        <i class="material-icons">mode_edit</i>
+                                                                        <span>EDIT</span>
+                                                                    </button>
+                                                                </td>
+                                                        </tr>';
+                                                    }
+                                                }
+                                            ?>
                                                                                    
                                     </tbody>
                                 </table>
@@ -129,7 +170,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             </div>
             <!-- #END# Exportable Table -->
         </div>
-        <form>
+<form id="BusinessAdd" action="Level1AddBusinesses.php" method="POST" >
 <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -145,44 +186,36 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                 <h4 class="card-inside-title">Business Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="BusinessName"/>
                                         <label class="form-label">Business Name</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Location</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="BusinessLoc"/>
                                         <label class="form-label">Location</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Manager</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="BusinessManager"/>
                                         <label class="form-label">Manager</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Manager Address</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" />
+                                        <input type="text" class="form-control" name="ManagerAdd"/>
                                         <label class="form-label">Manager Address</label>
                                     </div>
                                 </div>
-
-                                <h4 class="card-inside-title">Status</h4>
-                                <div class="demo-switch">
-                                    <div class="switch">
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
-                                    </div>
-                                </div>
-
                             </div>
                             <br/>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect">ADD</button>
+                            <button type="submit" class="btn btn-link waves-effect">ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>

@@ -48,18 +48,30 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
+<<<<<<< HEAD
                                             <th class="hide">Ordinance ID</th>
                                             <th>Title</th>
+=======
+                                        <tr>
+                                            <th class="hide">Ordinance ID</th>
+                                            <th>Titles</th>
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                                             <th>Category</th>
                                             <th>Authors</th>
                                             <th>Persons Involved</th>
                                             <th>Description</th>
                                             <th>Sanction</th>
+<<<<<<< HEAD
                                             <th>Date of Implementation</th>
+=======
+                                            <th>Date of Implementation</th>                                            
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                                             <th>Status</th>
                                             <th>Actions</th>
+                                        </tr>
                                     </tfoot>
                                     <tbody>
+<<<<<<< HEAD
 
                                             <?php
                                             include_once('dbconn.php');
@@ -110,6 +122,8 @@
                                                 }
                                             ?>
 
+=======
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                                         <?php
                                             include_once('dbconn.php');
 
@@ -207,7 +221,7 @@
                                     {
                                         while($row = mysqli_fetch_assoc($CategoryQuery))
                                         {
-                                            echo '<option value="'.$row['OrdCategoryID'].'">'.$row['OrdinanceTitle'].'</option>';
+                                            echo '<option>'.$row['OrdinanceTitle'].'</option>';
                                         }
                                     }
                                     ?>
@@ -263,9 +277,12 @@
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
+<<<<<<< HEAD
         </div>
     </div>
 </form>
+=======
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                 </div>
             </div>
         </form>
@@ -368,7 +385,7 @@
         </div>
         </form>
 
-</section>
+    </section>
 
 
 <?php include('footer.php'); ?>
@@ -392,5 +409,9 @@
                     }
                         });
                     });
+<<<<<<< HEAD
         </script>
 
+=======
+        </script>
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544

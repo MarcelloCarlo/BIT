@@ -1,7 +1,10 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'ChiefTanodAddBlotter';?>
-<?php include('head.php'); ?>
-<?php include('ChiefTanodNavigation.php'); ?>
+<?php 
+    session_start();
+    $title = 'Welcome | BarangayIT MK.II';
+    $currentPage = 'ChiefTanodAddBlotter';
+    include('head.php');
+    include('ChiefTanodNavigation.php'); 
+?>
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -30,19 +33,70 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
+                                            <!-- <th class="hide">BlotterID</th> -->
                                             <th>Date Of Incident</th>
-                                            <th>Complainamt</th>
+                                            <th>Complainant</th>
                                             <th>Accused</th>
                                             <th>Subject</th>
                                             <th>Status</th>
                                             <th>Resolution</th>
                                             <th>Date Recorded</th>     
-                                            <th>Actions</th>    
-                                                                     
+                                            <th>Actions</th>                
                                             <th class="hide"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
+
+ <?php
+                                        include_once('dbconn.php');
+
+                                        $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
+                                                                            bitdb_r_blotter.IncidentDate,
+                                                                            bitdb_r_blotter.Complainant,
+                                                                            bitdb_r_citizen.First_Name,
+                                                                            IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
+                                                                            bitdb_r_citizen.Last_Name,
+                                                                            IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
+                                                                            bitdb_r_blotter.ComplaintStatement,
+                                                                            bitdb_r_blotter.ComplaintStatus,
+                                                                            bitdb_r_blotter.Resolution,
+                                                                            bitdb_r_blotter.BlotterType,
+                                                                            bitdb_r_blotter.ComplaintDate
+                                                                    FROM    bitdb_r_blotter
+                                                                    INNER JOIN bitdb_r_citizen
+                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused';
+                                        $CTanodSelectBlotterQuery = mysqli_query($bitMysqli,$CTanodSelectBlotterSQL) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($CTanodSelectBlotterQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($CTanodSelectBlotterQuery))
+                                            {
+                                                $BlotterID = $row['BlotterID'];
+                                                $IDate = $row['IncidentDate'];
+                                                $Complainant = $row['Complainant'];
+                                                $CStatement = $row['ComplaintStatement'];
+                                                $CStatus = $row['ComplaintStatus'];
+                                                $Resolution = $row['Resolution'];
+                                                $BlotterType = $row['BlotterType'];
+                                                $CDate = $row['ComplaintDate'];
+                                                $Accused = "".$row['First_Name']." ".$row['Middle_Name']." ".$row['Last_Name']." ".$row['Name_Ext']."";
+                                                echo'
+                                                    <tr>
+                                                        <td class="hide">'.$BlotterID.'</td>
+                                                        <td>'.$IDate.'</td>
+                                                        <td>'.$Complainant.'</td>
+                                                        <td>'.$Accused.'</td>
+                                                        <td>'.$BlotterType.'</td>
+                                                        <td>'.$CStatus.'</td>
+                                                        <td>'.$Resolution.'</td>
+                                                        <td>'.$CDate.'</td>
+                                                    </tr>
+                                                    ';
+                                            }
+                                        }
+                                   ?>
+
+
+
 <!-- 
 1.  Blotter No
 2.  Date of Incident
@@ -59,32 +113,7 @@ c.  Report Print -->
 
 
                                    <!--  unang column nang table -->
-                                       <tr>
-
-                                        <td>Remmel Ocay</td>
-                                        <td>Male</td>
-                                        <td>Hospital</td>
-                                        <td>Sept. 20, 2000</td>
-                                        <td>Active</td>
-                                        <td>Single</td>
-                                        <td>Sept. 20 2000</td>
-                                      
-
-                                    </tr>
-                                      <!--  2nd column nang table -->
-                                   <tr>
-                                        <td>Remmel Ocay</td>
-                                        <td>Male</td>
-                                        <td>Hospital</td>
-                                        <td>Sept. 20, 2000</td>
-                                        <td>Active</td>
-                                        <td>Single</td>
-                                        <td>Sept. 20 2000</td>
-                                       
-                                       
-
-                                    </tr>
-                                       
+                                   
                                     </tbody>
                                 </table>
                             </div>
@@ -104,37 +133,50 @@ c.  Report Print -->
                                 <small>Add Blotter</small>
                             </h2>
                         </div>
-
                         <div class="body js-sweetalert">
-                            <form id="form_validation" method="POST">
-
+                        <form id="CTanodBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
                                 <h4 class="card-inside-title">Date of incident</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
-                                        <label class="form-label">Date of incident</label>
+                                        <input type="date" class="form-control" name="IncidentDate" required/>
+                            
                                     </div>
                                 </div>
-
-                                <h4 class="card-inside-title">Cpmplainant's Name</h4>
+                                <h4 class="card-inside-title">Complaint Date</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
-                                        <label class="form-label">Cpmplainant's Name</label>
+                                        <input type="date" class="form-control" name="ComplaintDate" required/>
+                                        
                                     </div>
                                 </div>
-
+                                <h4 class="card-inside-title">Complainant's Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="Complainant" required/>
+                                        <label class="form-label">Complainant's Name</label>
+                                    </div>
+                                </div>
+<!--Add Search-->
+                               
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
-                                    <div class="form-line">
+                                    <div class="form-line search-box">
                                         <input type="text" class="form-control" name="name" required/>
                                         <label class="form-label">Accused' Name</label>
+                                        <div class="result"></div>
                                     </div>
                                 </div>
-
+<!--end search-->
+                                <h4 class="card-inside-title">Subject</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="" required/>
+                                        <label class="form-label">Subject</label>
+                                    </div>
+                                </div>
                                 <h4 class="card-inside-title">Complain Statement</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -142,7 +184,6 @@ c.  Report Print -->
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
-
                                 <h4 class="card-inside-title">Decision</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -151,17 +192,14 @@ c.  Report Print -->
                                     </div>
                                 </div>
 
-                                <h4 class="card-inside-title">Status</h4>
-                                <div class="demo-switch">
-                                    <div class="switch">
+                                <h4 class="card-inside-title">Complaint Status</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
+                                    <label for="editCheckA">Active</label>
 
-                                   
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
-                                    </div>
+                                    <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
+                                    <label for="editCheckI" class="m-l-20">Inactive</label>
                                 </div>
-
-                               
-                           
                             <br/>
                         </div>
                         <div class="modal-footer">
@@ -174,5 +212,29 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
-        
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("citizenSearchBackend.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+
 <?php include('footer.php'); ?>

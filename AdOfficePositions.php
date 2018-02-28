@@ -35,7 +35,7 @@
                                         <th>Position</th>
                                         <th>Description</th>
                                         <th>Status</th>
-                                        <th class="hide"></th>
+                                        <th style="width: 15px;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -33,7 +33,7 @@
                                     <tr>
                                         <th class="hide"></th>
                                         <th>Title</th>
-                                        <th class="hide"></th>
+                                        <th style="width: 15px; ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>

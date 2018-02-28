@@ -17,8 +17,8 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            EDIT CITIZENS
-                            <small>The list of all the citizens of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
+                            ADD CITIZENS
+                            <small>The list of all the citizens of the barangay. </small>
                         </h2>
                         <br/>
                         <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitizModal">
@@ -57,7 +57,7 @@
                                         <th>Person in Contact</th>
                                         <th>Contact</th>
                                         <th>Date Recorded</th>
-                                        <th>Actions</th>
+                                        <th class="hide">Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -86,7 +86,7 @@
                                         <th>Person in Contact</th>
                                         <th>Contact</th>
                                         <th>Date Recorded</th>
-                                        <th>Actions</th>
+                                        <th class="hide">Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -184,9 +184,9 @@
                                                             <td>'.$Person_Con.'</td>
                                                             <td>'.$Contact.'</td>
                                                             <td>'.$Date_Rec.'</td>
-                                                            <td>  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
+                                                            <td class="hide">  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
                                                                 <i class="material-icons">mode_edit</i>
-                                                                <span>EDIT</span>
+                                                                 <span>EDIT</span>
                                                             </button>
                                                             </td>
                                                         </tr>';
@@ -281,7 +281,7 @@
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="CitiBDate" type="text" name="Birthdate" class="form-control date" />
+                                        <input id="CitiBDate" type="date" name="Birthdate" class="form-control date" />
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>
@@ -457,8 +457,8 @@
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" name="Birthdate" class="form-control date" />
-                                        <label class="form-label">YYYY-MM-DD</label>
+                                        <input type="date" name="Birthdate" class="form-control date" />
+                                        <!-- <label class="form-label">YYYY-MM-DD</label> -->
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>

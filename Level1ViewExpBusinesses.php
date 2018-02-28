@@ -1,4 +1,6 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
+<?php 
+session_start();
+$title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'Level1ViewExpBusinesses';?>
 <?php include('head.php'); ?>
 <?php include('Level1Navbar.php'); ?>
@@ -27,34 +29,76 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                               <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
+                                            <th class="hide">BusinessID</th>
                                             <th>Business Name</th>
                                             <th>Location</th>
                                             <th>Manager</th>
                                             <th>Man. Address</th>
                                             <th>Status</th>
-                                        <!--    <th>Actions</th> -->
+                                            
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                           <th>Business Name</th>
+                                            <th class="hide">BusinessID</th>
+                                            <th>Business Name</th>
                                             <th>Location</th>
                                             <th>Manager</th>
                                             <th>Man. Address</th>
                                             <th>Status</th>
-                                    <!--        <th>Actions</th> -->
+                                           
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <tr>
-                                            <td>Siomai Stall</td>
-                                            <td>Sitio Huhhu,  SJDC</td>
-                                            <td>Edinburgh</td>
-                                            <td>61St. asaehere</td>
-                                            <td>Active</td>
+                                        
+                                            <?php
+                                                include('dbconn.php');
+
+                                                $Level1BusinessSQL = 'SELECT    bitdb_r_business.BusinessID,
+                                                                                bitdb_r_business.Business_Name,
+                                                                                bitdb_r_business.BusinessLoc,
+                                                                                bitdb_r_business.Manager,
+                                                                                bitdb_r_business.Mgr_Address,
+                                                                                bitdb_r_business.Date_Issued,
+                                                                                bitdb_r_business.BusinessStatus
+                                                                        FROM    bitdb_r_business';
+                                                $Level1BusinessQuery = mysqli_query($bitMysqli,$Level1BusinessSQL) or die (mysqli_error($bitMysqli));
+                                                if(mysqli_num_rows($Level1BusinessQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($Level1BusinessQuery))
+                                                    {
+                                                        $BusinessID = $row['BusinessID'];
+                                                        $Business_Name = $row['Business_Name'];
+                                                        $BusinessLoc = $row['BusinessLoc'];
+                                                        $Manager = $row['Manager'];
+                                                        $ManagerAdd = $row['Mgr_Address'];
+                                                        $Date_Issued = $row['Date_Issued'];
+
+                                                        if($row['BusinessStatus'] == 1)
+                                                        {
+                                                            $BusinessStatus = "Active";
+                                                        }
+                                                        else
+                                                        {
+                                                            $BusinessStatus = "Inactive";
+                                                        }
+
+                                                        echo '  
+                                                        <tr>    
+                                                                <td class="hide">'.$BusinessID.'</td>
+                                                                <td>'.$Business_Name.'</td>
+                                                                <td>'.$BusinessLoc.'</td>
+                                                                <td>'.$Manager.'</td>
+                                                                <td>'.$ManagerAdd.'</td>
+                                                                <td>'.$BusinessStatus.'</td>
+                                                                
+                                                        </tr>';
+                                                    }
+                                                }
+                                            ?>
                                                                                    
                                     </tbody>
                                 </table>
@@ -64,7 +108,7 @@
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-            <!-- Exportable Table -->
+            <!-- Exportable Table --
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -95,7 +139,7 @@
                                             <th>Manager</th>
                                             <th>Man. Address</th>
                                             <th>Status</th>
-                                        <!--    <th>Actions</th> -->
+                                        <!--    <th>Actions</th> --
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -105,7 +149,7 @@
                                             <th>Manager</th>
                                             <th>Man. Address</th>
                                             <th>Status</th>
-                                    <!--        <th>Actions</th> -->
+                                    <!--        <th>Actions</th> --
                                         </tr>
                                     </tfoot>
                                     <tbody>
