@@ -19,7 +19,7 @@ include('AdminNavbar.php');
 
         <!-- Contextual Classes With Linked Items -->
         <div class="row clearfix">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                         <h2>
@@ -81,27 +81,21 @@ include('AdminNavbar.php');
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- #END# Contextual Classes With Linked Items -->
-
-        <!-- Colorful Panel Items With Icon -->
-
-
-        <div class="body">
+            <!-- Colorful Panel Items With Icon -->
             <div class="row clearfix">
-                <div class="col-xs-12 ol-sm-12 col-md-12 col-lg-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="panel-group" id="accordion_17" role="tablist" aria-multiselectable="true">
 
 
                         <div class="panel btn-success">
                             <div class="panel-heading" role="tab" id="headingThree_17">
                                 <h4 class="panel-title">
-                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_17" href="#collapseThree_17" aria-expanded="false" aria-controls="collapseThree_17">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_17" href="#collapseThree_17" aria-expanded="true" aria-controls="collapseThree_17">
                                                         <i class="material-icons">mode_edit</i>Update
                                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseThree_17" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree_17">
+                            <div id="collapseThree_17" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree_17">
 
                                 <!-- Basic Validation -->
                                 <div class="row clearfix">
@@ -198,8 +192,11 @@ include('AdminNavbar.php');
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- #END# Colorful Panel Items With Icon -->
+        </div>
+        <!-- #END# Contextual Classes With Linked Items -->
+
+        
 
         <?php include('footer.php'); ?>

@@ -25,7 +25,7 @@ if(isset($_REQUEST['term'])){
                 // Fetch result rows as an associative array
                 while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                     echo "<p>" . $row["FullName"] . "</p>";
-                    echo "<p>".$row["Citizen_ID"]."</p>";
+                    echo "<small>".$row["Citizen_ID"]."</small>";
                 }
             } else{
                 echo "<p>No matches found</p>";
