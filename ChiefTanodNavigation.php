@@ -115,8 +115,8 @@
                     <li class="header">MAIN NAVIGATION</li>
                     <li <?php if ($currentPage==='ChiefTanodAddBlotter' ) {echo 'class="active"';} ?>>
                         <a href="ChiefTanodAddBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">settings_applications</i>
-                            <span>Chief Tanod Navigation</span>
+                            <i class="material-icons">report_problem</i>
+                            <span>Blotter</span>
                         </a>
                     </li>
                    
