@@ -188,11 +188,11 @@
                             <span>Blotter</span>
                         </a>
                         <ul class="ml-menu">
-                            <li>
-                                <a href="AddBlotter.html?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Blotter</a>
+                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>>
+                                <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Blotter</a>
                             </li>
-                            <li>
-                                <a href="BlotterList.html?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>sssss>
+                                <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
                     </li>

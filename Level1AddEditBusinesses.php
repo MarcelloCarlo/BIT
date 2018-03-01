@@ -57,7 +57,6 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        
                                             <?php
                                                 include('dbconn.php');
 

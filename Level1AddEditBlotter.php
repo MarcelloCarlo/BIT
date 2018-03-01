@@ -1,9 +1,9 @@
 <?php 
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'ChiefTanodAddBlotter';
+    $currentPage = 'Level1AddEditBlotter';
     include('head.php');
-    include('ChiefTanodNavigation.php'); 
+    include('Level1Navbar.php');
 ?>
 <section class="content">
         <div class="container-fluid">
@@ -46,8 +46,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-
- <?php
+                                    <?php
                                         include_once('dbconn.php');
 
                                         $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,

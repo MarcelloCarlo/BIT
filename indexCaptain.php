@@ -1,12 +1,10 @@
-<<<<<<< HEAD
-<?php 
-include ("dbconn.php");
+<?php
+session_start();
+    $title = 'Welcome | BarangayIT MK.II';
+    $currentPage = 'Captain';
+    include('head.php');
+    include('CaptainNavbar.php');
 ?>
-=======
-
-
-
->>>>>>> 294634c2414efbb0ca6a55d0a5b179bffe1a1720
 <!DOCTYPE html>
 <html>
 
