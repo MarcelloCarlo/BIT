@@ -48,20 +48,82 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
+<<<<<<< HEAD
+                                            <th class="hide">Ordinance ID</th>
+                                            <th>Title</th>
+=======
                                         <tr>
                                             <th class="hide">Ordinance ID</th>
                                             <th>Titles</th>
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                                             <th>Category</th>
                                             <th>Authors</th>
                                             <th>Persons Involved</th>
                                             <th>Description</th>
                                             <th>Sanction</th>
+<<<<<<< HEAD
+                                            <th>Date of Implementation</th>
+=======
                                             <th>Date of Implementation</th>                                            
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
+<<<<<<< HEAD
+
+                                            <?php
+                                            include_once('dbconn.php');
+
+                                            $OrdinanceSQL = "SELECT 
+                                                                    bitdb_r_ordinance.OrdinanceID,
+                                                                    bitdb_r_ordinance.OrdinanceTitle,
+                                                                    bitdb_r_ordinance.CategoryID,
+                                                                    bitdb_r_ordinance.Author,
+                                                                    IFNULL(bitdb_r_ordinance.Persons_Involved,'') AS Persons_Involved,
+                                                                    bitdb_r_ordinance.OrdDesc,
+                                                                    bitdb_r_ordinance.DateImplemented,
+                                                                    bitdb_r_ordinance.OrdStatus,
+                                                                    bitdb_r_ordinance.Sanction
+                                                    
+                                                                FROM
+                                                                    bitdb_r_ordinance
+                                                                ";
+                                            $OrdinanceQuery = mysqli_query($bitMysqli,$OrdinanceSQL) or die(mysqli_error($bitMysqli));
+                                                if (mysqli_num_rows($OrdinanceQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($OrdinanceQuery))
+                                                    {   
+                                                        $OrdinanceID = $row['OrdinanceID'];
+                                                        $OrdinanceTitle = $row['OrdinanceTitle'];
+                                                        $CategoryID = $row['CategoryID'];
+                                                        $Author = $row['Author'];
+                                                        $Persons_Involved = $row['Persons_Involved'];
+                                                        $OrdDesc = $row['OrdDesc'];
+                                                        $DateImplemented = $row['DateImplemented'];
+                                                        $OrdStatus = $row['OrdStatus'];
+                                                        $Sanction = $row['Sanction'];
+
+                                                        echo
+                                                        '<tr>
+                                                            <td class="hide">'.$OrdinanceID.'</td>
+                                                            <td>'.$OrdinanceTitle.'</td>
+                                                            <td>'.$CategoryID.'</td>
+                                                            <td>'.$Author.'</td>
+                                                            <td>'.$Persons_Involved.'</td>
+                                                            <td>'.$OrdDesc.'</td>
+                                                            <td>'.$DateImplemented.'</td>
+                                                            <td>'.$OrdStatus.'</td>
+                                                            <td>'.$Sanction.'</td>
+                                                            
+                                                                                                                    </tr>';
+                                                    }
+                                                }
+                                            ?>
+
+=======
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                                         <?php
                                             include_once('dbconn.php');
 
@@ -105,7 +167,7 @@
                                                                 <td>'.$OrdTitle.'</td>
                                                                 <td>'.$Category.'</td>
                                                                 <td>'.$Author.'</td>
-                                                                <td>'.$PerInv.'</td>
+                                                                <td>'.$Persons_Involved.'</td>
                                                                 <td>'.$OrdDesc.'</td>
                                                                 <td>'.$Sanction.'</td>
                                                                 <td>'.$Date.'</td>
@@ -171,11 +233,11 @@
                                         <label class="form-label">Authors</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Person Involved</h4>
+                                <h4 class="card-inside-title">Person Involve</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input name="PerInv" type="text" class="form-control" />
-                                        <label class="form-label">Person Involved</label>
+                                        <input name="Persons_Involved" type="text" class="form-control" />
+                                        <label class="form-label">Authors</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Description</h4>
@@ -202,21 +264,25 @@
 
                                 <h4 class="card-inside-title">Ordinance Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Ord_Status" id="editCheckA" value="Active" class="with-gap">
-                                    <label for="editCheckA">Active</label>
+                                    <input type="radio" name="Ord_Status" id="OrdStatA" value="Active" class="with-gap">
+                                    <label for="OrdStatA">Active</label>
 
-                                    <input type="radio" name="Ord_Status" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                    <input type="radio" name="Ord_Status" id="OrdStatI" value="Inactive" class="with-gap">
+                                    <label for="OrdStatI" class="m-l-20">Inactive</label>
                                 </div>
-
                             </div>
                             <br/>
-                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-link waves-effect">ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
+<<<<<<< HEAD
+        </div>
+    </div>
+</form>
+=======
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
                 </div>
             </div>
         </form>
@@ -343,4 +409,9 @@
                     }
                         });
                     });
+<<<<<<< HEAD
         </script>
+
+=======
+        </script>
+>>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544
