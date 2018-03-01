@@ -164,7 +164,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                 </tbody>
                             </table>
                             </div>
-                        </div><table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                        </div><!-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>
@@ -298,7 +298,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                 }
                                             ?>
                                 </tbody>
-                            </table>
+                            </table> -->
                             </div>
                         </div>
                     </div>

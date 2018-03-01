@@ -182,16 +182,16 @@
                         </ul>
                     </li>
 
-                    <li>
+                    <li <?php if ($currentPage==='Level1ViewExpBlotter' | $currentPage==='Level1AddEditBlotter') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">report_problem</i>
                             <span>Blotter</span>
                         </a>
                         <ul class="ml-menu">
-                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Blotter</a>
+                            <li <?php if($currentPage==='Level1ViewExpBlotter') {echo 'class="active"';}?>>
+                                <a href="Level1ViewExpBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Blotter</a>
                             </li>
-                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>sssss>
+                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>>
                                 <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
                         </ul>
