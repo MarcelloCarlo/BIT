@@ -165,7 +165,7 @@
                         </a>
                         <ul class="ml-menu">
                             <li <?php if ($currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayId.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay ID</a>
+                                <a href="Level1IssuanceBarangayId.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Indigency</a>
                             </li>
                             <li <?php if ($currentPage==='Level1IssuanceBarangayCert') {echo 'class="active"';} ?>>
                                 <a href="Level1IssuanceBarangayCert.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay Certificate</a>
@@ -240,21 +240,14 @@
                         </a>-->
                     </li>
 
-                                       
-                    <li <?php if ($currentPage==='Level1ViewExpProjects' | $currentPage==='Level1AddEditProjects') 
-                    {echo 'class="active"';} ?>>
-                        <a href="javascript:void(0);" class="menu-toggle">
+                    <li <?php if ($currentPage==='Level1ProjectMonitoring' | $currentPage==='Level1ViewExpProjects' ) {echo 'class="active"';}?>>
+                            <a href="Level1ViewExpProjects.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">assessment</i>
                             <span>Project Monitoring</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li  <?php if ($currentPage==='Level1ViewExpProjects') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
-                            </li>
-                            <li  <?php if ($currentPage==='Level1AddEditProjects') {echo 'class="active"';} ?>>
-                                 <a href="Level1AddEditProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
-                            </li>
-                        </ul>
+                    </li>
+                                       
+                                          
                 </ul>
             </div>
             <!-- #Menu -->

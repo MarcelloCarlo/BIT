@@ -1,15 +1,15 @@
 <?php 
-  session_start();
-$title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1ViewExpProjects';?>
-<?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
-<!-- <link href='/fullcalendar.min.css' rel='stylesheet' />
-<link href='/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-<script src='/lib/moment.min.js'></script>
-<script src='/lib/jquery.min.js'></script>
-<script src='/lib/jquery-ui.min.js'></script>
-<script src='../fullcalendar.min.js'></script> -->
+      session_start();
+      $title = 'Welcome | BarangayIT MK.II';
+      $currentPage = 'Level1ProjectMonitoring';
+      include('head.php');
+      //include('Level1Navbar.php'); ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+
 <script src='ProjectMonitoring/lib/moment.min.js'></script>
 <script src='ProjectMonitoring/lib/jquery.min.js'></script>
 <script src='ProjectMonitoring/lib/jquery-ui.min.js'></script>
@@ -81,7 +81,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                             <small>The list of all the projects in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                         </h2>
                         <br/>
-                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
+                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -149,7 +149,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
 
     </div>
     <form>
-        <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="addProjModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -209,6 +209,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
         </div>
     </form>
 </section>
+
 <style>
 
   /*body {
@@ -263,11 +264,13 @@ $title = 'Welcome | BarangayIT MK.II';?>
 /*    float: right;
     width: 500px;*/
     float: right;
-    width:200px;
+    width:500px;
     margin-right: 100px;
   }
 
 </style>
+
+</head>
 <body>
 <div style="margin-top: auto;">
 <div id='wrap'>
@@ -293,4 +296,20 @@ $title = 'Welcome | BarangayIT MK.II';?>
 </div>
 </body>
 
-<?php include('footer.php'); ?>
+<footer class="footer">
+    <div class="container-fluid">
+        <nav class="pull-left">
+        </nav>
+        <p class="copyright pull-right">
+            &copy;
+            <script>
+                document.write(new Date().getFullYear())
+
+            </script>
+            <a href="#">BarangayIT</a>, For Every Barangay
+        </p>
+    </div>
+</footer>
+
+</html>
+
