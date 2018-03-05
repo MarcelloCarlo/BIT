@@ -241,7 +241,7 @@
                     </li>
 
                     <li <?php if ($currentPage==='Level1ProjectMonitoring' | $currentPage==='Level1ViewExpProjects' ) {echo 'class="active"';}?>>
-                            <a href="Level1ViewExpProjects.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <a href="Level1ProjectMonitoring.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">assessment</i>
                             <span>Project Monitoring</span>
                         </a>
