@@ -1,0 +1,37 @@
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="www.barangayit.pupqc.net" resolutions="1x" timestamp="1520212466694">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="index.css" crc="375913753" ref="index"/>
+    <file name="master_a-master.css" crc="187441051" ref="barangay-clearance:business-permit"/>
+    <file name="barangay-clearance.css" crc="98426749" ref="barangay-clearance"/>
+    <file name="business-permit.css" crc="4086476143" ref="business-permit"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:barangay-clearance:business-permit"/>
+    <file name="museutils.js" crc="4232573551" ref="index:barangay-clearance:business-permit"/>
+    <file name="whatinput.js" crc="86476730" ref="index:barangay-clearance:business-permit"/>
+    <file name="museconfig.js" crc="4152223963" ref="index:barangay-clearance:business-permit"/>
+    <file name="jquery.watch.js" crc="3844535323" ref="index:barangay-clearance:business-permit"/>
+    <file name="require.js" crc="4234670167" ref="index:barangay-clearance:business-permit"/>
+  </folder>
+  <folder name="images">
+    <file name="barangay logo.png" crc="3987647798" seo="true" ref="index:barangay-clearance:business-permit">
+      <caption webpage="index" alt=""/>
+      <caption webpage="barangay-clearance" alt=""/>
+      <caption webpage="business-permit" alt=""/>
+    </file>
+    <file name="provincelogo.png" crc="3870925005" seo="true" ref="index:barangay-clearance:business-permit">
+      <caption webpage="index" alt=""/>
+      <caption webpage="barangay-clearance" alt=""/>
+      <caption webpage="business-permit" alt=""/>
+    </file>
+    <file name="barangay logo117x119.png" crc="447412082" seo="true" ref="index:barangay-clearance:business-permit">
+      <caption webpage="index" alt=""/>
+      <caption webpage="barangay-clearance" alt=""/>
+      <caption webpage="business-permit" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="4230246828" seo="true" mt="1520210228320" redirect="true"/>
+  <file name="barangay-clearance.html" crc="366572534" seo="true" mt="1520211617018" redirect="true"/>
+  <file name="business-permit.html" crc="4210696977" seo="true" mt="1520212444131" redirect="true"/>
+</manifest>
