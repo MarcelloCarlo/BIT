@@ -197,8 +197,8 @@
                         </ul>
                     </li>
 
-                    <li>
-                       <a href="ordinances.html">
+                    <li <?php if ($currentPage==='Level1AddEditPatawag'){echo 'class="active"';} ?>>
+                       <a href="Level1AddEditPatawag.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">gavel</i>
                             <span>Patawag</span></a>
                     </li>
