@@ -68,88 +68,33 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/femaleuser.jpg" width="48" height="48" alt="User" />
+                    <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <?php
-                        include('dbconn.php');
-                        $ID = $_SESSION['Logged_In'];
-
-
-                        $UserInfoSQL = 'SELECT bitdb_r_citizen.Salutation,
-                                                bitdb_r_citizen.First_Name,
-                                                IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
-                                                bitdb_r_citizen.Last_Name,
-                                                IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
-                                                bitdb_r_barangayposition.PosName
-                                        FROM bitdb_r_barangayofficial
-                                        INNER JOIN bitdb_r_citizen
-                                        ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
-                                        INNER JOIN bitdb_r_barangayposition
-                                        ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
-                                        WHERE bitdb_r_barangayofficial.Brgy_Official_ID = '.$ID.'';
-                        $UserInfoSQLQuery = mysqli_query($bitMysqli,$UserInfoSQL) or die (mysqli_error($bitMysqli));
-                        if(mysqli_num_rows($UserInfoSQLQuery) > 0)
-                        {
-                            while($row = mysqli_fetch_assoc($UserInfoSQLQuery))
-                            {
-                                $WName = ''.$row['Salutation'].' '.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].'';
-                                $Pos = $row['PosName'];
-                                echo '<div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$WName.'</div>
-                                        <div class="email">'.$Pos.'</div>';
-                            }
-                        }
-                    ?>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Si Admin</div>
+                    <div class="email">Superuser</div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
-                            <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="index.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- #User Info -->
             <!-- Menu -->
-            <!-- <div class="menu">
+            <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='CensusOfficerAddEditCitizen' ) {echo 'class="active"';} ?>>
-                        <a href="CensusOfficerAddEditCitizen.php">
-                            <i class="material-icons">people</i>
-                            <span>Census Navigation</span>
-                        </a>
-                    </li>
-
-                     <li <?php if ($currentPage==='CensusOfficerViewExpCitizen' ) {echo 'class="active"';} ?>>
-                        <a href="CensusOfficerViewCitizen.php">
+                    <li <?php if ($currentPage==='Patawag' ) {echo 'class="active"';} ?>>
+                        <a href="Patawag.php">
                             <i class="material-icons">settings_applications</i>
-                            <span>Census Officer View</span>
+                            <span>Patawag</span>
                         </a>
                     </li>
                    
                 </ul>
-            </div> -->
-             <div class="menu">
-                <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                                        
-                    <li <?php if ($currentPage==='CensusOfficerAddCitizenOnly' | $currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">people</i>
-                            <span>Citizens</span>
-                        </a>
-                        <ul class="ml-menu">
-                          
-                            <li  <?php if ($currentPage==='CensusOfficerAddCitizenOnly') {echo 'class="active"';} ?>>
-                                 <a href="CensusOfficerAddCitizenOnly.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
-
-
-
             <!-- #Menu -->
             <!-- Footer -->
             <div class="legal">

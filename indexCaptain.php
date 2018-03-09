@@ -1,379 +1,350 @@
-<?php
-session_start();
+<?php 
+    session_start();
     $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'Captain';
+    $currentPage = 'indexCaptain';
+    include('AdminConfig.php');
     include('head.php');
-    include('CaptainNavbar.php');
-?>
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Welcome | BarangayIT MK.III</title>
-    <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
-    <!-- Bootstrap Core Css -->
-    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-    <!-- Waves Effect Css -->
-    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
-
-    <!-- Animation Css -->
-    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
-
-    <!-- Colorpicker Css -->
-    <link href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
-
-    <!-- Dropzone Css -->
-    <link href="plugins/dropzone/dropzone.css" rel="stylesheet">
-
-    <!-- Multi Select Css -->
-    <link href="plugins/multi-select/css/multi-select.css" rel="stylesheet">
-
-    <!-- Bootstrap Spinner Css -->
-    <link href="plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
-
-    <!-- Bootstrap Tagsinput Css -->
-    <link href="plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
-
-    <!-- Bootstrap Select Css -->
-    <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-
-    <!-- noUISlider Css -->
-    <link href="plugins/nouislider/nouislider.min.css" rel="stylesheet" />
-
-    <!-- Custom Css -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-    <link href="css/themes/all-themes.css" rel="stylesheet" />
-</head>
-
-<body class="theme-orange">
-    <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-orange">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Loading...</p>
-        </div>
-    </div>
-    <!-- #END# Page Loader -->
-    <!-- Overlay For Sidebars -->
-    <div class="overlay"></div>
-    <!-- #END# Overlay For Sidebars -->
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <div class="search-icon">
-            <i class="material-icons">search</i>
-        </div>
-        <input type="text" placeholder="Search...">
-        <div class="close-search">
-            <i class="material-icons">close</i>
-        </div>
-    </div>
-    <!-- #END# Search Bar -->
-    <!-- Top Bar -->
-    <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
-                <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="indexCaptain.html">BarangayIT V2</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
-                    <!-- #END# Call Search -->
-                </ul>
-            </div>
-        </div>
-    </nav>
+    include('NavbarCaptain.php');
+ ?>
 
 
-    <!-- #Top Bar -->
-    <section>
-        <!-- Left Sidebar -->
-        <aside id="leftsidebar" class="sidebar">
-            <!-- User Info -->
-            <div class="user-info">
-                <div class="image">
-                    <img src="images/user.png" width="48" height="48" alt="User" />
-                </div>
-                <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hello Captain</div>
-                    <div class="email">Barangay Captain</div>
-                    <div class="btn-group user-helper-dropdown">
-                        <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- #User Info -->
-            <!-- Menu --
-            <div class="menu">
-                <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                    <li class="active">
-                        <a href="indexCaptain.html">
-                            <i class="material-icons">dashboard</i>
-                            <span>Dashboard</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Blotter.html">
-                            <i class="material-icons">view_module</i>
-                            <span>Blotter</span>
-                        </a>
-                    </li>
-                    <li class="header">VIEW ONLY</li>
-                    <li>
-                        <a href="CitizenView.html">
-                            <i class="material-icons">people_outline</i>
-                            <span>Citizen's List</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="BusinessesView.html">
-                            <i class="material-icons">people</i>
-                            <span>Businesses</span>
-                        </a>
-
-                    </li>
-                    <li>
-                        <a href="IssuanceView.html">
-                            <i class="material-icons">account_circle</i>
-                            <span>Issuances</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="SummonsView.html">
-                            <i class="material-icons">view_list</i>
-                            <span>Summons(Mga Patawag)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ProjectsView.html">
-                            <i class="material-icons">view_list</i>
-                            <span>Projects</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="OrdinanceView.html">
-                            <i class="material-icons">view_list</i>
-                            <span>Ordinances</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!-- #Menu -->
-            <!-- Footer -->
-            <div class="legal">
-                <div class="copyright">
-                    &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
-                </div>
-                <div class="version">
-                    <b>Version: </b> 1.0.5
-                </div>
-            </div>
-            <!-- #Footer -->
-        </aside>
-        <!-- #END# Left Sidebar -->
-        <!-- Right Sidebar -->
-    </section>
-
-    <section class="content">
+<section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Dashboard</h2>
+                <h2>DASHBOARD</h2>
             </div>
-
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        Welcome Captain <small>New Trouble? Click Add A Blotter!</small>
-                    </h2>
-                </div>
-                <div class="body">
-                    <button type="button" class="btn bg-red btn-block btn-lg waves-effect">ADD A BLOTTER</button>
-                </div>
-            </div>
-            <!-- Hover Rows -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+ <!--CUSTOM BLOCK INSERT HERE-->
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
                     <div class="card">
                         <div class="header">
-                            <h2>
-                                Compact Lists
-                                <small>Easy And Simple Lists to Scroll</small>
-                            </h2>
+                            <h2>Businesses Information</h2>
                             <ul class="header-dropdown m-r--5">
                                 <li class="dropdown">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                         <i class="material-icons">more_vert</i>
                                     </a>
                                     <ul class="dropdown-menu pull-right">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                        <li><a href="javascript:void(0);">View</a></li>
+                                        <li><a href="javascript:void(0);">Edit</a></li>
+                                        <li><a href="javascript:void(0);">More</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
-                        <div class="body table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>FIRST NAME</th>
-                                        <th>LAST NAME</th>
-                                        <th>USERNAME</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">4</th>
-                                        <td>Larry</td>
-                                        <td>Jellybean</td>
-                                        <td>@lajelly</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">5</th>
-                                        <td>Larry</td>
-                                        <td>Kikat</td>
-                                        <td>@lakitkat</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Business Name</th>
+                                            <th>Status</th>
+                                            <th>Manager</th>
+                                            <th>Progress</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Sari Sari Store</td>
+                                            <td><span class="label bg-green">Doing</span></td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Food Stall</td>
+                                            <td><span class="label bg-blue">To Do</span></td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-blue" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Computer Shop</td>
+                                            <td><span class="label bg-light-blue">On Hold</span></td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-light-blue" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Cafe</td>
+                                            <td><span class="label bg-orange">Wait Approvel</span></td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" style="width: 95%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Meat Shop</td>
+                                            <td>
+                                                <span class="label bg-red">Suspended</span>
+                                            </td>
+                                            <td>John Doe</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-red" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" style="width: 87%"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+
+                  <!-- Visitors -->
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                    <div class="card">
+                        <div class="body bg-pink">
+                            <div class="sparkline" data-type="line" data-spot-Radius="4" data-highlight-Spot-Color="rgb(233, 30, 99)" data-highlight-Line-Color="#fff"
+                                 data-min-Spot-Color="rgb(255,255,255)" data-max-Spot-Color="rgb(255,255,255)" data-spot-Color="rgb(255,255,255)"
+                                 data-offset="90" data-width="100%" data-height="92px" data-line-Width="2" data-line-Color="rgba(255,255,255,0.7)"
+                                 data-fill-Color="rgba(0, 188, 212, 0)">
+                                <small> Recent Blotters </small>
+                            </div>
+                            <ul class="dashboard-stat-list">
+                                <li>
+                                    TODAY
+                                    <span class="pull-right"><b>1 200</b> <small>USERS</small></span>
+                                </li>
+                                <li>
+                                    YESTERDAY
+                                    <span class="pull-right"><b>3 872</b> <small>USERS</small></span>
+                                </li>
+                                <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                </li>
+
+                                <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                </li>
+
+                                <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                </li>
+
+                                 <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                </li>
+
+                                 <li>
+                                    LAST WEEK
+                                    <span class="pull-right"><b>26 582</b> <small>USERS</small></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Visitors -->
+
+ <!-- Contextual Classes With Linked Items -->
+ <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Barangay Information
+                                <small>The complete details of the barangay.</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="list-group">
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">City/Municipality</h4>
+                                    <p class="list-group-item-text">
+                                        <?php echo $c_Type?> 
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Independent/Component</h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $b_Type?>
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Province Name</h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $ProvinceName?>
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">City/Municipality Name</h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $Municipality?>
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Barangay Name</h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $BarangayName?>
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $WName?>
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4></h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $Municipality?>
+                                    </p>
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Barangay Seal</h4></h4>
+                                    <p class="list-group-item-text">
+                                       <?php echo $Municipality?>sss
+                                    </p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- #END# Contextual Classes With Linked Items -->
 
+<!-- Input --
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Main Dashboard
+                                <small>Barangay Information Fields</small>
+                            </h2>
+                        </div>
+                        <div class="body">
+                            <div class="row clearfix margin-0">
+                                <h3 class="card-inside-title">City or Municipality?</h3>
+                                <div class="demo-radio-button">
+                                    <input name="group1" type="radio" id="radio_1" checked />
+                                    <label for="radio_1">City</label>
+                                    <input name="group1" type="radio" id="radio_2" />
+                                    <label for="radio_2">Municipality</label>
+                                </div>
+                                <h3 class="card-inside-title">Independent or Component?</h3>
+                                <div class="demo-radio-button">
+                                    <input name="group2" type="radio" id="radio_3" checked />
+                                    <label for="radio_3">Independent</label>
+                                    <input name="group2" type="radio" id="radio_4" />
+                                    <label for="radio_4">Component</label>
+                                </div>
 
-
-
-
-
-            <!--CUSTOM BLOCK INSERT HERE-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                </nav>
-                <p class="copyright pull-right">
-                    &copy;
-                    <script>
-                        document.write(new Date().getFullYear())
-                    </script>
-                    <a href="indexCaptain.html">BarangayIT</a>, For Every Barangay
-                </p>
+                                <h3 class="card-inside-title">Province Name</h3>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Province Name</label>
+                                    </div>
+                                </div>
+                                <h3 class="card-inside-title">City/Municipality Name</h3>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">City/Municipality Name</label>
+                                    </div>
+                                </div>
+                                <h3 class="card-inside-title">Barangay Name</h3>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Barangay Name</label>
+                                    </div>
+                                </div>
+                                <h3 class="card-inside-title">Signatory (Barangay Chairman)</h3>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" />
+                                        <label class="form-label">Signatory (Barangay Chairman)</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+ <!-- File Upload | Drag & Drop OR With Click & Choose --
+                                    <div class="header">
+                                        <h3>
+                                            City/Municipal Seal
+                                        </h3>
+                                    </div>
+                                    <div class="body">
+                                        <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                                            <div class="dz-message">
+                                                <div class="drag-icon-cph">
+                                                    <i class="material-icons">touch_app</i>
+                                                </div>
+                                                <h4>Drop files here or click to upload.</h4>
+                                                <em>City/Municipal Seal Image File</em>
+                                            </div>
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple />
+                                            </div>
+                                        </form>
+                                    </div>
+ <!-- #END# File Upload | Drag & Drop OR With Click & Choose -->
+                                    <!-- File Upload | Drag & Drop OR With Click & Choose --
+                                    <div class="header">
+                                        <h3>
+                                            Barangay Seal
+                                        </h3>
+                                    </div>
+                                    <div class="body">
+                                        <form action="/" id="frmFileUpload" class="dropzone" method="post" enctype="multipart/form-data">
+                                            <div class="dz-message">
+                                                <div class="drag-icon-cph">
+                                                    <i class="material-icons">touch_app</i>
+                                                </div>
+                                                <h4>Drop files here or click to upload.</h4>
+                                                <em>Barangay Seal Image File</em>
+                                            </div>
+                                            <div class="fallback">
+                                                <input name="file" type="file" multiple />
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- #END# File Upload | Drag & Drop OR With Click & Choose -->
+<!-- <! <button type="button" class="btn btn-warning waves-effect">UPDATE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </footer>
+        </div>  <!-- #END# Input -->
+
     </section>
-    <script type="text/javascript">
-        $(document).ready(function() {
+    
+   
+<?php include('footer.php'); ?>
 
-            // Javascript method's body can be found in assets/js/demos.js
-            demo.initDashboardPageCharts();
 
-        });
-    </script>
-    <!-- Jquery Core Js -->
-    <script src="plugins/jquery/jquery.min.js"></script>
 
-    <!-- Bootstrap Core Js -->
-    <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
-    <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
-    <!-- Slimscroll Plugin Js -->
-    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
 
-    <!-- Waves Effect Plugin Js -->
-    <script src="plugins/node-waves/waves.js"></script>
 
-    <!-- Jquery CountTo Plugin Js -->
-    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
 
-    <!-- Morris Plugin Js -->
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/morrisjs/morris.js"></script>
 
-    <!-- ChartJs -->
-    <script src="plugins/chartjs/Chart.bundle.js"></script>
 
-    <!-- Flot Charts Plugin Js -->
-    <script src="plugins/flot-charts/jquery.flot.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
-    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
-
-    <!-- Sparkline Chart Plugin Js -->
-    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
-
-    <!-- Custom Js -->
-    <script src="js/admin.js"></script>
-    <script src="js/pages/index.js"></script>
-
-    <!-- Demo Js -->
-    <script src="js/demo.js"></script>
-</body>
-
-</html>
+        

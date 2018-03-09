@@ -1,34 +1,25 @@
-<?php $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'CaptainViewBlotter';?>
-<?php include('head.php'); ?>
-<?php include('CaptainBlotterNavigation.php'); ?>
+<?php 
+session_start();
+$title = 'Welcome | BarangayIT MK.II';
+$currentPage = 'CaptainViewBlotter';
+include('head.php');
+include('NavbarCaptain.php');
+?>
 
-<link rel="icon" href="../../favicon.ico" type="image/x-icon">
+<?php
+include('dbconn.php');
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+$query = "SELECT * FROM bitdb_r_blotter";
 
-<!-- Bootstrap Core Css -->
-<link href="../../plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-<!-- Waves Effect Css -->
-<link href="../../plugins/node-waves/waves.css" rel="stylesheet" />
-
-<!-- Animation Css -->
-<link href="../../plugins/animate-css/animate.css" rel="stylesheet" />
-
-<!-- Custom Css -->
-<link href="../../css/style.css" rel="stylesheet">
-
-<!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-<link href="../../css/themes/all-themes.css" rel="stylesheet" />
+$result = mysqli_query($bitMysqli,$query)
+?>
 
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>Blotter Inforamtion List</h2>
         </div>
+        <!--CUSTOM BLOCK INSERT HERE-->
+        <!--CUSTOM BLOCK INSERT HERE-->
         
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -36,167 +27,162 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            BLOTTER INFORMATION LIST 
-                            <small>The current list of barangay blotter.</small>
+                            BLOTTER LIST
+                            <small>The current list of barangay blotter. Click "Edit" to modify on the existing blotter.</small>
                         </h2>
                         <br/>
-
-                    </div>           
-
-                    
+                        
+                    </div>
                     <div class="body">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs tab-nav-right" role="tablist">
-                            <li role="presentation" class="active"><a href="#home" data-toggle="tab">HOME</a></li>
-                            <li role="presentation"><a href="#profile" data-toggle="tab">PROFILE</a></li>
-                            <li role="presentation"><a href="#OFFICERS" data-toggle="tab">OFFICERS</a></li>
-                            <li role="presentation"><a href="#BLOTTERS" data-toggle="tab">BLOTTERS</a></li>
-                            <li role="presentation"><a href="#ORDIANCES" data-toggle="tab">ORDIANCES</a></li>
-                            <li role="presentation"><a href="#PROJECT" data-toggle="tab">PROJECT</a></li>
-                            <li role="presentation"><a href="#BUSINESS" data-toggle="tab">BUSINESS</a></li>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <thead>
+                                    <tr>
+                                        <th>Date of Incident</th>
+                                        <th>Complainant</th>
+                                        <th>Accused</th>
+                                        <th>Subject</th>
+                                        <th>Status</th>
+                                        <th>Resolution</th>
+                                        <th>Date Recorded</th>     
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                   <th>Date of Incident</th>
+                                   <th>Complainant</th>
+                                   <th>Accused</th>
+                                   <th>Subject</th>
+                                   <th>Status</th>
+                                   <th>Resolution</th>
+                                   <th>Date Recorded</th>     
+                                   <th>Action</th>
+                               </tfoot>
+                               <tbody>
 
-                        </ul>
+                                 <!--  unang column nang table -->
 
-                        <!-- Tab panes -->
 
-                        <!-- Home -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane fade in active" id="home">
-                            <b>Home</b>
-                            </div>
+                                 <?php 
+                                 while ($row = mysqli_fetch_assoc($result)) {
+                                        # code...
+                                    ?>
+                                    <tr>
 
-                               <!-- OFFICERS -->
-                            <div role="tabpanel" class="tab-pane fade" id="OFFICERS">
-                            <b>Business</b>
-                            </div>
+                                        <td><?php echo $row['IncidentDate'];?></td>
+                                        <td><?php echo $row['Complainant'];?></td>
+                                        <td><?php echo $row['Accused'];?></td>
+                                        <td><?php echo $row['ComplaintStatement'];?></td>
+                                        <td><?php 
+                                            if($row['ComplaintStatus'] == 1)
+                                            {
+                                             echo $row['ComplaintStatus'] = "Active";
+                                         }
+                                         else
+                                         {
+                                            echo $row['ComplaintStatus'] = "Inactive";
+                                        }
+                                        ?>
+                                        
+                                    </td>
+                                        <td><?php echo $row['Resolution'];?></td>
+                                        <td><?php echo $row['ComplaintDate'];?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editPosModal">
+                                                <i class="material-icons">mode_edit</i>
+                                                <span>EDIT</span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                                mysqli_close($bitMysqli);
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- #END# Basic Examples -->
 
-                              <!-- ORDINANCES -->
-                            <div role="tabpanel" class="tab-pane fade" id="ORDIANCES">
-                                <b>Ordinances</b>
-                            </div>
+    <div class="modal fade" id="editPosModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>
+                        EDIT
+                        <br/>
+                        <small>Modify Blotter information</small>
+                    </h2>
+                </div>
 
-                            <!-- PROJECT -->
-                            <div role="tabpanel" class="tab-pane fade" id="PROJECT">
-                                <b>Project</b>
-                            </div>
-
-                            <!-- BUSINESS-->
-                            <div role="tabpanel" class="tab-pane fade" id="BUSINESS">
-                                <b>Business</b>
-                            </div>
-
-                            <!-- profile -->
-                            <div role="tabpanel" class="tab-pane fade" id="profile">
-                               <div class="body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                       <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Gender</th>
-                                            <th>Birth Place</th>
-                                            <th>Birthday</th>
-                                            <th>Nationality</th>
-                                            <th>Civil Status</th>
-                                            <th>Status</th>
-                                            <th>Address</th>
-                                            <th>Date/Time Recorder</th>     
-                                            <th>Actions</th>                                       
-                                            <th class="hide"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                     <!--  unang column nang table -->
-                                     <tr>
-
-                                        <td>Remmel Ocay</td>
-                                        <td>Male</td>
-                                        <td>Hospital</td>
-                                        <td>Sept. 20, 2000</td>
-                                        <td>Filipino</td>
-                                        <td>Single</td>
-                                        <td>Active</td>
-                                        <td>Area A</td>
-                                        <td> Feb. 05, 2018/12:00 PM</td>
-                                        <td>                               
-                                        </table>
-                                    </div>
+                <div class="body js-sweetalert">
+                    <form id="form_validation" method="POST">
+                        <!-- edit -->
+                        <div class="modal-body">
+                         <div class="row clearfix margin-0">
+                            <h4 class="card-inside-title">Date of incident</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="Date" class="form-control" required />
+                                    <!-- <label class="form-label">Date of incident</label> -->
                                 </div>
                             </div>
 
-
-
-                            <!-- blotters -->
-                            <div role="tabpanel" class="tab-pane fade" id="BLOTTERS">
-                               <div class="body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Date Of Incident</th>
-                                                <th>Complainamt</th>
-                                                <th>Accused</th>
-                                                <th>Subject</th>
-                                                <th>Status</th>
-                                                <th>Resolution</th>
-                                                <th>Date Recorded</th>     
-
-
-                                                <th class="hide"></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                         <!--  unang column nang table -->
-                                         <tr>
-                                            <td>Remmel Ocay</td>
-                                            <td>Male</td>
-                                            <td>Hospital</td>
-                                            <td>Sept. 20, 2000</td>
-                                            <td>Active</td>
-                                            <td>Single</td>
-                                            <td>Sept. 20 2000</td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
+                            <h4 class="card-inside-title">Cpmplainant's Name</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" required />
+                                    <label class="form-label">Cpmplainant's Name</label>
+                                </div>
                             </div>
 
-                         
+                            <h4 class="card-inside-title">Accused' Name</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" required />
+                                    <label class="form-label">Accused' Name</label>
+                                </div>
+                            </div>
 
-                           </div>
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-       <!-- #END# Example Tab -->
+                            <h4 class="card-inside-title">Complain Statement</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" required/>
+                                    <label class="form-label">Complain Statement</label>
+                                </div>
+                            </div>
+
+                            <h4 class="card-inside-title">Decision</h4>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input type="text" class="form-control" required/>
+                                    <label class="form-label">Decision</label>
+                                </div>
+                            </div>
+
+                            <h4 class="card-inside-title">Status</h4>
+                            <div class="demo-switch">
+                                <div class="switch">
+
+
+                                    <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success waves-effect" data-type="confirm" type="submit">UPDATE</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
-
-       <!-- #END# Basic Examples -->
-
-
-       <script src="../../plugins/jquery/jquery.min.js"></script>
-
-       <!-- Bootstrap Core Js -->
-       <script src="../../plugins/bootstrap/js/bootstrap.js"></script>
-
-       <!-- Select Plugin Js -->
-       <script src="../../plugins/bootstrap-select/js/bootstrap-select.js"></script>
-
-       <!-- Slimscroll Plugin Js -->
-       <script src="../../plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
-
-       <!-- Waves Effect Plugin Js -->
-       <script src="../../plugins/node-waves/waves.js"></script>
-
-       <!-- Custom Js -->
-       <script src="../../js/admin.js"></script>
-
-       <!-- Demo Js -->
-       <script src="../../js/demo.js"></script>
-
-       <?php include('footer.php'); ?>
+        <?php include('footer.php'); ?>
