@@ -158,26 +158,14 @@
 
                     </li>
 
-                    <li <?php if ($currentPage==='Level1IssuanceBarangayCert' | $currentPage==='Level1IssuancePermit' | $currentPage==='Level1IssuanceBarangayClearance' | $currentPage==='Level1IssuancePolice' | $currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='Level1Issuance') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">featured_play_list</i>
                             <span>Issuance</span>
                         </a>
                         <ul class="ml-menu">
-                            <li <?php if ($currentPage==='Level1IssuanceBarangayId') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayId.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Indigency</a>
-                            </li>
-                            <li <?php if ($currentPage==='Level1IssuanceBarangayCert') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayCert.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay Certificate</a>
-                            </li>
-                            <li <?php if ($currentPage==='Level1IssuanceBarangayClearance') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuanceBarangayClearance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Barangay Clearance</a>
-                            </li>
-                            <li <?php if ($currentPage==='Level1IssuancePermit') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuancePermit.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Business Permit </a>
-                            </li>
-                            <li <?php if ($currentPage==='Level1IssuancePolice') {echo 'class="active"';} ?>>
-                                <a href="Level1IssuancePolice.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Police Clearance</a>
+                            <li <?php if ($currentPage==='Level1Issuance') {echo 'class="active"';} ?>>
+                                <a href="Level1Issuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Issuance</a>                          
                             </li>
                         </ul>
                     </li>
