@@ -27,7 +27,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="login-page" style="background-color:#2E2A67"    >
+<body class="login-page" style="background-color:Teal"    >
     <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);">Barangay<b> IT</b></a>
