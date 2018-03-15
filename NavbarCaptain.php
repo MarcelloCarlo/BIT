@@ -1,4 +1,4 @@
-<body class="theme-orange">
+<body class="theme-teal">
     <!-- Page Loader -->
     <div class="page-loader-wrapper"> 
         <div class="loader">
