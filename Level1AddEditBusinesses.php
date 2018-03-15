@@ -20,7 +20,11 @@ $title = 'Welcome | BarangayIT MK.II';?>
                         <small>The list of all the businesses in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                     </h2>
                     <br/>
+<<<<<<< HEAD
                      <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addBusinessModal">
+=======
+                     <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addBussModal">
+>>>>>>> 612b5652c9b6edc3aed842cccb7370b20bb00ace
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -33,8 +37,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                    <thead>
+                                <!-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> -->
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">    <thead>
                                         <tr>
                                             <th class="hide">BusinessID</th>
                                             <th>Business Name</th>
@@ -105,7 +109,11 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                                 <td>'.$ManagerAdd.'</td>
                                                                 <td>'.$BusinessStatus.'</td>
                                                                 <td> 
+<<<<<<< HEAD
                                                                     <button type="button" class="btn btn-success waves-effect editBusiness" data-toggle="modal" data-target="#editBusinessModal">
+=======
+                                                                    <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editBussModal">
+>>>>>>> 612b5652c9b6edc3aed842cccb7370b20bb00ace
                                                                         <i class="material-icons">mode_edit</i>
                                                                         <span>EDIT</span>
                                                                     </button>
@@ -176,26 +184,88 @@ $title = 'Welcome | BarangayIT MK.II';?>
             </div>
             <!-- #END# Exportable Table -->
         </div>
+<<<<<<< HEAD
         <form id="BusinessAdd" action="Level1AddBusinesses.php" method="POST" >
             <div class="modal fade" id="addBusinessModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
+=======
+     
+       <form id="BusinessEdit" action="Level1EditBusinesses.php" method="POST" >
+<div class="modal fade" id="editBussModal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                Add Business
+                                Edit Citizen
                                 <br/>
-                                <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
                             </h2>
                         </div>
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Business Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="BusinessName"/>
                                         <label class="form-label">Business Name</label>
                                     </div>
                                 </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="BusinessLoc"/>
+                                        <label class="form-label">Location</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="BusinessManager"/>
+                                        <label class="form-label">Manager</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="ManagerAdd"/>
+                                        <label class="form-label">Manager Address</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Business Status</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="Buss_Status" id="optBussActive" value="Active" class="with-gap">
+                                    <label for="optBussActive">Active</label>
+
+                                    <input type="radio" name="Buss_Status" id="optBussInactive" value="Inactive" class="with-gap">
+                                    <label for="optBussInactive" class="m-l-20">Inactive</label>
+                                </div>
+                            </div>
+                            <br/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-link waves-effect">EDIT</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+</div>
+</div>
+</form>
+<form id="BusinessAdd" action="Level1AddBusinesses.php" method="POST" >
+<div class="modal fade" id="addBussModal" tabindex="-1" role="dialog">
+<div class="modal-dialog" role="document">
+>>>>>>> 612b5652c9b6edc3aed842cccb7370b20bb00ace
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                Add Business
+                                <br/>
+                                <button type="button" class="btn btn-success waves-effect">Migrate from Excel</button>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                           <div class="row clearfix margin-0">
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="BusinessName"/>
+                                        <label class="form-label">Business Name</label>
+                                    </div>
+                                </div>
+<<<<<<< HEAD
                                 
                                 <h4 class="card-inside-title">Category</h4>
                                 <div class="form-group form-float">
@@ -228,20 +298,20 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                     </div> -->
                                 </div>
                                 <h4 class="card-inside-title">Location</h4>
+=======
+>>>>>>> 612b5652c9b6edc3aed842cccb7370b20bb00ace
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="BusinessLoc"/>
                                         <label class="form-label">Location</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Manager</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="BusinessManager"/>
                                         <label class="form-label">Manager</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Manager Address</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="ManagerAdd"/>

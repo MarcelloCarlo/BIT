@@ -8,7 +8,7 @@
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Patawag List</h2>
+                <h2>Blotter List</h2>
             </div>
  <!--CUSTOM BLOCK INSERT HERE-->
             <!--CUSTOM BLOCK INSERT HERE-->
@@ -19,14 +19,9 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                PATAWAG LIST
-                                <small>The current list of barangay patawag. Click "Add New" to schedule a hearing or "Edit" to modify on the existing schedule</small>
+                                PATAWAG
+                                <small>The following are all of the blotter records that needs a patawag report. Click 'Issue' to generate a report.</small>
                             </h2>
-                            <br/>
-                            <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addPosModal">
-                            <i class="material-icons">add_circle_outline</i>
-                            <span>ADD NEW</span>
-                        </button>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -41,7 +36,7 @@
                                             <th>Status</th>
                                             <th>Resolution</th>
                                             <th>Date Recorded</th>     
-                                            <th class="hide">Actions</th>                
+                                            <th>Actions</th>                
                                             <th class="hide"></th>
                                         </tr>
                                     </thead>
@@ -49,7 +44,7 @@
                                     <?php
                                         include_once('dbconn.php');
 
-                                        $Level1SelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
+                                        $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
                                                                             bitdb_r_blotter.IncidentDate,
                                                                             bitdb_r_blotter.Complainant,
                                                                             bitdb_r_citizen.First_Name,
@@ -60,19 +55,14 @@
                                                                             bitdb_r_blotter.ComplaintStatus,
                                                                             bitdb_r_blotter.Resolution,
                                                                             bitdb_r_blotter.BlotterType,
-                                                                            bitdb_r_blotter.ComplaintDate,
-                                                                            bitdb_r_summons.SummonSched,
-                                                                            bitdb_r_summons.SummonPlace,
-                                                                            bitdb_r_summons.SummonStatus
+                                                                            bitdb_r_blotter.ComplaintDate
                                                                     FROM    bitdb_r_blotter
                                                                     INNER JOIN bitdb_r_citizen
-                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused
-                                                                    INNER JOIN bitdb_r_summons
-                                                                    ON bitdb_r_blotter.BlotterID = bitdb_r_summons.BlotterID';
-                                        $Level1SelectBlotterQuery = mysqli_query($bitMysqli,$Level1SelectBlotterSQL) or die (mysqli_error($bitMysqli));
-                                        if(mysqli_num_rows($Level1SelectBlotterQuery) > 0)
+                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused';
+                                        $CTanodSelectBlotterQuery = mysqli_query($bitMysqli,$CTanodSelectBlotterSQL) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($CTanodSelectBlotterQuery) > 0)
                                         {
-                                            while($row = mysqli_fetch_assoc($Level1SelectBlotterQuery))
+                                            while($row = mysqli_fetch_assoc($CTanodSelectBlotterQuery))
                                             {
                                                 $BlotterID = $row['BlotterID'];
                                                 $IDate = $row['IncidentDate'];
@@ -93,6 +83,12 @@
                                                         <td>'.$CStatus.'</td>
                                                         <td>'.$Resolution.'</td>
                                                         <td>'.$CDate.'</td>
+                                                        <td>  
+                                                            <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editBlotterModal">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>EDIT</span>
+                                                            </button>
+                                                        </td>
                                                     </tr>
                                                     ';
                                             }
@@ -127,7 +123,7 @@ c.  Report Print -->
             </div>
             <!-- #END# Basic Examples -->
 
-             <div class="modal fade" id="addPosModal" tabindex="-1" role="dialog">
+            <div class="modal fade" id="addBlotterModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -135,6 +131,95 @@ c.  Report Print -->
                                 ADD                                    
                                 <br/>
                                 <small>Add Blotter</small>
+                            </h2>
+                        </div>
+                        <div class="body js-sweetalert">
+                        <form id="CTanodBlotterForm" action="Level1AddBlotterForm.php" method="POST">
+                        <div class="modal-body">
+                           <div class="row clearfix margin-0">
+
+                                <h4 class="card-inside-title">Date of incident</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="date" class="form-control" name="IncidentDate" required/>
+                            
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Complaint Date</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="date" class="form-control" name="ComplaintDate" required/>
+                                        
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Complainant's Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="Complainant" required/>
+                                        <label class="form-label">Complainant's Name</label>
+                                    </div>
+                                </div>
+<!--Add Search-->
+                               
+                                <h4 class="card-inside-title">Accused' Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line search-box">
+                                        <input type="text" class="form-control" name="name" required/>
+                                        <label class="form-label">Accused' Name</label>
+                                        <div class="result"></div>
+                                    </div>
+                                </div>
+<!--end search-->
+                                <h4 class="card-inside-title">Subject</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="" required/>
+                                        <label class="form-label">Subject</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Complain Statement</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="name" required/>
+                                        <label class="form-label">Complain Statement</label>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Decision</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="name" required/>
+                                        <label class="form-label">Decision</label>
+                                    </div>
+                                </div>
+
+                                <h4 class="card-inside-title">Complaint Status</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
+                                    <label for="editCheckA">Active</label>
+
+                                    <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
+                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                </div>
+                            <br/>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-success waves-effect" data-type="confirm" type="submit">ADD</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </form>
+                        </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="editBlotterModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                EDIT                                    
+                                <br/>
+                                <small>Edit Blotter</small>
                             </h2>
                         </div>
                         <div class="body js-sweetalert">

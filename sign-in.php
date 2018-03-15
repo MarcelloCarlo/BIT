@@ -27,7 +27,7 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body class="login-page">
+<body class="login-page" style="background-color:#2E2A67"    >
     <div class="login-box">
         <div class="logo">
             <a href="javascript:void(0);">Barangay<b> IT</b></a>
@@ -61,16 +61,17 @@
                              <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>   
                         </div>
                     </div>
+                     <div class=" align-right">
+                            <a href="forgot-password.php">Forgot Password?</a>
+                        </div>
                     <div class="row m-t-15 m-b--20">
                        <!-- <div class="col-xs-6">
                             <a href="sign-up.html">Register Now!</a>
                         </div> -->
-                        <div class="col-xs-6 align-right">
-                            <a href="forgot-password.php">Forgot Password?</a>
-                        </div>
                     </div>
                 </form>
             </div>
+            <?php include('footerblock.php'); ?>
         </div>
     </div>
 
@@ -87,10 +88,8 @@
     <script src="plugins/jquery-validation/jquery.validate.js"></script>
 
     <!-- Custom Js -->
-    <script src="js/admin.js"></script>
     <script src="Js/pages/examples/sign-in.js"></script>
 </body>
 
   
 </html>
-<?php include('footer.php'); ?>

@@ -1,4 +1,4 @@
-<body class="theme-orange">
+<body class="theme-blue-grey">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -133,17 +133,15 @@
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
                                         
-                    <li <?php if ($currentPage==='CensusOfficerAddEditCitizen' | $currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='CensusOfficerAddCitizenOnly' | $currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">people</i>
                             <span>Citizens</span>
                         </a>
                         <ul class="ml-menu">
-                            <li  <?php if ($currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
-                                <a href="CensusOfficerViewExpCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
-                            </li>
-                            <li  <?php if ($currentPage==='CensusOfficerAddEditCitizen') {echo 'class="active"';} ?>>
-                                 <a href="CensusOfficerAddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                          
+                            <li  <?php if ($currentPage==='CensusOfficerAddCitizenOnly') {echo 'class="active"';} ?>>
+                                 <a href="CensusOfficerAddCitizenOnly.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add</a>
                             </li>
                         </ul>
                     </li>

@@ -1,7 +1,7 @@
 <?php 
     session_start();
     $title = 'Welcome | BarangayIT MK.II'; 
-    $currentPage = 'CensusOfficerAddEditCitizen'; 
+    $currentPage = 'CensusOfficerAddCitizenOnly'; 
     include('head.php'); 
     include('CensusOfficerNavbar.php'); 
 ?>
@@ -30,7 +30,7 @@
                     <div class="body">
                         <div class="table-responsive"> 
                                      <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <table class="ttable table-bordered table-striped table-hover dataTable js-exportable">
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>

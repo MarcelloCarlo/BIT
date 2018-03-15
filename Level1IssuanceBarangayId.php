@@ -155,7 +155,9 @@
                                                             <td>'.$Date_Rec.'</td>
                                                             <td>  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
                                                                 <i class="material-icons">mode_edit</i>
-                                                                <span>ISSUE</span>
+                                                                <a href="IssuanceCerts\batch1\indigency.php" target="_blank">
+
+                                                                <span>ISSUE</span></a>
                                                             </button>
                                                             </td>
                                                         </tr>';
@@ -681,6 +683,14 @@
             </div>
             <!-- #END# Exportable Table --> 
         </div>
+        <script type="text/javascript">
+        function open_win()
+            {
+            window.open("http://philmontscoutranch.org/Camping/75.aspx", "_blank");
+            }
+</script>    
+        
+        </script>
     </section>
 
 

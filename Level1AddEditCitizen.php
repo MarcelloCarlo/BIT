@@ -34,8 +34,8 @@
                     <div class="body">
                         <div class="table-responsive"> 
                                      <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                <thead>
+                            <!-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> -->
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable"> <thead>
                                     <tr>
                                         <th class="hide">ID</th>
                                         <th>Salutation</th>
@@ -535,14 +535,6 @@
                                         <input type="text" name="Contact" class="form-control" />
                                         <label class="form-label">Contact</label>
                                     </div>
-                                </div>
-                                <h4 class="card-inside-title">Residence Status</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
-                                    <label for="optCitActive">Active</label>
-
-                                    <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
-                                    <label for="optCitInactive" class="m-l-20">Inactive</label>
                                 </div>
                                 <!-- <h4 class="card-inside-title">Status</h4>
                                 <div class="demo-switch">

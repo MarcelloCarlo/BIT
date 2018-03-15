@@ -69,5 +69,5 @@
     <!-- CALENDAR THEME -->
     <link href='ProjectMonitoring/fullcalendar.min.css' rel='stylesheet' />
     <link href='ProjectMonitoring/fullcalendar.print.min.css' rel='stylesheet' media='print' />
-    
+    <link href='ProjectMonitoring/calendarstyle.css' rel='stylesheet' />
 </head>

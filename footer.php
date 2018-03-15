@@ -14,6 +14,7 @@
 </footer>
 </section>
 
+
 <!-- Jquery Core Js -->
 <script src="plugins/jquery/jquery.min.js"></script>
 

@@ -92,14 +92,6 @@
                             <span>Captain Blotter Navigation</span>
                         </a>
                     </li>
-
-                    <li <?php if ($currentPage==='CaptainViewBlotter' ) {echo 'class="active"';} ?>>
-                        <a href="CaptainViewBlotterView.php">
-                            <i class="material-icons">settings_applications</i>
-                            <span>Captain View Blotter Information</span>
-                        </a>
-                    </li>
-                   
                 </ul>
             </div>
             <!-- #Menu -->
