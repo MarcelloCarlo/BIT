@@ -128,7 +128,6 @@
                             <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">people</i>
                             <span>Citizens</span>
-<<<<<<< HEAD
                         </a>
                         <ul class="ml-menu">
                             <li  <?php if ($currentPage==='Level1ViewExpCitizen') {echo 'class="active"';} ?>>
@@ -139,7 +138,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses' | $currentPage==='Level1AddEditBusinessCategory') {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
                          <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">business</i>
                             <span>Businesses</span>
@@ -151,21 +150,7 @@
                             <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
                                 <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
                             </li>
-                            <li <?php if ($currentPage==='Level1AddEditBusinessCategory') {echo 'class="active"';} ?>>
-                                <a href="Level1AddEditBusinessCategory.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Category</a>
-                            </li>
                         </ul>
-                       <!-- <a href="businesses.html">
-=======
-                            </a>
-                      </li>
-                   
-                     <li <?php if ($currentPage==='Level1AddEditBusinesses' ) {echo 'class="active"';} ?>>
-                            <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
->>>>>>> 612b5652c9b6edc3aed842cccb7370b20bb00ace
-                            <i class="material-icons">business</i>
-                            <span>Businesses</span>
-                            </a>
                       </li>
 
                     

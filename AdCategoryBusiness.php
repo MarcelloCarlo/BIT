@@ -1,9 +1,9 @@
 <?php 
 session_start();
 $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1AddEditBusinessCategory';?>
+<?php $currentPage = 'AdCategoryBusiness';?>
 <?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
+<?php include('AdminNavbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
@@ -56,15 +56,15 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <?php
                                                 include('dbconn.php');
 
-                                                $Level1BusinessCategorySQL = 'SELECT    bitdb_r_businesscategory.categoryID,
+                                                $AdminBusinessCategorySQL = 'SELECT    bitdb_r_businesscategory.categoryID,
                                                                                 bitdb_r_businesscategory.categoryName,
                                                                                 bitdb_r_businesscategory.categoryDesc,
                                                                                 bitdb_r_businesscategory.categoryDate
                                                                         FROM    bitdb_r_businesscategory';
-                                                $Level1BusinessCategoryQuery = mysqli_query($bitMysqli,$Level1BusinessCategorySQL) or die (mysqli_error($bitMysqli));
-                                                if(mysqli_num_rows($Level1BusinessCategoryQuery) > 0)
+                                                $AdminBusinessCategoryQuery = mysqli_query($bitMysqli,$AdminBusinessCategorySQL) or die (mysqli_error($bitMysqli));
+                                                if(mysqli_num_rows($AdminBusinessCategoryQuery) > 0)
                                                 {
-                                                    while($row = mysqli_fetch_assoc($Level1BusinessCategoryQuery))
+                                                    while($row = mysqli_fetch_assoc($AdminBusinessCategoryQuery))
                                                     {
                                                         $CategoryID = $row['categoryID'];
                                                         $CategoryName = $row['categoryName'];
@@ -149,7 +149,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             </div>
             <!-- #END# Exportable Table -->
         </div>
-<form id="BusinessAddCategory" action="Level1AddBusinessCategory.php" method="POST" >
+<form id="BusinessAddCategory" action="AdminAddBusinessCategory.php" method="POST" >
 <div class="modal fade" id="addBusinessCategoryModal" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -188,7 +188,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
 </div>
 </form>
 
-<form id="BusinessEditCategory" action="Level1EditBusinessCategory.php" method="POST" >
+<form id="BusinessEditCategory" action="AdminEditBusinessCategory.php" method="POST" >
 <div class="modal fade" id="editBusinessCategoryModal" tabindex="-1" role="dialog">
 <div class="modal-dialog" role="document">
                     <div class="modal-content">

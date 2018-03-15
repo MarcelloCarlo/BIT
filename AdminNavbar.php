@@ -152,6 +152,13 @@
                             <span>Ordinance Category</span>
                         </a>
                     </li>
+                    <li <?php if ($currentPage==='AdCategoryBusiness' ) {echo 'class="active"';} ?>>
+
+                        <a href="AdCategoryBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <i class="material-icons">work</i>
+                            <span>Business Category</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->
