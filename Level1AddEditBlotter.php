@@ -139,7 +139,7 @@ c.  Report Print -->
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="CTanodBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
+                        <form id="CTanodBlotterForm" action="Level1AddBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 

@@ -124,54 +124,112 @@
                         </a>
                     </li>
                     
-                     <li <?php if ($currentPage==='Level1AddEditCitizen' ) {echo 'class="active"';} ?>>
-                            <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                    <li <?php if ($currentPage==='Level1ViewExpCitizen' | $currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">people</i>
                             <span>Citizens</span>
-                            </a>
-                      </li>
-                   
-                     <li <?php if ($currentPage==='Level1AddEditBusinesses' ) {echo 'class="active"';} ?>>
-                            <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">business</i>
-                            <span>Businesses</span>
-                            </a>
-                      </li>
-
-                    
-                      <li <?php if ($currentPage==='Level1Issuance' ) {echo 'class="active"';} ?>>
-                            <a href="Level1Issuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">featured_play_list</i>
-                            <span>Issuance</span>
-                            </a>
-                      </li>
-
-                    <li <?php if ($currentPage==='Level1AddEditPatawag' | $currentPage==='Level1AddEditBlotter') {echo 'class="active"';} ?>>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">gavel<!-- report_problem --></i>
-                            <span>Blotter</span>
                         </a>
                         <ul class="ml-menu">
-                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit Blotter</a>
+                            <li  <?php if ($currentPage==='Level1ViewExpCitizen') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
                             </li>
+                            <li  <?php if ($currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
+                         <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">business</i>
+                            <span>Businesses</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if ($currentPage==='Level1ViewExpBusinesses') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
+                                <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                            </li>
+                        </ul>
+                       <!-- <a href="businesses.html">
+                            <i class="material-icons">business</i>
+                            <span>Businesses</span>
+                        </a>-->
 
-                            <li <?php if($currentPage==='Level1AddEditPatawag') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditPatawag.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Patawag</a>
+                    </li>
+
+                    <li <?php if ($currentPage==='Level1Issuance') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">featured_play_list</i>
+                            <span>Issuance</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if ($currentPage==='Level1Issuance') {echo 'class="active"';} ?>>
+                                <a href="Level1Issuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Issuance</a>                          
                             </li>
-                            
                         </ul>
                     </li>
 
-                    <li <?php if ($currentPage==='Level1AddEditOrdinance' ) {echo 'class="active"';} ?>>
-                            <a href="Level1AddEditOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                    <li <?php if ($currentPage==='Level1ViewExpBlotter' | $currentPage==='Level1AddEditBlotter') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">report_problem</i>
+                            <span>Blotter</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if($currentPage==='Level1ViewExpBlotter') {echo 'class="active"';}?>>
+                                <a href="Level1ViewExpBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Blotter</a>
+                            </li>
+                            <li <?php if($currentPage==='Level1AddEditBlotter') {echo 'class="active"';}?>>
+                                <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li <?php if ($currentPage==='Level1AddEditPatawag'){echo 'class="active"';} ?>>
+                       <a href="Level1AddEditPatawag.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <i class="material-icons">gavel</i>
+                            <span>Patawag</span></a>
+                    </li>
+                       <!-- </a>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">gavel</i>
+                            <span>Patawag</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="pages/maps/google.html">Google Map</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/yandex.html">YandexMap</a>
+                            </li>
+                            <li>
+                                <a href="pages/maps/jvectormap.html">jVectorMap</a>
+                            </li>
+                        </ul> -->
+                    
+
+                    <li <?php if ($currentPage==='Level1ViewExpOrdinances' | $currentPage==='Level1AddEditOrdinance')
+                    {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assignment</i>
                             <span>Ordinances</span>
-                            </a>
-                       </li>
+                        </a>
+                        <ul class="ml-menu">
+                            <li  <?php if ($currentPage==='Level1ViewExpOrdinances') {echo 'class="active"';} ?>>
+                                <a href="Level1ViewExpOrdinances.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
+                            </li>
+                            <li  <?php if ($currentPage==='Level1AddEditOrdinance') {echo 'class="active"';} ?>>
+                                 <a href="Level1AddEditOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                            </li>
+                        </ul>
+                        <!--<a href="ordinances.html">
+                            <i class="material-icons">assignment</i>
+                            <span>Ordinances</span>
+                        </a>-->
+                    </li>
 
-                        <li <?php if ($currentPage==='Level1ProjectMonitoring') {echo 'class="active"';}?>>
-                            <a href="Level1ProjectMonitoring.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                    <li <?php if ($currentPage==='Level1ProjectMonitoring' | $currentPage==='Level1ViewExpProjects' ) {echo 'class="active"';}?>>
+                            <a href="Level1ViewExpProjects.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">assessment</i>
                             <span>Project Monitoring</span>
                         </a>

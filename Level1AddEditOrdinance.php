@@ -32,7 +32,8 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <!-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> -->
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">    
                                     <thead>
                                         <tr>
                                             <th class="hide">Ordinance ID</th>

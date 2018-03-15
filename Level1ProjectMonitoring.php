@@ -5,7 +5,11 @@
       include('head.php');
       include('Level1Navbar.php'); ?>
 
-
+<script src='ProjectMonitoring/lib/moment.min.js'></script>
+<script src='ProjectMonitoring/lib/jquery.min.js'></script>
+<script src='ProjectMonitoring/lib/jquery-ui.min.js'></script>
+<script src='ProjectMonitoring/fullcalendar.min.js'></script>
+<script src='ProjectMonitoring/calendarapp.js'> </script>
 
 <section class="content">
     <div class="container-fluid">
@@ -22,7 +26,7 @@
                             <small>The list of all the projects in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                         </h2>
                         <br/>
-                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjModal">
+                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -90,7 +94,7 @@
 
     </div>
     <form>
-        <div class="modal fade" id="addProjModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -150,11 +154,9 @@
         </div>
     </form>
 </section>
-
-
 <body>
 <div style="margin-top: auto;">
-<div id='wrap'>
+<div id='wrapthis'>
 
     <div id='calendar';></div>
 
@@ -177,25 +179,4 @@
 </div>
 </body>
 
-<footer class="footer">
-    <div class="container-fluid">
-        <nav class="pull-left">
-        </nav>
-        <p class="copyright pull-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-
-            </script>
-            <a href="#">BarangayIT</a>, For Every Barangay
-        </p>
-    </div>
-</footer>\
-
-<script src='ProjectMonitoring/lib/moment.min.js'></script>
-<script src='ProjectMonitoring/lib/jquery.min.js'></script>
-<script src='ProjectMonitoring/lib/jquery-ui.min.js'></script>
-<script src='ProjectMonitoring/fullcalendar.min.js'></script>
-<script src='ProjectMonitoring/calendarapp.js'> </script>
-
-<script src="js/admin.js"></script>
+<?php include('footer.php'); ?>

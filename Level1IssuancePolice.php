@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1IssuancePolice';?>
+<?php $currentPage = 'Level1Issuance';?>
 <?php include('head.php'); ?>
 <?php include('Level1Navbar.php'); ?>
 
