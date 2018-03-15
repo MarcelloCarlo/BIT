@@ -138,7 +138,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
+                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses' | $currentPage==='Level1AddEditBusinessCategory') {echo 'class="active"';} ?>>
                          <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">business</i>
                             <span>Businesses</span>
@@ -149,6 +149,9 @@
                             </li>
                             <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
                                 <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
+                            </li>
+                            <li <?php if ($currentPage==='Level1AddEditBusinessCategory') {echo 'class="active"';} ?>>
+                                <a href="Level1AddEditBusinessCategory.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Category</a>
                             </li>
                         </ul>
                        <!-- <a href="businesses.html">

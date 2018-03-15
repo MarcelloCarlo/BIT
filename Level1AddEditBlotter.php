@@ -36,6 +36,7 @@
                                             <!-- <th class="hide">BlotterID</th> -->
                                             <th>Date Of Incident</th>
                                             <th>Complainant</th>
+                                            <th class="hide">Accused</th>
                                             <th>Accused</th>
                                             <th>Subject</th>
                                             <th>Status</th>
@@ -83,6 +84,7 @@
                                                         <td class="hide">'.$BlotterID.'</td>
                                                         <td>'.$IDate.'</td>
                                                         <td>'.$Complainant.'</td>
+                                                        <td class="hide">'.$AccusedID.'</td>
                                                         <td>'.$Accused.'</td>
                                                         <td>'.$BlotterType.'</td>
                                                         <td>'.$CStatus.'</td>
@@ -115,10 +117,7 @@
 a.  Edit
 b.  Disable (Case Solved)
 c.  Report Print -->
-
-
-                                   <!--  unang column nang table -->
-                                   
+<!--  unang column nang table -->
                                     </tbody>
                                 </table>
                             </div>
@@ -164,8 +163,7 @@ c.  Report Print -->
                                         <label class="form-label">Complainant's Name</label>
                                     </div>
                                 </div>
-<!--Add Search-->
-                               
+<!--Add Search-->              
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
@@ -173,37 +171,51 @@ c.  Report Print -->
                                         <label class="form-label">Accused' Name</label>
                                         <div class="result"></div>
                                     </div>
+                                    <div class="accusedID"></div>
                                 </div>
 <!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="" required/>
+                                        <input type="text" class="form-control" name="BlotterType" required/>
                                         <label class="form-label">Subject</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Complain Statement</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        <input type="text" class="form-control" name="ComplaintStatement" required/>
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Decision</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
-                                        <label class="form-label">Decision</label>
-                                    </div>
-                                </div>
-
                                 <h4 class="card-inside-title">Complaint Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
+                                    <input type="radio" name="ComplaintStatus" id="editCheckA" value="Active" class="with-gap" checked>
                                     <label for="editCheckA">Active</label>
 
-                                    <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
+                                    <input type="radio" name="ComplaintStatus" id="editCheckI" value="Inactive" class="with-gap">
                                     <label for="editCheckI" class="m-l-20">Inactive</label>
+                                </div>
+                                <hr/>
+                                <h4 class="card-inside-title">Set Summon</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="SummonStatus" id="SummoneditCheckA" value="Active" class="with-gap">
+                                    <label for="SummoneditCheckA">On</label>
+
+                                    <input type="radio" name="SummonStatus" id="SummoneditCheckI" value="Inactive" class="with-gap" checked>
+                                    <label for="SummoneditCheckI" class="m-l-20">Off</label>
+                                </div>
+                                <h4 class="card-inside-title">Summon Schedule</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="date" class="form-control" name="SummonDate"/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Summon Place</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="SummonPlace" placeholder="Place" />
+                                    </div>
                                 </div>
                             <br/>
                         </div>
@@ -254,7 +266,7 @@ c.  Report Print -->
                                     </div>
                                 </div>
 <!--Add Search-->
-                               
+
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
@@ -263,6 +275,7 @@ c.  Report Print -->
                                         <div class="result"></div>
                                     </div>
                                 </div>
+                                <div class="accusedID"></div>
 <!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
                                 <div class="form-group form-float">
@@ -281,11 +294,10 @@ c.  Report Print -->
                                 <h4 class="card-inside-title">Decision</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        <input type="text" class="form-control" name="Decision" required/>
                                         <label class="form-label">Decision</label>
                                     </div>
                                 </div>
-
                                 <h4 class="card-inside-title">Complaint Status</h4>
                                 <div class="form-group">
                                     <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
@@ -293,6 +305,27 @@ c.  Report Print -->
 
                                     <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
                                     <label for="editCheckI" class="m-l-20">Inactive</label>
+                                </div>
+                                <hr/>
+                                <h4 class="card-inside-title">Set Summon</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="SummonStatus" id="SummoneditCheckA" value="Active" class="with-gap">
+                                    <label for="SummoneditCheckA">On</label>
+
+                                    <input type="radio" name="SummonStatus" id="SummoneditCheckI" value="Inactive" class="with-gap">
+                                    <label for="SummoneditCheckI" class="m-l-20">Off</label>
+                                </div>
+                                <h4 class="card-inside-title">Summon Schedule</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="date" class="form-control" name="SummonDate"/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Summon Place</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="SummonPlace"/>
+                                    </div>
                                 </div>
                             <br/>
                         </div>
@@ -306,6 +339,7 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
+            
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script type="text/javascript">
 $(document).ready(function(){
@@ -330,5 +364,19 @@ $(document).ready(function(){
     });
 });
 </script>
-
+<script type="text/javascript">
+    $(document).ready(function(){
+    $('.result div').on("keyup div", function(){
+        var queryVal = $(this).val();
+        var queryRes = $(this).siblings(".accusedID");
+        if(queryVal.length){
+            $.get("citizenIDsearch.php", {citID: queryVal}).done(function(data){
+                queryRes.html(data);
+            });
+        }   else{
+                queryRes.empty();
+        }
+    });
+});
+</script>
 <?php include('footer.php'); ?>

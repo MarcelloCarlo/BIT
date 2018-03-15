@@ -128,10 +128,10 @@ include('AdminNavbar.php');
                              <div class="row clearfix margin-0">
                                 <h4 class="card-inside-title">Position For: </h4>
                                 <br/>
-                                <div class="col-md-3">
+                                <div class="col-md-6">
 
                                   <h4>Position</h4>
-                                    <select id="PositionOption" class="form-control show-tick" name="PositionName">
+                                    <select id="PositionOption" class="form-control browser-default" name="PositionName">
                                             <option value="None">None</option>
                                             <?php
                                                 include_once('dbconn.php');
@@ -172,7 +172,6 @@ include('AdminNavbar.php');
         {
             $(".editBOff").click(function()
             {
-                $("#BarangayOffID").val($(this).closest("tbody tr").find("td:eq(0)").html());
                 $("#BarangayOffID").val($(this).closest("tbody tr").find("td:eq(0)").html());
                 $("#PositionOption").val($(this).closest("tbody tr").find("td:eq(4)").html()).trigger("change");
                 console.log($(this).closest("tbody tr").find("td:eq(4)").html());
