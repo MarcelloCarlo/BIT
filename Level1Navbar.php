@@ -1,4 +1,4 @@
-<body class="theme-black">
+<body class="theme-blue-grey">
     <!-- Page Loader -->
     <div class="page-loader-wrapper"> 
         <div class="loader">
