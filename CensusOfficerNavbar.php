@@ -1,5 +1,5 @@
-<body class="theme-blue-grey">
-    <!-- Page Loader -->
+<!-- <body class="theme-blue-grey"> -->
+    <body class="theme-teal"><!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
@@ -54,6 +54,27 @@
                             </li>
                         </ul>
                     </li>
+
+                      <!-- sign out na here newnewnewnew!! -->
+
+                  <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                            <!--<span class="label-count">7</span>-->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Profile</li>
+
+                            <li class="footer">
+                                <a href="SignOutSession.php" >
+                                    <iz class="material-icons">input</iz>
+                                Sign Out
+                                </a>
+                            </li>
+                        </ul>
+                  </li>
+
+
                     <!-- #END# Notifications -->
                 </ul>
             </div>
@@ -100,12 +121,12 @@
                             }
                         }
                     ?>
-                    <div class="btn-group user-helper-dropdown">
+                    <!-- <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- #User Info -->

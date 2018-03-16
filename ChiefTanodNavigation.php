@@ -1,4 +1,4 @@
-<body class="theme-orange">
+<body class="theme-teal">
     <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
@@ -54,6 +54,25 @@
                             </li>
                         </ul>
                     </li>
+
+                        <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                            <!--<span class="label-count">7</span>-->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Profile</li>
+
+                            <li class="footer">
+                                <a href="SignOutSession.php" >
+                                    <iz class="material-icons">input</iz>
+                                Sign Out
+                                </a>
+                            </li>
+                        </ul>
+                  </li>
+
+
                     <!-- #END# Notifications -->
                 </ul>
             </div>

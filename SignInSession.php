@@ -58,7 +58,7 @@
 			}
 			else if ($_SESSION['AccountUserType'] == "4" && $OfficialPosName == "Census Officer" && $OfficialActUser == 1)
 			{
-				$header = 'Location:/BIT/CensusOfficerAddEditCitizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+				$header = 'Location:/BIT/CensusOfficerAddCitizenOnly.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
 			else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
 			{

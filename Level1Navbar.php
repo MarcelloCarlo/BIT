@@ -1,4 +1,4 @@
-<body class="theme-blue-grey">
+<body class="theme-teal">
     <!-- Page Loader -->
     <div class="page-loader-wrapper"> 
         <div class="loader">
@@ -58,6 +58,24 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            <i class="material-icons">keyboard_arrow_down</i>
+                            <!--<span class="label-count">7</span>-->
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">Profile</li>
+
+                            <li class="footer">
+                                <a href="SignOutSession.php" >
+                                    <iz class="material-icons">input</iz>
+                                Sign Out
+                                </a>
+                            </li>
+                        </ul>
+                  </li>
+                    
                     <!-- #END# Notifications -->
                 </ul>
             </div>
@@ -104,12 +122,12 @@
                             }
                         }
                     ?>
-                    <div class="btn-group user-helper-dropdown">
+                    <!-- <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
                             <li><a href="SignOutSession.php"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- #User Info -->
@@ -124,33 +142,18 @@
                         </a>
                     </li>
                     
-                     <li <?php if ($currentPage==='Level1AddEditCitizen' ) {echo 'class="active"';} ?>>
+                      <li <?php if ($currentPage==='Level1AddEditCitizen' ) {echo 'class="active"';} ?>>
                             <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">people</i>
                             <span>Citizens</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li  <?php if ($currentPage==='Level1ViewExpCitizen') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
-                            </li>
-                            <li  <?php if ($currentPage==='Level1AddEditCitizen') {echo 'class="active"';} ?>>
-                                 <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li <?php if ($currentPage==='Level1ViewExpBusinesses' | $currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
-                         <a href="javascript:void(0);" class="menu-toggle">
+                            </a>
+                      </li>
+
+                    <li <?php if ($currentPage==='Level1AddEditBusinesses' ) {echo 'class="active"';} ?>>
+                            <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">business</i>
                             <span>Businesses</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li <?php if ($currentPage==='Level1ViewExpBusinesses') {echo 'class="active"';} ?>>
-                                <a href="Level1ViewExpBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
-                            </li>
-                            <li <?php if ($currentPage==='Level1AddEditBusinesses') {echo 'class="active"';} ?>>
-                                <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit</a>
-                            </li>
-                        </ul>
+                            </a>
                       </li>
 
                     
