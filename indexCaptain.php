@@ -166,14 +166,17 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TOTAL RECORDED BLOTTER
-                            <div id="donut_chart" class="graph"></div>
+                            <h2>TOTAL RECORDED BLOTTER</h2>
+                        </div>
+                                <div class="body">
+                            <div id="donut_chart" class="graph" style="height:240px"></div>
                         </div>
                     </div>
                 </div>
-                <!-- #END# Donut Chart -->
             </div>
-                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!-- #END# Donut Chart -->
+    </div>
+                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                         <h2>
