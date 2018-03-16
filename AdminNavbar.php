@@ -168,17 +168,26 @@
                     <li <?php if ($currentPage==='AdCategoryOrdinance' ) {echo 'class="active"';} ?>>
 
                         <a href="AdCategoryOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">view_list</i>
+                            <i class="material-icons">assignment</i>
                             <span>Ordinance Category</span>
                         </a>
                     </li>
                     <li <?php if ($currentPage==='AdCategoryBusiness' ) {echo 'class="active"';} ?>>
 
                         <a href="AdCategoryBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">work</i>
+                            <i class="material-icons">business</i>
                             <span>Business Category</span>
                         </a>
                     </li>
+
+                    <li <?php if ($currentPage==='AdCategoryIssuance' ) {echo 'class="active"';} ?>>
+
+                        <a href="AdCategoryIssuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <i class="material-icons">featured_play_list</i>
+                            <span>Issuance Category</span>
+                        </a>
+                    </li>
+
                 </ul>
             </div>
             <!-- #Menu -->
