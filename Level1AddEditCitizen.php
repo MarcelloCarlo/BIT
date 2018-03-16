@@ -35,7 +35,8 @@
                         <div class="table-responsive"> 
                                      <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
                             <!-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> -->
-                        <table class="table table-bordered table-striped table-hover dataTable js-exportable"> <thead>
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable"> 
+                                <thead>
                                     <tr>
                                         <th class="hide">ID</th>
                                         <th>Salutation</th>

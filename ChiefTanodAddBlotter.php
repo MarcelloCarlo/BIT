@@ -23,7 +23,7 @@
                                 <small>The current list of barangay blotter. Click "Add New" to add a position or "Edit" to modify on the existing position</small>
                             </h2>
                             <br/>
-                            <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addPosModal">
+                            <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addBlotterModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -33,26 +33,26 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <!-- <th class="hide">BlotterID</th> -->
-                                            <th>Date Of Incident</th>
+                                            <th class="hide">BlotterID</th>
+                                            <th>Incident Date</th>
                                             <th>Complainant</th>
+                                            <th class="hide">CitizenID</th>
                                             <th>Accused</th>
                                             <th>Subject</th>
+                                            <th>Statement</th>
                                             <th>Status</th>
-                                            <th>Resolution</th>
-                                            <th>Date Recorded</th>     
-                                            <th class="hide">Actions</th>                
-                                            <th class="hide"></th>
+                                            <th>Decision</th>
+                                            <th>Complaint Date</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-
- <?php
+                                    <?php
                                         include_once('dbconn.php');
 
                                         $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
                                                                             bitdb_r_blotter.IncidentDate,
                                                                             bitdb_r_blotter.Complainant,
+                                                                            bitdb_r_blotter.Accused,
                                                                             bitdb_r_citizen.First_Name,
                                                                             IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
                                                                             bitdb_r_citizen.Last_Name,
@@ -70,11 +70,19 @@
                                         {
                                             while($row = mysqli_fetch_assoc($CTanodSelectBlotterQuery))
                                             {
+                                                $CitizenID = $row['Accused'];
                                                 $BlotterID = $row['BlotterID'];
                                                 $IDate = $row['IncidentDate'];
                                                 $Complainant = $row['Complainant'];
                                                 $CStatement = $row['ComplaintStatement'];
-                                                $CStatus = $row['ComplaintStatus'];
+                                                if($row['ComplaintStatus'] == 1)
+                                                {
+                                                    $CStatus = "Active";
+                                                }
+                                                else
+                                                {
+                                                    $CStatus = "Inactive";
+                                                }
                                                 $Resolution = $row['Resolution'];
                                                 $BlotterType = $row['BlotterType'];
                                                 $CDate = $row['ComplaintDate'];
@@ -84,13 +92,15 @@
                                                         <td class="hide">'.$BlotterID.'</td>
                                                         <td>'.$IDate.'</td>
                                                         <td>'.$Complainant.'</td>
+                                                        <td class="hide">'.$CitizenID.'</td>
                                                         <td>'.$Accused.'</td>
                                                         <td>'.$BlotterType.'</td>
+                                                        <td>'.$CStatement.'</td>
                                                         <td>'.$CStatus.'</td>
                                                         <td>'.$Resolution.'</td>
                                                         <td>'.$CDate.'</td>
                                                     </tr>
-                                                    ';
+                                                    ';    
                                             }
                                         }
                                    ?>
@@ -122,8 +132,7 @@ c.  Report Print -->
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-
-             <div class="modal fade" id="addPosModal" tabindex="-1" role="dialog">
+            <div class="modal fade" id="addBlotterModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -134,7 +143,7 @@ c.  Report Print -->
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="CTanodBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
+                        <form id="ChiefTanodAddBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
@@ -159,12 +168,18 @@ c.  Report Print -->
                                         <label class="form-label">Complainant's Name</label>
                                     </div>
                                 </div>
+
+                                <h4 class="card-inside-title hide">AccusedID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" required/>
+                                    </div>
+                                </div>
 <!--Add Search-->
-                               
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        <input id="AccusedName" type="text" class="form-control" name="Accused" required/>
                                         <label class="form-label">Accused' Name</label>
                                         <div class="result"></div>
                                     </div>
@@ -173,31 +188,31 @@ c.  Report Print -->
                                 <h4 class="card-inside-title">Subject</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="" required/>
+                                        <input type="text" class="form-control" name="BlotterType" required/>
                                         <label class="form-label">Subject</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Complain Statement</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        <input type="text" class="form-control" name="ComplaintStatement" required/>
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Decision</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        <input type="text" class="form-control" name="Resolution" required/>
                                         <label class="form-label">Decision</label>
                                     </div>
                                 </div>
 
                                 <h4 class="card-inside-title">Complaint Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
+                                    <input type="radio" name="Comp_Status" id="editCheckA" value="Active" class="with-gap" checked>
                                     <label for="editCheckA">Active</label>
 
-                                    <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
+                                    <input type="radio" name="Comp_Status" id="editCheckI" value="Inactive" class="with-gap">
                                     <label for="editCheckI" class="m-l-20">Inactive</label>
                                 </div>
                             <br/>
@@ -212,8 +227,10 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript">
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
@@ -231,7 +248,8 @@ $(document).ready(function(){
     
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $("#AccusedName").val($(this).find('#NameResult').text());
+        $("#AccusedID").val($(this).find('small').text());
         $(this).parent(".result").empty();
     });
 });

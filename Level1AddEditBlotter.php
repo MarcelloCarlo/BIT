@@ -33,17 +33,17 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                         <tr>
-                                            <!-- <th class="hide">BlotterID</th> -->
-                                            <th>Date Of Incident</th>
+                                            <th class="hide">BlotterID</th>
+                                            <th>Incident Date</th>
                                             <th>Complainant</th>
-                                            <th class="hide">Accused</th>
+                                            <th class="hide">CitizenID</th>
                                             <th>Accused</th>
                                             <th>Subject</th>
+                                            <th>Statement</th>
                                             <th>Status</th>
-                                            <th>Resolution</th>
-                                            <th>Date Recorded</th>     
-                                            <th>Actions</th>                
-                                            <th class="hide"></th>
+                                            <th>Decision</th>
+                                            <th>Complaint Date</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -53,6 +53,7 @@
                                         $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
                                                                             bitdb_r_blotter.IncidentDate,
                                                                             bitdb_r_blotter.Complainant,
+                                                                            bitdb_r_blotter.Accused,
                                                                             bitdb_r_citizen.First_Name,
                                                                             IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
                                                                             bitdb_r_citizen.Last_Name,
@@ -70,11 +71,19 @@
                                         {
                                             while($row = mysqli_fetch_assoc($CTanodSelectBlotterQuery))
                                             {
+                                                $CitizenID = $row['Accused'];
                                                 $BlotterID = $row['BlotterID'];
                                                 $IDate = $row['IncidentDate'];
                                                 $Complainant = $row['Complainant'];
                                                 $CStatement = $row['ComplaintStatement'];
-                                                $CStatus = $row['ComplaintStatus'];
+                                                if($row['ComplaintStatus'] == 1)
+                                                {
+                                                    $CStatus = "Active";
+                                                }
+                                                else
+                                                {
+                                                    $CStatus = "Inactive";
+                                                }
                                                 $Resolution = $row['Resolution'];
                                                 $BlotterType = $row['BlotterType'];
                                                 $CDate = $row['ComplaintDate'];
@@ -84,20 +93,21 @@
                                                         <td class="hide">'.$BlotterID.'</td>
                                                         <td>'.$IDate.'</td>
                                                         <td>'.$Complainant.'</td>
-                                                        <td class="hide">'.$AccusedID.'</td>
+                                                        <td class="hide">'.$CitizenID.'</td>
                                                         <td>'.$Accused.'</td>
                                                         <td>'.$BlotterType.'</td>
+                                                        <td>'.$CStatement.'</td>
                                                         <td>'.$CStatus.'</td>
                                                         <td>'.$Resolution.'</td>
                                                         <td>'.$CDate.'</td>
                                                         <td>  
-                                                            <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editBlotterModal">
+                                                            <button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editBlotterModal">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 <span>EDIT</span>
                                                             </button>
                                                         </td>
                                                     </tr>
-                                                    ';
+                                                    ';    
                                             }
                                         }
                                    ?>
@@ -117,7 +127,10 @@
 a.  Edit
 b.  Disable (Case Solved)
 c.  Report Print -->
-<!--  unang column nang table -->
+
+
+                                   <!--  unang column nang table -->
+                                   
                                     </tbody>
                                 </table>
                             </div>
@@ -126,7 +139,6 @@ c.  Report Print -->
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-
             <div class="modal fade" id="addBlotterModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -163,15 +175,21 @@ c.  Report Print -->
                                         <label class="form-label">Complainant's Name</label>
                                     </div>
                                 </div>
-<!--Add Search-->              
+
+                                <h4 class="card-inside-title hide">AccusedID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" required/>
+                                    </div>
+                                </div>
+<!--Add Search-->
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
-                                        <input type="text" class="form-control" name="name" required/>
+                                        <input id="AccusedName" type="text" class="form-control" name="Accused" required/>
                                         <label class="form-label">Accused' Name</label>
                                         <div class="result"></div>
                                     </div>
-                                    <div class="accusedID"></div>
                                 </div>
 <!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
@@ -188,34 +206,21 @@ c.  Report Print -->
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
+                                <h4 class="card-inside-title">Decision</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input type="text" class="form-control" name="Resolution" required/>
+                                        <label class="form-label">Decision</label>
+                                    </div>
+                                </div>
+
                                 <h4 class="card-inside-title">Complaint Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="ComplaintStatus" id="editCheckA" value="Active" class="with-gap" checked>
+                                    <input type="radio" name="Comp_Status" id="editCheckA" value="Active" class="with-gap" checked>
                                     <label for="editCheckA">Active</label>
 
-                                    <input type="radio" name="ComplaintStatus" id="editCheckI" value="Inactive" class="with-gap">
+                                    <input type="radio" name="Comp_Status" id="editCheckI" value="Inactive" class="with-gap">
                                     <label for="editCheckI" class="m-l-20">Inactive</label>
-                                </div>
-                                <hr/>
-                                <h4 class="card-inside-title">Set Summon</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="SummonStatus" id="SummoneditCheckA" value="Active" class="with-gap">
-                                    <label for="SummoneditCheckA">On</label>
-
-                                    <input type="radio" name="SummonStatus" id="SummoneditCheckI" value="Inactive" class="with-gap" checked>
-                                    <label for="SummoneditCheckI" class="m-l-20">Off</label>
-                                </div>
-                                <h4 class="card-inside-title">Summon Schedule</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="date" class="form-control" name="SummonDate"/>
-                                    </div>
-                                </div>
-                                <h4 class="card-inside-title">Summon Place</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="SummonPlace" placeholder="Place" />
-                                    </div>
                                 </div>
                             <br/>
                         </div>
@@ -240,91 +245,98 @@ c.  Report Print -->
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="CTanodBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
+                        <form id="CTanodBlotterForm" action="Level1EditBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
+                                <h4 class="card-inside-title hide">BlotterID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="editBlotterID" type="text" class="form-control hide" name="BlotterID" required/>
+                                    </div>
+                                </div>
                                 <h4 class="card-inside-title">Date of incident</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" class="form-control" name="IncidentDate" required/>
+                                        <input id="editIncidentDate" type="date" class="form-control" name="IncidentDate" required/>
                             
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Complaint Date</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="date" class="form-control" name="ComplaintDate" required/>
+                                        <input id="editComplaintDate" type="date" class="form-control" name="ComplaintDate" required/>
                                         
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Complainant's Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="Complainant" required/>
-                                        <label class="form-label">Complainant's Name</label>
+                                        <input id="editComplainant" type="text" class="form-control" name="Complainant" required/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title hide">AccusedID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="editAccusedID" type="text" class="form-control hide" name="AccusedID" required/>
                                     </div>
                                 </div>
 <!--Add Search-->
-
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
-                                    <div class="form-line search-box">
-                                        <input type="text" class="form-control" name="name" required/>
-                                        <label class="form-label">Accused' Name</label>
+                                    <div class="form-line search-box-edit">
+                                        <input id="editAccusedName" type="text" class="form-control" name="Accused" required/>
                                         <div class="result"></div>
                                     </div>
                                 </div>
-                                <div class="accusedID"></div>
 <!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="" required/>
-                                        <label class="form-label">Subject</label>
+                                        <input id="editBlotterType" type="text" class="form-control" name="BlotterType" required/>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Complain Statement</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="name" required/>
-                                        <label class="form-label">Complain Statement</label>
+                                        <input id="editComplaintStatement" type="text" class="form-control" name="ComplaintStatement" required/>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Decision</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input type="text" class="form-control" name="Decision" required/>
-                                        <label class="form-label">Decision</label>
+                                        <input id="editResolution" type="text" class="form-control" name="Resolution" required/>
                                     </div>
                                 </div>
+
                                 <h4 class="card-inside-title">Complaint Status</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Res_Status" id="editCheckA" value="Active" class="with-gap">
-                                    <label for="editCheckA">Active</label>
-
-                                    <input type="radio" name="Res_Status" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                    <input type="radio" name="Comp_Status" id="editStatusA" value="Active" class="with-gap">
+                                    <label for="editStatusA">Active</label>
+                                    <input type="radio" name="Comp_Status" id="editStatusI" value="Inactive" class="with-gap">
+                                    <label for="editStatusI" class="m-l-20">Inactive</label>
                                 </div>
-                                <hr/>
-                                <h4 class="card-inside-title">Set Summon</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="SummonStatus" id="SummoneditCheckA" value="Active" class="with-gap">
-                                    <label for="SummoneditCheckA">On</label>
-
-                                    <input type="radio" name="SummonStatus" id="SummoneditCheckI" value="Inactive" class="with-gap">
-                                    <label for="SummoneditCheckI" class="m-l-20">Off</label>
-                                </div>
-                                <h4 class="card-inside-title">Summon Schedule</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="date" class="form-control" name="SummonDate"/>
+                                <hr>
+                                <h4 class="card-inside-title">Summon</h4>
+                                    <div class="form-group">
+                                        <input type="radio" name="Summon" id="editSummonA" value="Active" class="with-gap">
+                                        <label for="editSummonA">Yes</label>
+                                        <input type="radio" name="Summon" id="editSummonI" value="Inactive" class="with-gap" checked>
+                                        <label for="editSummonI" class="m-l-20">No</label>
+                                    </div>  
+                                <div id="SummonDiv" class="form-group">
+                                    <h4 class="card-inside-title">Schedule</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input id="SummonSched" type="date" class="form-control" name="SummonSched"/>
+                                        </div>
                                     </div>
-                                </div>
-                                <h4 class="card-inside-title">Summon Place</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="SummonPlace"/>
+                                    <h4 class="card-inside-title">Place</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input id="SummonPlace" type="text" class="form-control" name="SummonPlace"/>
+                                            <label class="form-label">Place</label>
+                                        </div>
                                     </div>
                                 </div>
                             <br/>
@@ -339,9 +351,8 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
-            
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script type="text/javascript">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
@@ -359,24 +370,60 @@ $(document).ready(function(){
     
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $("#AccusedName").val($(this).find('#NameResult').text());
+        $("#AccusedID").val($(this).find('small').text());
         $(this).parent(".result").empty();
     });
 });
 </script>
+
+<?php include('footer.php'); ?>
+
 <script type="text/javascript">
-    $(document).ready(function(){
-    $('.result div').on("keyup div", function(){
-        var queryVal = $(this).val();
-        var queryRes = $(this).siblings(".accusedID");
-        if(queryVal.length){
-            $.get("citizenIDsearch.php", {citID: queryVal}).done(function(data){
-                queryRes.html(data);
+        $(document).ready(function()
+        {
+            $(".editBlotter").click(function()
+            {
+                $("#editBlotterID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#editIncidentDate").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                $("#editComplainant").val($(this).closest("tbody tr").find("td:eq(2)").html());
+                $("#editAccusedID").val($(this).closest("tbody tr").find("td:eq(3)").html());
+                $("#editAccusedName").val($(this).closest("tbody tr").find("td:eq(4)").html());
+                $("#editBlotterType").val($(this).closest("tbody tr").find("td:eq(5)").html());
+                $("#editComplaintStatement").val($(this).closest("tbody tr").find("td:eq(6)").html());
+                $("#editResolution").val($(this).closest("tbody tr").find("td:eq(8)").html());
+                $("#editComplaintDate").val($(this).closest("tbody tr").find("td:eq(9)").html());
+                if ($(this).closest("tbody tr").find("td:eq(7)").text() === "Active"){
+                    $("#editStatusA").prop("checked", true).trigger('click');
+                    } else {
+                    $("#editStatusI").prop("checked", true).trigger('click');
+                    }
             });
-        }   else{
-                queryRes.empty();
+        });
+
+</script> 
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box-edit input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("citizenSearchBackend.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
         }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $("#editAccusedName").val($(this).find('#NameResult').text());
+        $("#editAccusedID").val($(this).find('small').text());
+        $(this).parent(".result").empty();
     });
 });
 </script>
-<?php include('footer.php'); ?>

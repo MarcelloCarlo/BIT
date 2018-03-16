@@ -360,13 +360,32 @@ $title = 'Welcome | BarangayIT MK.II';?>
                 </div>
             </div>
     </form>
-
 </section>
-
-
 <?php include('footer.php'); ?>
-
-
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("citizenSearchBackend.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $("#AccusedName").val($(this).find('#NameResult').text());
+        $("#AccusedID").val($(this).find('small').text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
 </body>
-
 </html>

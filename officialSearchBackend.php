@@ -7,7 +7,7 @@ if($bitMysqli === false){
  
 if(isset($_REQUEST['term'])){
     // Prepare a select statement
-    $sql = "SELECT Citizen_ID,CONCAT_WS('',First_Name,' ',Middle_Name,' ',Last_Name,' ',Name_Ext) AS FullName FROM `bitdb_r_citizen` WHERE LOWER(CONCAT(IFNULL(Salutation,''),IFNULL(First_Name,''),IFNULL(Middle_Name,''),IFNULL(Last_Name,''),IFNULL(Name_Ext,''))) LIKE ?";
+    $sql = "SELECT bitdb_r_citizen.Citizen_ID,CONCAT_WS('',bitdb_r_citizen.First_Name,' ',bitdb_r_citizen.Middle_Name,' ',bitdb_r_citizen.Last_Name,' ',bitdb_r_citizen.Name_Ext) AS FullName FROM `bitdb_r_barangayofficial` INNER JOIN `bitdb_r_citizen` ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID WHERE LOWER(CONCAT(IFNULL(bitdb_r_citizen.Salutation,''),IFNULL(bitdb_r_citizen.First_Name,''),IFNULL(bitdb_r_citizen.Middle_Name,''),IFNULL(bitdb_r_citizen.Last_Name,''),IFNULL(bitdb_r_citizen.Name_Ext,''))) LIKE ?";
     
     if($stmt = mysqli_prepare($bitMysqli, $sql)){
         // Bind variables to the prepared statement as parameters
