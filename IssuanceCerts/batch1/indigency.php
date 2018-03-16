@@ -9,7 +9,7 @@
   <meta name="generator" content="2017.0.2.363"/>
   
   <script type="text/javascript">
-    window.print();
+    //window.print();
    // Update the 'nojs'/'js' class on the html node
 document.documentElement.className = document.documentElement.className.replace(/\bnojs\b/g, 'js');
 

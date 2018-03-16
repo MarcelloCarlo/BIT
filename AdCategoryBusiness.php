@@ -40,7 +40,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Category</th>
                                             <th>Description</th>
                                             <th>Date</th>
-                                            <th>Actions</th>
+                                            <th style="width: 15px;">Actions</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
