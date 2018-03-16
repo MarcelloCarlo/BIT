@@ -71,7 +71,7 @@
     <link href='ProjectMonitoring/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <link href='ProjectMonitoring/calendarstyle.css' rel='stylesheet' />
 </head>
-<?php include('NavbarCaptain.php'); ?>
+
 <section class="content">
         <div class="container-fluid">
             <div class="block-header">
