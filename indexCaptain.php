@@ -76,6 +76,52 @@
                 <h2>DASHBOARD</h2>
             </div>
  <!--CUSTOM BLOCK INSERT HERE-->
+             <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box-3 bg-red">
+                        <div class="icon">
+                            <i class="material-icons">shopping_cart</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">CURRENT BUSINESSES</div>
+                            <div class="number count-to" data-from="0" data-to="520" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box-3 bg-indigo">
+                        <div class="icon">
+                            <i class="material-icons">face</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">CURRENT POPULATION</div>
+                            <div class="number count-to" data-from="0" data-to="50450" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box-3 bg-purple">
+                        <div class="icon">
+                            <i class="material-icons">report_problem</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">BLOTTERS REPORTED</div>
+                            <div class="number count-to" data-from="0" data-to="1020" data-speed="1000" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box-3 bg-deep-purple">
+                        <div class="icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <div class="content">
+                            <div class="text">ORDINANCES IMPOSED</div>
+                            <div class="number count-to" data-from="0" data-to="1459" data-speed="1500" data-fresh-interval="20"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
                  <div class="row clearfix">
                 <!-- Line Chart -->
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
@@ -127,6 +173,68 @@
                 </div>
                 <!-- #END# Donut Chart -->
             </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            BARANGAY INFORMATION
+                            <small>Current Barangay information. Contact your System Administrator to modify this information.</small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="list-group">
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">City/Municipality</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $c_Type?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Independent/Component</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $b_Type?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Province Name</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $ProvinceName?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">City/Municipality Name</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $Municipality?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Barangay Name</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $BarangayName?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $WName?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">City/Municipal Seal</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $Municipality?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Barangay Seal</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $Municipality?>
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </div>
     </section>
     
@@ -172,11 +280,11 @@
 <!-- Bootstrap Tags Input Plugin Js -->
 <script src="plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
 
-<!-- noUISlider Plugin Js -->
-<script src="plugins/nouislider/nouislider.js"></script>
-
-<!-- Jquery Validation Plugin Css -->
-<script src="plugins/jquery-validation/jquery.validate.js"></script>
+<!-- Jquery CountTo Plugin Js -->
+<script src="plugins/jquery-countto/jquery.countTo.js"></script>
+    
+<!-- Sparkline Chart Plugin Js -->
+<script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
 <!-- JQuery Steps Plugin Js -->
 <script src="plugins/jquery-steps/jquery.steps.js"></script>
@@ -192,8 +300,7 @@
 <script src="js/admin.js"></script>
 <script src="js/pages/charts/chartjs.js"></script>
 <script src="js/pages/charts/morris.js"></script>
-<script src="js/pages/tables/jquery-datatable.js"></script>
-<script src="js/pages/forms/form-validation.js"></script>
+<script src="js/pages/widgets/infobox/infobox-4.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
