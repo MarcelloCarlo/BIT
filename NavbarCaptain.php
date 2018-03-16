@@ -145,96 +145,42 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="javascript:void(0);" class="menu-toggle">
+                         <li <?php if ($currentPage==='CaptainViewCitizen' ) {echo 'class="active"';} ?>>
+                            <a href="CaptainViewCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">people</i>
                                 <span>Citizens</span>
                             </a>
-                            <ul class="ml-menu">
-                                <li  <?php if ($currentPage==='CaptainViewCitizen') {echo 'class="active"';} ?>>
-                                    <a href="CaptainViewCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Citizen</a>
-                                </li>
-                            </ul>
                         </li>
 
-                        <li>
-                           <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">business</i>
-                            <span>Businesses</span>
-                        </a>
+                         <li <?php if ($currentPage==='CaptainViewBusiness' ) {echo 'class="active"';} ?>>
+                            <a href="CaptainViewBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                                <i class="material-icons">business</i>
+                                <span>Businesses</span>
+                            </a>
+                        </li>
 
-                        <ul class="ml-menu">
-                            <li <?php if ($currentPage==='CaptainViewBusiness') {echo 'class="active"';} ?>>
-                                <a href="CaptainViewBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Business</a>
-                            </li>
-                        </ul>
-                       <!-- <a href="businesses.html">
-                            <i class="material-icons">business</i>
-                            <span>Businesses</span>
-                        </a>-->
+                         <li <?php if ($currentPage==='CaptainViewBlotter' ) {echo 'class="active"';} ?>>
+                            <a href="CaptainViewBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                                <i class="material-icons">report_problem</i>
+                                <span>Blotter</span>
+                            </a>
+                        </li>
 
-                    </li>
+                         <li <?php if ($currentPage==='CaptainViewOrdinances' ) {echo 'class="active"';} ?>>
+                            <a href="CaptainViewOrdinances.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                                <i class="material-icons">assignment</i>
+                                <span>Ordinances</span>
+                            </a>
+                        </li>
 
-                    </li>
-
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">report_problem</i>
-                            <span>Blotter</span>
-                        </a>
-
-                        <ul class="ml-menu">
-                            <li <?php if ($currentPage==='CaptainViewBlotter') {echo 'class="active"';} ?>>
-                                <a href="CaptainViewBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Edit Blotter</a>
-                            </li>
-                        </ul>
-                    </li>
-                       <!-- </a>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">gavel</i>
-                            <span>Patawag</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="pages/maps/google.html">Google Map</a>
-                            </li>
-                            <li>
-                                <a href="pages/maps/yandex.html">YandexMap</a>
-                            </li>
-                            <li>
-                                <a href="pages/maps/jvectormap.html">jVectorMap</a>
-                            </li>
-                        </ul> -->
+                        <li <?php if ($currentPage==='CaptainViewExpProjects' ) {echo 'class="active"';} ?>>
+                            <a href="CaptainViewExpProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                                <i class="material-icons">assessment</i>
+                                <span>Project Monitoring</span>
+                            </a>
+                        </li>
 
 
-                        <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Ordinances</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <li  <?php if ($currentPage==='CaptainViewOrdinances') {echo 'class="active"';} ?>>
-                               <a href="CaptainViewOrdinances.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View Ordinance</a>
-                           </li>
-                       </ul>
-                        <!--<a href="ordinances.html">
-                            <i class="material-icons">assignment</i>
-                            <span>Ordinances</span>
-                        </a>-->
-                    </li>
-
-
-                    <li <?php if ($currentPage==='CaptainViewExpProjects') 
-                    {echo 'class="active"';} ?>>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">assessment</i>
-                        <span>Project Monitoring</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li  <?php if ($currentPage==='CaptainViewExpProjects') {echo 'class="active"';} ?>>
-                            <a href="CaptainViewExpProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">View/Export</a>
-                       </ul>
-               </ul>
            </div>
            <!-- #Menu -->
            <!-- Footer -->
