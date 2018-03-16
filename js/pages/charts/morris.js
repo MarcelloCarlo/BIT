@@ -1,13 +1,13 @@
 $(function () {
-    getMorris('line', 'line_chart');
+   /* getMorris('line', 'line_chart');
     getMorris('bar', 'bar_chart');
-    getMorris('area', 'area_chart');
+    getMorris('area', 'area_chart');*/
     getMorris('donut', 'donut_chart');
 });
 
 
 function getMorris(type, element) {
-    if (type === 'line') {
+   /* if (type === 'line') {
         Morris.Line({
             element: element,
             data: [{
@@ -143,22 +143,22 @@ function getMorris(type, element) {
             hideHover: 'auto',
             lineColors: ['rgb(233, 30, 99)', 'rgb(0, 188, 212)', 'rgb(0, 150, 136)']
         });
-    } else if (type === 'donut') {
+    } else */if (type === 'donut') {
         Morris.Donut({
             element: element,
             data: [{
-                label: 'Jam',
+                label: 'Blotter Cases',
                 value: 25
             }, {
-                    label: 'Frosted',
+                    label: 'Blotter Records',
                     value: 40
-                }, {
+                }/*, {
                     label: 'Custard',
                     value: 25
                 }, {
                     label: 'Sugar',
                     value: 10
-                }],
+                }*/],
             colors: ['rgb(233, 30, 99)', 'rgb(0, 188, 212)', 'rgb(255, 152, 0)', 'rgb(0, 150, 136)'],
             formatter: function (y) {
                 return y + '%'
