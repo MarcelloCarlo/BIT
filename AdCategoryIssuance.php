@@ -21,7 +21,7 @@
                             <small>The following are the current categories available for the barangay. Click 'Add New' to add.</small>
                         </h2>
                         <br/>
-                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addOrdiCatModal">
+                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#AddCatModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -31,12 +31,40 @@
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
-                                        <th class="hide"></th>
+                                        <th class="hide">IssuanceTypeID</th>
                                         <th>Title</th>
                                         <th style="width: 15px; ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    include_once('dbconn.php');
+
+                                    $IssuanceCatSQL = "SELECT * FROM bitdb_r_issuancetype";
+                                    $IssuanceCatQuery = mysqli_query($bitMysqli,$IssuanceCatSQL) or die(mysqli_error($bitMysqli));
+                                    if (mysqli_num_rows($IssuanceCatQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($IssuanceCatQuery))
+                                                {   
+                                                    $TypeID = $row['IssuanceID'];
+                                                    $Title = $row['IssuanceType'];
+                                                    
+                                                    echo
+                                                    '<tr>
+                                                        <td class="hide">'.$TypeID.'</td>
+                                                        <td>'.$Title.'</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-success waves-effect editCat" data-toggle="modal" data-target="#editCatModal">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>EDIT</span>
+                                                            </button>
+                                                        </td>
+
+                                                    </tr>';
+                                                    
+                                                }
+                                    }
+                                    ?>
                                    
                                 </tbody>
                             </table>
@@ -47,7 +75,7 @@
         </div>
         <!-- #END# Basic Examples -->
         <form id="addCategoryIssue" action="AdminAddIssuanceCategory.php" method="POST">
-        <div class="modal fade" id="addOrdiCatModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="AddCatModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -61,7 +89,7 @@
                         <div class="row clearfix margin-0">
                                 <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" name="OrdinanceTitle" class="form-control" />
+                                    <input type="text" name="IssuanceTitle" class="form-control" />
                                     <label class="form-label">Issuance Name</label>
                                 </div>
                             </div>
@@ -77,8 +105,8 @@
             </div>
         </div>
         </form>
-        <form id="editCategoryOrd" action="AdminEditOrdinanceCategory.php" method="POST">
-        <div class="modal fade" id="editOrdiCatModal" tabindex="-1" role="dialog">
+        <form id="editCategoryOrd" action="AdminEditIssuanceCategory.php" method="POST">
+        <div class="modal fade" id="editCatModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -127,7 +155,7 @@
         <script type="text/javascript">
     $(document).ready(function()
     {
-        $(".editCatOrd").click(function()
+        $(".editCat").click(function()
         {
             $("#editIssueID").val($(this).closest("tbody tr").find("td:eq(0)").html());
             $("#editIssueTitle").val($(this).closest("tbody tr").find("td:eq(1)").html());
