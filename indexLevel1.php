@@ -4,7 +4,7 @@
     $currentPage = 'indexLevel1';
     include('AdminConfig.php');
     include('head.php');
-    include('Level1Navbar.php');
+    include('Level1Navbar.php'); 
  ?>
 
  <!-- Google Fonts -->
@@ -168,8 +168,9 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                            <h2>TOTAL RECORDED BLOTTER
-                            <div id="donut_chart" class="graph"></div>
+                            <h2>TOTAL RECORDED BLOTTER</h2>
+                        </div>
+                            <div id="donut_chart" class="graph" style="height: 260px"></div>
                         </div>
                     </div>
                 </div>

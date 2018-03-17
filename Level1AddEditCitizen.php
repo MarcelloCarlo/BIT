@@ -389,7 +389,15 @@
                         <h2>
                             Add Citizen
                             <br/>
-                            <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
+                            <div style="height: 0px; overflow: hidden;">
+                                <input type="file" accept=".xls, .xlsx" name="fileInput" id="fileInput"/>
+                            </div>
+                            <script>
+                                function chooseFile(){
+                                    document.getElementById("fileInput").click();
+                                }
+                            </script>
+                            <button type="button" class="btn btn-success waves-effect" onclick="chooseFile()"> Migrate from Excel</button>
                         </h2>
                     </div>
                     <div class="modal-body">
