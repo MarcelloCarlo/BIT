@@ -1,11 +1,10 @@
 <?php 
     session_start();
-    $title = 'Project Activities | BarangayIT MK.II';
-    $currentPage = 'Level1AddEditActivities';
+    $title = 'Welcome | BarangayIT MK.II';
+    $currentPage = 'Level1AddEditProjDonations';
     include('headblock.php');
  ?>
- <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+ <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
 
     <!-- Offline Google Fonts -->
@@ -62,22 +61,21 @@
 
 </head>
 <?php include('Level1Navbar.php'); ?>
+
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
             <h2>PROJECTS</h2>
         </div>
-        <div id="calendar"></div>
         <br/>
-
          <!-- Basic Examples -->
         <div class="row clearfix">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
                         <h2>
-                            ACTIVITY MONITORING
-                            <small>The list of all the activites per projects in the barangay. Select first the project you want to monitor. Click "Add New" to add an activity all  or "Edit" to modify on the existing activity</small>
+                            PROJECT DONATION LIST
+                            <small>The list of all the donations per projects in the barangay. Select first the project you want to monitor. Click "Add New" to add a donation all  or "Edit" to modify on the existing donation</small>
                         </h2>
                         <br/>
                             <label class="form-label">Project</label>
@@ -91,7 +89,7 @@
                                         <option value="50">Proj 5</option>
                                     </select>
                             </div>
-                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectActModal">
+                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectDonModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -108,47 +106,31 @@
                                 <thead>
                                     <tr>
                                         <th class="hide">Project ID</th>
-                                        <th class="hide">Activity ID</th>
-                                        <th>Activity Name</th>
-                                       <th>Description</th>
-                                        <th>Location</th>
-                                        <th>Budget (PHP)</th>
-                                        <th class="hide">PeopleInvolved ID</th>
-                                        <th>People Involved</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th class="hide">Donation ID</th>
+                                        <th>Donor Name</th>
+                                        <th>Amount Donated (PHP)</th>
+                                        <th>Date Given</th>
+                                        <th>Date Recorded</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                       <th class="hide">Project ID</th>
-                                        <th class="hide">Activity ID</th>
-                                        <th>Activity Name</th>
-                                        <th>Description</th>
-                                        <th>Location</th>
-                                        <th>Budget (PHP)</th>
-                                        <th class="hide">PeopleInvolved ID</th>
-                                        <th>People Involved</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th class="hide">Project ID</th>
+                                        <th class="hide">Donation ID</th>
+                                        <th>Donor Name</th>
+                                        <th>Amount Donated (PHP)</th>
+                                        <th>Date Given</th>
+                                        <th>Date Recorded</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <td class="hide">1</td>
                                     <td class="hide">1</td>
-                                    <td>Pagpupukpok</td>
-                                    <td>Pagpukpok ng semento (if they can)</td>
+                                    <td>Maganda Anda</td>
                                     <td>500000</td>
-                                    <td class="hide">1</td>
-                                    <td>My Lowell</td>
                                     <td>03/23/2018</td>
                                     <td>03/24/2018</td>
-                                    <td>1 day/s</td>
-                                    <td><button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editActivityModal">
+                                    <td><button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editProjDonationModal">
                                     <i class="material-icons">mode_edit</i>
                                     <span>EDIT</span></button>
                                     </td>
@@ -161,7 +143,7 @@
         </div>
     </div>
     <form id="Level1AddProjectAct" action="Level1AddProject.php" method="POST">
-        <div class="modal fade" id="addProjectActModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="addProjectDonModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -174,39 +156,26 @@
                         <div class="row clearfix margin-0">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectName"/>
-                                    <label class="form-label">Activity Name</label>
+                                    <input type="text" class="form-control" name="donorName"/>
+                                    <label class="form-label">Donor Name</label>
                                 </div>
                             </div>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectLoc"/>
-                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" name="donationAmount"/>
+                                    <label class="form-label">Amount</label>
                                 </div>
                             </div>
+                            <label class="form-label">Date Given</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectDesc"/>
-                                    <label class="form-label">Description</label>
+                                    <input type="date" class="form-control" name="dateGiven"/>
                                 </div>
                             </div>
-                            <label class="form-label">Start Date</label>
+                            <label class="form-label">Date Recorded</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="date" class="form-control" name="ProjectStart"/>
-                                </div>
-                            </div>
-                            <label class="form-label">End Date</label>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="date" class="form-control" name="ProjectFinish"/>
-                                </div>
-                            </div>
-                            <div class="form-group form-float">
-                                <div class="form-line search-box">
-                                    <input id="SponsorName" type="text" class="form-control"/>
-                                    <label class="form-label">Sponsor</label>
-                                    <div class="result"></div>
+                                    <input type="date" class="form-control" name="dateRecorded"/>
                                 </div>
                             </div>
                         </div>
@@ -222,7 +191,7 @@
     </form>
 
     <form id="Level1EditProjectAct" action="Level1EditProject.php" method="POST">
-        <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="editProjDonationModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -231,51 +200,30 @@
                             <br/>
                         </h2>
                     </div>
-                    <div class="modal-body">
+                   <div class="modal-body">
                         <div class="row clearfix margin-0">
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editProjectName" type="text" class="form-control" name="ProjectName"/>
-                                    <label class="form-label">Activity Name</label>
+                                    <input type="text" class="form-control" name="donorName"/>
+                                    <label class="form-label">Donor Name</label>
                                 </div>
                             </div>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editProjectLoc" type="text" class="form-control" name="ProjectLoc"/>
-                                    <label class="form-label">Location</label>
+                                    <input type="text" class="form-control" name="donationAmount"/>
+                                    <label class="form-label">Amount</label>
                                 </div>
                             </div>
+                            <label class="form-label">Date Given</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editProjectDesc" type="text" class="form-control" name="ProjectDesc"/>
-                                    <label class="form-label">Description</label>
+                                    <input type="date" class="form-control" name="dateGiven"/>
                                 </div>
                             </div>
-                            <label class="form-label">Start Date</label>
+                            <label class="form-label">Date Recorded</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editProjectStart" type="date" class="form-control" name="ProjectStart"/>
-                                </div>
-                            </div>
-                            <label class="form-label">End date</label>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectFinish" type="date" class="form-control" name="ProjectFinish"/>
-                                </div>
-                            </div>
-                           <label class="form-label">Status</label>
-                                <div class="form-group">
-                                    <input type="radio" name="ProjectStatus" id="editCheckA" value="Active" class="with-gap">
-                                    <label for="editCheckA">Active</label>
-
-                                    <input type="radio" name="ProjectStatus" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
-                                </div>
-                           <label class="form-label">Sponsor</label>
-                            <div class="form-group form-float">
-                                <div class="form-line search-box-edit">
-                                    <input id="editSponsorName" type="text" class="form-control"/>
-                                    <div class="result"></div>
+                                    <input type="date" class="form-control" name="dateRecorded"/>
                                 </div>
                             </div>
                         </div>
@@ -291,9 +239,9 @@
     </form>
 </div>
 </section>
-   
+
 <?php include('footerblock.php'); ?>
-    
+   
 <!-- Jquery Core Js -->
 <script src="plugins/jquery/jquery.min.js"></script>
 
@@ -314,6 +262,9 @@
 
 <!-- Bootstrap Notify Plugin Js -->
 <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
+<!-- Bootstrap Colorpicker Js -->
+<script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
 
 <!-- Dropzone Plugin Js -->
 <script src="plugins/dropzone/dropzone.js"></script>
@@ -339,22 +290,15 @@
 <!-- JQuery Steps Plugin Js -->
 <script src="plugins/jquery-steps/jquery.steps.js"></script>
 
+<script src="ProjectMonitoring/lib/moment.min.js"></script>
+<script src="ProjectMonitoring/fullcalendar.min.js"></script>
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
+<script src="ProjectMonitoring/projectMonitoringCalendar.js"></script>
 <script src="js/pages/widgets/infobox/infobox-4.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-        

@@ -3,7 +3,7 @@
     <div class="page-loader-wrapper"> 
         <div class="loader">
             <div class="preloader">
-                <div class="spinner-layer pl-orange">
+                <div class="spinner-layer pl-light-blue">
                     <div class="circle-clipper left">
                         <div class="circle"></div>
                     </div>
@@ -200,7 +200,7 @@
                        </li>
 
                         
-                        <li <?php if ($currentPage==='Level1AddEditProjects' | $currentPage==='Level1AddEditActivities') {echo 'class="active"';}?>>
+                        <li <?php if ($currentPage==='Level1AddEditProjects' | $currentPage==='Level1AddEditActivities' | $currentPage=== 'Level1AddEditProjDonations') {echo 'class="active"';}?>>
                             <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assessment</i>
                             <span>Projects</span> </a>
@@ -213,6 +213,9 @@
                                 <a href="Level1AddEditActivities.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Monitoring</a>
                             </li>
                             
+                            <li <?php if($currentPage==='Level1AddEditProjDonations') {echo 'class="active"';}?>>
+                                <a href="Level1AddEditProjDonations.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Donations</a>
+                            </li>
                         </ul>
                        </li>
                                        
