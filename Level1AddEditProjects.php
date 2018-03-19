@@ -2,7 +2,6 @@
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'Level1AddEditProjects';
-    include('AdminConfig.php');
     include('headblock.php');
  ?>
  <!-- Google Fonts -->
@@ -71,7 +70,11 @@
         <div class="block-header">
             <h2>PROJECT MONITORING</h2>
         </div>
-        <div id="calendar"></div>
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                     <div class="body">
+                         <div id="calendar"></div></div></div></div></div>
         <br/>
 
          <!-- Basic Examples -->
@@ -80,7 +83,7 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            PROJECT MONITORING
+                            PROJECTS
                             <small>The list of all the projects in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
                         </h2>
                         <br/>
@@ -102,31 +105,22 @@
                                     <tr>
                                         <th class="hide">Project ID</th>
                                         <th>Project Name</th>
-                                        <th>Location</th>
+                                        <th class="hide">Project CategoryID</th>
+                                        <th>Category</th>
                                         <th>Description</th>
-                                        <th>Phases</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
+                                        <th>Total Budget</th>
                                         <th>Status</th>
-                                        <th class="hide">Sponsor ID</th>
-                                        <th>Sponsors</th>
-                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th class="hide">Project ID</th>
                                         <th>Project Name</th>
-                                        <th>Location</th>
+                                        <th class="hide">Project CategoryID</th>
+                                        <th>Category</th>
                                         <th>Description</th>
-                                        <th>Phases</th>
-                                        <th>Start Date</th>
-                                        <th>End Date</th>
+                                        <th>Total Budget</th>
                                         <th>Status</th>
-                                        <th class="hide">Sponsor ID</th>
-                                        <th>Sponsors</th>
-                                        <th>Actions</th>
-
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -221,60 +215,43 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Project Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectName"/>
                                     <label class="form-label">Project Name</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Location</h4>
+                            <label class="form-label">Category</label>
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectLoc"/>
-                                    <label class="form-label">Location</label>
-                                </div>
+                                    <select class="form-control show-tick">
+                                        <option value="">-- Please select --</option>
+                                        <option value="10">Infrastructure</option>
+                                        <option value="20">Welfare</option>
+                                        <option value="30">Scientific</option>
+                                        <option value="40">Medical</option>
+                                        <option value="50">Military</option>
+                                    </select>
                             </div>
-                            <h4 class="card-inside-title">Description</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectDesc"/>
                                     <label class="form-label">Description</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Phases</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectPhase"/>
-                                    <label class="form-label">Phases</label>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Start Date</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="date" class="form-control" name="ProjectStart"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Finish Date</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="date" class="form-control" name="ProjectFinish"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title hide">SponsorID</h4>
-                            <div class="form-group form-float hide">
-                                <div class="form-line hide">
-                                    <input id="SponsorID" type="text" class="form-control hide" name="ProjectSponsor"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Sponsor</h4>
+                            <br>
                             <div class="form-group form-float">
                                 <div class="form-line search-box">
-                                    <input id="SponsorName" type="text" class="form-control"/>
-                                    <label class="form-label">Sponsor</label>
-                                    <div class="result"></div>
+                                    <input name="projectBudget" type="text" class="form-control"/>
+                                    <label class="form-label">Budget</label>
                                 </div>
                             </div>
+                              <label class="form-label">Status</label>
+                                <div class="form-group">
+                                    <input type="radio" name="ProjStatus" id="editStatusA" value="Active" class="with-gap">
+                                    <label for="editStatusA">Active</label>
+                                    <input type="radio" name="ProjStatus" id="editStatusI" value="Inactive" class="with-gap">
+                                    <label for="editStatusI" class="m-l-20">Inactive</label>
+                                </div>
                         </div>
                         <br/>
                     </div>
@@ -297,71 +274,45 @@
                             <br/>
                         </h2>
                     </div>
-                    <div class="modal-body">
+                   <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Project ID</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editProjectID" type="text" class="form-control" name="ProjectID"/>
+                                    <input type="text" class="form-control" name="ProjectName"/>
+                                    <label class="form-label">Project Name</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Project Name</h4>
+                            <label class="form-label">Category</label>
+                            <div class="form-group form-float">
+                                    <select class="form-control show-tick">
+                                        <option value="">-- Please select --</option>
+                                        <option value="10">Infrastructure</option>
+                                        <option value="20">Welfare</option>
+                                        <option value="30">Scientific</option>
+                                        <option value="40">Medical</option>
+                                        <option value="50">Military</option>
+                                    </select>
+                            </div>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editProjectName" type="text" class="form-control" name="ProjectName"/>
+                                    <input type="text" class="form-control" name="ProjectDesc"/>
+                                    <label class="form-label">Description</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Location</h4>
+                            <br>
                             <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectLoc" type="text" class="form-control" name="ProjectLoc"/>
+                                <div class="form-line search-box">
+                                    <input name="projectBudget" type="text" class="form-control"/>
+                                    <label class="form-label">Budget</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Description</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectDesc" type="text" class="form-control" name="ProjectDesc"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Phases</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectPhase" type="text" class="form-control" name="ProjectPhase"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Start Date</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectStart" type="date" class="form-control" name="ProjectStart"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Finish Date</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectFinish" type="date" class="form-control" name="ProjectFinish"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Status</h4>
+                              <label class="form-label">Status</label>
                                 <div class="form-group">
-                                    <input type="radio" name="ProjectStatus" id="editCheckA" value="Active" class="with-gap">
-                                    <label for="editCheckA">Active</label>
-
-                                    <input type="radio" name="ProjectStatus" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                    <input type="radio" name="ProjStatus" id="editStatusA" value="Active" class="with-gap">
+                                    <label for="editStatusA">Active</label>
+                                    <input type="radio" name="ProjStatus" id="editStatusI" value="Inactive" class="with-gap">
+                                    <label for="editStatusI" class="m-l-20">Inactive</label>
                                 </div>
-                            <h4 class="card-inside-title hide">SponsorID</h4>
-                            <div class="form-group form-float hide">
-                                <div class="form-line hide">
-                                    <input id="editSponsorID" type="text" class="form-control hide" name="ProjectSponsorID"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Sponsor</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line search-box-edit">
-                                    <input id="editSponsorName" type="text" class="form-control"/>
-                                    <div class="result"></div>
-                                </div>
-                            </div>
                         </div>
                         <br/>
                     </div>
@@ -438,7 +389,7 @@
 
 
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-<script type="text/javascript">
+<!--<script type="text/javascript">
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
@@ -509,7 +460,7 @@ $(document).ready(function(){
                     }
             });
         });
-</script> 
+</script> -->
 
 
 

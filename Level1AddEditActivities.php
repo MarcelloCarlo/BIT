@@ -80,6 +80,17 @@
                             <small>The list of all the activites per projects in the barangay. Select first the project you want to monitor. Click "Add New" to add an activity all  or "Edit" to modify on the existing activity</small>
                         </h2>
                         <br/>
+                            <label class="form-label">Project</label>
+                            <div class="form-group form-float">
+                                    <select class="form-control show-tick">
+                                        <option value="">-- Select Project --</option>
+                                        <option value="10">Proj 1</option>
+                                        <option value="20">Proj 2</option>
+                                        <option value="30">Proj 3</option>
+                                        <option value="40">Proj 4</option>
+                                        <option value="50">Proj 5</option>
+                                    </select>
+                            </div>
                         <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectActModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
@@ -93,43 +104,54 @@
                     </div>
                     <div class="body">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            <table class="table table-borderethd table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
+                                        <th class="hide">Project ID</th>
                                         <th class="hide">Activity ID</th>
                                         <th>Activity Name</th>
                                        <th>Description</th>
-                                        <th>Expenses</th>
+                                        <th>Location</th>
+                                        <th>Budget (PHP)</th>
+                                        <th class="hide">PeopleInvolved ID</th>
+                                        <th>People Involved</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Status</th>
-                                        <th class="hide">PeopleInvolved ID</th>
-                                        <th>People Involved</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                       <th class="hide">Activity ID</th>
+                                       <th class="hide">Project ID</th>
+                                        <th class="hide">Activity ID</th>
                                         <th>Activity Name</th>
-                                       <th>Description</th>
-                                        <th>Expenses</th>
+                                        <th>Description</th>
+                                        <th>Location</th>
+                                        <th>Budget (PHP)</th>
+                                        <th class="hide">PeopleInvolved ID</th>
+                                        <th>People Involved</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Status</th>
-                                        <th class="hide">PeopleInvolved ID</th>
-                                        <th>People Involved</th>
-                                        <th>Actions</th> 
+                                        <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <td class="hide">1</td>
+                                    <td class="hide">1</td>
                                     <td>Pagpupukpok</td>
                                     <td>Pagpukpok ng semento (if they can)</td>
                                     <td>500000</td>
+                                    <td class="hide">1</td>
+                                    <td>My Lowell</td>
                                     <td>03/23/2018</td>
                                     <td>03/24/2018</td>
                                     <td>1 day/s</td>
+                                    <td><button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editActivityModal">
+                                    <i class="material-icons">mode_edit</i>
+                                    <span>EDIT</span></button>
+                                    </td>
                                 </tbody>
                             </table>
                         </div>
@@ -137,68 +159,55 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <form id="Level1AddProject" action="Level1AddProject.php" method="POST">
-        <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog">
+    <form id="Level1AddProjectAct" action="Level1AddProject.php" method="POST">
+        <div class="modal fade" id="addProjectActModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2>
-                            Add Project
+                            Add Activity
                             <br/>
-                            <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
                         </h2>
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Project Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectName"/>
-                                    <label class="form-label">Project Name</label>
+                                    <label class="form-label">Activity Name</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Location</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectLoc"/>
                                     <label class="form-label">Location</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Description</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectDesc"/>
                                     <label class="form-label">Description</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Phases</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectPhase"/>
                                     <label class="form-label">Phases</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Start Date</h4>
+                            <label class="form-label">Start Date</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="date" class="form-control" name="ProjectStart"/>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Finish Date</h4>
+                            <label class="form-label">End Date</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="date" class="form-control" name="ProjectFinish"/>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title hide">SponsorID</h4>
-                            <div class="form-group form-float hide">
-                                <div class="form-line hide">
-                                    <input id="SponsorID" type="text" class="form-control hide" name="ProjectSponsor"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Sponsor</h4>
                             <div class="form-group form-float">
                                 <div class="form-line search-box">
                                     <input id="SponsorName" type="text" class="form-control"/>
@@ -218,8 +227,8 @@
         </div>
     </form>
 
-    <form id="Level1EditProject" action="Level1EditProject.php" method="POST">
-        <div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog">
+    <form id="Level1EditProjectAct" action="Level1EditProject.php" method="POST">
+        <div class="modal fade" id="editActivityModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -230,22 +239,16 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Project ID</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectID" type="text" class="form-control" name="ProjectID"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Project Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editProjectName" type="text" class="form-control" name="ProjectName"/>
+                                    <label class="form-label">Activity Name</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Location</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editProjectLoc" type="text" class="form-control" name="ProjectLoc"/>
+                                    <label class="form-label">Location</label>
                                 </div>
                             </div>
                             <h4 class="card-inside-title">Description</h4>
@@ -254,25 +257,19 @@
                                     <input id="editProjectDesc" type="text" class="form-control" name="ProjectDesc"/>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Phases</h4>
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input id="editProjectPhase" type="text" class="form-control" name="ProjectPhase"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Start Date</h4>
+                            <label class="form-label">Start Date</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editProjectStart" type="date" class="form-control" name="ProjectStart"/>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Finish Date</h4>
+                            <label class="form-label">End date</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editProjectFinish" type="date" class="form-control" name="ProjectFinish"/>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Status</h4>
+                           <label class="form-label">Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="ProjectStatus" id="editCheckA" value="Active" class="with-gap">
                                     <label for="editCheckA">Active</label>
@@ -280,13 +277,7 @@
                                     <input type="radio" name="ProjectStatus" id="editCheckI" value="Inactive" class="with-gap">
                                     <label for="editCheckI" class="m-l-20">Inactive</label>
                                 </div>
-                            <h4 class="card-inside-title hide">SponsorID</h4>
-                            <div class="form-group form-float hide">
-                                <div class="form-line hide">
-                                    <input id="editSponsorID" type="text" class="form-control hide" name="ProjectSponsorID"/>
-                                </div>
-                            </div>
-                            <h4 class="card-inside-title">Sponsor</h4>
+                           <label class="form-label">Sponsor</label>
                             <div class="form-group form-float">
                                 <div class="form-line search-box-edit">
                                     <input id="editSponsorName" type="text" class="form-control"/>
