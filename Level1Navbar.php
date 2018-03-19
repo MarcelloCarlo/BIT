@@ -156,13 +156,24 @@
                             </a>
                       </li>
 
-                    
-                      <li <?php if ($currentPage==='Level1Issuance' ) {echo 'class="active"';} ?>>
-                            <a href="Level1Issuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">featured_play_list</i>
+
+                       <li <?php if ($currentPage==='Level1IssuancePersonal' | $currentPage==='Level1IssuanceBusiness') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                             <i class="material-icons">featured_play_list</i>
                             <span>Issuance</span>
-                            </a>
-                      </li>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if($currentPage==='Level1IssuancePersonal') {echo 'class="active"';}?>>
+                                <a href="Level1IssuancePersonal.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Personal</a>
+                            </li>
+
+                            <li <?php if($currentPage==='Level1IssuanceBusiness') {echo 'class="active"';}?>>
+                                <a href="Level1IssuanceBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Business</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
 
                     <li <?php if ($currentPage==='Level1AddEditPatawag' | $currentPage==='Level1AddEditBlotter') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
@@ -188,12 +199,22 @@
                             </a>
                        </li>
 
-                        <li <?php if ($currentPage==='Level1ProjectMonitoring') {echo 'class="active"';}?>>
-                            <a href="Level1ProjectMonitoring.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                        
+                        <li <?php if ($currentPage==='Level1AddEditProjects' | $currentPage==='Level1AddEditActivites') {echo 'class="active"';}?>>
+                            <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assessment</i>
-                            <span>Project Monitoring</span>
-                        </a>
-                    </li>
+                            <span>Project Monitoring</span> </a>
+                        <ul class="ml-menu">
+                            <li <?php if($currentPage==='Level1AddEditProjects') {echo 'class="active"';}?>>
+                                <a href="Level1AddEditProjects.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Setup</a>
+                            </li>
+
+                            <li <?php if($currentPage==='Level1AddEditActivites') {echo 'class="active"';}?>>
+                                <a href="Level1AddEditActivities.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Activity Setup</a>
+                            </li>
+                            
+                        </ul>
+                       </li>
                                        
                                           
                 </ul>

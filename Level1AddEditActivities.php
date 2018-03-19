@@ -1,8 +1,7 @@
 <?php 
     session_start();
-    $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'Level1AddEditProjects';
-    include('AdminConfig.php');
+    $title = 'Project Activities | BarangayIT MK.II';
+    $currentPage = 'Level1AddEditActivities';
     include('headblock.php');
  ?>
  <!-- Google Fonts -->
@@ -61,15 +60,12 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 
-    <!-- CALENDAR THEME -->
-    <link href="ProjectMonitoring/fullcalendar.min.css" rel="stylesheet" />
-    <link href="ProjectMonitoring/fullcalendar.print.min.css" rel="stylesheet" media="print">
 </head>
 <?php include('Level1Navbar.php'); ?>
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>PROJECT MONITORING</h2>
+            <h2>PROJECT ACTIVITIES</h2>
         </div>
         <div id="calendar"></div>
         <br/>
@@ -80,11 +76,11 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            PROJECT MONITORING
-                            <small>The list of all the projects in the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record</small>
+                            ACTIVITY MONITORING
+                            <small>The list of all the activites per projects in the barangay. Select first the project you want to monitor. Click "Add New" to add an activity all  or "Edit" to modify on the existing activity</small>
                         </h2>
                         <br/>
-                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectModal">
+                        <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectActModal">
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
@@ -100,105 +96,40 @@
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
-                                        <th class="hide">Project ID</th>
-                                        <th>Project Name</th>
-                                        <th>Location</th>
-                                        <th>Description</th>
-                                        <th>Phases</th>
+                                        <th class="hide">Activity ID</th>
+                                        <th>Activity Name</th>
+                                       <th>Description</th>
+                                        <th>Expenses</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Status</th>
-                                        <th class="hide">Sponsor ID</th>
-                                        <th>Sponsors</th>
+                                        <th class="hide">PeopleInvolved ID</th>
+                                        <th>People Involved</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th class="hide">Project ID</th>
-                                        <th>Project Name</th>
-                                        <th>Location</th>
-                                        <th>Description</th>
-                                        <th>Phases</th>
+                                       <th class="hide">Activity ID</th>
+                                        <th>Activity Name</th>
+                                       <th>Description</th>
+                                        <th>Expenses</th>
                                         <th>Start Date</th>
                                         <th>End Date</th>
                                         <th>Status</th>
-                                        <th class="hide">Sponsor ID</th>
-                                        <th>Sponsors</th>
-                                        <th>Actions</th>
-
+                                        <th class="hide">PeopleInvolved ID</th>
+                                        <th>People Involved</th>
+                                        <th>Actions</th> 
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <?php
-                                        include('dbconn.php');
-
-                                        $Level1ProjectAddSQL = 'SELECT 
-                                                                    bitdb_r_project.ProjectID,
-                                                                    bitdb_r_project.ProjectName,
-                                                                    bitdb_r_project.ProjectLoc,
-                                                                    bitdb_r_project.ProjectDesc,
-                                                                    bitdb_r_project.ProjectPhases,
-                                                                    bitdb_r_project.DateStart,
-                                                                    bitdb_r_project.DateFinish,
-                                                                    bitdb_r_project.ProjectStatus,
-                                                                    bitdb_r_citizen.Citizen_ID,
-                                                                    bitdb_r_citizen.First_Name,
-                                                                    bitdb_r_citizen.Middle_Name,
-                                                                    bitdb_r_citizen.Last_Name
-                                                            FROM    bitdb_r_project
-                                                            INNER JOIN bitdb_r_barangayofficial
-                                                            ON bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_project.PeopleInvolved
-                                                            INNER JOIN bitdb_r_citizen
-                                                            ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID';
-                                        $Level1ProjectAddQuery = mysqli_query($bitMysqli,$Level1ProjectAddSQL) or die (mysqli_error($bitMysqli));
-                                        if (mysqli_num_rows($Level1ProjectAddQuery) > 0) 
-                                        {
-                                            while($row = mysqli_fetch_assoc($Level1ProjectAddQuery))
-                                            {
-                                                $ProjectID = $row['ProjectID'];
-                                                $ProjectName = $row['ProjectName'];
-                                                $ProjectLoc = $row['ProjectLoc'];
-                                                $ProjectDesc = $row['ProjectDesc'];
-                                                $ProjectPhases = $row['ProjectPhases'];
-                                                $DateStart = $row['DateStart'];
-                                                $DateFinish = $row['DateFinish'];
-                                                $CitizenID = $row['Citizen_ID'];
-                                                $First_Name = $row['First_Name'];
-                                                $Middle_Name = $row['Middle_Name'];
-                                                $Last_Name = $row['Last_Name'];
-                                                if($row['ProjectStatus'] == 1)
-                                                {
-                                                    $ProjectStatus = "Active";
-                                                }
-                                                else
-                                                {
-                                                    $ProjectStatus = "Inactive";
-                                                }
-                                                $PeopleInvolved = ''.$First_Name.' '.$Middle_Name.' '.$Last_Name.'';
-                                                echo'
-                                                <tr>
-                                                    <td class="hide">'.$ProjectID.'</td>
-                                                    <td>'.$ProjectName.'</td>
-                                                    <td>'.$ProjectLoc.'</td>
-                                                    <td>'.$ProjectDesc.'</td>
-                                                    <td>'.$ProjectPhases.'</td>
-                                                    <td>'.$DateStart.'</td>
-                                                    <td>'.$DateFinish.'</td>
-                                                    <td>'.$ProjectStatus.'</td>
-                                                    <td class="hide">'.$CitizenID.'</td>
-                                                    <td>'.$PeopleInvolved.'</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-success waves-effect editProject" data-toggle="modal" data-target="#editProjectModal">
-                                                            <i class="material-icons">mode_edit</i>
-                                                            <span>EDIT</span>
-                                                        </button>
-                                                    </td>
-                                                </tr>';
-                                            }
-                                        }
-                                        
-                                    ?>
+                                    <td class="hide">1</td>
+                                    <td>Pagpupukpok</td>
+                                    <td>Pagpukpok ng semento (if they can)</td>
+                                    <td>500000</td>
+                                    <td>03/23/2018</td>
+                                    <td>03/24/2018</td>
+                                    <td>1 day/s</td>
                                 </tbody>
                             </table>
                         </div>
@@ -399,9 +330,6 @@
 <!-- Bootstrap Notify Plugin Js -->
 <script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
 
-<!-- Bootstrap Colorpicker Js -->
-<script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
-
 <!-- Dropzone Plugin Js -->
 <script src="plugins/dropzone/dropzone.js"></script>
 
@@ -426,92 +354,22 @@
 <!-- JQuery Steps Plugin Js -->
 <script src="plugins/jquery-steps/jquery.steps.js"></script>
 
-<script src="ProjectMonitoring/lib/moment.min.js"></script>
-<script src="ProjectMonitoring/fullcalendar.min.js"></script>
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
-<script src="ProjectMonitoring/projectMonitoringCalendar.js"></script>
 <script src="js/pages/widgets/infobox/infobox-4.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 
 
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("officialSearchBackend.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $("#SponsorName").val($(this).find('#NameResult').text());
-        $("#SponsorID").val($(this).find('small').text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $('.search-box-edit input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("officialSearchBackend.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $("#editSponsorName").val($(this).find('#NameResult').text());
-        $("#editSponsorID").val($(this).find('small').text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
-
-<script type="text/javascript">
-        $(document).ready(function()
-        {
-            $(".editProject").click(function()
-            {
-                $("#editProjectID").val($(this).closest("tbody tr").find("td:eq(0)").html());
-                $("#editProjectName").val($(this).closest("tbody tr").find("td:eq(1)").html());
-                $("#editProjectLoc").val($(this).closest("tbody tr").find("td:eq(2)").html());
-                $("#editProjectDesc").val($(this).closest("tbody tr").find("td:eq(3)").html());
-                $("#editProjectPhase").val($(this).closest("tbody tr").find("td:eq(4)").html());
-                $("#editProjectStart").val($(this).closest("tbody tr").find("td:eq(5)").html());
-                $("#editProjectFinish").val($(this).closest("tbody tr").find("td:eq(6)").html());
-                $("#editSponsorID").val($(this).closest("tbody tr").find("td:eq(8)").html());
-                $("#editSponsorName").val($(this).closest("tbody tr").find("td:eq(9)").html());
-                if ($(this).closest("tbody tr").find("td:eq(7)").text() === "Active") {
-                        $("#editCheckA").prop("checked", true).trigger('click');
-                    } else {
-                        $("#editCheckI").prop("checked", true).trigger('click');
-                    }
-            });
-        });
-</script> 
-
-
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+        

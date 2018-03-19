@@ -146,49 +146,81 @@
                             <span>Positions</span>
                         </a>
                     </li>
+                  
+                    <li <?php if ($currentPage==='AdCitizens' | $currentPage==='AdOfficialFromCitizens') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">people</i>
+                            <span>Add Officials</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if($currentPage==='AdCitizens') {echo 'class="active"';}?>>
+                                <a href="AdCitizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">person_add</i>
+                            <span>New Citizen Record</span></a>
+                            </li>
+
+                            <li <?php if($currentPage==='AdOfficialFromCitizens') {echo 'class="active"';}?>>
+                                <a href="AdOfficialFromCitizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">person</i>
+                            <span>From Existing Record</span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
                     <li <?php if ($currentPage==='AdOfficials' ) {echo 'class="active"';} ?>>
                         <a href="AdOfficials.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">people_outline</i>
                             <span>Officials</span>
                         </a>
                     </li>
-                    <li <?php if ($currentPage==='AdCitizens' ) {echo 'class="active"';} ?>>
-                        <a href="AdCitizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">people</i>
-                            <span>Citizens</span>
-                        </a>
 
-                    </li>
                     <li <?php if ($currentPage==='AdUsers' ) {echo 'class="active"';} ?>>
                         <a href="AdUsers.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">account_circle</i>
                             <span>User Authorities</span>
                         </a>
                     </li>
-                    <li <?php if ($currentPage==='AdCategoryOrdinance' ) {echo 'class="active"';} ?>>
 
-                        <a href="AdCategoryOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">assignment</i>
-                            <span>Ordinance Category</span>
+                    <li <?php if ($currentPage==='AdCategoryOrdinance' | $currentPage==='AdCategoryBusiness' | $currentPage==='AdCategoryIssuance' | $currentPage==='AdBlotterSubjects' | $currentPage==='AdBarangayZones' | $currentPage==='AdCategoryProjectMonitoring') {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">playlist_add</i>
+                            <span>Category Setup</span>
                         </a>
+                        <ul class="ml-menu">
+                            <li <?php if($currentPage==='AdCategoryOrdinance') {echo 'class="active"';}?>>
+                                <a href="AdCategoryOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">assignment</i>
+                            <span>Ordinance Category</span></a>
+                            </li>
+
+                            <li <?php if($currentPage==='AdCategoryBusiness') {echo 'class="active"';}?>>
+                                <a href="AdCategoryBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">business</i>
+                            <span>Business Category</span></a>
+                            </li>
+
+                            <li <?php if($currentPage==='AdCategoryIssuance') {echo 'class="active"';}?>>
+                                <a href="AdCategoryIssuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">featured_play_list</i>
+                            <span>Issuance Category</span></a>
+                            </li>
+
+                            <li <?php if($currentPage==='AdCategoryProjectMonitoring') {echo 'class="active"';}?>>
+                                <a href="AdCategoryProjectMonitoring.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">assessment</i>
+                            <span>Project Category</span></a>
+                            </li>
+
+                            <li <?php if($currentPage==='AdBlotterSubjects') {echo 'class="active"';}?>>
+                                <a href="AdBlotterSubjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">gavel</i>
+                            <span>Blotter Subjects </span></a>
+                            </li>
+
+                            <li <?php if($currentPage==='AdBarangayZones') {echo 'class="active"';}?>>
+                                <a href="AdBarangayZones.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">nature_people</i>
+                            <span>Barangay Zones</span></a>
+                            </li>
+
+                            
+                        </ul>
                     </li>
-                    <li <?php if ($currentPage==='AdCategoryBusiness' ) {echo 'class="active"';} ?>>
 
-                        <a href="AdCategoryBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">business</i>
-                            <span>Business Category</span>
-                        </a>
-                    </li>
-
-                    <li <?php if ($currentPage==='AdCategoryIssuance' ) {echo 'class="active"';} ?>>
-
-                        <a href="AdCategoryIssuance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">featured_play_list</i>
-                            <span>Issuance Category</span>
-                        </a>
-                    </li>
-
-                </ul>
+                 </ul>
             </div>
             <!-- #Menu -->
             <!-- Footer -->

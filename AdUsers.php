@@ -20,7 +20,7 @@
                         <div class="header">
                             <h2>
                                 USERS LIST
-                                <small>The current list of officials of the Barangay. Click "Edit" to modify the level of authority of official </small>
+                                <small>The following are the list of officials of the Barangay that has access to the system. Click "Edit" to modify the level of authority of access. </small>
                             </h2>
                             <br/>
 

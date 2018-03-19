@@ -45,7 +45,7 @@ $result = mysqli_query($bitMysqli,$query)
                                         <th>Status</th>
                                         <th>Resolution</th>
                                         <th>Date Recorded</th>     
-                                        <th>Action</th>
+                                      
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -56,7 +56,7 @@ $result = mysqli_query($bitMysqli,$query)
                                    <th>Status</th>
                                    <th>Resolution</th>
                                    <th>Date Recorded</th>     
-                                   <th>Action</th>
+                                 
                                </tfoot>
                                <tbody>
 
@@ -87,12 +87,7 @@ $result = mysqli_query($bitMysqli,$query)
                                     </td>
                                         <td><?php echo $row['Resolution'];?></td>
                                         <td><?php echo $row['ComplaintDate'];?></td>
-                                        <td>
-                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editPosModal">
-                                                <i class="material-icons">mode_edit</i>
-                                                <span>EDIT</span>
-                                            </button>
-                                        </td>
+                                        
                                     </tr>
                                     <?php
                                 }

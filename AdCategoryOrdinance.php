@@ -7,9 +7,7 @@
 ?>
 <section class="content">
     <div class="container-fluid">
-        <div class="block-header">
-            <h2>ORDINANCE CATEGORY</h2>
-        </div>
+       
         <!--CUSTOM BLOCK INSERT HERE-->
         <!-- Basic Examples -->
         <div class="row clearfix">

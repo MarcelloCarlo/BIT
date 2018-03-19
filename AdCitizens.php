@@ -9,7 +9,7 @@
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-            <h2>CITIZENS</h2>
+       
         </div>
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -17,8 +17,8 @@
                 <div class="card">
                     <div class="header">
                         <h2>
-                            CITIZENS LIST
-                            <small>The current list of officials of the Barangay. Click "Add New" to add an official or "Edit" to modify on the existing official </small>
+                            Add Officials
+                            <small>Click "Add New" to add an official or "Edit" to modify on the existing official </small>
                         </h2>
                         <br/>
                         <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitizModal">

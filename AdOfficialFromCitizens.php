@@ -1,34 +1,31 @@
 <?php 
-session_start();
-$title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1Issuance';?>
-<?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
+    session_start();
+    $title = 'Welcome | BarangayIT MK.II'; 
+    $currentPage = 'AdOfficialFromCitizens'; 
+    include('head.php'); 
+    include('AdminNavbar.php'); 
+?>
 
- <section class="content">
-        <div class="container-fluid">
-            <div class="block-header">
-                <h2>Issuance</h2>
-</div>
-            <!-- Basic Examples -->
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
-                        <div class="header">
+<section class="content">
+    <div class="container-fluid">
+        <div class="block-header">
+         
+        </div>
+        <!-- Basic Examples -->
+        <div class="row clearfix">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="header">
                         <h2>
-                        Barangay ID
-                        <small>The list of all the citizens of the barangay. Click "ISSUE" to isssue a Barangay ID</small>
-                    </h2>
-                   
-                          <!--   <button type="button" class="btn bg-indigo waves-effect">
-                            <i class="material-icons">add_circle_outline</i>
-                            <a  href="Level1AddCirtizen.php" style= "text-decoration: none;"> 
-                            <span>View</span></a>
-                        </button> -->
-                        </div>
-                        <div class="body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                            Add Officials
+                            <small>The list of all the citizens of the barangay. Click "Assign" to add them as an official of the barangay.</small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="table-responsive"> 
+                                     <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
+                            <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                      <!--   <table class="table table-bordered table-striped table-hover dataTable js-exportable">  -->
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>
@@ -37,13 +34,23 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
+                                        <th>Email</th>
+                                        <th>Height</th>
+                                        <th>Weight</th>
                                         <th>Birthdate</th>
+                                        <th>Birth Place</th>
                                         <th>Nationality</th>
                                         <th>Status</th>
                                         <th>Civil Status</th>
                                         <th>Occupation</th>
                                         <th>Gender</th>
+                                        <th>Blood Type</th>
+                                        <th class="hide">HouseNo</th>
+                                        <th class="hide">Street</th>
+                                        <th class="hide">Zone</th>
                                         <th>Address</th>
+                                        <th>Person in Contact</th>
+                                        <th>Contact</th>
                                         <th>Date Recorded</th>
                                         <th>Actions</th>
                                     </tr>
@@ -56,13 +63,23 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
+                                        <th>Email</th>
+                                        <th>Height</th>
+                                        <th>Weight</th>
                                         <th>Birthdate</th>
+                                        <th>Birth Place</th>
                                         <th>Nationality</th>
                                         <th>Status</th>
                                         <th>Civil Status</th>
                                         <th>Occupation</th>
                                         <th>Gender</th>
+                                        <th>Blood Type</th>
+                                        <th class="hide">HouseNo</th>
+                                        <th class="hide">Street</th>
+                                        <th class="hide">Zone</th>
                                         <th>Address</th>
+                                        <th>Person in Contact</th>
+                                        <th>Contact</th>
                                         <th>Date Recorded</th>
                                         <th>Actions</th>
                                     </tr>
@@ -144,18 +161,27 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                             <td>'.$MName.'</td>
                                                             <td>'.$LName.'</td>
                                                             <td>'.$Name_Ext.'</td>
+                                                            <td>'.$Email.'</td>
+                                                            <td>'.$Height.'</td>
+                                                            <td>'.$Weight.'</td>
                                                             <td>'.$Birthdate.'</td>
+                                                            <td>'.$Birth_Place.'</td>
                                                             <td>'.$Nationality.'</td>
                                                             <td>'.$Res_Status.'</td>
                                                             <td>'.$Civil_Status.'</td>
                                                             <td>'.$Occupation.'</td>
                                                             <td>'.$Gender.'</td>
+                                                            <td>'.$BloodType.'</td>
+                                                            <td class="hide">'.$House_No.'</td>
+                                                            <td class="hide">'.$Street.'</td>
+                                                            <td class="hide">'.$Zone.'</td>
                                                             <td>'.$Address.'</td>
+                                                            <td>'.$Person_Con.'</td>
+                                                            <td>'.$Contact.'</td>
                                                             <td>'.$Date_Rec.'</td>
-                                                            <td>  <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#issuance1">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                
-                                                                <span>ISSUE</span></a>
+                                                            <td>  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#AddOfficialFromCitizModal">
+                                                                <i class="material-icons">add_circle_outline</i>
+                                                                <span>Assign</span>
                                                             </button>
                                                             </td>
                                                         </tr>';
@@ -164,153 +190,101 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             ?>
                                 </tbody>
                             </table>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- #END# Basic Examples -->
-     
-      <!--Add-->
-    <form id="IssuancePrint" action="Level1AddCitizen.php" method="POST">
-        <div class="modal fade" id="issuance1" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2>
-                            Purpose
-                            <br/>
-                        </h2>
-                    </div>
-                    <div class="modal-body">
-                           <div class="modal-body">
-                            <div class="row clearfix margin-0">
-                                <div class="form-group form-float">
-                                     <h4 class="card-inside-title">Category</h4>
-                                <select class="form-control show-tick" name="btn dropdown-toggle btn-default" id="categorydropdown" onchange="disablebutt()">
-                                    <?php
-                                    include_once('dbconn.php');
-                                    $CategorySQL = "SELECT * FROM bitdb_r_issuancetype";
-                                    $CategoryQuery = mysqli_query($bitMysqli,$CategorySQL) or die(mysqli_error($bitMysqli));
-                                    if(mysqli_num_rows($CategoryQuery) > 0)
-                                    {
-                                        while($row = mysqli_fetch_assoc($CategoryQuery))
-                                        {
-                                            echo '<option>'.$row['IssuanceType'].'</option>';
-                                        }
-                                    }
-                                    ?>
-                                </select>
-                                <br>
-                                <br>
-
-                                    <div class="form-line">
-                                        <input type="text" name="txtPurpose" class="form-control" id="txtPurpose" />
-                                        <label class="form-label">Purpose</label>
-                                    </div>
-                                </div>
-
-                                <!-- <h4 class="card-inside-title">Status</h4>
-                                <div class="demo-switch">
-                                    <div class="switch">
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
-                                    </div>
-                                </div> -->
-
-                            </div>
-                            <br/>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-          
-        <script type="text/javascript">
-        
-        function disablebutt(){
-            var catshere = $("#categorydropdown").val();
-                if (catshere == "Business Permit")
-                {
-                     document.getElementById('txtPurpose').disabled = true;
-                }
-                else
-                {
-                     document.getElementById('txtPurpose').disabled = false;
-                }
+    </div>
+    <!--Edit-->
+     <form id="OfficalAddFromCitiz" action="AddOfficialFromCitizModal.php" method="POST">
+             <div class="modal fade" id="AddOfficialFromCitizModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2>
+                                Assign
+                                <br/>
+                                <small>Select position in the barangay for the citizen.</small>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                             <div class="row clearfix margin-0">
+                                <h4 class="card-inside-title">Position For: </h4>
+                                <br/>
+                                <div class="col-md-6">
 
-        }    
-        function checkthis(){
-                
-            var catshere = $("#categorydropdown").val();
+                                  <h4>Position</h4>
+                                    <select id="PositionOption" class="form-control browser-default" name="PositionName">
+                                            <option value="None">None</option>
+                                            <?php
+                                                include_once('dbconn.php');
 
-                 if (catshere == "Indigency"){
-                 //   alert("Indigency");
-                    $("#issuebutt").onclick==PrintIndigency();
-                    // $('#issuance1').modal('show');
-                 }
-
-                 if (catshere == "Barangay Clearance"){
-                   // alert("Clearance");
-                    $("#issuebutt").onclick==PrintBrgyClearance();     
-                 }
-
-                  if (catshere == "Business Permit"){
-                    //alert("Business Permit");
-                    $("#issuebutt").onclick==PrintBusPermit();     
-                 }
-
-                else  
-                 {
-                    alert("Certificate not found! Please contact your system administrator.");
-                 }
-
-        }
-
-        //     {
-        //     window.open("http://philmontscoutranch.org/Camping/75.aspx", "_blank");
-        //     }
-
-        //     $("button[class='btn dropdown-toggle btn-default']").on("click",function(){
-        //         alert($("span[class='filter-option pull-left']").text());
-        //             if($("span[class='filter-option pull-left']").text()=="Indigency"){
-        //                 $("button[data-toggle='modal']").trigger("click");
-        //                     }
-        //     else
-        //     {
-
-        //     }
-        // }
-        // };
-
-
-        function PrintIndigency() {
-                 printWindow = window.open("IssuanceCerts/batch1/indigency.php" );
-                 printWindow.print();
-        }
-
-        function PrintBusPermit() {
-                 printWindow = window.open("IssuanceCerts/batch1/business-permit.php" );
-                 printWindow.print();
-        }
-
-        function PrintBrgyClearance() {
-                 printWindow = window.open("IssuanceCerts/batch1/barangay-clearance.php" );
-                 printWindow.print();
-        }
-
-
-
-            
-</script>    
-        
-        </script>
-    </section>
-
+                                                $ViewPosSql = "SELECT * FROM bitdb_r_barangayposition WHERE bitdb_r_barangayposition.PosStat = 1";
+                                                $ViewPosQuery = mysqli_query($bitMysqli,$ViewPosSql) or die (mysqli_error($bitMysqli));
+                                                if(mysqli_num_rows($ViewPosQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($ViewPosQuery))
+                                                    {
+                                                        $PosID = $row['PosID'];
+                                                        $PosName = $row['PosName'];
+                                                        echo '<option value="'.$PosName.'">'.$PosName.'</option>';
+                                                        
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
+                                    <input id="BarangayOffID" type="text" class="form-control hide" name="BOffID"/>
+                                    <input id="CitizenID" type="text" class="form-control hide" name="CID"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-link waves-effect">ASSIGN</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </form>
+</section>
 
 <?php include('footer.php'); ?>
+
+<script type="text/javascript">
+        $(document).ready(function()
+        {
+            $(".editCiti").click(function()
+            {
+                $("#CID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#CitiSalutation").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                $("#CitiFName").val($(this).closest("tbody tr").find("td:eq(2)").html());
+                $("#CitiMName").val($(this).closest("tbody tr").find("td:eq(3)").html());
+                $("#CitiLName").val($(this).closest("tbody tr").find("td:eq(4)").html());
+                $("#CitiNExt").val($(this).closest("tbody tr").find("td:eq(5)").html());
+                $("#CitiEmail").val($(this).closest("tbody tr").find("td:eq(6)").html());
+                $("#CitiHeight").val($(this).closest("tbody tr").find("td:eq(7)").html());
+                $("#CitiWeight").val($(this).closest("tbody tr").find("td:eq(8)").html());
+                $("#CitiBDate").val($(this).closest("tbody tr").find("td:eq(9)").html());
+                $("#CitiPOB").val($(this).closest("tbody tr").find("td:eq(10)").html());
+                $("#CitiNationality").val($(this).closest("tbody tr").find("td:eq(11)").html());
+                $("#CitiCivilStatus").val($(this).closest("tbody tr").find("td:eq(13)").html());
+                $("#CitiOccupation").val($(this).closest("tbody tr").find("td:eq(14)").html());
+                $("#CitiGender").val($(this).closest("tbody tr").find("td:eq(15)").html());
+                $("#CitiBloodType").val($(this).closest("tbody tr").find("td:eq(16)").html());
+                $("#CitiHouseNo").val($(this).closest("tbody tr").find("td:eq(17)").html());
+                $("#CitiStreet").val($(this).closest("tbody tr").find("td:eq(18)").html());
+                $("#CitiZone").val($(this).closest("tbody tr").find("td:eq(19)").html());
+                $("#CitiPerCon").val($(this).closest("tbody tr").find("td:eq(21)").html());
+                $("#CitiContact").val($(this).closest("tbody tr").find("td:eq(22)").html());
+                if ($(this).closest("tbody tr").find("td:eq(12)").text() === "Active") {
+                        $("#editCheckA").prop("checked", true).trigger('click');
+                    } else {
+                        $("#editCheckI").prop("checked", true).trigger('click');
+                    }
+                // ActOption = "option[value="+val($(this).closest("tbody tr").find("td:eq(4)").html())+"]";
+                // $("#PositionOption").find(ActOption).prop("selected",true);
+            });
+        });
+
+    </script> 
