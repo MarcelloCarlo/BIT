@@ -107,27 +107,24 @@ include('AdminNavbar.php');
                                             <div class="body js-sweetalert">
                                                 <form id="form_validation" action="updateBarangayConfig.php" method="POST" enctype="multipart/form-data">
                                                     <div class="form-group form-float">
-                                                        <h3 class="card-inside-title">Barangay Name</h3>
                                                         <div class="form-line">
                                                             <input type="text" class="form-control" name="BarangayName" required>
                                                             <label class="form-label">Barangay Name</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group form-float">
-                                                        <h3 class="card-inside-title">City/Municipal Name</h3>
                                                         <div class="form-line">
                                                             <input type="text" class="form-control" name="MunicipalName" required>
                                                             <label class="form-label">City/Municipal Name</label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group form-float">
-                                                        <h3 class="card-inside-title">Province Name</h3>
                                                         <div class="form-line">
                                                             <input type="text" class="form-control" name="ProvinceName" required>
                                                             <label class="form-label">Province Name</label>
                                                         </div>
                                                     </div>
-                                                    <h3 class="card-inside-title">City or Municipality?</h3>
+                                                    <label class="form-label">City or Municipality?</label>
                                                     <div class="form-group">
                                                         <input type="radio" name="morcRadio" id="optCity" value="City" class="with-gap">
                                                         <label for="optCity">City</label>
@@ -135,7 +132,7 @@ include('AdminNavbar.php');
                                                         <input type="radio" name="morcRadio" id="optMunicipal" value="Municipality" class="with-gap">
                                                         <label for="optMunicipal" class="m-l-20">Municipality</label>
                                                     </div>
-                                                    <h3 class="card-inside-title">Independent or Component?</h3>
+                                                    <label class="form-label">Independent or Component?</label>
                                                     <div class="form-group">
                                                         <input type="radio" name="iorcRadio" id="optIndependent" value="Independent" class="with-gap">
                                                         <label for="optIndependent">Independent</label>
@@ -144,9 +141,9 @@ include('AdminNavbar.php');
                                                         <label for="optComponent" class="m-l-20">Component</label>
                                                     </div>
                                                     <!-- File Upload | Drag & Drop OR With Click & Choose -->
-                                                    <h3 class="card-inside-title">
+                                                    <label class="form-label">
                                                         Barangay Seal
-                                                    </h3>
+                                                    </label>
                                                     <div class="dz-message form-group form-float">
 
                                                         <div class="drag-icon-cph">
@@ -162,9 +159,9 @@ include('AdminNavbar.php');
                                                     <!-- #END# File Upload | Drag & Drop OR With Click & Choose -->
 
                                                     <!-- File Upload | Drag & Drop OR With Click & Choose -->
-                                                    <h3 class="card-inside-title">
+                                                    <label class="form-label">
                                                         Municipal Seal
-                                                    </h3>
+                                                    </label>
                                                     <div class="dz-message form-group form-float">
 
                                                         <div class="drag-icon-cph">
