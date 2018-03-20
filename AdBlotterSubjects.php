@@ -29,14 +29,40 @@
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
-                                        <th class="hide"></th>
+                                        <th class="hide">BlotterCategoryID</th>
                                         <th>Subject Name</th>
                                         <th style="width: 15px; ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <!-- phpcode here -->
-                                   
+                                   <?php
+                                    include_once('dbconn.php');
+
+                                    $BlotterCatSQL = "SELECT * FROM bitdb_r_blottercategory";
+                                    $BlotterCatQuery = mysqli_query($bitMysqli,$BlotterCatSQL) or die(mysqli_error($bitMysqli));
+                                    if (mysqli_num_rows($BlotterCatQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($BlotterCatQuery))
+                                                {   
+                                                    $ID = $row['BlotterCategoryID'];
+                                                    $Title = $row['BlotterCategoryName'];
+                                                    
+                                                    echo
+                                                    '<tr>
+                                                        <td class="hide">'.$ID.'</td>
+                                                        <td>'.$Title.'</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-success waves-effect editBlotterCat" data-toggle="modal" data-target="#editBlotterSubModal">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>EDIT</span>
+                                                            </button>
+                                                        </td>
+
+                                                    </tr>';
+                                                    
+                                                }
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -78,14 +104,13 @@
         </div>
         </form>
         <form id="editBlotterSub" action="AdminEditBlotterSubject.php" method="POST">
-        <div class="modal fade" id="addBlotterSubModal" tabindex="-1" role="dialog">
+        <div class="modal fade" id="editBlotterSubModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2>
                             Edit Blotter Subject
                             <br/>
-                            
                         </h2>
                     </div>
                     <div class="modal-body hide">
@@ -93,7 +118,7 @@
                             <h4 class="card-inside-title hide">Blotter Subject ID</h4>
                             <div class="form-group form-float hide">
                                 <div class="form-line hide">
-                                    <input id="editBlotterSubID" type="text" name="ProjID" class="form-control hide" />
+                                    <input id="editBlotterSubID" type="text" name="BlotterID" class="form-control hide" />
                                    <!--  <label class="form-label hide">Ordinance ID</label> -->
                                 </div>
                             </div>
@@ -127,7 +152,7 @@
         <script type="text/javascript">
     $(document).ready(function()
     {
-        $(".editCatOrd").click(function()
+        $(".editBlotterCat").click(function()
         {
             $("#editBlotterSubID").val($(this).closest("tbody tr").find("td:eq(0)").html());
             $("#editBlotterSubName").val($(this).closest("tbody tr").find("td:eq(1)").html());

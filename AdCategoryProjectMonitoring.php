@@ -29,13 +29,40 @@
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
-                                        <th class="hide"></th>
+                                        <th class="hide">ProjectCategoryID</th>
                                         <th>Name</th>
                                         <th style="width: 15px; ">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <!-- phpcode here -->
+                                   <?php
+                                    include_once('dbconn.php');
+
+                                    $ProjectCatSQL = "SELECT * FROM bitdb_r_projectcategory";
+                                    $ProjectCatQuery = mysqli_query($bitMysqli,$ProjectCatSQL) or die(mysqli_error($bitMysqli));
+                                    if (mysqli_num_rows($ProjectCatQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($ProjectCatQuery))
+                                                {   
+                                                    $ID = $row['ProjectCategoryID'];
+                                                    $Title = $row['ProjectCategory'];
+                                                    
+                                                    echo
+                                                    '<tr>
+                                                        <td class="hide">'.$ID.'</td>
+                                                        <td>'.$Title.'</td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-success waves-effect editProjCat" data-toggle="modal" data-target="#editProjCatModal">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>EDIT</span>
+                                                            </button>
+                                                        </td>
+
+                                                    </tr>';
+                                                    
+                                                }
+                                    }
+                                    ?>
                                    
                                 </tbody>
                             </table>
@@ -53,7 +80,6 @@
                         <h2>
                             Add Project Category
                             <br/>
-                         
                         </h2>
                     </div>
                     <div class="modal-body">
@@ -77,7 +103,7 @@
             </div>
         </div>
         </form>
-        <form id="editCategoryProj" action="AdminEditProjCategory.php" method="POST">
+        <form id="editCategoryProj" action="AdminEditProjectCategory.php" method="POST">
         <div class="modal fade" id="editProjCatModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -127,7 +153,7 @@
         <script type="text/javascript">
     $(document).ready(function()
     {
-        $(".editCatOrd").click(function()
+        $(".editProjCat").click(function()
         {
             $("#editProjID").val($(this).closest("tbody tr").find("td:eq(0)").html());
             $("#editProjName").val($(this).closest("tbody tr").find("td:eq(1)").html());

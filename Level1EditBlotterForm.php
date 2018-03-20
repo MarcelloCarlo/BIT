@@ -30,7 +30,7 @@
 								BlotterType = "'.$BlotterType.'" 
 					WHERE BlotterID ='.$BlotterID.' ';
 	$Level1EditBlotterQuery = mysqli_query($bitMysqli,$Level1EditBlotterSQL) or die (mysqli_error($bitMysqli));
-
+	
 
 	if($_POST['Summon'] == "Active")
 	{

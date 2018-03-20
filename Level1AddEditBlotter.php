@@ -339,29 +339,6 @@ c.  Report Print -->
                                     <input type="radio" name="Comp_Status" id="editStatusI" value="Inactive" class="with-gap">
                                     <label for="editStatusI" class="m-l-20">Inactive</label>
                                 </div>
-                                <hr>
-                                <h4 class="card-inside-title">Summon</h4>
-                                    <div class="form-group">
-                                        <input type="radio" name="Summon" id="editSummonA" value="Active" class="with-gap">
-                                        <label for="editSummonA">Yes</label>
-                                        <input type="radio" name="Summon" id="editSummonI" value="Inactive" class="with-gap" checked>
-                                        <label for="editSummonI" class="m-l-20">No</label>
-                                    </div>  
-                                <div id="SummonDiv" class="form-group">
-                                    <h4 class="card-inside-title">Schedule</h4>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input id="SummonSched" type="date" class="form-control" name="SummonSched"/>
-                                        </div>
-                                    </div>
-                                    <h4 class="card-inside-title">Place</h4>
-                                    <div class="form-group form-float">
-                                        <div class="form-line">
-                                            <input id="SummonPlace" type="text" class="form-control" name="SummonPlace"/>
-                                            <label class="form-label">Place</label>
-                                        </div>
-                                    </div>
-                                </div>
                             <br/>
                         </div>
                         <div class="modal-footer">
