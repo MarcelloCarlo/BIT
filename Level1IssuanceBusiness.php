@@ -138,7 +138,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                 <select class="form-control show-tick" name="btn dropdown-toggle btn-default" id="categorydropdown" onchange="disablebutt()">
                                     <?php
                                     include_once('dbconn.php');
-                                    $CategorySQL = "SELECT * FROM bitdb_r_issuancetype";
+                                    $CategorySQL = 'SELECT * FROM bitdb_r_issuancetype WHERE IssuanceOption = "Business" ';
                                     $CategoryQuery = mysqli_query($bitMysqli,$CategorySQL) or die(mysqli_error($bitMysqli));
                                     if(mysqli_num_rows($CategoryQuery) > 0)
                                     {

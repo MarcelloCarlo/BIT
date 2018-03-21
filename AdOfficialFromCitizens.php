@@ -29,28 +29,18 @@
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>
+                                        <th class="hide">BarangayOfficialID</th>
+                                        <th>Position</th>
+                                        <th class="hide">Full Name</th>
                                         <th>Salutation</th>
                                         <th>First Name</th>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
-                                        <th>Email</th>
-                                        <th>Height</th>
-                                        <th>Weight</th>
-                                        <th>Birthdate</th>
-                                        <th>Birth Place</th>
-                                        <th>Nationality</th>
+                                        <th>Start Term</th>
+                                        <th>End Term</th>
                                         <th>Status</th>
-                                        <th>Civil Status</th>
-                                        <th>Occupation</th>
                                         <th>Gender</th>
-                                        <th>Blood Type</th>
-                                        <th class="hide">HouseNo</th>
-                                        <th class="hide">Street</th>
-                                        <th class="hide">Zone</th>
-                                        <th>Address</th>
-                                        <th>Person in Contact</th>
-                                        <th>Contact</th>
                                         <th>Date Recorded</th>
                                         <th>Actions</th>
                                     </tr>
@@ -58,28 +48,18 @@
                                 <tfoot>
                                     <tr>
                                         <th class="hide">ID</th>
+                                        <th class="hide">BarangayOfficialID</th>
+                                        <th>Position</th>
+                                        <th class="hide">Full Name</th>
                                         <th>Salutation</th>
                                         <th>First Name</th>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
-                                        <th>Email</th>
-                                        <th>Height</th>
-                                        <th>Weight</th>
-                                        <th>Birthdate</th>
-                                        <th>Birth Place</th>
-                                        <th>Nationality</th>
+                                        <th>Start Term</th>
+                                        <th>End Term</th>
                                         <th>Status</th>
-                                        <th>Civil Status</th>
-                                        <th>Occupation</th>
                                         <th>Gender</th>
-                                        <th>Blood Type</th>
-                                        <th class="hide">HouseNo</th>
-                                        <th class="hide">Street</th>
-                                        <th class="hide">Zone</th>
-                                        <th>Address</th>
-                                        <th>Person in Contact</th>
-                                        <th>Contact</th>
                                         <th>Date Recorded</th>
                                         <th>Actions</th>
                                     </tr>
@@ -90,30 +70,23 @@
 
                                             $CitizenSQL = "SELECT 
                                                                     bitdb_r_citizen.Citizen_ID,
+                                                                    bitdb_r_barangayofficial.Brgy_Official_ID,
+                                                                    IFNULL(bitdb_r_barangayposition.PosName,'Citizen') AS PosName,
                                                                     bitdb_r_citizen.Salutation,
                                                                     bitdb_r_citizen.First_Name,
                                                                     IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name,
                                                                     bitdb_r_citizen.Last_Name,
                                                                     IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext,
-                                                                    IFNULL(bitdb_r_citizen.Citizen_Email,'') AS Citizen_Email,
-                                                                    bitdb_r_citizen.Height,
-                                                                    bitdb_r_citizen.Weight,
-                                                                    IFNULL(bitdb_r_citizen.Birth_Place,'') AS Birth_Place,
-                                                                    bitdb_r_citizen.Birthdate,
-                                                                    bitdb_r_citizen.Nationality,
+                                                                    bitdb_r_barangayofficial.StartTerm,
+                                                                    bitdb_r_barangayofficial.EndTerm,
                                                                     bitdb_r_citizen.Res_Status,
-                                                                    bitdb_r_citizen.Civil_Status,
-                                                                    IFNULL(bitdb_r_citizen.Occupation,'') AS Occupation,
                                                                     bitdb_r_citizen.Gender,
-                                                                    bitdb_r_citizen.Blood_Type,
-                                                                    bitdb_r_citizen.Zone,
-                                                                    bitdb_r_citizen.Street,
-                                                                    bitdb_r_citizen.House_No,
-                                                                    IFNULL(bitdb_r_citizen.Person_Con,'') AS Person_Con,
-                                                                    IFNULL(bitdb_r_citizen.Contact,'') AS Contact,
                                                                     bitdb_r_citizen.Date_Rec
-                                                                FROM
-                                                                    bitdb_r_citizen
+                                                                FROM bitdb_r_citizen
+                                                                LEFT JOIN bitdb_r_barangayofficial
+                                                                ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID
+                                                                LEFT JOIN bitdb_r_barangayposition
+                                                                ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
                                                                 ";
                                             $CitizenQuery = mysqli_query($bitMysqli,$CitizenSQL) or die(mysqli_error($bitMysqli));
                                                 if (mysqli_num_rows($CitizenQuery) > 0)
@@ -121,28 +94,19 @@
                                                     while($row = mysqli_fetch_assoc($CitizenQuery))
                                                     {   
                                                         $ID = $row['Citizen_ID'];
+                                                        $OfficialID = $row['Brgy_Official_ID'];
+                                                        $PosName = $row['PosName'];
                                                         $Salutation = $row['Salutation'];
                                                         $FName = $row['First_Name'];
                                                         $MName = $row['Middle_Name'];
                                                         $LName = $row['Last_Name'];
                                                         $Name_Ext = $row['Name_Ext'];
-                                                        $Email = $row['Citizen_Email'];
-                                                        $Height = $row['Height'];
-                                                        $Weight = $row['Weight'];
-                                                        $Birthdate = $row['Birthdate'];
-                                                        $Birth_Place = $row['Birth_Place'];
-                                                        $Nationality = $row['Nationality'];
-                                                        $Civil_Status = $row['Civil_Status'];
-                                                        $Occupation = $row['Occupation'];
                                                         $Gender = $row['Gender'];
-                                                        $BloodType = $row['Blood_Type'];
-                                                        $Zone = $row['Zone'];
-                                                        $Street = $row['Street'];
-                                                        $House_No = $row['House_No'];
-                                                        $Person_Con = $row['Person_Con'];
-                                                        $Contact = $row['Contact'];
                                                         $Date_Rec = $row['Date_Rec'];
+                                                        $StartTerm = $row['StartTerm'];
+                                                        $EndTerm = $row['EndTerm'];
 
+                                                        $FullName = "".$Salutation." ".$FName." ".$MName." ".$LName." ".$Name_Ext."";
                                                         if($row['Res_Status'] == 1)
                                                         {
                                                             $Res_Status = "Active";
@@ -151,33 +115,22 @@
                                                         {
                                                             $Res_Status = "Inactive";
                                                         }
-                                                        $Address = ''.$House_No.' '.$Street.' '.$Zone.' ';
 
                                                         echo
                                                         '<tr>
                                                             <td class="hide">'.$ID.'</td>
+                                                            <td class="hide">'.$OfficialID.'</td>
+                                                            <td>'.$PosName.'</td>
+                                                            <td class="hide">'.$FullName.'</td>
                                                             <td>'.$Salutation.'</td>
                                                             <td>'.$FName.'</td>
                                                             <td>'.$MName.'</td>
                                                             <td>'.$LName.'</td>
                                                             <td>'.$Name_Ext.'</td>
-                                                            <td>'.$Email.'</td>
-                                                            <td>'.$Height.'</td>
-                                                            <td>'.$Weight.'</td>
-                                                            <td>'.$Birthdate.'</td>
-                                                            <td>'.$Birth_Place.'</td>
-                                                            <td>'.$Nationality.'</td>
+                                                            <td>'.$StartTerm.'</td>
+                                                            <td>'.$EndTerm.'</td>
                                                             <td>'.$Res_Status.'</td>
-                                                            <td>'.$Civil_Status.'</td>
-                                                            <td>'.$Occupation.'</td>
                                                             <td>'.$Gender.'</td>
-                                                            <td>'.$BloodType.'</td>
-                                                            <td class="hide">'.$House_No.'</td>
-                                                            <td class="hide">'.$Street.'</td>
-                                                            <td class="hide">'.$Zone.'</td>
-                                                            <td>'.$Address.'</td>
-                                                            <td>'.$Person_Con.'</td>
-                                                            <td>'.$Contact.'</td>
                                                             <td>'.$Date_Rec.'</td>
                                                             <td>  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#AddOfficialFromCitizModal">
                                                                 <i class="material-icons">add_circle_outline</i>
@@ -197,7 +150,7 @@
         </div>
     </div>
     <!--Edit-->
-     <form id="OfficalAddFromCitiz" action="AddOfficialFromCitizModal.php" method="POST">
+     <form id="OfficalAddFromCitiz" action="AdminAddOfficialExist.php" method="POST">
              <div class="modal fade" id="AddOfficialFromCitizModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -210,12 +163,30 @@
                         </div>
                         <div class="modal-body">
                              <div class="row clearfix margin-0">
+                                <h4 class="card-inside-title hide">CitizenID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="assignCitizenID" type="text" class="form-control hide" name="CitizenID" required/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title hide">BarangayOfficialID</h4>
+                                <div class="form-group form-float hide">
+                                    <div class="form-line hide">
+                                        <input id="assignOfficialID" type="text" class="form-control hide" name="OfficialID" required/>
+                                    </div>
+                                </div>
+                                <h4 class="card-inside-title">Name</h4>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <input id="assignName" type="text" class="form-control" name="Name" disabled/>
+                                    </div>
+                                </div>
                                 <h4 class="card-inside-title">Position For: </h4>
                                 <br/>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
 
-                                  <h4>Position</h4>
-                                    <select id="PositionOption" class="form-control browser-default" name="PositionName">
+                                    <h4>Position</h4>
+                                    <select id="assignPosition" class="form-control browser-default" name="Position">
                                             <option value="None">None</option>
                                             <?php
                                                 include_once('dbconn.php');
@@ -234,8 +205,24 @@
                                                 }
                                             ?>
                                     </select>
-                                    <input id="BarangayOffID" type="text" class="form-control hide" name="BOffID"/>
-                                    <input id="CitizenID" type="text" class="form-control hide" name="CID"/>
+                                </div>
+                                <div class="col-sm-5">
+                                    <h4 class="card-inside-title">Start Term</h4>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input id="assignStart" type="date" class="form-control date" name="Start_Term">
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="col-sm-5">
+                                    <h4 class="card-inside-title">End Term</h4>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input id="assignEnd" type="date" class="form-control date" name="End_Term">
+                                        </div>
+                                    </div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -256,34 +243,12 @@
         {
             $(".editCiti").click(function()
             {
-                $("#CID").val($(this).closest("tbody tr").find("td:eq(0)").html());
-                $("#CitiSalutation").val($(this).closest("tbody tr").find("td:eq(1)").html());
-                $("#CitiFName").val($(this).closest("tbody tr").find("td:eq(2)").html());
-                $("#CitiMName").val($(this).closest("tbody tr").find("td:eq(3)").html());
-                $("#CitiLName").val($(this).closest("tbody tr").find("td:eq(4)").html());
-                $("#CitiNExt").val($(this).closest("tbody tr").find("td:eq(5)").html());
-                $("#CitiEmail").val($(this).closest("tbody tr").find("td:eq(6)").html());
-                $("#CitiHeight").val($(this).closest("tbody tr").find("td:eq(7)").html());
-                $("#CitiWeight").val($(this).closest("tbody tr").find("td:eq(8)").html());
-                $("#CitiBDate").val($(this).closest("tbody tr").find("td:eq(9)").html());
-                $("#CitiPOB").val($(this).closest("tbody tr").find("td:eq(10)").html());
-                $("#CitiNationality").val($(this).closest("tbody tr").find("td:eq(11)").html());
-                $("#CitiCivilStatus").val($(this).closest("tbody tr").find("td:eq(13)").html());
-                $("#CitiOccupation").val($(this).closest("tbody tr").find("td:eq(14)").html());
-                $("#CitiGender").val($(this).closest("tbody tr").find("td:eq(15)").html());
-                $("#CitiBloodType").val($(this).closest("tbody tr").find("td:eq(16)").html());
-                $("#CitiHouseNo").val($(this).closest("tbody tr").find("td:eq(17)").html());
-                $("#CitiStreet").val($(this).closest("tbody tr").find("td:eq(18)").html());
-                $("#CitiZone").val($(this).closest("tbody tr").find("td:eq(19)").html());
-                $("#CitiPerCon").val($(this).closest("tbody tr").find("td:eq(21)").html());
-                $("#CitiContact").val($(this).closest("tbody tr").find("td:eq(22)").html());
-                if ($(this).closest("tbody tr").find("td:eq(12)").text() === "Active") {
-                        $("#editCheckA").prop("checked", true).trigger('click');
-                    } else {
-                        $("#editCheckI").prop("checked", true).trigger('click');
-                    }
-                // ActOption = "option[value="+val($(this).closest("tbody tr").find("td:eq(4)").html())+"]";
-                // $("#PositionOption").find(ActOption).prop("selected",true);
+                $("#assignCitizenID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#assignOfficialID").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                $("#assignName").val($(this).closest("tbody tr").find("td:eq(3)").html());
+                $("#assignPosition").val($(this).closest("tbody tr").find("td:eq(2)").html()).trigger("change");
+                $("#assignStart").val($(this).closest("tbody tr").find("td:eq(9)").html());
+                $("#assignEnd").val($(this).closest("tbody tr").find("td:eq(10)").html());
             });
         });
 

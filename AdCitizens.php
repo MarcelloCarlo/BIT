@@ -298,7 +298,7 @@
                                     <h4 class="card-inside-title">Start Term</h4>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control date" name="Start_Term" placeholder="Ex: 30/07/2016">
+                                            <input type="date" class="form-control date" name="Start_Term" placeholder="Ex: 30/07/2016">
                                         </div>
                                     </div>
                                    
@@ -307,7 +307,7 @@
                                     <h4 class="card-inside-title">End Term</h4>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <input type="text" class="form-control date" name="End_Term" placeholder="Ex: 30/07/2016">
+                                            <input type="date" class="form-control date" name="End_Term" placeholder="Ex: 30/07/2016">
                                         </div>
                                     </div>
                                    

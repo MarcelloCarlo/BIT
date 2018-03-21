@@ -3,6 +3,7 @@
 
 	$BlotterID = $_POST['BlotterID'];
 	$IncidentDate = $_POST['IncidentDate'];
+	$IncidentArea = $_POST['IncidentArea'];
 	$ComplaintDate = $_POST['ComplaintDate'];
 	$Complainant = $_POST['Complainant'];
 	$AccusedID = $_POST['AccusedID'];
@@ -21,6 +22,7 @@
 	
 	$Level1EditBlotterSQL = 'UPDATE bitdb_r_blotter SET
 								IncidentDate = "'.$IncidentDate.'",
+								IncidentArea = "'.$IncidentArea.'",
 								ComplaintDate = "'.$ComplaintDate.'",
 								Complainant = "'.$Complainant.'",
 								Accused = '.$AccusedID.',

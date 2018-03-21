@@ -31,6 +31,7 @@
                                     <tr>
                                         <th class="hide">IssuanceTypeID</th>
                                         <th>Title</th>
+                                        <th>Issuance Type</th>
                                         <th style="width: 15px; ">Actions</th>
                                     </tr>
                                 </thead>
@@ -46,11 +47,13 @@
                                                 {   
                                                     $TypeID = $row['IssuanceID'];
                                                     $Title = $row['IssuanceType'];
+                                                    $Option = $row['IssuanceOption'];
                                                     
                                                     echo
                                                     '<tr>
                                                         <td class="hide">'.$TypeID.'</td>
                                                         <td>'.$Title.'</td>
+                                                        <td>'.$Option.'</td>
                                                         <td>
                                                             <button type="button" class="btn btn-success waves-effect editCat" data-toggle="modal" data-target="#editCatModal">
                                                                 <i class="material-icons">mode_edit</i>
@@ -85,12 +88,21 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                                <div class="form-group form-float">
+                            <h4 class="card-inside-title">Issuance Title</h4>
+                            <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" name="IssuanceTitle" class="form-control" />
                                     <label class="form-label">Issuance Name</label>
                                 </div>
                             </div>
+                            <h4 class="card-inside-title">Issuance Type</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="IssuanceOption" id="CheckA" value="Personal" class="with-gap">
+                                    <label for="CheckA">Personal</label>
+
+                                    <input type="radio" name="IssuanceOption" id="CheckI" value="Business" class="with-gap">
+                                    <label for="CheckI" class="m-l-20">Business</label>
+                                </div>
 
                         </div>
                         <br/>
@@ -136,7 +148,14 @@
                                     <!-- <label class="form-label">Ordinance Title</label> -->
                                 </div>
                             </div>
+                            <h4 class="card-inside-title">Issuance Type</h4>
+                                <div class="form-group">
+                                    <input type="radio" name="IssuanceOption" id="editCheckA" value="Personal" class="with-gap">
+                                    <label for="editCheckA">Personal</label>
 
+                                    <input type="radio" name="IssuanceOption" id="editCheckI" value="Business" class="with-gap">
+                                    <label for="editCheckI" class="m-l-20">Business</label>
+                                </div>
                         </div>
                         <br/>
                     </div>
@@ -157,7 +176,14 @@
         {
             $("#editIssueID").val($(this).closest("tbody tr").find("td:eq(0)").html());
             $("#editIssueTitle").val($(this).closest("tbody tr").find("td:eq(1)").html());
-
+            if ($(this).closest("tbody tr").find("td:eq(2)").text() === "Personal") 
+            {
+                $("#editCheckA").prop("checked", true).trigger('click');
+            } 
+            else 
+            {
+                $("#editCheckI").prop("checked", true).trigger('click');
+            }
         });
     });
 

@@ -60,13 +60,15 @@
                                                                             bitdb_r_blotter.ComplaintStatement,
                                                                             bitdb_r_blotter.ComplaintStatus,
                                                                             bitdb_r_blotter.Resolution,
-                                                                            bitdb_r_blotter.BlotterType,
+                                                                            bitdb_r_blottercategory.BlotterCategoryName,
                                                                             bitdb_r_blotter.ComplaintDate
                                                                     FROM    bitdb_r_blotter
                                                                     INNER JOIN bitdb_r_citizen
                                                                     ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused
                                                                     INNER JOIN bitdb_r_summons
-                                                                    ON bitdb_r_summons.BlotterID = bitdb_r_blotter.BlotterID';
+                                                                    ON bitdb_r_summons.BlotterID = bitdb_r_blotter.BlotterID
+                                                                    INNER JOIN bitdb_r_blottercategory
+                                                                    ON bitdb_r_blottercategory.BlotterCategoryID = bitdb_r_blotter.BlotterType';
                                         $CTanodSelectBlotterQuery = mysqli_query($bitMysqli,$CTanodSelectBlotterSQL) or die (mysqli_error($bitMysqli));
                                         if(mysqli_num_rows($CTanodSelectBlotterQuery) > 0)
                                         {
@@ -89,7 +91,7 @@
                                                 $CStatement = $row['ComplaintStatement'];
                                                 $CStatus = $row['ComplaintStatus'];
                                                 $Resolution = $row['Resolution'];
-                                                $BlotterType = $row['BlotterType'];
+                                                $BlotterType = $row['BlotterCategoryName'];
                                                 $CDate = $row['ComplaintDate'];
                                                 $Accused = "".$row['First_Name']." ".$row['Middle_Name']." ".$row['Last_Name']." ".$row['Name_Ext']."";
                                                 echo'

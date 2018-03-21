@@ -35,6 +35,8 @@
                                         <tr>
                                             <th class="hide">BlotterID</th>
                                             <th>Incident Date</th>
+                                            <th class="hide">Incident Area ID</th>
+                                            <th>Incident Area</th>
                                             <th>Complainant</th>
                                             <th class="hide">CitizenID</th>
                                             <th>Accused</th>
@@ -52,6 +54,8 @@
 
                                         $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
                                                                             bitdb_r_blotter.IncidentDate,
+                                                                            bitdb_r_barangayzone.ZoneID,
+                                                                            bitdb_r_barangayzone.Zone,
                                                                             bitdb_r_blotter.Complainant,
                                                                             bitdb_r_blotter.Accused,
                                                                             bitdb_r_citizen.First_Name,
@@ -65,7 +69,9 @@
                                                                             bitdb_r_blotter.ComplaintDate
                                                                     FROM    bitdb_r_blotter
                                                                     INNER JOIN bitdb_r_citizen
-                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused';
+                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused
+                                                                    INNER JOIN bitdb_r_barangayzone
+                                                                    ON bitdb_r_blotter.IncidentArea = bitdb_r_barangayzone.ZoneID';
                                         $CTanodSelectBlotterQuery = mysqli_query($bitMysqli,$CTanodSelectBlotterSQL) or die (mysqli_error($bitMysqli));
                                         if(mysqli_num_rows($CTanodSelectBlotterQuery) > 0)
                                         {
@@ -74,6 +80,8 @@
                                                 $CitizenID = $row['Accused'];
                                                 $BlotterID = $row['BlotterID'];
                                                 $IDate = $row['IncidentDate'];
+                                                $IAreaID = $row['ZoneID'];
+                                                $IArea = $row['Zone'];
                                                 $Complainant = $row['Complainant'];
                                                 $CStatement = $row['ComplaintStatement'];
                                                 if($row['ComplaintStatus'] == 1)
@@ -92,6 +100,8 @@
                                                     <tr>
                                                         <td class="hide">'.$BlotterID.'</td>
                                                         <td>'.$IDate.'</td>
+                                                        <td class="hide">'.$IAreaID.'</td>
+                                                        <td>'.$IArea.'</td>
                                                         <td>'.$Complainant.'</td>
                                                         <td class="hide">'.$CitizenID.'</td>
                                                         <td>'.$Accused.'</td>
@@ -161,6 +171,26 @@ c.  Report Print -->
                             
                                     </div>
                                 </div>
+                                <h4 class="card-inside-title">Area</h4>
+                                <select class="form-control browser-default" name="IncidentArea" required>
+                                    <option value="None">None</option>  
+                                    <?php
+                                        include_once('dbconn.php');
+
+                                        $ViewSql = "SELECT * FROM bitdb_r_barangayzone ORDER BY bitdb_r_barangayzone.Zone ASC";
+                                        $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($ViewQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($ViewQuery))
+                                            {
+                                                $ID = $row['ZoneID'];
+                                                $Name = $row['Zone'];
+                                                echo '<option value="'.$ID.'">'.$Name.'</option>';
+                                                        
+                                            }
+                                        }
+                                    ?>
+                                </select>
                                 <h4 class="card-inside-title">Complaint Date</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -193,12 +223,25 @@ c.  Report Print -->
                                 </div>
 <!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="BlotterType" required/>
-                                        <label class="form-label">Subject</label>
-                                    </div>
-                                </div>
+                                <select class="form-control browser-default" name="Subject" required>
+                                    <option value="None">None</option>
+                                    <?php
+                                        include_once('dbconn.php');
+
+                                        $ViewSql = "SELECT * FROM bitdb_r_blottercategory";
+                                        $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($ViewQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($ViewQuery))
+                                            {
+                                                $ID = $row['BlotterCategoryID'];
+                                                $Name = $row['BlotterCategoryName'];
+                                                echo '<option value="'.$ID.'">'.$Name.'</option>';
+                                                        
+                                            }
+                                        }
+                                    ?>
+                                </select>
                                 <h4 class="card-inside-title">Complain Statement</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -286,6 +329,26 @@ c.  Report Print -->
                             
                                     </div>
                                 </div>
+                                <h4 class="card-inside-title">Area</h4>
+                                <select id="editIncidentArea" class="form-control browser-default" name="IncidentArea" required>
+                                    <option value="None">None</option>  
+                                    <?php
+                                        include_once('dbconn.php');
+
+                                        $ViewSql = "SELECT * FROM bitdb_r_barangayzone ORDER BY bitdb_r_barangayzone.Zone ASC";
+                                        $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($ViewQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($ViewQuery))
+                                            {
+                                                $ID = $row['ZoneID'];
+                                                $Name = $row['Zone'];
+                                                echo '<option value="'.$ID.'">'.$Name.'</option>';
+                                                        
+                                            }
+                                        }
+                                    ?>
+                                </select>
                                 <h4 class="card-inside-title">Complaint Date</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -315,11 +378,25 @@ c.  Report Print -->
                                 </div>
 <!--end search-->
                                 <h4 class="card-inside-title">Subject</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input id="editBlotterType" type="text" class="form-control" name="BlotterType" required/>
-                                    </div>
-                                </div>
+                                <select id="editSubject" class="form-control browser-default" name="BlotterType">
+                                    <option value="None">None</option>
+                                    <?php
+                                        include_once('dbconn.php');
+
+                                        $ViewSql = "SELECT * FROM bitdb_r_blottercategory";
+                                        $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($ViewQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($ViewQuery))
+                                            {
+                                                $ID = $row['BlotterCategoryID'];
+                                                $Name = $row['BlotterCategoryName'];
+                                                echo '<option value="'.$ID.'">'.$Name.'</option>';
+                                                        
+                                            }
+                                        }
+                                    ?>
+                                </select>
                                 <h4 class="card-inside-title">Complain Statement</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -340,10 +417,32 @@ c.  Report Print -->
                                     <input type="radio" name="Comp_Status" id="editStatusI" value="Inactive" class="with-gap">
                                     <label for="editStatusI" class="m-l-20">Inactive</label>
                                 </div>
-                            <br/>
+                                <hr>
+                                    <h4 class="card-inside-title">Summon</h4>
+                                        <div class="form-group">
+                                            <input type="radio" name="Summon" id="editSummonA" value="Active" class="with-gap">
+                                            <label for="editSummonA">Yes</label>
+                                            <input type="radio" name="Summon" id="editSummonI" value="Inactive" class="with-gap" checked>
+                                            <label for="editSummonI" class="m-l-20">No</label>
+                                        </div>  
+                                    <div id="SummonDiv" class="form-group">
+                                        <h4 class="card-inside-title">Schedule</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input id="SummonSched" type="date" class="form-control" name="SummonSched"/>
+                                            </div>
+                                        </div>
+                                        <h4 class="card-inside-title">Place</h4>
+                                        <div class="form-group form-float">
+                                            <div class="form-line">
+                                                <input id="SummonPlace" type="text" class="form-control" name="SummonPlace"/>
+                                                <label class="form-label">Place</label>
+                                            </div>
+                                        </div>
+                                    </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-success waves-effect" data-type="confirm" type="submit">ADD</button>
+                            <button class="btn btn-success waves-effect" data-type="confirm" type="submit">SAVE</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </form>
                         </div>
@@ -387,14 +486,15 @@ $(document).ready(function(){
             {
                 $("#editBlotterID").val($(this).closest("tbody tr").find("td:eq(0)").html());
                 $("#editIncidentDate").val($(this).closest("tbody tr").find("td:eq(1)").html());
-                $("#editComplainant").val($(this).closest("tbody tr").find("td:eq(2)").html());
-                $("#editAccusedID").val($(this).closest("tbody tr").find("td:eq(3)").html());
-                $("#editAccusedName").val($(this).closest("tbody tr").find("td:eq(4)").html());
-                $("#editBlotterType").val($(this).closest("tbody tr").find("td:eq(5)").html());
-                $("#editComplaintStatement").val($(this).closest("tbody tr").find("td:eq(6)").html());
-                $("#editResolution").val($(this).closest("tbody tr").find("td:eq(8)").html());
-                $("#editComplaintDate").val($(this).closest("tbody tr").find("td:eq(9)").html());
-                if ($(this).closest("tbody tr").find("td:eq(7)").text() === "Active"){
+                $("#editIncidentArea").val($(this).closest("tbody tr").find("td:eq(2)").html()).trigger("change");
+                $("#editComplainant").val($(this).closest("tbody tr").find("td:eq(4)").html());
+                $("#editAccusedID").val($(this).closest("tbody tr").find("td:eq(5)").html());
+                $("#editAccusedName").val($(this).closest("tbody tr").find("td:eq(6)").html());
+                $("#editSubject").val($(this).closest("tbody tr").find("td:eq(7)").html()).trigger("change");
+                $("#editComplaintStatement").val($(this).closest("tbody tr").find("td:eq(8)").html());
+                $("#editResolution").val($(this).closest("tbody tr").find("td:eq(10)").html());
+                $("#editComplaintDate").val($(this).closest("tbody tr").find("td:eq(11)").html());
+                if ($(this).closest("tbody tr").find("td:eq(9)").text() === "Active"){
                     $("#editStatusA").prop("checked", true).trigger('click');
                     } else {
                     $("#editStatusI").prop("checked", true).trigger('click');
