@@ -107,9 +107,12 @@
                                         <th>Project Name</th>
                                         <th class="hide">Project CategoryID</th>
                                         <th>Category</th>
+                                        <th class="hide">Project Location ID</th>
+                                        <th>Project Location</th>
                                         <th>Description</th>
-                                        <th>Total Budget</th>
+                                        <th>Initial Budget</th>
                                         <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -118,9 +121,12 @@
                                         <th>Project Name</th>
                                         <th class="hide">Project CategoryID</th>
                                         <th>Category</th>
+                                        <th class="hide">Project Location ID</th>
+                                        <th>Project Location</th>
                                         <th>Description</th>
-                                        <th>Total Budget</th>
+                                        <th>Initial Budget</th>
                                         <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -130,21 +136,18 @@
                                         $Level1ProjectAddSQL = 'SELECT 
                                                                     bitdb_r_project.ProjectID,
                                                                     bitdb_r_project.ProjectName,
-                                                                    bitdb_r_project.ProjectLoc,
+                                                                    bitdb_r_barangayzone.ZoneID,
+                                                                    bitdb_r_barangayzone.Zone,
+                                                                    bitdb_r_projectcategory.ProjectCategoryID,
+                                                                    bitdb_r_projectcategory.ProjectCategory,
                                                                     bitdb_r_project.ProjectDesc,
-                                                                    bitdb_r_project.ProjectPhases,
-                                                                    bitdb_r_project.DateStart,
-                                                                    bitdb_r_project.DateFinish,
                                                                     bitdb_r_project.ProjectStatus,
-                                                                    bitdb_r_citizen.Citizen_ID,
-                                                                    bitdb_r_citizen.First_Name,
-                                                                    bitdb_r_citizen.Middle_Name,
-                                                                    bitdb_r_citizen.Last_Name
+                                                                    bitdb_r_project.ProjectBudget
                                                             FROM    bitdb_r_project
-                                                            INNER JOIN bitdb_r_barangayofficial
-                                                            ON bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_project.PeopleInvolved
-                                                            INNER JOIN bitdb_r_citizen
-                                                            ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID';
+                                                            INNER JOIN bitdb_r_projectcategory
+                                                            ON bitdb_r_projectcategory.ProjectCategoryID = bitdb_r_project.ProjectCategory
+                                                            INNER JOIN bitdb_r_barangayzone
+                                                            ON bitdb_r_barangayzone.ZoneID = bitdb_r_project.ProjectLocation';
                                         $Level1ProjectAddQuery = mysqli_query($bitMysqli,$Level1ProjectAddSQL) or die (mysqli_error($bitMysqli));
                                         if (mysqli_num_rows($Level1ProjectAddQuery) > 0) 
                                         {
@@ -152,15 +155,12 @@
                                             {
                                                 $ProjectID = $row['ProjectID'];
                                                 $ProjectName = $row['ProjectName'];
-                                                $ProjectLoc = $row['ProjectLoc'];
+                                                $ProjectZoneID = $row['ZoneID'];
+                                                $ProjectZone = $row['Zone'];
+                                                $ProjectCategoryID = $row['ProjectCategoryID'];
+                                                $ProjectCategory = $row['ProjectCategory'];
                                                 $ProjectDesc = $row['ProjectDesc'];
-                                                $ProjectPhases = $row['ProjectPhases'];
-                                                $DateStart = $row['DateStart'];
-                                                $DateFinish = $row['DateFinish'];
-                                                $CitizenID = $row['Citizen_ID'];
-                                                $First_Name = $row['First_Name'];
-                                                $Middle_Name = $row['Middle_Name'];
-                                                $Last_Name = $row['Last_Name'];
+                                                $ProjectBudget = $row['ProjectBudget'];
                                                 if($row['ProjectStatus'] == 1)
                                                 {
                                                     $ProjectStatus = "Active";
@@ -169,19 +169,17 @@
                                                 {
                                                     $ProjectStatus = "Inactive";
                                                 }
-                                                $PeopleInvolved = ''.$First_Name.' '.$Middle_Name.' '.$Last_Name.'';
                                                 echo'
                                                 <tr>
                                                     <td class="hide">'.$ProjectID.'</td>
                                                     <td>'.$ProjectName.'</td>
-                                                    <td>'.$ProjectLoc.'</td>
+                                                    <td class="hide">'.$ProjectCategoryID.'</td>
+                                                    <td>'.$ProjectCategory.'</td>
+                                                    <td class="hide">'.$ProjectZoneID.'</td>
+                                                    <td>'.$ProjectZone.'</td>
                                                     <td>'.$ProjectDesc.'</td>
-                                                    <td>'.$ProjectPhases.'</td>
-                                                    <td>'.$DateStart.'</td>
-                                                    <td>'.$DateFinish.'</td>
+                                                    <td>'.$ProjectBudget.'</td>
                                                     <td>'.$ProjectStatus.'</td>
-                                                    <td class="hide">'.$CitizenID.'</td>
-                                                    <td>'.$PeopleInvolved.'</td>
                                                     <td>
                                                         <button type="button" class="btn btn-success waves-effect editProject" data-toggle="modal" data-target="#editProjectModal">
                                                             <i class="material-icons">mode_edit</i>
@@ -215,6 +213,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
+                            <label class="form-label">Project Name</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" class="form-control" name="ProjectName"/>
@@ -223,13 +222,44 @@
                             </div>
                             <label class="form-label">Category</label>
                             <div class="form-group form-float">
-                                    <select class="form-control show-tick">
+                                    <select class="form-control show-tick" name="ProjectCategory" required>
                                         <option value="">-- Please select --</option>
-                                        <option value="10">Infrastructure</option>
-                                        <option value="20">Welfare</option>
-                                        <option value="30">Scientific</option>
-                                        <option value="40">Medical</option>
-                                        <option value="50">Military</option>
+                                        <?php
+                                            include_once('dbconn.php');
+
+                                            $ViewSql = "SELECT * FROM bitdb_r_projectcategory";
+                                            $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                            if(mysqli_num_rows($ViewQuery) > 0)
+                                            {
+                                                while($row = mysqli_fetch_assoc($ViewQuery))
+                                                {
+                                                    $ID = $row['ProjectCategoryID'];
+                                                    $Name = $row['ProjectCategory'];
+                                                    echo '<option value="'.$ID.'">'.$Name.'</option>';  
+                                                }
+                                            }
+                                        ?>
+                                    </select>
+                            </div>
+                            <label class="form-label">Zone</label>
+                            <div class="form-group form-float">
+                                    <select class="form-control show-tick" name="ProjectZone" required>
+                                        <option value="">-- Please select --</option>
+                                        <?php
+                                            include_once('dbconn.php');
+
+                                            $ViewSql = "SELECT * FROM bitdb_r_barangayzone";
+                                            $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                            if(mysqli_num_rows($ViewQuery) > 0)
+                                            {
+                                                while($row = mysqli_fetch_assoc($ViewQuery))
+                                                {
+                                                    $ID = $row['ZoneID'];
+                                                    $Name = $row['Zone'];
+                                                    echo '<option value="'.$ID.'">'.$Name.'</option>';  
+                                                }
+                                            }
+                                        ?>
                                     </select>
                             </div>
                             <div class="form-group form-float">
@@ -238,19 +268,18 @@
                                     <label class="form-label">Description</label>
                                 </div>
                             </div>
-                            <br>
                             <div class="form-group form-float">
                                 <div class="form-line search-box">
-                                    <input name="projectBudget" type="text" class="form-control"/>
+                                    <input type="text" class="form-control" name="ProjectBudget"/>
                                     <label class="form-label">Budget</label>
                                 </div>
                             </div>
                               <label class="form-label">Status</label>
                                 <div class="form-group">
-                                    <input type="radio" name="ProjStatus" id="editStatusA" value="Active" class="with-gap">
-                                    <label for="editStatusA">Active</label>
-                                    <input type="radio" name="ProjStatus" id="editStatusI" value="Inactive" class="with-gap">
-                                    <label for="editStatusI" class="m-l-20">Inactive</label>
+                                    <input type="radio" name="ProjectStatus" id="StatusA" value="Active" class="with-gap" checked>
+                                    <label for="StatusA">Active</label>
+                                    <input type="radio" name="ProjectStatus" id="StatusI" value="Inactive" class="with-gap">
+                                    <label for="StatusI" class="m-l-20">Inactive</label>
                                 </div>
                         </div>
                         <br/>
@@ -276,41 +305,76 @@
                     </div>
                    <div class="modal-body">
                         <div class="row clearfix margin-0">
+                            <div class="form-group form-float hide">
+                                <div class="form-line hide">
+                                    <input id="editProjectID" type="text" class="form-control hide" name="ProjectID"/>
+                                </div>
+                            </div>
+                            <label class="form-label">Project Name</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectName"/>
-                                    <label class="form-label">Project Name</label>
+                                    <input id="editProjectName" type="text" class="form-control" name="ProjectName"/>
                                 </div>
                             </div>
                             <label class="form-label">Category</label>
                             <div class="form-group form-float">
-                                    <select class="form-control show-tick">
+                                    <select id="editProjectCategory" class="form-control show-tick" name="ProjectCategory" required>
                                         <option value="">-- Please select --</option>
-                                        <option value="10">Infrastructure</option>
-                                        <option value="20">Welfare</option>
-                                        <option value="30">Scientific</option>
-                                        <option value="40">Medical</option>
-                                        <option value="50">Military</option>
+                                        <?php
+                                            include_once('dbconn.php');
+
+                                            $ViewSql = "SELECT * FROM bitdb_r_projectcategory";
+                                            $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                            if(mysqli_num_rows($ViewQuery) > 0)
+                                            {
+                                                while($row = mysqli_fetch_assoc($ViewQuery))
+                                                {
+                                                    $ID = $row['ProjectCategoryID'];
+                                                    $Name = $row['ProjectCategory'];
+                                                    echo '<option value="'.$ID.'">'.$Name.'</option>';  
+                                                }
+                                            }
+                                        ?>
                                     </select>
                             </div>
+                            <label class="form-label">Zone</label>
+                            <div class="form-group form-float">
+                                    <select id="editProjectZone" class="form-control show-tick" name="ProjectZone" required>
+                                        <option value="">-- Please select --</option>
+                                        <?php
+                                            include_once('dbconn.php');
+
+                                            $ViewSql = "SELECT * FROM bitdb_r_barangayzone";
+                                            $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                            if(mysqli_num_rows($ViewQuery) > 0)
+                                            {
+                                                while($row = mysqli_fetch_assoc($ViewQuery))
+                                                {
+                                                    $ID = $row['ZoneID'];
+                                                    $Name = $row['Zone'];
+                                                    echo '<option value="'.$ID.'">'.$Name.'</option>';  
+                                                }
+                                            }
+                                        ?>
+                                    </select>
+                            </div>
+                            <label class="form-label">Project Description</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="ProjectDesc"/>
-                                    <label class="form-label">Description</label>
+                                    <input id="editProjectDesc" type="text" class="form-control" name="ProjectDesc"/>
                                 </div>
                             </div>
-                            <br>
+                            <label class="form-label">Project Budget</label>
                             <div class="form-group form-float">
                                 <div class="form-line search-box">
-                                    <input name="projectBudget" type="text" class="form-control"/>
-                                    <label class="form-label">Budget</label>
+                                    <input id="editProjectBudget" type="text" class="form-control" name="ProjectBudget"/>
                                 </div>
                             </div>
                               <label class="form-label">Status</label>
                                 <div class="form-group">
-                                    <input type="radio" name="ProjStatus" id="editStatusA" value="Active" class="with-gap">
+                                    <input type="radio" name="ProjectStatus" id="editStatusA" value="Active" class="with-gap">
                                     <label for="editStatusA">Active</label>
-                                    <input type="radio" name="ProjStatus" id="editStatusI" value="Inactive" class="with-gap">
+                                    <input type="radio" name="ProjectStatus" id="editStatusI" value="Inactive" class="with-gap">
                                     <label for="editStatusI" class="m-l-20">Inactive</label>
                                 </div>
                         </div>
@@ -389,7 +453,7 @@
 
 
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-<!--<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
@@ -438,7 +502,7 @@ $(document).ready(function(){
     });
 });
 </script>
-
+ -->
 <script type="text/javascript">
         $(document).ready(function()
         {
@@ -446,21 +510,18 @@ $(document).ready(function(){
             {
                 $("#editProjectID").val($(this).closest("tbody tr").find("td:eq(0)").html());
                 $("#editProjectName").val($(this).closest("tbody tr").find("td:eq(1)").html());
-                $("#editProjectLoc").val($(this).closest("tbody tr").find("td:eq(2)").html());
-                $("#editProjectDesc").val($(this).closest("tbody tr").find("td:eq(3)").html());
-                $("#editProjectPhase").val($(this).closest("tbody tr").find("td:eq(4)").html());
-                $("#editProjectStart").val($(this).closest("tbody tr").find("td:eq(5)").html());
-                $("#editProjectFinish").val($(this).closest("tbody tr").find("td:eq(6)").html());
-                $("#editSponsorID").val($(this).closest("tbody tr").find("td:eq(8)").html());
-                $("#editSponsorName").val($(this).closest("tbody tr").find("td:eq(9)").html());
-                if ($(this).closest("tbody tr").find("td:eq(7)").text() === "Active") {
-                        $("#editCheckA").prop("checked", true).trigger('click');
+                $("#editProjectCategory").val($(this).closest("tbody tr").find("td:eq(2)").html()).trigger("change");
+                $("#editProjectZone").val($(this).closest("tbody tr").find("td:eq(4)").html()).trigger("change");
+                $("#editProjectDesc").val($(this).closest("tbody tr").find("td:eq(6)").html());
+                $("#editProjectBudget").val($(this).closest("tbody tr").find("td:eq(7)").html());
+                if ($(this).closest("tbody tr").find("td:eq(8)").text() === "Active") {
+                        $("#editStatusA").prop("checked", true).trigger('click');
                     } else {
-                        $("#editCheckI").prop("checked", true).trigger('click');
+                        $("#editStatusI").prop("checked", true).trigger('click');
                     }
             });
         });
-</script> -->
+</script> 
 
 
 

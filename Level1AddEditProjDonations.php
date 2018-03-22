@@ -80,14 +80,52 @@
                         <br/>
                             <label class="form-label">Project</label>
                             <div class="form-group form-float">
-                                    <select class="form-control show-tick">
+                                    <select id="ProjectItem" class="form-control show-tick">
                                         <option value="">-- Select Project --</option>
-                                        <option value="10">Proj 1</option>
-                                        <option value="20">Proj 2</option>
-                                        <option value="30">Proj 3</option>
-                                        <option value="40">Proj 4</option>
-                                        <option value="50">Proj 5</option>
+                                        <?php
+                                            include_once('dbconn.php');
+
+                                            if(isset($_GET['Project']))
+                                            {
+                                                $ViewSql = "SELECT * FROM bitdb_r_project";
+                                                $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                                if(mysqli_num_rows($ViewQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($ViewQuery))
+                                                    {
+                                                        if($row['ProjectID'] == $_GET['Project'])
+                                                        {
+                                                            $ID = $row['ProjectID'];
+                                                            $Name = $row['ProjectName'];
+                                                            echo '<option value="'.$ID.'" selected>'.$Name.'</option>';  
+                                                        }
+                                                        else
+                                                        {
+                                                            $ID = $row['ProjectID'];
+                                                            $Name = $row['ProjectName'];
+                                                            echo '<option value="'.$ID.'">'.$Name.'</option>';  
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+                                            else
+                                            {
+                                                $ViewSql = "SELECT * FROM bitdb_r_project";
+                                                $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                                if(mysqli_num_rows($ViewQuery) > 0)
+                                                {
+                                                    while($row = mysqli_fetch_assoc($ViewQuery))
+                                                    {
+                                                        $ID = $row['ProjectID'];
+                                                        $Name = $row['ProjectName'];
+                                                        echo '<option value="'.$ID.'">'.$Name.'</option>';
+                                                    }
+                                                }
+                                            }
+                                        ?>
                                     </select>
+                                    
                             </div>
                         <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectDonModal">
                             <i class="material-icons">add_circle_outline</i>
@@ -101,7 +139,7 @@
                         </button> -->
                     </div>
                     <div class="body">
-                        <div class="table-responsive">
+                        <div id="ProjectTable" class="table-responsive">
                             <table class="table table-borderethd table-striped table-hover js-basic-example dataTable">
                                 <thead>
                                     <tr>
@@ -111,6 +149,7 @@
                                         <th>Amount Donated (PHP)</th>
                                         <th>Date Given</th>
                                         <th>Date Recorded</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -121,19 +160,97 @@
                                         <th>Amount Donated (PHP)</th>
                                         <th>Date Given</th>
                                         <th>Date Recorded</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
-                                    <td class="hide">1</td>
-                                    <td class="hide">1</td>
-                                    <td>Maganda Anda</td>
-                                    <td>500000</td>
-                                    <td>03/23/2018</td>
-                                    <td>03/24/2018</td>
-                                    <td><button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editProjDonationModal">
-                                    <i class="material-icons">mode_edit</i>
-                                    <span>EDIT</span></button>
-                                    </td>
+                                    <?php
+                                        include('dbconn.php');
+
+                                        if(isset($_GET['Project']))
+                                        {
+                                            $Level1ActivityViewSQL = 'SELECT 
+                                                                    bitdb_r_projectdonation.DonationID,
+                                                                    bitdb_r_projectdonation.ProjectID,
+                                                                    bitdb_r_projectdonation.DonorName,
+                                                                    bitdb_r_projectdonation.MoneyDonated,
+                                                                    bitdb_r_projectdonation.DateGiven,
+                                                                    bitdb_r_projectdonation.DateRecorded
+                                                                FROM    bitdb_r_projectdonation
+                                                                WHERE bitdb_r_projectdonation.ProjectID='.$_GET['Project'].' ';
+                                        $Level1ActivityViewQuery = mysqli_query($bitMysqli,$Level1ActivityViewSQL) or die (mysqli_error($bitMysqli));
+                                        if (mysqli_num_rows($Level1ActivityViewQuery) > 0) 
+                                        {
+                                            while($row = mysqli_fetch_assoc($Level1ActivityViewQuery))
+                                            {
+                                                $DonationID = $row['DonationID'];
+                                                $ProjectID = $row['ProjectID'];
+                                                $DonorName = $row['DonorName'];
+                                                $MoneyDonated = $row['MoneyDonated'];
+                                                $DateGiven = $row['DateGiven'];
+                                                $DateRecorded = $row['DateRecorded'];
+
+                                                echo'
+                                                <tr>
+                                                    <td class="hide">'.$ProjectID.'</td>
+                                                    <td class="hide">'.$DonationID.'</td>
+                                                    <td>'.$DonorName.'</td>
+                                                    <td>'.$MoneyDonated.'</td>
+                                                    <td>'.$DateGiven.'</td>
+                                                    <td>'.$DateRecorded.'</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success waves-effect editProject" data-toggle="modal" data-target="#editProjDonationModal">
+                                                        <i class="material-icons">mode_edit</i>
+                                                        <span>EDIT</span></button>
+                                                    </td>
+                                                </tr>';
+                                            }
+                                        }
+                                        }
+                                        else
+                                        {
+                                            $Level1ActivityViewSQL = 'SELECT 
+                                                                    bitdb_r_projectdonation.DonationID,
+                                                                    bitdb_r_projectdonation.ProjectID,
+                                                                    bitdb_r_projectdonation.DonorName,
+                                                                    bitdb_r_projectdonation.MoneyDonated,
+                                                                    bitdb_r_projectdonation.DateGiven,
+                                                                    bitdb_r_projectdonation.DateRecorded
+                                                                FROM    bitdb_r_projectdonation
+                                                                WHERE bitdb_r_projectdonation.ProjectID';
+                                        $Level1ActivityViewQuery = mysqli_query($bitMysqli,$Level1ActivityViewSQL) or die (mysqli_error($bitMysqli));
+                                        if (mysqli_num_rows($Level1ActivityViewQuery) > 0) 
+                                        {
+                                            while($row = mysqli_fetch_assoc($Level1ActivityViewQuery))
+                                            {
+                                                $DonationID = $row['DonationID'];
+                                                $ProjectID = $row['ProjectID'];
+                                                $DonorName = $row['DonorName'];
+                                                $MoneyDonated = $row['MoneyDonated'];
+                                                $DateGiven = $row['DateGiven'];
+                                                $DateRecorded = $row['DateRecorded'];
+
+                                                echo'
+                                                <tr>
+                                                    <td class="hide">'.$ProjectID.'</td>
+                                                    <td class="hide">'.$DonationID.'</td>
+                                                    <td>'.$DonorName.'</td>
+                                                    <td>'.$MoneyDonated.'</td>
+                                                    <td>'.$DateGiven.'</td>
+                                                    <td>'.$DateRecorded.'</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-success waves-effect editProject" data-toggle="modal" data-target="#editProjDonationModal">
+                                                        <i class="material-icons">mode_edit</i>
+                                                        <span>EDIT</span></button>
+                                                    </td>
+                                                </tr>';
+                                            }
+                                        }
+                                        }
+                                        
+                                        
+                                    ?>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -142,7 +259,7 @@
             </div>
         </div>
     </div>
-    <form id="Level1AddProjectAct" action="Level1AddProject.php" method="POST">
+    <form id="Level1AddProjectAct" action="Level1AddProjectDonation.php" method="POST">
         <div class="modal fade" id="addProjectDonModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -154,28 +271,33 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
+                            <div class="form-group form-float hide">
+                                <div class="form-line hide">
+                                    <input id="addProjectID" type="text" class="form-control hide" name="ProjectID"/>
+                                </div>
+                            </div>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="donorName"/>
+                                    <input type="text" class="form-control" name="DonorName"/>
                                     <label class="form-label">Donor Name</label>
                                 </div>
                             </div>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="donationAmount"/>
+                                    <input type="text" class="form-control" name="DonationAmount"/>
                                     <label class="form-label">Amount</label>
                                 </div>
                             </div>
                             <label class="form-label">Date Given</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="date" class="form-control" name="dateGiven"/>
+                                    <input type="date" class="form-control" name="DateGiven"/>
                                 </div>
                             </div>
                             <label class="form-label">Date Recorded</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="date" class="form-control" name="dateRecorded"/>
+                                    <input type="date" class="form-control" name="DateRecorded"/>
                                 </div>
                             </div>
                         </div>
@@ -190,40 +312,50 @@
         </div>
     </form>
 
-    <form id="Level1EditProjectAct" action="Level1EditProject.php" method="POST">
+    <form id="Level1EditProjectAct" action="Level1EditProjectDonation.php" method="POST">
         <div class="modal fade" id="editProjDonationModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2>
-                            Edit Project
+                            Edit Donation Details
                             <br/>
                         </h2>
                     </div>
                    <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <div class="form-group form-float">
-                                <div class="form-line">
-                                    <input type="text" class="form-control" name="donorName"/>
-                                    <label class="form-label">Donor Name</label>
+                            <div class="form-group form-float hide">
+                                <div class="form-line hide">
+                                    <input id="editProjectID" type="text" class="form-control hide" name="ProjectID"/>
                                 </div>
                             </div>
+                            <div class="form-group form-float hide">
+                                <div class="form-line hide">
+                                    <input id="editDonationID" type="text" class="form-control hide" name="DonationID"/>
+                                </div>
+                            </div>
+                            <label class="form-label">Donor Name</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="text" class="form-control" name="donationAmount"/>
-                                    <label class="form-label">Amount</label>
+                                    <input id="editDonorName" type="text" class="form-control" name="DonorName"/>
+                                </div>
+                            </div>
+                            <label class="form-label">Donated Amount</label>
+                            <div class="form-group form-float">
+                                <div class="form-line">
+                                    <input id="editAmount" type="text" class="form-control" name="DonationAmount"/>
                                 </div>
                             </div>
                             <label class="form-label">Date Given</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="date" class="form-control" name="dateGiven"/>
+                                    <input id="editGiven" type="date" class="form-control" name="DateGiven"/>
                                 </div>
                             </div>
                             <label class="form-label">Date Recorded</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input type="date" class="form-control" name="dateRecorded"/>
+                                    <input id="editRecorded" type="date" class="form-control" name="DateRecorded"/>
                                 </div>
                             </div>
                         </div>
@@ -300,5 +432,39 @@
 <!-- Demo Js -->
 <script src="js/demo.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#addProjectID').val($('#ProjectItem').val());
+    $('#ProjectItem').change(function() {
+        $('#addProjectID').val($('#ProjectItem').val());
+        history.pushState(null, null, '?Project='+$('#ProjectItem').val());
+        $('#ProjectTable').load(location.href + ' #ProjectTable');
+        location.reload();
+    });
+    $(".editProject").click(function()
+            {
+                console.log($(this).closest("tbody tr").find("td:eq(3)").html());
+
+                $("#editProjectID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                $("#editDonationID").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                $("#editDonorName").val($(this).closest("tbody tr").find("td:eq(2)").html());
+                $("#editAmount").val($(this).closest("tbody tr").find("td:eq(3)").html());
+                $("#editGiven").val($(this).closest("tbody tr").find("td:eq(4)").html());
+                $("#editRecorded").val($(this).closest("tbody tr").find("td:eq(5)").html());
+            });
+    // $('#editProjectID').val("wew");
+    // $(document).on("click", ".projectRefresh option", function(){
+    //     // $("#editProjectID").val($(this).find('projectRefresh').text());
+    //     // $("#editProjectID").val($('#ProjectID option:selected').val());
+    //     // console.log(val($('#ProjectID option:selected').val().text()));
+    //     // console.log($(this).closest("tbody tr").find("td:eq(2)").html());
+    //     $('#editProjectID').val("1");
+    // });
+    // $('#ProjectItem').change(function() {
+    //     var val = this.value;
+        
+    // });
+});
+</script>
 </body>
 </html>

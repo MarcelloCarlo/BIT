@@ -2,33 +2,22 @@
 	include_once('dbconn.php');
 
 	$ProjectName = $_POST['ProjectName'];
-	$ProjectLoc = $_POST['ProjectLoc'];
+	$ProjectCategory = $_POST['ProjectCategory'];
+	$ProjectZone = $_POST['ProjectZone'];
 	$ProjectDesc = $_POST['ProjectDesc'];
-	$ProjectPhase = $_POST['ProjectPhase'];
-	$ProjectStart = $_POST['ProjectStart'];
-	$ProjectFinish = $_POST['ProjectFinish'];
-	$ProjectSponsor = $_POST['ProjectSponsor'];
+	$ProjectBudget = $_POST['ProjectBudget'];
+	if($_POST['ProjectStatus'] == "Active")
+	{
+		$ProjectStatus = 1;
+	}
+	else
+	{
+		$ProjectStatus = 0;
+	}
 
-	$Level1AddProjectSQL = 'INSERT INTO bitdb_r_project(
-											ProjectName,
-											ProjectLoc,
-											ProjectDesc,
-											ProjectPhases,
-											DateStart,
-											DateFinish,
-											ProjectStatus,
-											PeopleInvolved) 
-							VALUES(
-									"'.$ProjectName.'",
-									"'.$ProjectLoc.'",
-									"'.$ProjectDesc.'",
-									"'.$ProjectPhase.'",
-									"'.$ProjectStart.'",
-									"'.$ProjectFinish.'",
-									1,
-									"'.$ProjectSponsor.'")';
+	$Level1AddProjectSQL = 'INSERT INTO bitdb_r_project(ProjectName,ProjectCategory,ProjectLocation,ProjectDesc,ProjectStatus,ProjectBudget) VALUES("'.$ProjectName.'",'.$ProjectCategory.','.$ProjectZone.',"'.$ProjectDesc.'","'.$ProjectStatus.'","'.$ProjectBudget.'")';
 	$Level1AddProjectQuery = mysqli_query($bitMysqli,$Level1AddProjectSQL) or die (mysqli_error($bitMysqli));
 
-	$header = 'Location:/BIT/Level1ProjectMonitoring.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:/BIT/Level1AddEditProjects.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>
