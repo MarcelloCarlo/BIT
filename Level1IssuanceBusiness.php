@@ -100,8 +100,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                                 <td>'.$ManagerAdd.'</td>
                                                                 <td>'.$BusinessStatus.'</td>
                                                                 <td> 
-                                                                    <button type="button" class="btn btn-success waves-effect editBusiness" data-toggle="modal" data-target="#issuance1">
-                                                                        <i class="material-icons">mode_edit</i>
+                                                                    <button type="button" class="btn btn-success waves-effect editBusiness" data-toggle="modal" data-target="#issuance1" onclick="disablebutt()">
+                                                                        <i class="material-icons">mode_edit</i> 
                                                                         <span>ISSUE</span>
                                                                     </button>
                                                                 </td>
