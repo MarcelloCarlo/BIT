@@ -208,7 +208,7 @@
                         <h2>
                             Add Project
                             <br/>
-                            <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
+                            <!-- <button type="button" class="btn btn-success waves-effect"> Import from Excel</button> -->
                         </h2>
                     </div>
                     <div class="modal-body">
