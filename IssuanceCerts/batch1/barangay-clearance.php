@@ -2,6 +2,7 @@
       session_start();
       include('../../AdminConfig.php');
 ?>
+
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
  <head>
@@ -285,7 +286,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
 
         if(isset($_GET['Clearance']))
         {
-          $DateSQL = 'SELECT DAY(IssuanceDate) AS Day, MONTHNAME(IssuanceDate) AS Month, YEAR(IssuanceDate) AS Year FROM bitdb_r_issuance';
+          $DateSQL = 'SELECT DAY(IssuanceDate) AS Day, MONTHNAME(IssuanceDate) AS Month, YEAR(IssuanceDate) AS Year FROM bitdb_r_issuance WHERE IssuanceID='.$_GET['Clearance'].' ';
           $DateQuery = mysqli_query($bitMysqli,$DateSQL) or die (mysqli_error($bitMysqli));
           if(mysqli_num_rows($DateQuery) > 0)
           {

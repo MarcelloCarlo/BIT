@@ -167,7 +167,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                         }
                                                         else
                                                         {
-                                                            echo '<td>  <button type="button" class="btn btn-success waves-effect IssueModal" data-toggle="modal" data-target="#issuance1">
+                                                            echo '<td>  <button type="button" class="btn btn-primary waves-effect IssueModal" data-toggle="modal" data-target="#issuance1">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 
                                                                 <span>ISSUE</span></a>
@@ -189,7 +189,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             <!-- #END# Basic Examples -->
      
       <!--Add-->
-    <form id="IssuancePrint" action="Level1AddCitizen.php" method="POST">
+    <form id="IssuancePrint" action="Level1AddPersonalIssuance.php" method="POST">
         <div class="modal fade" id="issuance1" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -206,11 +206,11 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                     <label class="form-label hide">CitizenID</label>
                                     <div class="form-group form-float hide">
                                         <div class="form-line hide">
-                                            <input id="editCitizenID" type="text" class="form-control hide" name="CitizenID" disabled/>
+                                            <input id="editCitizenID" type="text" class="form-control hide" name="CitizenID"/>
                                         </div>
                                     </div>
                                      <h4 class="card-inside-title">Category</h4>
-                                    <select class="form-control show-tick" name="btn dropdown-toggle btn-default" id="categorydropdown" onchange="disablebutt()">
+                                    <select class="form-control show-tick" name="Category" id="categorydropdown" onchange="disablebutt()">
                                         <?php
                                         include_once('dbconn.php');
                                         $CategorySQL = 'SELECT * FROM bitdb_r_issuancetype WHERE IssuanceOption = "Personal" ';
@@ -244,12 +244,11 @@ $title = 'Welcome | BarangayIT MK.II';?>
                             <br/>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span>
+                            <button type="submit" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </form>
 <script type="text/javascript">
@@ -274,11 +273,11 @@ $title = 'Welcome | BarangayIT MK.II';?>
                     $("#issuebutt").onclick==PrintIndigency();
                     // $('#issuance1').modal('show');
                  }
-                 if (catshere == "Barangay Clearance"){
+                 else if (catshere == "Barangay Clearance"){
                    // alert("Clearance");
                     $("#issuebutt").onclick==PrintBrgyClearance();     
                  }
-                  if (catshere == "Business Permit"){
+                else if (catshere == "Business Permit"){
                     //alert("Business Permit");
                     $("#issuebutt").onclick==PrintBusPermit();     
                  }
