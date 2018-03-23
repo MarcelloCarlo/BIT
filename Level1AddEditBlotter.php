@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'Level1AddEditBlotter';
@@ -12,7 +12,7 @@
             </div>
  <!--CUSTOM BLOCK INSERT HERE-->
             <!--CUSTOM BLOCK INSERT HERE-->
-        
+
             <!-- Basic Examples -->
              <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -30,8 +30,7 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                               <!--  <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> -->
-                                <table class="table table-bordered table-striped table-hover dataTable js-exportable"> 
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
                                             <th class="hide">BlotterID</th>
@@ -109,23 +108,23 @@
                                                         <td>'.$BlotterType.'</td>
                                                         <td>'.$CStatement.'</td>
                                                         <td>'.$CStatus.'</td>
-                                                        <td>'.$Resolution.'</td>
+                                        <td>'.$Resolution.'</td>
                                                         <td>'.$CDate.'</td>
-                                                        <td>  
+                                                        <td>
                                                             <button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editBlotterModal">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 <span>EDIT</span>
                                                             </button>
                                                         </td>
                                                     </tr>
-                                                    ';    
+                                                    ';
                                             }
                                         }
                                    ?>
 
 
 
-<!-- 
+<!--
 1.  Blotter No
 2.  Date of Incident
 3.  Complainant
@@ -141,7 +140,7 @@ c.  Report Print -->
 
 
                                    <!--  unang column nang table -->
-                                   
+
                                     </tbody>
                                 </table>
                             </div>
@@ -155,7 +154,7 @@ c.  Report Print -->
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                ADD                                    
+                                ADD
                                 <br/>
                                 <small>Add Blotter</small>
                             </h2>
@@ -165,16 +164,16 @@ c.  Report Print -->
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
-                                <h4 class="card-inside-title">Date of incident</h4>
+                                <label class="form-label">Date of incident</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" class="form-control" name="IncidentDate" required/>
-                            
+
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Area</h4>
+                                <label class="form-label">Area</label>
                                 <select class="form-control browser-default" name="IncidentArea" required>
-                                    <option value="None">None</option>  
+                                    <option value="None">None</option>
                                     <?php
                                         include_once('dbconn.php');
 
@@ -187,19 +186,20 @@ c.  Report Print -->
                                                 $ID = $row['ZoneID'];
                                                 $Name = $row['Zone'];
                                                 echo '<option value="'.$ID.'">'.$Name.'</option>';
-                                                        
+
                                             }
                                         }
                                     ?>
                                 </select>
-                                <h4 class="card-inside-title">Complaint Date</h4>
+                                <br/>
+                                <br/>
+                                <label class="form-label">Complaint Date</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" class="form-control" name="ComplaintDate" required/>
-                                        
+
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Complainant's Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="Complainant" required/>
@@ -207,14 +207,13 @@ c.  Report Print -->
                                     </div>
                                 </div>
 
-                                <h4 class="card-inside-title hide">AccusedID</h4>
+                                <label class="form-label hide">AccusedID</label>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
                                         <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" required/>
                                     </div>
                                 </div>
 <!--Add Search-->
-                                <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
                                         <input id="AccusedName" type="text" class="form-control" name="Accused" required/>
@@ -223,7 +222,7 @@ c.  Report Print -->
                                     </div>
                                 </div>
 <!--end search-->
-                                <h4 class="card-inside-title">Subject</h4>
+                                <label class="form-label">Subject</label>
                                 <select class="form-control browser-default" name="Subject" required>
                                     <option value="None">None</option>
                                     <?php
@@ -238,19 +237,19 @@ c.  Report Print -->
                                                 $ID = $row['BlotterCategoryID'];
                                                 $Name = $row['BlotterCategoryName'];
                                                 echo '<option value="'.$ID.'">'.$Name.'</option>';
-                                                        
+
                                             }
                                         }
                                     ?>
                                 </select>
-                                <h4 class="card-inside-title">Complain Statement</h4>
+                                <br/>
+                                <br/>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="ComplaintStatement" required/>
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Decision</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="Resolution" required/>
@@ -258,30 +257,29 @@ c.  Report Print -->
                                     </div>
                                 </div>
 
-                                <h4 class="card-inside-title">Complaint Status</h4>
-                                <div class="form-group">
+                                <label class="form-label hide">Complaint Status</label>
+                                <div class="form-group hide">
                                     <input type="radio" name="Comp_Status" id="editCheckA" value="Active" class="with-gap" checked>
-                                    <label for="editCheckA">Active</label>
+                                    <label for="editCheckA">Unsolved</label>
 
                                     <input type="radio" name="Comp_Status" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                    <label for="editCheckI" class="m-l-20">Solved</label>
                                 </div>
                                 <hr>
-                                <h4 class="card-inside-title">Summon</h4>
+                                <label class="form-label">Patawag?</label>
                                     <div class="form-group">
                                         <input type="radio" name="Summon" id="SummonA" value="Active" class="with-gap">
                                         <label for="SummonA">Yes</label>
                                         <input type="radio" name="Summon" id="SummonI" value="Inactive" class="with-gap" checked>
                                         <label for="SummonI" class="m-l-20">No</label>
-                                    </div>  
+                                    </div>
                                 <div id="SummonDiv" class="form-group">
-                                    <h4 class="card-inside-title">Schedule</h4>
+                                    <label class="form-label">Schedule</label>
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <input id="SummonSched" type="date" class="form-control" name="SummonSched"/>
                                         </div>
                                     </div>
-                                    <h4 class="card-inside-title">Place</h4>
                                     <div class="form-group form-float">
                                         <div class="form-line">
                                             <input id="SummonPlace" type="text" class="form-control" name="SummonPlace"/>
@@ -301,13 +299,13 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
-           
+
             <div class="modal fade" id="editBlotterModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                EDIT                                    
+                                EDIT
                                 <br/>
                                 <small>Edit Blotter</small>
                             </h2>
@@ -317,22 +315,22 @@ c.  Report Print -->
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
-                                <h4 class="card-inside-title hide">BlotterID</h4>
+                                <label class="form-label hide">BlotterID</label>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
                                         <input id="editBlotterID" type="text" class="form-control hide" name="BlotterID" required/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Date of incident</h4>
+                                <label class="form-label">Date of incident</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editIncidentDate" type="date" class="form-control" name="IncidentDate" required/>
-                            
+
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Area</h4>
+                                <label class="form-label">Area</label>
                                 <select id="editIncidentArea" class="form-control browser-default" name="IncidentArea" required>
-                                    <option value="None">None</option>  
+                                    <option value="None">None</option>
                                     <?php
                                         include_once('dbconn.php');
 
@@ -345,32 +343,32 @@ c.  Report Print -->
                                                 $ID = $row['ZoneID'];
                                                 $Name = $row['Zone'];
                                                 echo '<option value="'.$ID.'">'.$Name.'</option>';
-                                                        
+
                                             }
                                         }
                                     ?>
                                 </select>
-                                <h4 class="card-inside-title">Complaint Date</h4>
+                                <label class="form-label">Complaint Date</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editComplaintDate" type="date" class="form-control" name="ComplaintDate" required/>
-                                        
+
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Complainant's Name</h4>
+                                <label class="form-label">Complainant's Name</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editComplainant" type="text" class="form-control" name="Complainant" required/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title hide">AccusedID</h4>
+                                <label class="form-label hide">AccusedID</label>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
                                         <input id="editAccusedID" type="text" class="form-control hide" name="AccusedID"/>
                                     </div>
                                 </div>
 <!--Add Search-->
-                                <h4 class="card-inside-title">Accused' Name</h4>
+                                <label class="form-label">Accused' Name</label>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box-edit">
                                         <input id="editAccusedName" type="text" class="form-control" name="Accused"/>
@@ -378,7 +376,7 @@ c.  Report Print -->
                                     </div>
                                 </div>
 <!--end search-->
-                                <h4 class="card-inside-title">Subject</h4>
+                                <label class="form-label">Subject</label>
                                 <select id="editSubject" class="form-control browser-default" name="BlotterType">
                                     <option value="None">None</option>
                                     <?php
@@ -393,47 +391,47 @@ c.  Report Print -->
                                                 $ID = $row['BlotterCategoryID'];
                                                 $Name = $row['BlotterCategoryName'];
                                                 echo '<option value="'.$ID.'">'.$Name.'</option>';
-                                                        
+
                                             }
                                         }
                                     ?>
                                 </select>
-                                <h4 class="card-inside-title">Complain Statement</h4>
+                                <label class="form-label">Complain Statement</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editComplaintStatement" type="text" class="form-control" name="ComplaintStatement" required/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Decision</h4>
+                                <label class="form-label">Decision</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editResolution" type="text" class="form-control" name="Resolution" required/>
                                     </div>
                                 </div>
 
-                                <h4 class="card-inside-title">Complaint Status</h4>
+                                <label class="form-label">Complaint Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="Comp_Status" id="editStatusA" value="Active" class="with-gap">
-                                    <label for="editStatusA">Active</label>
+                                    <label for="editStatusA">Unsolved</label>
                                     <input type="radio" name="Comp_Status" id="editStatusI" value="Inactive" class="with-gap">
-                                    <label for="editStatusI" class="m-l-20">Inactive</label>
+                                    <label for="editStatusI" class="m-l-20">Solved</label>
                                 </div>
                                 <hr>
-                                    <h4 class="card-inside-title">Summon</h4>
+                                    <label class="form-label">Patawag?</label>
                                         <div class="form-group">
                                             <input type="radio" name="Summon" id="editSummonA" value="Active" class="with-gap">
                                             <label for="editSummonA">Yes</label>
                                             <input type="radio" name="Summon" id="editSummonI" value="Inactive" class="with-gap" checked>
                                             <label for="editSummonI" class="m-l-20">No</label>
-                                        </div>  
+                                        </div>
                                     <div id="SummonDiv" class="form-group">
-                                        <h4 class="card-inside-title">Schedule</h4>
+                                        <label class="form-label">Schedule</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input id="SummonSched" type="date" class="form-control" name="SummonSched"/>
                                             </div>
                                         </div>
-                                        <h4 class="card-inside-title">Place</h4>
+                                        <label class="form-label">Place</label>
                                         <div class="form-group form-float">
                                             <div class="form-line">
                                                 <input id="SummonPlace" type="text" class="form-control" name="SummonPlace"/>
@@ -452,7 +450,76 @@ c.  Report Print -->
                     </div>
                 </div>
             </div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<?php include('footerblock.php');?>
+</section>
+<!-- Jquery Core Js -->
+<script src="plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap Core Js -->
+<script src="plugins/bootstrap/js/bootstrap.js"></script>
+
+<!-- Select Plugin Js -->
+<script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
+
+<!-- Slimscroll Plugin Js -->
+<script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+<!-- Waves Effect Plugin Js -->
+<script src="plugins/node-waves/waves.js"></script>
+
+<!-- SweetAlert Plugin Js -->
+<script src="plugins/sweetalert/sweetalert.min.js"></script>
+
+<!-- Bootstrap Notify Plugin Js -->
+<script src="plugins/bootstrap-notify/bootstrap-notify.js"></script>
+
+<!-- Bootstrap Colorpicker Js -->
+<script src="plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+
+<!-- Dropzone Plugin Js -->
+<script src="plugins/dropzone/dropzone.js"></script>
+
+<!-- Input Mask Plugin Js -->
+<script src="plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+
+<!-- Multi Select Plugin Js -->
+<script src="plugins/multi-select/js/jquery.multi-select.js"></script>
+
+<!-- Jquery Spinner Plugin Js -->
+<script src="plugins/jquery-spinner/js/jquery.spinner.js"></script>
+
+<!-- Bootstrap Tags Input Plugin Js -->
+<script src="plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
+
+<!-- noUISlider Plugin Js -->
+<script src="plugins/nouislider/nouislider.js"></script>
+
+
+<!-- Jquery Validation Plugin Css -->
+<script src="plugins/jquery-validation/jquery.validate.js"></script>
+
+<!-- JQuery Steps Plugin Js -->
+<script src="plugins/jquery-steps/jquery.steps.js"></script>
+
+<!-- Jquery DataTable Plugin Js -->
+<script src="plugins/jquery-datatable/jquery.dataTables.js"></script>
+<script src="plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/buttons.flash.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/jszip.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/pdfmake.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/vfs_fonts.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/buttons.html5.min.js"></script>
+<script src="plugins/jquery-datatable/extensions/export/buttons.print.min.js"></script>
+
+<!-- Custom Js -->
+<script src="js/admin.js"></script>
+<script src="js/pages/tables/jquery-datatable.js"></script>
+<script src="js/pages/forms/form-validation.js"></script>
+
+<!-- Demo Js -->
+<script src="js/demo.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
@@ -468,7 +535,7 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
-    
+
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
         $("#AccusedName").val($(this).find('#NameResult').text());
@@ -477,8 +544,6 @@ $(document).ready(function(){
     });
 });
 </script>
-
-<?php include('footer.php'); ?>
 
 <script type="text/javascript">
         $(document).ready(function()
@@ -503,7 +568,7 @@ $(document).ready(function(){
             });
         });
 
-</script> 
+</script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -520,7 +585,7 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
-    
+
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
         $("#editAccusedName").val($(this).find('#NameResult').text());
@@ -529,3 +594,4 @@ $(document).ready(function(){
     });
 });
 </script>
+</html>
