@@ -212,10 +212,6 @@
                             <li <?php if($currentPage==='Level1AddEditActivities') {echo 'class="active"';}?>>
                                 <a href="Level1AddEditActivities.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Monitoring</a>
                             </li>
-                            
-                            <li <?php if($currentPage==='Level1AddEditProjDonations') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditProjDonations.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Donations</a>
-                            </li>
                         </ul>
                        </li>
                                        
