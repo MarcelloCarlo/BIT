@@ -85,8 +85,24 @@
                             <i class="material-icons">shopping_cart</i>
                         </div>
                         <div class="content">
-                            <div class="text">CURRENT BUSINESSES</div>
-                            <div class="number count-to" data-from="0" data-to="520" data-speed="1000" data-fresh-interval="20"></div>
+
+                             <?php
+                                include_once('dbconn.php');
+
+                                $CountBusinessSQL = 'SELECT COUNT(BusinessID) AS BusinessCount FROM bitdb_r_business';
+                                $CountBusinessQuery = mysqli_query($bitMysqli,$CountBusinessSQL) or die (mysqli_error($bitMysqli));
+                                if(mysqli_num_rows($CountBusinessQuery) > 0)
+                                {
+                                    while($row = mysqli_fetch_assoc($CountBusinessQuery))
+                                    {
+                                        $BusinessCount = $row['BusinessCount'];
+                                        echo '<div class="text">CURRENT BUSINESSES</div>
+                                            <div class="number count-to" data-from="0" data-to="'.$BusinessCount.'"data-speed="1000" data-fresh-interval="20"></div>';
+                                    }
+                                }
+                            ?>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -96,8 +112,24 @@
                             <i class="material-icons">face</i>
                         </div>
                         <div class="content">
-                            <div class="text">CURRENT POPULATION</div>
-                            <div class="number count-to" data-from="0" data-to="50450" data-speed="1000" data-fresh-interval="20"></div>
+                            <?php
+                                include_once('dbconn.php');
+
+                                $CountCitizenSQL = 'SELECT COUNT(Citizen_ID) AS CitizenCount FROM bitdb_r_citizen';
+                                $CountCitizenQuery = mysqli_query($bitMysqli,$CountCitizenSQL) or die (mysqli_error($bitMysqli));
+                                if(mysqli_num_rows($CountCitizenQuery) > 0)
+                                {
+                                    while($row = mysqli_fetch_assoc($CountCitizenQuery))
+                                    {
+                                        $CitizenCount = $row['CitizenCount'];
+                                        echo '<div class="text">CURRENT POPULATION</div>
+                                                <div class="number count-to" data-from="0" data-to="'.$CitizenCount.'" data-speed="1000" data-fresh-interval="20">';
+                                    }
+                                }
+                            ?>
+
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -107,8 +139,23 @@
                             <i class="material-icons">report_problem</i>
                         </div>
                         <div class="content">
-                            <div class="text">BLOTTERS REPORTED</div>
-                            <div class="number count-to" data-from="0" data-to="1020" data-speed="1000" data-fresh-interval="20"></div>
+
+                            <?php
+                                include_once('dbconn.php');
+
+                                $CountBlotterSQL = 'SELECT COUNT(BlotterID) AS BlotterCount FROM bitdb_r_blotter';
+                                $CountBlotterQuery = mysqli_query($bitMysqli,$CountBlotterSQL) or die (mysqli_error($bitMysqli));
+                                if(mysqli_num_rows($CountBlotterQuery) > 0)
+                                {
+                                    while($row = mysqli_fetch_assoc($CountBlotterQuery))
+                                    {
+                                        $BlotterCount = $row['BlotterCount'];
+                                        echo '<div class="text">BLOTTERS REPORTED</div>
+                            <div class="number count-to" data-from="0" data-to="'.$BlotterCount.'"data-speed="1000" data-fresh-interval="20"></div>';
+                                    }
+                                }
+                            ?>
+                            
                         </div>
                     </div>
                 </div>
@@ -118,8 +165,24 @@
                             <i class="material-icons">assignment</i>
                         </div>
                         <div class="content">
-                            <div class="text">ORDINANCES IMPOSED</div>
-                            <div class="number count-to" data-from="0" data-to="1459" data-speed="1500" data-fresh-interval="20"></div>
+
+                            <?php
+                                include_once('dbconn.php');
+
+                                $CountOrdinanceSQL = 'SELECT COUNT(OrdinanceID) AS OrdinanceCount FROM bitdb_r_ordinance';
+                                $CountOrdinanceQuery = mysqli_query($bitMysqli,$CountOrdinanceSQL) or die (mysqli_error($bitMysqli));
+                                if(mysqli_num_rows($CountOrdinanceQuery) > 0)
+                                {
+                                    while($row = mysqli_fetch_assoc($CountOrdinanceQuery))
+                                    {
+                                        $OrdinanceCount = $row['OrdinanceCount'];
+                                        echo '<div class="text">ORDINANCES IMPOSED</div>
+                            <div class="number count-to" data-from="0" data-to="'.$OrdinanceCount.'"data-speed="1500" data-fresh-interval="20"></div>';
+                                    }
+                                }
+                            ?>
+
+                        
                         </div>
                     </div>
                 </div>
