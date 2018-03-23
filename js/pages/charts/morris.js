@@ -144,14 +144,26 @@ function getMorris(type, element) {
             lineColors: ['rgb(233, 30, 99)', 'rgb(0, 188, 212)', 'rgb(0, 150, 136)']
         });
     } else if (type === 'donut') {
+        
+        var blotterpatawag=$(".BlotterPatawagCount").text();
+        var blotteronly=$(".BlotterCount").text();
+        
+
+        var totalblotter = parseInt(blotterpatawag)+parseInt(blotteronly);
+        var BlotPerctBlot = (blotteronly/totalblotter) * 100;
+        var BlotPerctBlotPat = (blotterpatawag/totalblotter) * 100;
+
         Morris.Donut({
+
+
             element: element,
             data: [{
-                label: 'Blotter Cases',
-                value: 25
+                label: 'Blotter Patawag',
+                value: BlotPerctBlotPat.toFixed()
+                // alert ("totalblotter")
             }, {
                     label: 'Blotter Records',
-                    value: 40
+                    value: BlotPerctBlot.toFixed()
                 }/*, {
                     label: 'Custard',
                     value: 25

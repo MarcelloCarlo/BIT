@@ -140,8 +140,8 @@
                         </div>
                         <div class="content">
 
-                            <?php
-                                include_once('dbconn.php');
+                         <?php
+                                include_once('dbconn.php');$BlotterCount="";
 
                                 $CountBlotterSQL = 'SELECT COUNT(BlotterID) AS BlotterCount FROM bitdb_r_blotter';
                                 $CountBlotterQuery = mysqli_query($bitMysqli,$CountBlotterSQL) or die (mysqli_error($bitMysqli));
@@ -153,7 +153,26 @@
                                         echo '<div class="text">BLOTTERS REPORTED</div>
                             <div class="number count-to" data-from="0" data-to="'.$BlotterCount.'"data-speed="1000" data-fresh-interval="20"></div>';
                                     }
+
+                                   
+                                } echo "<i class='BlotterCount hidden'>".$BlotterCount."</i>";
+                            ?>
+                             <?php
+                                include_once('dbconn.php');
+                                $BlotterPatawagCount ="";
+
+                                $CountBlotterPatawagSQL = 'SELECT COUNT(SummonBlotter.BlotterPatawagCount) AS BlotterPatawagCount FROM (SELECT DISTINCT bitdb_r_summons.BlotterID AS BlotterPatawagCount FROM bitdb_r_summons) AS SummonBlotter';
+                                $CountBlotterPatawagQuery = mysqli_query($bitMysqli,$CountBlotterPatawagSQL) or die (mysqli_error($bitMysqli));
+                                if(mysqli_num_rows($CountBlotterPatawagQuery) > 0)
+                                {
+                                    while($row = mysqli_fetch_assoc($CountBlotterPatawagQuery))
+                                    {
+                                        $BlotterPatawagCount = $row['BlotterPatawagCount'];
+                                        // echo "$BlotterPatawagCount";
+                                        
+                                    }
                                 }
+                                    echo "<i class='BlotterPatawagCount hidden'>".$BlotterPatawagCount."</i>";
                             ?>
 
                         </div>
