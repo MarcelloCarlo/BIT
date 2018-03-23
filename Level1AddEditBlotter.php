@@ -269,10 +269,10 @@ c.  Report Print -->
                                 <hr>
                                 <h4 class="card-inside-title">Summon</h4>
                                     <div class="form-group">
-                                        <input type="radio" name="Summon" id="editSummonA" value="Active" class="with-gap">
-                                        <label for="editSummonA">Yes</label>
-                                        <input type="radio" name="Summon" id="editSummonI" value="Inactive" class="with-gap" checked>
-                                        <label for="editSummonI" class="m-l-20">No</label>
+                                        <input type="radio" name="Summon" id="SummonA" value="Active" class="with-gap">
+                                        <label for="SummonA">Yes</label>
+                                        <input type="radio" name="Summon" id="SummonI" value="Inactive" class="with-gap" checked>
+                                        <label for="SummonI" class="m-l-20">No</label>
                                     </div>  
                                 <div id="SummonDiv" class="form-group">
                                     <h4 class="card-inside-title">Schedule</h4>
@@ -366,14 +366,14 @@ c.  Report Print -->
                                 <h4 class="card-inside-title hide">AccusedID</h4>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
-                                        <input id="editAccusedID" type="text" class="form-control hide" name="AccusedID" required/>
+                                        <input id="editAccusedID" type="text" class="form-control hide" name="AccusedID"/>
                                     </div>
                                 </div>
 <!--Add Search-->
                                 <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box-edit">
-                                        <input id="editAccusedName" type="text" class="form-control" name="Accused" required/>
+                                        <input id="editAccusedName" type="text" class="form-control" name="Accused"/>
                                         <div class="result"></div>
                                     </div>
                                 </div>

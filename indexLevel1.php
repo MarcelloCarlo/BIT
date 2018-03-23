@@ -285,18 +285,18 @@
                                     <?php echo $WName?>
                                 </p>
                             </a>
-                            <a href="javascript:void(0);" class="list-group-item">
-                                <h4 class="list-group-item-heading">City/Municipal Seal</h4>
-                                <p class="list-group-item-text">
-                                    <?php echo $Municipality?>
-                                </p>
-                            </a>
-                            <a href="javascript:void(0);" class="list-group-item">
-                                <h4 class="list-group-item-heading">Barangay Seal</h4>
-                                <p class="list-group-item-text">
-                                    <?php echo $Municipality?>
-                                </p>
-                            </a>
+                            <?php 
+                                echo '
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4>
+                                    <img src="images/'.$MunicipalSeal.'" alt="profile image" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Barangay Seal</h4>
+                                    <img src="images/'.$BarangaySeal.'" alt="profile image" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                    
+                                </a>';
+                            ?>
                         </div>
                     </div>
                 </div>

@@ -151,14 +151,30 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                             <td>'.$Occupation.'</td>
                                                             <td>'.$Gender.'</td>
                                                             <td>'.$Address.'</td>
-                                                            <td>'.$Date_Rec.'</td>
-                                                            <td>  <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#issuance1">
+                                                            <td>'.$Date_Rec.'</td>';
+                                                            
+                                                        $ButtonShowSQL = 'SELECT DISTINCT BlotterID FROM bitdb_r_blotter WHERE Accused ='.$ID.' AND ComplaintStatus = 1';
+                                                        $ButtonShowQuery = mysqli_query($bitMysqli,$ButtonShowSQL) or die (mysqli_error($bitMysqli));
+                                                        if(mysqli_num_rows($ButtonShowQuery) > 0)
+                                                        {
+                                                            echo '<td>  <button type="button" class="btn btn-warning waves-effect IssueModal">
+                                                                <i class="material-icons">bookmark</i>
+                                                                
+                                                                <span>PENDING</span></a>
+                                                            </button>
+                                                            </td>
+                                                        </tr>';
+                                                        }
+                                                        else
+                                                        {
+                                                            echo '<td>  <button type="button" class="btn btn-success waves-effect IssueModal" data-toggle="modal" data-target="#issuance1">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 
                                                                 <span>ISSUE</span></a>
                                                             </button>
                                                             </td>
                                                         </tr>';
+                                                        }
                                                     }
                                                 }
                                             ?>
@@ -187,23 +203,29 @@ $title = 'Welcome | BarangayIT MK.II';?>
                            <div class="modal-body">
                             <div class="row clearfix margin-0">
                                 <div class="form-group form-float">
+                                    <label class="form-label hide">CitizenID</label>
+                                    <div class="form-group form-float hide">
+                                        <div class="form-line hide">
+                                            <input id="editCitizenID" type="text" class="form-control hide" name="CitizenID" disabled/>
+                                        </div>
+                                    </div>
                                      <h4 class="card-inside-title">Category</h4>
-                                <select class="form-control show-tick" name="btn dropdown-toggle btn-default" id="categorydropdown" onchange="disablebutt()">
-                                    <?php
-                                    include_once('dbconn.php');
-                                    $CategorySQL = 'SELECT * FROM bitdb_r_issuancetype WHERE IssuanceOption = "Personal" ';
-                                    $CategoryQuery = mysqli_query($bitMysqli,$CategorySQL) or die(mysqli_error($bitMysqli));
-                                    if(mysqli_num_rows($CategoryQuery) > 0)
-                                    {
-                                        while($row = mysqli_fetch_assoc($CategoryQuery))
+                                    <select class="form-control show-tick" name="btn dropdown-toggle btn-default" id="categorydropdown" onchange="disablebutt()">
+                                        <?php
+                                        include_once('dbconn.php');
+                                        $CategorySQL = 'SELECT * FROM bitdb_r_issuancetype WHERE IssuanceOption = "Personal" ';
+                                        $CategoryQuery = mysqli_query($bitMysqli,$CategorySQL) or die(mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($CategoryQuery) > 0)
                                         {
-                                            echo '<option>'.$row['IssuanceType'].'</option>';
+                                            while($row = mysqli_fetch_assoc($CategoryQuery))
+                                            {
+                                                echo '<option>'.$row['IssuanceType'].'</option>';
+                                            }
                                         }
-                                    }
-                                    ?>
-                                </select>
-                                <br>
-                                <br>
+                                        ?>
+                                    </select>
+                                    <br>
+                                    <br>
 
                                     <div class="form-line">
                                         <input type="text" name="txtPurpose" class="form-control" id="txtPurpose" />
@@ -230,10 +252,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
             </div>
         </div>
     </form>
-          
-        <script type="text/javascript">
-        
-        function disablebutt(){
+<script type="text/javascript">
+        function disablebutt(){0
             var catshere = $("#categorydropdown").val();
                 if (catshere == "Business Permit")
                 {
@@ -254,12 +274,10 @@ $title = 'Welcome | BarangayIT MK.II';?>
                     $("#issuebutt").onclick==PrintIndigency();
                     // $('#issuance1').modal('show');
                  }
-
                  if (catshere == "Barangay Clearance"){
                    // alert("Clearance");
                     $("#issuebutt").onclick==PrintBrgyClearance();     
                  }
-
                   if (catshere == "Business Permit"){
                     //alert("Business Permit");
                     $("#issuebutt").onclick==PrintBusPermit();     
@@ -290,27 +308,32 @@ $title = 'Welcome | BarangayIT MK.II';?>
 
 
         function PrintIndigency() {
-                 printWindow = window.open("IssuanceCerts/batch1/indigency.php" );
+                 printWindow = window.open(`IssuanceCerts/batch1/indigency.php?CitizenID=${$("#editCitizenID").val()}&Purpose=${$("#txtPurpose").val()}`);
                  printWindow.print();
         }
 
         function PrintBusPermit() {
-                 printWindow = window.open("IssuanceCerts/batch1/business-permit.php" );
+                 printWindow = window.open('IssuanceCerts/batch1/business-permit.php');
                  printWindow.print();
         }
 
         function PrintBrgyClearance() {
-                 printWindow = window.open("IssuanceCerts/batch1/barangay-clearance.php" );
+                 printWindow = window.open(`IssuanceCerts/batch1/barangay-clearance.php?CitizenID=${$("#editCitizenID").val()}&Purpose=${$("#txtPurpose").val()}`);
                  printWindow.print();
-        }
+        }     
 
-
-
-            
-</script>    
-        
-        </script>
-    </section>
-
-
+</script>
+</section>
 <?php include('footer.php'); ?>
+<script type="text/javascript">
+        $(document).ready(function()
+        {
+            $(".IssueModal").click(function()
+            {
+                $("#editCitizenID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                // $("#editProjectName").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                // $("#editProjectCategory").val($(this).closest("tbody tr").find("td:eq(2)").html()).trigger("change");
+                
+            });
+        });
+</script>

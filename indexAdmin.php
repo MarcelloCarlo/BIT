@@ -32,51 +32,52 @@ include('AdminNavbar.php');
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">City/Municipality</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $c_Type?>
+                                    <?php echo $c_Type;?>
                                 </p>
                             </a>
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">Independent/Component</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $b_Type?>
+                                    <?php echo $b_Type;?>
                                 </p>
                             </a>
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">Province Name</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $ProvinceName?>
+                                    <?php echo $ProvinceName;?>
                                 </p>
                             </a>
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">City/Municipality Name</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $Municipality?>
+                                    <?php echo $Municipality;?>
                                 </p>
                             </a>
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">Barangay Name</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $BarangayName?>
+                                    <?php echo $BarangayName;?>
                                 </p>
                             </a>
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $WName?>
+                                    <?php echo $WName;?>
                                 </p>
                             </a>
-                            <a href="javascript:void(0);" class="list-group-item">
-                                <h4 class="list-group-item-heading">City/Municipal Seal</h4>
-                                <p class="list-group-item-text">
-                                    <?php echo $Municipality?>
-                                </p>
-                            </a>
-                            <a href="javascript:void(0);" class="list-group-item">
-                                <h4 class="list-group-item-heading">Barangay Seal</h4>
-                                <p class="list-group-item-text">
-                                    <?php echo $Municipality?>
-                                </p>
-                            </a>
+                            <?php 
+                                echo '
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4>
+                                    <img src="images/'.$MunicipalSeal.'" alt="profile image" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Barangay Seal</h4>
+                                    <img src="images/'.$BarangaySeal.'" alt="profile image" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                    
+                                </a>';
+                            ?>
+                            
                         </div>
                     </div>
                 </div>

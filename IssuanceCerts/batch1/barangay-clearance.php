@@ -1,6 +1,7 @@
 <?php 
-      session_start(); ?>
-
+      session_start();
+      include('../../AdminConfig.php');
+?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
  <head>
@@ -33,112 +34,151 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
        <p><span id="u769">Republic of the Philippines</span></p>
       </div>
       <div class="clearfix colelem" id="u768-4"><!-- content -->
-       <p>Province Name</p>
+       <?php
+          include_once('../../dbconn.php');
+
+          $configSQL = 'SELECT * FROM bitdb_r_config';
+          $configQuery = mysqli_query($bitMysqli,$configSQL) or die (mysqli_error($bitMysqli));
+          if(mysqli_num_rows($configQuery) > 0)
+          {
+            while($row = mysqli_fetch_assoc($configQuery))
+            {
+              $Barangay = $row['BarangayName'];
+              $Municipality = $row['Municipality'];
+              $Province = $row['ProvinceName'];
+              echo '
+      <p>'.$Province.'</p>
       </div>
       <div class="clearfix colelem" id="u772-4"><!-- content -->
-       <p>City of City name</p>
+       <p>City of '.$Municipality.'</p>
       </div>
       <div class="clearfix colelem" id="pu770-4"><!-- group -->
        <div class="clearfix grpelem" id="u770-4"><!-- content -->
-        <p>Barangay Name</p>
+        <p>'.$Barangay.'</p>';
+            }
+          }
+        ?>
        </div>
        <div class="clearfix grpelem" id="u771-4"><!-- content -->
         <p>OFFICE OF THE SANGGUNIANG BARAGAY</p>
        </div>
       </div>
      </div>
-     <div class="clip_frame grpelem" id="u773"><!-- image -->
-      <img class="block" id="u773_img" src="images/provincelogo.png?crc=3870925005" alt="" width="116" height="116"/>
-     </div>
-     <div class="clip_frame grpelem" id="u775"><!-- image -->
-      <img class="block" id="u775_img" src="images/barangay%20logo117x119.png?crc=447412082" alt="" width="117" height="119"/>
-     </div>
+     <?php
+      include_once('../../dbconn.php');
+
+      $ImageSQL = 'SELECT * FROM bitdb_r_config';
+      $ImageQuery = mysqli_query($bitMysqli,$ImageSQL) or die (mysqli_error($bitMysqli));
+      if(mysqli_num_rows($ImageQuery) > 0)
+      {
+        while($row = mysqli_fetch_assoc($ImageQuery))
+        {
+          $BSeal = $row['BarangaySeal'];
+          $MSeal = $row['MunicipalSeal'];
+          echo '<div class="clip_frame grpelem" id="u773"><!-- image -->
+                  <img class="block" id="u773_img" src="../../images/'.$MSeal.'" alt="No Image" style="width:80px; height:auto;"/>
+                 </div>
+                 <div class="clip_frame grpelem" id="u775"><!-- image -->
+                  <img class="block" id="u775_img" src="../../images/'.$BSeal.'" alt="No Image" style="width:80px; height:auto;/>
+                 </div>';
+        }
+      }
+     ?>
+     
      <div class="grpelem" id="u777"><!-- simple frame --></div>
      <div class="grpelem" id="u778"><!-- simple frame --></div>
      <div class="clearfix grpelem" id="u779-4"><!-- content -->
       <p>Hon.</p>
      </div>
      <div class="clearfix grpelem" id="u780-4"><!-- content -->
-      <p>Name Barangay Captain</p>
+      <?php
+        include('../../dbconn.php');
+
+        $CaptainSQL = 'SELECT bitdb_r_citizen.First_Name,
+                              bitdb_r_citizen.Middle_Name,
+                              bitdb_r_citizen.Last_Name,
+                              bitdb_r_citizen.Name_Ext 
+                      FROM    bitdb_r_config 
+                      INNER JOIN bitdb_r_barangayofficial 
+                      ON  bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_config.Signatory
+                      INNER JOIN bitdb_r_citizen
+                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID';
+        $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
+        if(mysqli_num_rows($CaptainQuery) > 0)
+        {
+          while($row = mysqli_fetch_assoc($CaptainQuery))
+          {
+            $Name = ''.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].' ';
+            echo '<p>'.$Name.'</p>';
+          }
+        }
+      ?>
      </div>
      <div class="clearfix grpelem" id="u781-4"><!-- content -->
       <p>Barangay Captain</p>
      </div>
-     <div class="clearfix grpelem" id="u782-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u783-4"><!-- content -->
-      <p>Official 2 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u784-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u785-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u786-4"><!-- content -->
-      <p>Official 3 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u787-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u788-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u789-4"><!-- content -->
-      <p>Official 4 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u790-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u791-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u792-4"><!-- content -->
-      <p>Official 5 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u793-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u794-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u795-4"><!-- content -->
-      <p>Official 6 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u796-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u797-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u798-4"><!-- content -->
-      <p>Official 7 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u799-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u800-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u801-4"><!-- content -->
-      <p>Official 8 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u802-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u803-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u804-4"><!-- content -->
-      <p>Official 9 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u805-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clip_frame grpelem" id="u1296"><!-- image -->
+     <?php
+      include('../../dbconn.php');
+      $OfficialSQL = 'SELECT bitdb_r_citizen.First_Name,
+                              bitdb_r_citizen.Middle_Name,
+                              bitdb_r_citizen.Last_Name,
+                              bitdb_r_citizen.Name_Ext,
+                              bitdb_r_barangayposition.PosName,
+                              bitdb_r_barangayposition.PosDesc
+                      FROM    bitdb_r_barangayofficial
+                      INNER JOIN bitdb_r_barangayposition
+                      ON  bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
+                      INNER JOIN bitdb_r_citizen  
+                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                      WHERE bitdb_r_barangayposition.PosName != "Barangay Captain"';
+      $OfficialQuery  = mysqli_query($bitMysqli,$OfficialSQL) or die (mysqli_error($bitMysqli));
+      if(mysqli_num_rows($OfficialQuery) > 0)
+      {
+        $ctr = 782;
+        while($row = mysqli_fetch_assoc($OfficialQuery))
+        {
+          $FullName = ''.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].' ';
+          $Position = $row['PosName'];
+          $PositionDesc = $row['PosDesc'];
+          for($i=0;$i<3;$i++)
+          {
+            if($i == 0)
+            echo '<div class="clearfix grpelem" id="u'.$ctr.'-4">
+                  <p>Hon.</p>
+                 </div>';
+            else if($i == 1)
+            echo '<div class="clearfix grpelem" id="u'.$ctr.'-4">
+                  <p>'.$FullName.'</p>
+                 </div>';
+            else if($i==2)
+            echo '<div class="clearfix grpelem" id="u'.$ctr.'-4">
+                  <p>'.$Position.'<br>'.$PositionDesc.'</p>
+                 </div>';
+            $ctr++;
+          }
+        }
+      }
+     ?>
+     <?php
+      include_once('../../dbconn.php');
+
+      $ImageSQL = 'SELECT * FROM bitdb_r_config';
+      $ImageQuery = mysqli_query($bitMysqli,$ImageSQL) or die (mysqli_error($bitMysqli));
+      if(mysqli_num_rows($ImageQuery) > 0)
+      {
+        while($row = mysqli_fetch_assoc($ImageQuery))
+        {
+          $BSeal = $row['BarangaySeal'];
+          $MSeal = $row['MunicipalSeal'];
+          echo '<div class="clip_frame grpelem" id="u1296">
+                  <img class="block" id="u1296_img" src="../../images/'.$BSeal.'" alt="No Image" style="width:750px; height:auto;"/>
+                </div>';
+        }
+      }
+     ?><!-- 
+     <div class="clip_frame grpelem" id="u1296">
       <img class="block" id="u1296_img" src="images/barangay%20logo.png?crc=3987647798" alt="" width="739" height="751"/>
-     </div>
+     </div> -->
      <div class="clearfix grpelem" id="u1338-4"><!-- content -->
       <p>BARANGAY CLEARANCE</p>
      </div>
@@ -165,34 +205,166 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       <p>Hon.</p>
      </div>
      <div class="clearfix grpelem" id="u1343-4"><!-- content -->
-      <p>Name Barangay Captain</p>
+      <?php
+        include('../../dbconn.php');
+
+        $CaptainSQL = 'SELECT bitdb_r_citizen.First_Name,
+                              bitdb_r_citizen.Middle_Name,
+                              bitdb_r_citizen.Last_Name,
+                              bitdb_r_citizen.Name_Ext 
+                      FROM    bitdb_r_config 
+                      INNER JOIN bitdb_r_barangayofficial 
+                      ON  bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_config.Signatory
+                      INNER JOIN bitdb_r_citizen
+                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID';
+        $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
+        if(mysqli_num_rows($CaptainQuery) > 0)
+        {
+          while($row = mysqli_fetch_assoc($CaptainQuery))
+          {
+            $Name = ''.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].' ';
+            echo '<p>'.$Name.'</p>';
+          }
+        }
+      ?>
      </div>
      <div class="clearfix grpelem" id="u1344-4"><!-- content -->
       <p>Punung Barangay</p>
      </div>
      <div class="clearfix grpelem" id="u1345-4"><!-- content -->
-      <p>Name of the resident</p>
-     </div>
-     <div class="clearfix grpelem" id="u1346-4"><!-- content -->
-      <p>AGE</p>
-     </div>
+      <?php
+        include('../../dbconn.php');
+
+        $CaptainSQL = "SELECT bitdb_r_citizen.First_Name,
+                              bitdb_r_citizen.Middle_Name,
+                              bitdb_r_citizen.Last_Name,
+                              bitdb_r_citizen.Name_Ext,
+                              DATE_FORMAT(NOW(), '%Y') - DATE_FORMAT(bitdb_r_citizen.Birthdate, '%Y') - (DATE_FORMAT(NOW(), '00-%m-%d') < DATE_FORMAT(bitdb_r_citizen.Birthdate, '00-%m-%d')) AS Age 
+                      FROM    bitdb_r_citizen
+                      WHERE   bitdb_r_citizen.Citizen_ID =".$_GET['CitizenID']."";
+        $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
+        if(mysqli_num_rows($CaptainQuery) > 0)
+        {
+          while($row = mysqli_fetch_assoc($CaptainQuery))
+          {
+            $Name = ''.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].' ';
+            $Age = $row['Age'];
+            echo '<p>'.$Name.'</p>
+                  </div>
+                 <div class="clearfix grpelem" id="u1346-4"><!-- content -->
+                  <p>'.$Age.'</p>
+                 </div>';
+          }
+        }
+      ?>
+     
      <div class="clearfix grpelem" id="u1347-4"><!-- content -->
-      <p>Name ng Barangay, City of, Province</p>
+      <?php
+          include_once('../../dbconn.php');
+
+          $configSQL = 'SELECT * FROM bitdb_r_config';
+          $configQuery = mysqli_query($bitMysqli,$configSQL) or die (mysqli_error($bitMysqli));
+          if(mysqli_num_rows($configQuery) > 0)
+          {
+            while($row = mysqli_fetch_assoc($configQuery))
+            {
+              $Barangay = $row['BarangayName'];
+              $Municipality = $row['Municipality'];
+              $Province = $row['ProvinceName'];
+              echo ''.$Barangay.', City of '.$Municipality.', '.$Province.' ';
+            }
+          }
+        ?>
      </div>
      <div class="clearfix grpelem" id="u1348-4"><!-- content -->
-      <p>Purpose of Certificate</p>
+      <p><?php echo $_GET['Purpose']?></p>
      </div>
      <div class="clearfix grpelem" id="u1349-4"><!-- content -->
-      <p>DAY#</p>
-     </div>
-     <div class="clearfix grpelem" id="u1350-4"><!-- content -->
-      <p>Month Name</p>
-     </div>
-     <div class="clearfix grpelem" id="u1351-4"><!-- content -->
-      <p>Year</p>
-     </div>
+      <?php
+        include_once('../../dbconn.php');
+
+        if(isset($_GET['Clearance']))
+        {
+          $DateSQL = 'SELECT DAY(IssuanceDate) AS Day, MONTHNAME(IssuanceDate) AS Month, YEAR(IssuanceDate) AS Year FROM bitdb_r_issuance';
+          $DateQuery = mysqli_query($bitMysqli,$DateSQL) or die (mysqli_error($bitMysqli));
+          if(mysqli_num_rows($DateQuery) > 0)
+          {
+            while($row = mysqli_fetch_assoc($DateQuery))
+            {
+              $Day = $row['Day'];
+              $Month = $row['Month'];
+              $Year = $row['Year'];
+              echo '<p>'.$Day.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u1350-4"><!-- content -->
+                      <p>'.$Month.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u1351-4"><!-- content -->
+                      <p>'.$Year.'</p>
+                     </div>'; 
+            }
+          }
+        }
+        else
+        {
+          switch (date("m")) 
+          {
+            case '01':
+              $Month = "January";
+              break;
+            case '02':
+              $Month = "February";
+              break;
+            case '03':
+              $Month = "March";
+              break;
+            case '04':
+              $Month = "April";
+              break;
+            case '05':
+              $Month = "May";
+              break;
+            case '06':
+              $Month = "June";
+              break;
+            case '07':
+              $Month = "July";
+              break;
+            case '08':
+              $Month = "August";
+              break;
+            case '09':
+              $Month = "September";
+              break;
+            case '10':
+              $Month = "October";
+              break;
+            case '11':
+              $Month = "November";
+              break;
+            case '12':
+              $Month = "December";
+              break;
+            default:
+              $Month = "N/A";
+              break;
+          }
+          echo '<p>'.date("d").'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u1350-4"><!-- content -->
+                      <p>'.$Month.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u1351-4"><!-- content -->
+                      <p>'.date("Y").'</p>
+                     </div>';
+        }
+        
+      ?>
+      <?php
+
+      ?>
      <div class="clearfix grpelem" id="u1352-4"><!-- content -->
-      <p>Barangay Address</p>
+      <?php echo '<p>'.$BarangayName.'</p>';?>
      </div>
      <div class="grpelem" id="u1383"><!-- simple frame --></div>
      <div class="clearfix grpelem" id="u1386-4"><!-- content -->
