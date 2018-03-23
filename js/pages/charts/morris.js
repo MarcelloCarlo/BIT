@@ -1,13 +1,13 @@
 $(function () {
-   /* getMorris('line', 'line_chart');
-    getMorris('bar', 'bar_chart');
-    getMorris('area', 'area_chart');*/
+    /*getMorris('line', 'line_chart');
+    getMorris('bar', 'bar_chart');*/
+    getMorris('area', 'area_chart');
     getMorris('donut', 'donut_chart');
 });
 
 
 function getMorris(type, element) {
-   /* if (type === 'line') {
+    /*if (type === 'line') {
         Morris.Line({
             element: element,
             data: [{
@@ -82,68 +82,68 @@ function getMorris(type, element) {
             labels: ['Y', 'Z', 'A'],
             barColors: ['rgb(233, 30, 99)', 'rgb(0, 188, 212)', 'rgb(0, 150, 136)'],
         });
-    } else if (type === 'area') {
+    } else */if (type === 'area') {
         Morris.Area({
             element: element,
-            data: [{
+            data: [/*{
                 period: '2010 Q1',
-                iphone: 2666,
-                ipad: null,
-                itouch: 2647
+                project1: 2666,
+                project2: null,
+                project3: 2647
             }, {
                     period: '2010 Q2',
-                    iphone: 2778,
-                    ipad: 2294,
-                    itouch: 2441
+                    project1: 2778,
+                    project2: 2294,
+                    project3: 2441
                 }, {
                     period: '2010 Q3',
-                    iphone: 4912,
-                    ipad: 1969,
-                    itouch: 2501
+                    project1: 4912,
+                    project2: 1969,
+                    project3: 2501
                 }, {
                     period: '2010 Q4',
-                    iphone: 3767,
-                    ipad: 3597,
-                    itouch: 5689
+                    project1: 3767,
+                    project2: 3597,
+                    project3: 5689
                 }, {
                     period: '2011 Q1',
-                    iphone: 6810,
-                    ipad: 1914,
-                    itouch: 2293
+                    project1: 6810,
+                    project2: 1914,
+                    project3: 2293
+                }, */{
+                    period: '2017 Q1',
+                    project1: 5670,
+                    project2: 4293,
+                    project3: 1881
                 }, {
-                    period: '2011 Q2',
-                    iphone: 5670,
-                    ipad: 4293,
-                    itouch: 1881
+                    period: '2017 Q2',
+                    project1: 4820,
+                    project2: 3795,
+                    project3: 1588
                 }, {
-                    period: '2011 Q3',
-                    iphone: 4820,
-                    ipad: 3795,
-                    itouch: 1588
+                    period: '2017 Q3',
+                    project1: 15073,
+                    project2: 5967,
+                    project3: 5175
                 }, {
-                    period: '2011 Q4',
-                    iphone: 15073,
-                    ipad: 5967,
-                    itouch: 5175
+                    period: '2017 Q4',
+                    project1: 10687,
+                    project2: 4460,
+                    project3: 2028
                 }, {
-                    period: '2012 Q1',
-                    iphone: 10687,
-                    ipad: 4460,
-                    itouch: 2028
-                }, {
-                    period: '2012 Q2',
-                    iphone: 8432,
-                    ipad: 5713,
-                    itouch: 1791
+                    period: '2018 Q1',
+                    project1: 8432,
+                    project2: 5713,
+                    project3: 1791
                 }],
             xkey: 'period',
-            ykeys: ['iphone', 'ipad', 'itouch'],
-            labels: ['iPhone', 'iPad', 'iPod Touch'],
+            ykeys: ['project1', 'project2', 'project3'],
+            labels: ['Project 1', 'Project 2', 'Project 3'],
             pointSize: 2,
             hideHover: 'auto',
             lineColors: ['rgb(233, 30, 99)', 'rgb(0, 188, 212)', 'rgb(0, 150, 136)']
         });
-    } else */if (type === 'donut') {
+    } else if (type === 'donut') {
         Morris.Donut({
             element: element,
             data: [{
