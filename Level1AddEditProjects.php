@@ -195,7 +195,6 @@
                                       <label class="form-label">Project</label>
                                       <div class="form-group form-float">
                                               <select id="ProjectItem" class="form-control show-tick">
-                                                  <option value="">-- Select Project --</option>
                                                   <?php
                                                       include_once('dbconn.php');
 
@@ -259,13 +258,14 @@
                                                               $ID = $row['ProjectID'];
                                                               $Name = $row['ProjectName'];
                                                               $TotalBudget = $row['TotalBudget'];
-                                                              echo '<h3 class="header">"'.$Name.'" Total Budget: PHP. '.$TotalBudget.'</h3>';
+                                                              echo '<h4 class="header">Project: '.$Name.' Total Budget: PHP. '.$TotalBudget.'</h4>';
                                                           }
+
                                                       }
                                                   }
                                                   else
                                                   {
-                                                      echo '<h3 class="header"> ---- Total Budget: PHP. ----  </h3>';
+                                                      echo '<h4 class="header"> ---- Total Budget: PHP. ----  </h4>';
                                                   }
 
                                               ?>
@@ -1190,6 +1190,14 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+
+  $('#addProjectID').val($('#ProjectItem').val());
+  $('#ProjectItem').change(function() {
+      $('#addProjectID').val($('#ProjectItem').val());
+      history.pushState(null, null, '?Project='+$('#ProjectItem').val());
+      $('#ProjectTable').load(location.href + ' #ProjectTable');
+      location.reload();
+  });
     $('.search-box input[type="text"]').on("keyup input", function(){
         /* Get input value on change */
         var inputVal = $(this).val();
@@ -1209,14 +1217,6 @@ $(document).ready(function(){
         $("#CitizenName").val($(this).find('#NameResult').text());
         $("#addCitizenID").val($(this).find('small').text());
         $(this).parent(".result").empty();
-    });
-
-    $('#addProjectID').val($('#ProjectItem').val());
-    $('#ProjectItem').change(function() {
-        $('#addProjectID').val($('#ProjectItem').val());
-        history.pushState(null, null, '?Project='+$('#ProjectItem').val());
-        $('#ProjectTable').load(location.href + ' #ProjectTable');
-        location.reload();
     });
 
     $(".editActivity").click(function()
