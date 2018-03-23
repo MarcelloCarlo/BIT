@@ -1,4 +1,4 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'Level1AddEditPatawag';
@@ -12,7 +12,7 @@
             </div>
  <!--CUSTOM BLOCK INSERT HERE-->
             <!--CUSTOM BLOCK INSERT HERE-->
-        
+
             <!-- Basic Examples -->
              <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -25,7 +25,7 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
                                             <th class="hide">SummonID</th>
@@ -37,9 +37,9 @@
                                             <th>Subject</th>
                                             <th>Resolution</th>
                                             <th>Summon Place</th>
-                                            <th>Schedule</th> 
-                                            <th>Status</th>        
-                                            <th>Actions</th>              
+                                            <th>Schedule</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -107,7 +107,7 @@
                                                         <td>'.$SummonPlace.'</td>
                                                         <td>'.$SummonSched.'</td>
                                                         <td>'.$SummonStatus.'</td>
-                                                        <td>  
+                                                        <td>
                                                             <button type="button" class="btn btn-success waves-effect editDetails" data-toggle="modal" data-target="#editSummonModal">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 <span>EDIT</span>
@@ -131,7 +131,7 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                EDIT                                    
+                                EDIT
                                 <br/>
                                 <small>Edit Summon Details</small>
                             </h2>
@@ -150,7 +150,7 @@
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editSummonSched" type="date" class="form-control" name="SummonSched" required/>
-                                        
+
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Summon Place</h4>
@@ -159,13 +159,13 @@
                                         <input id="editSummonPlace" type="text" class="form-control" name="SummonPlace" required/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Complaint Status</h4>
+                                <h4 class="card-inside-title">Case Status</h4>
                                 <div class="form-group">
                                     <input type="radio" name="Summon_Status" id="editSummonA" value="Active" class="with-gap">
-                                    <label for="editSummonA">Active</label>
+                                    <label for="editSummonA">Unclosed</label>
 
                                     <input type="radio" name="Summon_Status" id="editSummonI" value="Inactive" class="with-gap">
-                                    <label for="editSummonI" class="m-l-20">Inactive</label>
+                                    <label for="editSummonI" class="m-l-20">Closed</label>
                                 </div>
                             <br/>
                         </div>
@@ -198,4 +198,4 @@
             });
         });
 
-    </script> 
+    </script>

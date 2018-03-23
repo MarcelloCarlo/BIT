@@ -1,0 +1,35 @@
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="www.barangayit.pupqc.net" resolutions="1x" timestamp="1521843633605">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="index.css" crc="375913753" ref="index"/>
+    <file name="patawag.css" crc="351097035" ref="patawag"/>
+    <file name="brgyid.css" crc="99941466" ref="brgyid"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:patawag:brgyid"/>
+    <file name="museutils.js" crc="4232573551" ref="index:patawag:brgyid"/>
+    <file name="whatinput.js" crc="86476730" ref="index:patawag:brgyid"/>
+    <file name="museconfig.js" crc="4152223963" ref="index:patawag:brgyid"/>
+    <file name="jquery.watch.js" crc="3844535323" ref="index:patawag:brgyid"/>
+    <file name="require.js" crc="4234670167" ref="index:patawag:brgyid"/>
+  </folder>
+  <folder name="images">
+    <file name="barangay logo.png" crc="3987647798" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="provincelogo.png" crc="3870925005" seo="true" ref="index:patawag:brgyid">
+      <caption webpage="index" alt=""/>
+      <caption webpage="patawag" alt=""/>
+      <caption webpage="brgyid" alt=""/>
+    </file>
+    <file name="barangay logo117x119.png" crc="447412082" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="barangay logo94x91.png" crc="4088107419" seo="true" ref="brgyid">
+      <caption webpage="brgyid" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="4230246828" seo="true" mt="1520210228320" redirect="true"/>
+  <file name="patawag.html" crc="4272018790" seo="true" mt="1521841302759" redirect="true"/>
+  <file name="brgyid.html" crc="3782736103" seo="true" mt="1521843408537" redirect="true"/>
+</manifest>
