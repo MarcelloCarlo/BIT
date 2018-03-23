@@ -60,6 +60,9 @@
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="css/themes/all-themes.css" rel="stylesheet" />
 
+    <!-- Morris Css -->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
     <!-- CALENDAR THEME -->
     <link href="ProjectMonitoring/fullcalendar.min.css" rel="stylesheet" />
     <link href="ProjectMonitoring/fullcalendar.print.min.css" rel="stylesheet" media="print">
@@ -76,6 +79,18 @@
                 <div class="card">
                      <div class="body">
                          <div id="calendar"></div></div></div></div></div>
+
+        <!-- Area Chart -->
+                <div class=" col-md-6">
+                    <div class="card">
+                        <div class="header">
+                            <h2>TOTAL PROJECT EXPENSES</h2>
+                        </div>
+                        <div class="body">
+                            <div id="area_chart" class="graph"></div>
+                        </div>
+                    </div>
+                </div>
 
 
 </div>
@@ -128,12 +143,17 @@
 <!-- JQuery Steps Plugin Js -->
 <script src="plugins/jquery-steps/jquery.steps.js"></script>
 
+<!-- Morris Plugin Js -->
+<script src="plugins/raphael/raphael.min.js"></script>
+<script src="plugins/morrisjs/morris.js"></script>
+
 <script src="ProjectMonitoring/lib/moment.min.js"></script>
 <script src="ProjectMonitoring/fullcalendar.min.js"></script>
 
 <!-- Custom Js -->
 <script src="js/admin.js"></script>
 <script src="ProjectMonitoring/projectMonitoringCalendar.js"></script>
+<script src="js/pages/charts/morris.js"></script>
 
 <!-- Demo Js -->
 <script src="js/demo.js"></script>

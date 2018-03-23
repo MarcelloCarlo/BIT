@@ -1,10 +1,10 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'indexLevel1';
     include('AdminConfig.php');
     include('head.php');
-    include('Level1Navbar.php'); 
+    include('Level1Navbar.php');
  ?>
 
  <!-- Google Fonts -->
@@ -59,7 +59,7 @@
 
     <!-- Sweetalert Css -->
     <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-    
+
     <!-- Morris Css -->
     <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
 
@@ -102,7 +102,7 @@
                                 }
                             ?>
 
-                            
+
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                                     }
                                 }
                             ?>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                                 }
                             ?>
 
-                        
+
                         </div>
                     </div>
                 </div>
@@ -301,19 +301,20 @@
                     </div>
                 </div>
             </div>
+              <div id="area_chart" class="graph hide"></div>
     </div>
     </section>
-    
-   
+
+
 <?php include('footerblock.php'); ?>
-    
+
 <!-- Jquery Core Js -->
 <script src="plugins/jquery/jquery.min.js"></script>
 
 <!-- Bootstrap Core Js -->
 <script src="plugins/bootstrap/js/bootstrap.js"></script>
 
-<!-- Select Plugin Js -->           
+<!-- Select Plugin Js -->
 <script src="plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
 <!-- Slimscroll Plugin Js -->
@@ -348,7 +349,7 @@
 
 <!-- Jquery CountTo Plugin Js -->
 <script src="plugins/jquery-countto/jquery.countTo.js"></script>
-    
+
 <!-- Sparkline Chart Plugin Js -->
 <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
 
@@ -373,12 +374,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-        

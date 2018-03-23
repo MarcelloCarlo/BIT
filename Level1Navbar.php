@@ -1,6 +1,6 @@
 <body class="theme-teal">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper"> 
+    <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
                 <div class="spinner-layer pl-light-blue">
@@ -41,8 +41,8 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true">  
-                    <!--  <i class="material-icons">search</i> --> </a></li> 
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true">
+                    <!--  <i class="material-icons">search</i> --> </a></li>
                     <!-- #END# Call Search -->
                     <!-- Notifications -->
                     <li class="dropdown">
@@ -75,7 +75,7 @@
                             </li>
                         </ul>
                   </li>
-                    
+
                     <!-- #END# Notifications -->
                 </ul>
             </div>
@@ -141,7 +141,7 @@
                             <span>Home</span>
                         </a>
                     </li>
-                    
+
                       <li <?php if ($currentPage==='Level1AddEditCitizen' ) {echo 'class="active"';} ?>>
                             <a href="Level1AddEditCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                             <i class="material-icons">people</i>
@@ -170,7 +170,10 @@
                             <li <?php if($currentPage==='Level1IssuanceBusiness') {echo 'class="active"';}?>>
                                 <a href="Level1IssuanceBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Business</a>
                             </li>
-                            
+                            <li <?php if($currentPage==='Level1IssuanceRecordsView') {echo 'class="active"';}?>>
+                                <a href="Level1IssuanceRecordsView.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">History</a>
+                            </li>
+
                         </ul>
                     </li>
 
@@ -188,7 +191,7 @@
                             <li <?php if($currentPage==='Level1AddEditPatawag') {echo 'class="active"';}?>>
                                 <a href="Level1AddEditPatawag.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Patawag</a>
                             </li>
-                            
+
                         </ul>
                     </li>
 
@@ -199,7 +202,7 @@
                             </a>
                        </li>
 
-                        
+
                         <li <?php if ($currentPage==='Level1AddEditProjects' | $currentPage==='Level1AddEditActivities' | $currentPage=== 'Level1AddEditProjDonations') {echo 'class="active"';}?>>
                             <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assessment</i>
@@ -214,8 +217,8 @@
                             </li>
                         </ul>
                        </li>
-                                       
-                                          
+
+
                 </ul>
             </div>
             <!-- #Menu -->
