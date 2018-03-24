@@ -63,9 +63,12 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                                                 bitdb_r_business.BusinessLoc,
                                                                                 bitdb_r_business.Manager,
                                                                                 bitdb_r_business.Mgr_Address,
-                                                                                bitdb_r_business.Date_Issued,
-                                                                                bitdb_r_business.BusinessStatus
-                                                                        FROM    bitdb_r_business
+                                                                                bitdb_r_issuance.IssuanceID,
+                                                                                DATE_ADD(bitdb_r_issuance.IssuanceDate, INTERVAL 1 HOUR) AS ExpireDate,
+                                                                                (CURRENT_DATE) AS CurrentDate
+                                                                        FROM    bitdb_r_issuance
+                                                                        RIGHT JOIN bitdb_r_business
+                                                                        ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID
                                                                         INNER JOIN bitdb_r_businesscategory
                                                                         ON bitdb_r_business.BusinessCategory = bitdb_r_businesscategory.categoryID';
                                                 $Level1BusinessQuery = mysqli_query($bitMysqli,$Level1BusinessSQL) or die (mysqli_error($bitMysqli));
@@ -79,9 +82,10 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                         $BusinessLoc = $row['BusinessLoc'];
                                                         $Manager = $row['Manager'];
                                                         $ManagerAdd = $row['Mgr_Address'];
-                                                        $Date_Issued = $row['Date_Issued'];
-
-                                                        if($row['BusinessStatus'] == 1)
+                                                        $Date_Issued = $row['ExpireDate'];
+                                                        $Date = $row['CurrentDate'];
+                                                        
+                                                        if(strtotime($Date_Issued) > strtotime($Date))
                                                         {
                                                             $BusinessStatus = "Active";
                                                         }
@@ -120,7 +124,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             <!-- #END# Basic Examples -->
      
       <!--Add-->
-    <form id="IssuancePrint" action="Level1AddCitizen.php" method="POST">
+    <form id="IssuancePrint" action="Level1AddBusinessIssuance.php" method="POST">
         <div class="modal fade" id="issuance1" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -133,9 +137,10 @@ $title = 'Welcome | BarangayIT MK.II';?>
                     <div class="modal-body">
                            <div class="modal-body">
                             <div class="row clearfix margin-0">
+                                <input id="editBusinessID" type="text" class="form-control hide" name="BusinessID"/>
                                 <div class="form-group form-float">
                                      <h4 class="card-inside-title">Category</h4>
-                                <select class="form-control show-tick" name="btn dropdown-toggle btn-default" id="categorydropdown" onchange="disablebutt()">
+                                <select class="form-control show-tick" name="Category" id="categorydropdown" onchange="disablebutt()">
                                     <?php
                                     include_once('dbconn.php');
                                     $CategorySQL = 'SELECT * FROM bitdb_r_issuancetype WHERE IssuanceOption = "Business" ';
@@ -169,7 +174,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                             <br/>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span>
+                            <button type="submit" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
@@ -237,12 +242,12 @@ $title = 'Welcome | BarangayIT MK.II';?>
 
 
         function PrintIndigency() {
-                 printWindow = window.open("IssuanceCerts/batch1/indigency.php" );
+                 printWindow = window.open("IssuanceCerts/batch1/indigency.php");
                  printWindow.print();
         }
 
         function PrintBusPermit() {
-                 printWindow = window.open("IssuanceCerts/batch1/business-permit.php" );
+                 printWindow = window.open(`IssuanceCerts/batch1/business-permit.php?BusinessID=${$("#editBusinessID").val()}`);
                  printWindow.print();
         }
 
@@ -252,12 +257,22 @@ $title = 'Welcome | BarangayIT MK.II';?>
         }
 
 
-
-            
 </script>    
-        
         </script>
     </section>
 
 
 <?php include('footer.php'); ?>
+
+<script type="text/javascript">
+        $(document).ready(function()
+        {
+            $(".editBusiness").click(function()
+            {
+                $("#editBusinessID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+                // $("#editProjectName").val($(this).closest("tbody tr").find("td:eq(1)").html());
+                // $("#editProjectCategory").val($(this).closest("tbody tr").find("td:eq(2)").html()).trigger("change");
+                
+            });
+        });
+</script>

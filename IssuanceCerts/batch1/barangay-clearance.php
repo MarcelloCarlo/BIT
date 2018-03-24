@@ -2,7 +2,6 @@
       session_start();
       include('../../AdminConfig.php');
 ?>
-
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
  <head>

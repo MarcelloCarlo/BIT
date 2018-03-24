@@ -58,8 +58,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Actions</th>
                                         </tr>
                                     </tfoot>
-                                    <tbody>
-                                            <?php
+                                    <tbody><?php
                                                 include('dbconn.php');
 
                                                 $Level1BusinessSQL = 'SELECT    bitdb_r_business.BusinessID,
@@ -68,9 +67,12 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                                                 bitdb_r_business.BusinessLoc,
                                                                                 bitdb_r_business.Manager,
                                                                                 bitdb_r_business.Mgr_Address,
-                                                                                bitdb_r_business.Date_Issued,
-                                                                                bitdb_r_business.BusinessStatus
-                                                                        FROM    bitdb_r_business
+                                                                                bitdb_r_issuance.IssuanceID,
+                                                                                DATE_ADD(bitdb_r_issuance.IssuanceDate, INTERVAL 1 HOUR) AS ExpireDate,
+                                                                                (CURRENT_DATE) AS CurrentDate
+                                                                        FROM    bitdb_r_issuance
+                                                                        RIGHT JOIN bitdb_r_business
+                                                                        ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID
                                                                         INNER JOIN bitdb_r_businesscategory
                                                                         ON bitdb_r_business.BusinessCategory = bitdb_r_businesscategory.categoryID';
                                                 $Level1BusinessQuery = mysqli_query($bitMysqli,$Level1BusinessSQL) or die (mysqli_error($bitMysqli));
@@ -84,9 +86,10 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                         $BusinessLoc = $row['BusinessLoc'];
                                                         $Manager = $row['Manager'];
                                                         $ManagerAdd = $row['Mgr_Address'];
-                                                        $Date_Issued = $row['Date_Issued'];
-
-                                                        if($row['BusinessStatus'] == 1)
+                                                        $Date_Issued = $row['ExpireDate'];
+                                                        $Date = $row['CurrentDate'];
+                                                        
+                                                        if(strtotime($Date_Issued) > strtotime($Date))
                                                         {
                                                             $BusinessStatus = "Active";
                                                         }
@@ -113,8 +116,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                         </tr>';
                                                     }
                                                 }
-                                            ?>
-                                                                                   
+                                            ?>                                    
                                     </tbody>
                                 </table>
                             </div>
