@@ -61,7 +61,7 @@
                                                         bitdb_r_citizen.Res_Status,
                                                         bitdb_r_citizen.Civil_Status,
                                                         bitdb_r_citizen.Gender,
-                                                        bitdb_r_citizen.Zone,
+                                                        bitdb_r_barangayzone.Zone,
                                                         bitdb_r_citizen.Street,
                                                         bitdb_r_citizen.House_No,
                                                         bitdb_r_citizen.Date_Rec
@@ -75,6 +75,8 @@
                                                         bitdb_r_barangayposition
                                                         ON
                                                             bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
+                                                    INNER JOIN bitdb_r_barangayzone
+                                                    ON bitdb_r_citizen.Zone = bitdb_r_barangayzone.ZoneID
                                                     ";
                                 $AddOffCitizenQuery = mysqli_query($bitMysqli,$AddOffCitizenSQL) or die(mysqli_error($bitMysqli));
                                     if (mysqli_num_rows($AddOffCitizenQuery) > 0)
@@ -207,10 +209,9 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Birthdate</h4>
-                                <div class="form-group form-float">
+                                <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" name="Birthdate" class="form-control date" />
-                                        <label class="form-label">YYYY-MM-DD</label>
+                                        <input type="date" class="form-control date" name="Birthdate" placeholder="Ex: 30/07/2016"/>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Nationality</h4>
@@ -228,26 +229,32 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Gender</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Gender" class="form-control" />
-                                        <label class="form-label">Gender</label>
-                                    </div>
+                                <div class="form-group">
+                                    <input type="radio" name="Gender" id="optMale" value="Male" class="with-gap">
+                                    <label for="optMale">Male</label>
+                                    <input type="radio" name="Gender" id="optFemale" value="Female" class="with-gap">
+                                    <label for="optFemale" class="m-l-20">Female</label>
                                 </div>
                                 <h4 class="card-inside-title">Civil Status</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Civil_Status" class="form-control" />
-                                        <label class="form-label">Civil Status</label>
-                                    </div>
-                                </div>
+                                <select class="form-control show-tick" name="Civil_Status" required>
+                                    <option value="">Select Civil Status</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Separated">Separated</option>
+                                </select>
                                 <h4 class="card-inside-title">Blood Type</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Blood_Type" class="form-control" />
-                                        <label class="form-label">O/A/B</label>
-                                    </div>
-                                </div>
+                                <select class="form-control show-tick" name="Blood_Type" required>
+                                    <option value="">Select Blood Type</option>
+                                    <option value="O+">O+</option>
+                                    <option value="A+">A+</option>
+                                    <option value="B+">B+</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
                                 <h4 class="card-inside-title">House Number</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -263,12 +270,20 @@
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Zone(Block)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Zone" class="form-control" />
-                                        <label class="form-label">Zone(Block)</label>
-                                    </div>
-                                </div>
+                                <select class="form-control show-tick" name="Zone">
+                                    <?php
+                                    include_once('dbconn.php');
+                                    $ZoneSQL = "SELECT * FROM bitdb_r_barangayzone";
+                                    $ZoneQuery = mysqli_query($bitMysqli,$ZoneSQL) or die(mysqli_error($bitMysqli));
+                                    if(mysqli_num_rows($ZoneQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($ZoneQuery))
+                                        {
+                                            echo '<option value="'.$row['ZoneID'].'">'.$row['Zone'].'</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
                                 <h4 class="card-inside-title">Barangay Position</h4>
                                 <select class="form-control show-tick" name="Position">
                                     <?php
@@ -279,31 +294,20 @@
                                     {
                                         while($row = mysqli_fetch_assoc($PositionQuery))
                                         {
-                                            echo '<option>'.$row['PosName'].'</option>';
+                                            echo '<option value="'.$row['PosID'].'">'.$row['PosName'].'</option>';
                                         }
                                     }
                                     ?>
                                 </select>
-                            </div>
-                            <h4 class="card-inside-title">Residence Status</h4>
-                            <div class="form-group">
-                                <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
-                                <label for="optCitActive">Active</label>
-
-                                <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
-                                <label for="optCitInactive" class="m-l-20">Inactive</label>
-                                <br/>
-                                <br/>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h4 class="card-inside-title">Start Term</h4>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="date" class="form-control date" name="Start_Term" placeholder="Ex: 30/07/2016">
                                         </div>
                                     </div>
-                                   
                                 </div>
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <h4 class="card-inside-title">End Term</h4>
                                     <div class="form-group">
                                         <div class="form-line">

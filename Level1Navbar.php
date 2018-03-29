@@ -157,7 +157,7 @@
                       </li>
 
 
-                       <li <?php if ($currentPage==='Level1IssuancePersonal' | $currentPage==='Level1IssuanceBusiness') {echo 'class="active"';} ?>>
+                       <li <?php if ($currentPage==='Level1IssuancePersonal' | $currentPage==='Level1IssuanceBusiness' | $currentPage==='Level1IssuanceRecordsView') {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                              <i class="material-icons">featured_play_list</i>
                             <span>Issuance</span>

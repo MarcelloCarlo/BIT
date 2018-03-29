@@ -62,7 +62,7 @@ include('AdminNavbar.php');
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
                                 <p class="list-group-item-text">
-                                    <?php echo $WName;?>
+                                    <?php echo $FullName;?>
                                 </p>
                             </a>
                             <?php 

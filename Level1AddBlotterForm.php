@@ -9,17 +9,8 @@
 	$Accused = $_POST['Accused'];
 	$BlotterType = $_POST['Subject'];
 	$ComplaintStatement = $_POST['ComplaintStatement'];
-	$Resolution = $_POST['Resolution'];
-	if($_POST['Comp_Status'] == "Active")
-	{
-		$ComplaintStatus = 1;
-	}
-	else
-	{
-		$ComplaintStatus = 0;
-	}
 
-	$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter(IncidentDate,IncidentArea,ComplaintDate,Complainant,Accused,ComplaintStatement,ComplaintStatus,Resolution,BlotterType) VALUES ("'.$IncidentDate.'",'.$IncidentArea.',"'.$ComplaintDate.'","'.$Complainant.'",'.$AccusedID.',"'.$ComplaintStatement.'",'.$ComplaintStatus.',"'.$Resolution.'",'.$BlotterType.')';
+	$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter(IncidentDate,IncidentArea,ComplaintDate,Complainant,Accused,ComplaintStatement,ComplaintStatus,BlotterType) VALUES ("'.$IncidentDate.'",'.$IncidentArea.',"'.$ComplaintDate.'","'.$Complainant.'",'.$AccusedID.',"'.$ComplaintStatement.'",1,'.$BlotterType.')';
 	$Level1AddBlotterQuery = mysqli_query($bitMysqli,$Level1AddBlotterSQL) or die (mysqli_error($bitMysqli));
 
 	if($_POST['Summon'] == "Active")

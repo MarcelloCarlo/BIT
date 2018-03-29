@@ -80,11 +80,11 @@
                                                 $SummonPlace = $row['SummonPlace'];
                                                 if($row['SummonStatus'] == 1)
                                                 {
-                                                    $SummonStatus = "Active";
+                                                    $SummonStatus = "Unclosed";
                                                 }
                                                 else
                                                 {
-                                                    $SummonStatus = "Inactive";
+                                                    $SummonStatus = "Case Closed";
                                                 }
                                                 $IDate = $row['IncidentDate'];
                                                 $Complainant = $row['Complainant'];
@@ -189,7 +189,7 @@
                 $("#editSummonID").val($(this).closest("tbody tr").find("td:eq(0)").html());
                 $("#editSummonSched").val($(this).closest("tbody tr").find("td:eq(9)").html());
                 $("#editSummonPlace").val($(this).closest("tbody tr").find("td:eq(8)").html()).trigger("change");
-                if ($(this).closest("tbody tr").find("td:eq(10)").text() === "Active") {
+                if ($(this).closest("tbody tr").find("td:eq(10)").text() === "Unclosed") {
                         $("#editSummonA").prop("checked", true).trigger('click');
                     } else {
                         $("#editSummonI").prop("checked", true).trigger('click');

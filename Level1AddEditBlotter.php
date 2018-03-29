@@ -86,11 +86,11 @@
                                                 $CStatement = $row['ComplaintStatement'];
                                                 if($row['ComplaintStatus'] == 1)
                                                 {
-                                                    $CStatus = "Active";
+                                                    $CStatus = "Unclosed";
                                                 }
                                                 else
                                                 {
-                                                    $CStatus = "Inactive";
+                                                    $CStatus = "Case Closed";
                                                 }
                                                 $Resolution = $row['Resolution'];
                                                 $BlotterType = $row['BlotterType'];
@@ -108,7 +108,7 @@
                                                         <td>'.$BlotterType.'</td>
                                                         <td>'.$CStatement.'</td>
                                                         <td>'.$CStatus.'</td>
-                                        <td>'.$Resolution.'</td>
+                                                        <td>'.$Resolution.'</td>
                                                         <td>'.$CDate.'</td>
                                                         <td>
                                                             <button type="button" class="btn btn-success waves-effect editBlotter" data-toggle="modal" data-target="#editBlotterModal">
@@ -223,6 +223,7 @@ c.  Report Print -->
                                 </div>
 <!--end search-->
                                 <label class="form-label">Subject</label>
+                                <div class="form-group">
                                 <select class="form-control browser-default" name="Subject" required>
                                     <option value="None">None</option>
                                     <?php
@@ -242,28 +243,28 @@ c.  Report Print -->
                                         }
                                     ?>
                                 </select>
-                                <br/>
-                                <br/>
+                                </div>
+                                <label class="form-label">Complaint Statement</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="ComplaintStatement" required/>
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
+                                <!-- 
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="Resolution" required/>
                                         <label class="form-label">Decision</label>
                                     </div>
-                                </div>
-
+                                </div> -->
                                 <label class="form-label hide">Complaint Status</label>
                                 <div class="form-group hide">
                                     <input type="radio" name="Comp_Status" id="editCheckA" value="Active" class="with-gap" checked>
-                                    <label for="editCheckA">Unsolved</label>
+                                    <label for="editCheckA">Unclosed</label>
 
                                     <input type="radio" name="Comp_Status" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Solved</label>
+                                    <label for="editCheckI" class="m-l-20">Case Closed</label>
                                 </div>
                                 <hr>
                                 <label class="form-label">Patawag?</label>
@@ -412,9 +413,9 @@ c.  Report Print -->
                                 <label class="form-label">Complaint Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="Comp_Status" id="editStatusA" value="Active" class="with-gap">
-                                    <label for="editStatusA">Unsolved</label>
+                                    <label for="editStatusA">Unclosed</label>
                                     <input type="radio" name="Comp_Status" id="editStatusI" value="Inactive" class="with-gap">
-                                    <label for="editStatusI" class="m-l-20">Solved</label>
+                                    <label for="editStatusI" class="m-l-20">Case Closed</label>
                                 </div>
                                 <hr>
                                     <label class="form-label">Patawag?</label>
@@ -560,7 +561,7 @@ $(document).ready(function(){
                 $("#editComplaintStatement").val($(this).closest("tbody tr").find("td:eq(8)").html());
                 $("#editResolution").val($(this).closest("tbody tr").find("td:eq(10)").html());
                 $("#editComplaintDate").val($(this).closest("tbody tr").find("td:eq(11)").html());
-                if ($(this).closest("tbody tr").find("td:eq(9)").text() === "Active"){
+                if ($(this).closest("tbody tr").find("td:eq(9)").text() === "Unclosed"){
                     $("#editStatusA").prop("checked", true).trigger('click');
                     } else {
                     $("#editStatusI").prop("checked", true).trigger('click');
