@@ -1271,7 +1271,7 @@ $(document).ready(function(){
         $('#addProjectID').val($('#ProjectDonationItem').val());
         history.pushState(null, null, '?Project='+$('#ProjectDonationItem').val());
         $('#ProjectDonTable').load(location.href + ' #ProjectDonTable');
-        /*location.reload();*/
+        location.reload();
     });
     $(".editProject").click(function()
             {
@@ -1286,6 +1286,8 @@ $(document).ready(function(){
             });
 });
 </script>
+
+
 
 </body>
 </html>

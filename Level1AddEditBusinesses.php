@@ -40,8 +40,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Business Name</th>
                                             <th>Category</th>
                                             <th>Location</th>
-                                            <th>Manager</th>
-                                            <th>Man. Address</th>
+                                            <th>Owner</th>
+                                            <th>Owner Address</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -52,8 +52,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Business Name</th>
                                             <th>Category</th>
                                             <th>Location</th>
-                                            <th>Manager</th>
-                                            <th>Man. Address</th>
+                                            <th>Owner</th>
+                                            <th>Owner Address</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -242,13 +242,13 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="BusinessManager"/>
-                                        <label class="form-label">Manager</label>
+                                        <label class="form-label">Owner</label>
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="ManagerAdd"/>
-                                        <label class="form-label">Manager Address</label>
+                                        <label class="form-label">Owner Address</label>
                                     </div>
                                 </div>
                             </div>
@@ -321,13 +321,13 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                         <input id="editBusinessLoc" type="text" class="form-control" name="BusinessLoc"/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Manager</h4>
+                                <h4 class="card-inside-title">Owner</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editBusinessManager" type="text" class="form-control" name="BusinessManager"/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Manager Address</h4>
+                                <h4 class="card-inside-title">Owner Address</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editBusinessAddress" type="text" class="form-control" name="ManagerAdd"/>
