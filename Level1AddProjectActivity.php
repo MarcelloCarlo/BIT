@@ -20,6 +20,6 @@
 	$Level1AddProjectSQL = 'INSERT INTO bitdb_r_projectactivity(ProjectID,ActivityName,ActivityDesc,ActivityBudget,PeopleInvolve,StartDate,FinishDate,ActivityStatus) VALUES('.$ProjectID.',"'.$ActivityName.'","'.$ActivityDesc.'",'.$ActivityBudget.','.$CitizenID.',"'.$StartDate.'","'.$FinishDate.'","'.$ActivityStatus.'")';
 	$Level1AddProjectQuery = mysqli_query($bitMysqli,$Level1AddProjectSQL) or die (mysqli_error($bitMysqli));
 
-	$header = 'Location:/BIT/Level1AddEditActivities.php?Project='.$ProjectID.' ';
+	$header = 'Location:/BIT/Level1AddEditProjects.php?Project='.$ProjectID.' ';
 	header($header);
 ?>

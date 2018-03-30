@@ -604,10 +604,10 @@
                                 <div class="col-lg-4">
                                 <h4 class="card-inside-title">Gender</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Gender" id="optGendM" value="Male" class="with-gap">
+                                    <input type="radio" name="Gender" id="optGendM" value="M" class="with-gap">
                                     <label for="optGendM">Male</label>
 
-                                    <input type="radio" name="Gender" id="optGendF" value="Female" class="with-gap">
+                                    <input type="radio" name="Gender" id="optGendF" value="F" class="with-gap">
                                     <label for="optGendF" class="m-l-20">Female</label>       
                                 </div>
                                 </div>
@@ -739,7 +739,7 @@
                 $("#CitiNationality").val($(this).closest("tbody tr").find("td:eq(12)").html());
                 $("#CitiCivilStatus").val($(this).closest("tbody tr").find("td:eq(14)").html()).trigger("change");
                 $("#CitiOccupation").val($(this).closest("tbody tr").find("td:eq(15)").html());
-                $("#CitiGender").val($(this).closest("tbody tr").find("td:eq(16)").html());
+                // $("#CitiGender").val($(this).closest("tbody tr").find("td:eq(16)").html());
                 $("#CitiBloodType").val($(this).closest("tbody tr").find("td:eq(17)").html()).trigger("change");
                 $("#CitiHouseNo").val($(this).closest("tbody tr").find("td:eq(18)").html());
                 $("#CitiStreet").val($(this).closest("tbody tr").find("td:eq(19)").html());
@@ -750,6 +750,11 @@
                         $("#editCheckA").prop("checked", true).trigger('click');
                     } else {
                         $("#editCheckI").prop("checked", true).trigger('click');
+                    }
+                if ($(this).closest("tbody tr").find("td:eq(16)").text() === "M") {
+                        $("#EditGendM").prop("checked", true).trigger('click');
+                    } else {
+                        $("#EditGendF").prop("checked", true).trigger('click');
                     }
                 // ActOption = "option[value="+val($(this).closest("tbody tr").find("td:eq(4)").html())+"]";
                 // $("#PositionOption").find(ActOption).prop("selected",true);

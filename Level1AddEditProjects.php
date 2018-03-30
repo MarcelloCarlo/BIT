@@ -79,15 +79,15 @@
                         </div>
                         <div class="body">
 
-                                          <ul class="nav nav-tabs tab-nav-right" role="tablist">
+                                          <ul id="TabList" class="nav nav-tabs tab-nav-right" role="tablist">
                                                         <li role="presentation" class="active"><a href="#projects" data-toggle="tab">PROJECTS</a></li>
                                                         <li role="presentation"><a href="#activities" data-toggle="tab">ACTIVITY</a></li>
                                                         <li role="presentation"><a href="#donations" data-toggle="tab">DONATIONS</a></li>
                                         </ul>
 
                             <!-- Tab panes -->
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane fade in active" id="projects">
+                            <div id="TabInside" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade active" id="projects">
                                   <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectModal">
                                       <i class="material-icons">add_circle_outline</i>
                                       <span>ADD NEW</span>
@@ -244,7 +244,7 @@
                                                   {
                                                       $TotalBudgetSQL ='SELECT bitdb_r_project.ProjectID,
                                                                          bitdb_r_project.ProjectName,
-                                                                         COALESCE(SUM(bitdb_r_projectdonation.MoneyDonated),0)+COALESCE(SUM(bitdb_r_project.ProjectBudget),0) AS TotalBudget,
+                                                                         COALESCE(SUM(bitdb_r_projectdonation.MoneyDonated),0.00)+COALESCE(bitdb_r_project.ProjectBudget,0.00) AS TotalBudget,
                                                                          bitdb_r_project.ProjectBudget
                                                                   FROM   bitdb_r_project
                                                                   INNER JOIN bitdb_r_projectdonation
@@ -509,6 +509,7 @@
                                           </select>
 
                                   </div>
+
                               <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addProjectDonModal">
                                   <i class="material-icons">add_circle_outline</i>
                                   <span>ADD NEW</span>
@@ -644,7 +645,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2>
-                            Add Activity
+                            Add Donation
                             <br/>
                         </h2>
                     </div>
@@ -1272,6 +1273,7 @@ $(document).ready(function(){
         history.pushState(null, null, '?Project='+$('#ProjectDonationItem').val());
         $('#ProjectDonTable').load(location.href + ' #ProjectDonTable');
         location.reload();
+
     });
     $(".editProject").click(function()
             {

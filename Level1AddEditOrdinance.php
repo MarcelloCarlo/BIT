@@ -169,6 +169,7 @@
                                 <h4 class="card-inside-title">Authors</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
+                                        
                                         <input name="OrdAuthor" type="text" class="form-control" />
                                         <label class="form-label">Authors</label>
                                     </div>
@@ -183,14 +184,15 @@
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input name="OrdDesc" type="text" class="form-control" />
+                                        <textarea name="OrdDesc" class="form-control" rows="6"></textarea>
                                         <label class="form-label">Description</label>
                                     </div>
                                 </div>
+                            </div>
                                 <h4 class="card-inside-title">Sanction</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input name="OrdSanction" type="text" class="form-control" />
+                                        <textarea name="OrdSanction" class="form-control" rows="6"></textarea>
                                         <label class="form-label">Sanction</label>
                                     </div>
                                 </div>
@@ -217,12 +219,9 @@
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
-<!-- <<<<<<< HEAD -->
+                </div>
         </div>
-    </div>
 </form>
-<!-- =======
->>>>>>> ab48dec5c48927e2c7a14fb62bbe32b2d787d544 -->
                 </div>
             </div>
         </form>
@@ -286,14 +285,14 @@
                                 <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editOrdDesc" name="OrdDesc" type="text" class="form-control" />
+                                        <textarea id="editOrdDesc" name="OrdDesc" class="form-control" rows="6"></textarea>
                                         <!-- <label class="form-label">Description</label> -->
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Sanction</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editOrdSanction" name="OrdSanction" type="text" class="form-control" />
+                                        <textarea id="editOrdSanction" name="OrdSanction"  class="form-control" rows="6"></textarea>
                                         <!-- <label class="form-label">Sanction</label> -->
                                     </div>
                                 </div>

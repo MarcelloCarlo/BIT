@@ -84,7 +84,7 @@
                                                 }
                                                 else
                                                 {
-                                                    $SummonStatus = "Case Closed";
+                                                    $SummonStatus = "Closed";
                                                 }
                                                 $IDate = $row['IncidentDate'];
                                                 $Complainant = $row['Complainant'];
