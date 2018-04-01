@@ -1,13 +1,13 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'AdCategoryOrdinance';
     include('head.php');
-    include('AdminNavbar.php'); 
+    include('AdminNavbar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
-       
+
         <!--CUSTOM BLOCK INSERT HERE-->
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -43,10 +43,10 @@
                                     if (mysqli_num_rows($OrdCatQuery) > 0)
                                     {
                                         while($row = mysqli_fetch_assoc($OrdCatQuery))
-                                                {   
+                                                {
                                                     $OrdID = $row['OrdCategoryID'];
                                                     $OrdTitle = $row['OrdinanceTitle'];
-                                                    
+
                                                     echo
                                                     '<tr>
                                                         <td class="hide">'.$OrdID.'</td>
@@ -59,7 +59,7 @@
                                                         </td>
 
                                                     </tr>';
-                                                    
+
                                                 }
                                     }
                                     ?>
@@ -84,7 +84,6 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Ordinance Title</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" name="OrdinanceTitle" class="form-control" />
@@ -129,7 +128,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Ordinance Title</h4>
+                            <label class="form-label">Ordinance Title</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editOrdTitle" type="text" name="OrdinanceTitle" class="form-control" />

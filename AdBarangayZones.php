@@ -1,13 +1,13 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'AdBarangayZones';
     include('head.php');
-    include('AdminNavbar.php'); 
+    include('AdminNavbar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
-       
+
         <!--CUSTOM BLOCK INSERT HERE-->
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -46,7 +46,7 @@
                                     if (mysqli_num_rows($ZoneQuery) > 0)
                                     {
                                         while($row = mysqli_fetch_assoc($ZoneQuery))
-                                                {      
+                                                {
                                                     $ID = $row['ZoneID'];
                                                     $Identity = $row['BarangayIdentity'];
                                                     $Zone = $row['Zone'];
@@ -74,7 +74,7 @@
                                                         </td>
 
                                                     </tr>';
-                                                    
+
                                                 }
                                     }
                                     ?>
@@ -98,14 +98,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Zone</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="ZoneName"/>
                                         <label class="form-label">Zone Name</label>
                                     </div>
                                 </div>
-                            <h4 class="card-inside-title">Barangay</h4>
+                            <label class="form-label">Barangay</label>
                                 <select class="form-control browser-default" name="BarangayIdentity">
                                     <option value="None">None</option>
                                     <?php
@@ -120,12 +119,12 @@
                                                 $ID = $row['BarangayIdentity'];
                                                 $Name = $row['BarangayName'];
                                                 echo '<option value="'.$ID.'">'.$Name.'</option>';
-                                                        
+
                                             }
                                         }
                                     ?>
                                 </select>
-                            <h4 class="card-inside-title">Status</h4>
+                            <label class="form-label">Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="Zone_Status" id="CheckA" value="Active" class="with-gap" checked>
                                     <label for="CheckA">Active</label>
@@ -152,7 +151,7 @@
                         <h2>
                             Edit Barangay Zone
                             <br/>
-                            
+
                         </h2>
                     </div>
                     <div class="modal-body">
@@ -163,13 +162,13 @@
                                         <input id="editZoneID" type="text" class="form-control hide" name="ZoneID"/>
                                     </div>
                                 </div>
-                            <h4 class="card-inside-title">Zone</h4>
+                            <label class="form-label">Zone</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editZoneName" type="text" class="form-control" name="ZoneName"/>
                                     </div>
                                 </div>
-                            <h4 class="card-inside-title">Barangay</h4>
+                            <label class="form-label">Barangay</label>
                                 <select id="editZoneIdentity" class="form-control browser-default" name="BarangayIdentity">
                                     <option value="None">None</option>
                                     <?php
@@ -184,12 +183,12 @@
                                                 $ID = $row['BarangayIdentity'];
                                                 $Name = $row['BarangayName'];
                                                 echo '<option value="'.$ID.'">'.$Name.'</option>';
-                                                        
+
                                             }
                                         }
                                     ?>
                                 </select>
-                            <h4 class="card-inside-title">Status</h4>
+                            <label class="form-label">Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="Zone_Status" id="editCheckA" value="Active" class="with-gap" checked>
                                     <label for="editCheckA">Active</label>
@@ -218,11 +217,11 @@
             $("#editZoneID").val($(this).closest("tbody tr").find("td:eq(0)").html());
             $("#editZoneName").val($(this).closest("tbody tr").find("td:eq(2)").html());
             $("#editZoneIdentity").val($(this).closest("tbody tr").find("td:eq(1)").html()).trigger("change");
-            if ($(this).closest("tbody tr").find("td:eq(3)").text() === "Active") 
+            if ($(this).closest("tbody tr").find("td:eq(3)").text() === "Active")
             {
                 $("#editCheckA").prop("checked", true).trigger('click');
-            } 
-            else 
+            }
+            else
             {
                 $("#editCheckI").prop("checked", true).trigger('click');
             }

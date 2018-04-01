@@ -1,13 +1,13 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'AdBlotterSubjects';
     include('head.php');
-    include('AdminNavbar.php'); 
+    include('AdminNavbar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
-       
+
         <!--CUSTOM BLOCK INSERT HERE-->
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -43,10 +43,10 @@
                                     if (mysqli_num_rows($BlotterCatQuery) > 0)
                                     {
                                         while($row = mysqli_fetch_assoc($BlotterCatQuery))
-                                                {   
+                                                {
                                                     $ID = $row['BlotterCategoryID'];
                                                     $Title = $row['BlotterCategoryName'];
-                                                    
+
                                                     echo
                                                     '<tr>
                                                         <td class="hide">'.$ID.'</td>
@@ -59,7 +59,7 @@
                                                         </td>
 
                                                     </tr>';
-                                                    
+
                                                 }
                                     }
                                     ?>
@@ -79,12 +79,12 @@
                         <h2>
                             Add Blotter Subject
                             <br/>
-                         
+
                         </h2>
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" name="BlotterSubjectName" class="form-control" />
@@ -128,11 +128,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Blotter Subject Name</h4>
+                            <label class="form-label">Blotter Subject Name</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editBlotterSubName" type="text" name="BlotterSubjectName" class="form-control" />
-                                
+
                                 </div>
                             </div>
 
