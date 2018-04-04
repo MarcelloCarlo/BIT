@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'AdCategoryBusiness';?>
@@ -7,7 +7,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
 
  <section class="content">
         <div class="container-fluid">
-           
+
             <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -22,9 +22,9 @@ $title = 'Welcome | BarangayIT MK.II';?>
                             <i class="material-icons">add_circle_outline</i>
                             <span>ADD NEW</span>
                         </button>
-                          
-                        <!--    <button type="button" class="btn bg-indigo waves-effect" href="Level1AddBusinesses.php"> 
-                            <a href="Level1AddBusinesses.php" style= "text-decoration: none;"> 
+
+                        <!--    <button type="button" class="btn bg-indigo waves-effect" href="Level1AddBusinesses.php">
+                            <a href="Level1AddBusinesses.php" style= "text-decoration: none;">
                             <i class="material-icons">add_circle_outline</i>
                             <span>Add/Edit</span></a>
                         </button> -->
@@ -69,13 +69,13 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                         $CategoryDesc = $row['categoryDesc'];
                                                         $CategoryDate = $row['categoryDate'];
 
-                                                        echo '  
-                                                        <tr>    
+                                                        echo '
+                                                        <tr>
                                                                 <td class="hide">'.$CategoryID.'</td>
                                                                 <td>'.$CategoryName.'</td>
                                                                 <td>'.$CategoryDesc.'</td>
                                                                 <td>'.$CategoryDate.'</td>
-                                                                <td> 
+                                                                <td>
                                                                     <button type="button" class="btn btn-success waves-effect editBusinessCategory" data-toggle="modal" data-target="#editBusinessCategoryModal">
                                                                         <i class="material-icons">mode_edit</i>
                                                                         <span>EDIT</span>
@@ -85,7 +85,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                     }
                                                 }
                                             ?>
-                                                                                   
+
                                     </tbody>
                                 </table>
                             </div>
@@ -94,7 +94,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                 </div>
             </div>
             <!-- #END# Basic Examples -->
-            <!-- Exportable Table 
+            <!-- Exportable Table
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
@@ -138,7 +138,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Salary</th>
                                         </tr>
                                     </tfoot>
-                                    
+
                                 </table>
                             </div>
                         </div>
@@ -160,14 +160,12 @@ $title = 'Welcome | BarangayIT MK.II';?>
                         </div>
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Category Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="CategoryName"/>
                                         <label class="form-label">Category Name</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Description</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="CategoryDesc"/>
@@ -205,13 +203,13 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                         <label class="form-label hide">Category ID</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Category Name</h4>
+                                <label class="form-label">Category Name</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editCategoryName" type="text" class="form-control" name="CategoryName"/>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Description</h4>
+                                <label class="form-label">Description</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editCategoryDesc" type="text" class="form-control" name="CategoryDesc"/>
@@ -244,4 +242,4 @@ $title = 'Welcome | BarangayIT MK.II';?>
             });
         });
 
-    </script> 
+    </script>

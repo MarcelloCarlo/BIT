@@ -1,15 +1,15 @@
-<?php 
+<?php
     session_start();
-    $title = 'Welcome | BarangayIT MK.II'; 
-    $currentPage = 'AdOfficialFromCitizens'; 
-    include('head.php'); 
-    include('AdminNavbar.php'); 
+    $title = 'Welcome | BarangayIT MK.II';
+    $currentPage = 'AdOfficialFromCitizens';
+    include('head.php');
+    include('AdminNavbar.php');
 ?>
 
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
-         
+
         </div>
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -22,7 +22,7 @@
                         </h2>
                     </div>
                     <div class="body">
-                        <div class="table-responsive"> 
+                        <div class="table-responsive">
                                      <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
                             <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                       <!--   <table class="table table-bordered table-striped table-hover dataTable js-exportable">  -->
@@ -68,7 +68,7 @@
                                     <?php
                                             include_once('dbconn.php');
 
-                                            $CitizenSQL = "SELECT 
+                                            $CitizenSQL = "SELECT
                                                                     bitdb_r_citizen.Citizen_ID,
                                                                     bitdb_r_barangayofficial.Brgy_Official_ID,
                                                                     IFNULL(bitdb_r_barangayposition.PosName,'Citizen') AS PosName,
@@ -92,7 +92,7 @@
                                                 if (mysqli_num_rows($CitizenQuery) > 0)
                                                 {
                                                     while($row = mysqli_fetch_assoc($CitizenQuery))
-                                                    {   
+                                                    {
                                                         $ID = $row['Citizen_ID'];
                                                         $OfficialID = $row['Brgy_Official_ID'];
                                                         $PosName = $row['PosName'];
@@ -175,17 +175,17 @@
                                         <input id="assignOfficialID" type="text" class="form-control hide" name="OfficialID">
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Name</h4>
+                                <label class="form-label">Name</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="assignName" type="text" class="form-control" name="Name" disabled>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Position For: </h4>
+                                <label class="form-label">Position For: </label>
                                 <br/>
                                 <div class="col-md-12">
 
-                                    <h4>Position</h4>
+                                    <label class="form-label">Position</label>
                                     <select id="assignPosition" class="form-control browser-default" name="Position">
                                             <option value="None">None</option>
                                             <?php
@@ -200,29 +200,29 @@
                                                         $PosID = $row['PosID'];
                                                         $PosName = $row['PosName'];
                                                         echo '<option value="'.$PosName.'">'.$PosName.'</option>';
-                                                        
+
                                                     }
                                                 }
                                             ?>
                                     </select>
                                 </div>
                                 <div class="col-sm-5">
-                                    <h4 class="card-inside-title">Start Term</h4>
+                                    <label class="form-label">Start Term</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input id="assignStart" type="date" class="form-control date" name="Start_Term">
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                                 <div class="col-sm-5">
-                                    <h4 class="card-inside-title">End Term</h4>
+                                    <label class="form-label">End Term</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input id="assignEnd" type="date" class="form-control date" name="End_Term">
                                         </div>
                                     </div>
-                                   
+
                                 </div>
                             </div>
                         </div>
@@ -252,4 +252,4 @@
             });
         });
 
-    </script> 
+    </script>

@@ -1,13 +1,13 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'AdCategoryIssuance';
     include('head.php');
-    include('AdminNavbar.php'); 
+    include('AdminNavbar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
-        
+
         <!--CUSTOM BLOCK INSERT HERE-->
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -44,11 +44,11 @@
                                     if (mysqli_num_rows($IssuanceCatQuery) > 0)
                                     {
                                         while($row = mysqli_fetch_assoc($IssuanceCatQuery))
-                                                {   
+                                                {
                                                     $TypeID = $row['IssuanceID'];
                                                     $Title = $row['IssuanceType'];
                                                     $Option = $row['IssuanceOption'];
-                                                    
+
                                                     echo
                                                     '<tr>
                                                         <td class="hide">'.$TypeID.'</td>
@@ -62,11 +62,11 @@
                                                         </td>
 
                                                     </tr>';
-                                                    
+
                                                 }
                                     }
                                     ?>
-                                   
+
                                 </tbody>
                             </table>
                         </div>
@@ -88,14 +88,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Issuance Title</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" name="IssuanceTitle" class="form-control" />
                                     <label class="form-label">Issuance Name</label>
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Issuance Type</h4>
+                            <label class="form-label">Issuance Type</label>
                                 <div class="form-group">
                                     <input type="radio" name="IssuanceOption" id="CheckA" value="Personal" class="with-gap">
                                     <label for="CheckA">Personal</label>
@@ -128,7 +127,7 @@
                     </div>
                     <div class="modal-body hide">
                         <div class="row clearfix margin-0 hide">
-                            <h4 class="card-inside-title hide">Issuance ID</h4>
+                            <label class="form-label">Issuance ID</label>
                             <div class="form-group form-float hide">
                                 <div class="form-line hide">
                                     <input id="editIssueID" type="text" name="IssuanceID" class="form-control hide" />
@@ -141,14 +140,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Issuance Name</h4>
+                            <label class="card-inside-title">Issuance Name</h4>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editIssueTitle" type="text" name="IssuanceTitle" class="form-control" />
                                     <!-- <label class="form-label">Ordinance Title</label> -->
                                 </div>
                             </div>
-                            <h4 class="card-inside-title">Issuance Type</h4>
+                            <label class="form-label">Issuance Type</label>
                                 <div class="form-group">
                                     <input type="radio" name="IssuanceOption" id="editCheckA" value="Personal" class="with-gap">
                                     <label for="editCheckA">Personal</label>
@@ -176,11 +175,11 @@
         {
             $("#editIssueID").val($(this).closest("tbody tr").find("td:eq(0)").html());
             $("#editIssueTitle").val($(this).closest("tbody tr").find("td:eq(1)").html());
-            if ($(this).closest("tbody tr").find("td:eq(2)").text() === "Personal") 
+            if ($(this).closest("tbody tr").find("td:eq(2)").text() === "Personal")
             {
                 $("#editCheckA").prop("checked", true).trigger('click');
-            } 
-            else 
+            }
+            else
             {
                 $("#editCheckI").prop("checked", true).trigger('click');
             }

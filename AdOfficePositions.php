@@ -1,9 +1,9 @@
-<?php 
+<?php
 	session_start();
 	$title = 'Welcome | BarangayIT MK.II';
 	$currentPage = 'AdOfficePositions';
 	include('head.php');
-	include('AdminNavbar.php'); 
+	include('AdminNavbar.php');
  ?>
 <section class="content">
     <div class="container-fluid">
@@ -47,7 +47,7 @@
 									if (mysqli_num_rows($PViewQuery) > 0)
 									{
 										while($row = mysqli_fetch_assoc($PViewQuery))
-												{	
+												{
 													$PosID = $row['PosID'];
 													$PosName = $row['PosName'];
 													$PosDesc = $row['PosDesc'];
@@ -67,14 +67,14 @@
 														<td>'.$PosDesc.'</td>
 														<td>'.$PosStat.'</td>
 														<td>
-															<button type="button" class="btn btn-success waves-effect editPos" data-toggle="modal" 
+															<button type="button" class="btn btn-success waves-effect editPos" data-toggle="modal"
 														data-target="#editPosModal" value="'.$PosID.'">
 																<i class="material-icons">mode_edit</i>
 																<span>EDIT</span>
 															</button>
 														</td>
 													</tr>';
-													
+
 												}
 									}
 									?>
@@ -99,21 +99,19 @@
                     <form id="PositionAdd" action="AdminAddPosition.php" method="POST">
                         <div class="modal-body">
                             <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Position Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="PositionName" />
                                         <label class="form-label">Position Name</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Description(Optional)</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="PositionDesc" />
                                         <label class="form-label">Description(Optional)</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Status</h4>
+                                <label class="form-label">Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="PositionStatus" id="optAddPosActive" value="Active" class="with-gap" checked>
                                     <label for="optAddPosActive">Active</label>
@@ -145,28 +143,27 @@
                     <form id="PositionEdit" action="AdminEditPosition.php" method="POST">
                         <div class="modal-body">
                             <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title hide">Position ID</h4>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
                                         <input id="editPosID" type="text" class="hide" name="PositionID" />
                                         <label class="form-label hide">Position ID</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Position: </h4>
+																<label class="form-label">Position</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editPos" type="text" class="form-control" name="PositionName" placeholder="Position Name" />
                                         <!-- <label class="form-label">Position Name</label> -->
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Description</h4>
+                                <label class="form-label">Description</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input id="editDesc" type="text" class="form-control" placeholder="Description" name="Description" />
                                         <!-- <label class="form-label">Description</label> -->
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Status</h4>
+                                <label class="form-label">Status</label>
                                 <div class="form-group">
                                     <input type="radio" name="PositionStatus" id="editCheckA" value="Active" class="with-gap">
                                     <label for="editCheckA">Active</label>

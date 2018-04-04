@@ -1,13 +1,13 @@
-<?php 
+<?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'AdCategoryProjectMonitoring';
     include('head.php');
-    include('AdminNavbar.php'); 
+    include('AdminNavbar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
-       
+
         <!--CUSTOM BLOCK INSERT HERE-->
         <!-- Basic Examples -->
         <div class="row clearfix">
@@ -43,10 +43,10 @@
                                     if (mysqli_num_rows($ProjectCatQuery) > 0)
                                     {
                                         while($row = mysqli_fetch_assoc($ProjectCatQuery))
-                                                {   
+                                                {
                                                     $ID = $row['ProjectCategoryID'];
                                                     $Title = $row['ProjectCategory'];
-                                                    
+
                                                     echo
                                                     '<tr>
                                                         <td class="hide">'.$ID.'</td>
@@ -59,11 +59,11 @@
                                                         </td>
 
                                                     </tr>';
-                                                    
+
                                                 }
                                     }
                                     ?>
-                                   
+
                                 </tbody>
                             </table>
                         </div>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            
+
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input type="text" name="ProjectCategoryName" class="form-control" />
@@ -111,7 +111,7 @@
                         <h2>
                             Edit Project Category
                             <br/>
-                            
+
                         </h2>
                     </div>
                     <div class="modal-body hide">
@@ -129,11 +129,11 @@
                     </div>
                     <div class="modal-body">
                         <div class="row clearfix margin-0">
-                            <h4 class="card-inside-title">Project Category Name</h4>
+                            <label class="form-label">Project Category Name</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
                                     <input id="editProjName" type="text" name="ProjectCategoryName" class="form-control" />
-                                
+
                                 </div>
                             </div>
 
