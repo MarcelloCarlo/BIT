@@ -35,8 +35,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Business Name</th>
                                             <th>Category</th>
                                             <th>Location</th>
-                                            <th>Manager</th>
-                                            <th>Man. Address</th>
+                                            <th>Owner</th>
+                                            <th>Owner Address</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -47,8 +47,8 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                             <th>Business Name</th>
                                             <th>Category</th>
                                             <th>Location</th>
-                                            <th>Manager</th>
-                                            <th>Man. Address</th>
+                                            <th>Owner</th>
+                                            <th>Owner Address</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
@@ -60,7 +60,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                 $Level1BusinessSQL = 'SELECT    bitdb_r_business.BusinessID,
                                                                                 bitdb_r_business.Business_Name,
                                                                                 bitdb_r_businesscategory.categoryName,
-                                                                                bitdb_r_business.BusinessLoc,
+                                                                                bitdb_r_barangayzone.Zone,
                                                                                 bitdb_r_business.Manager,
                                                                                 bitdb_r_business.Mgr_Address,
                                                                                 bitdb_r_issuance.IssuanceID,
@@ -70,7 +70,9 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                                         RIGHT JOIN bitdb_r_business
                                                                         ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID
                                                                         INNER JOIN bitdb_r_businesscategory
-                                                                        ON bitdb_r_business.BusinessCategory = bitdb_r_businesscategory.categoryID';
+                                                                        ON bitdb_r_business.BusinessCategory = bitdb_r_businesscategory.categoryID
+                                                                        INNER JOIN bitdb_r_barangayzone
+                                                                        ON bitdb_r_business.BusinessLoc = bitdb_r_barangayzone.ZoneID';
                                                 $Level1BusinessQuery = mysqli_query($bitMysqli,$Level1BusinessSQL) or die (mysqli_error($bitMysqli));
                                                 if(mysqli_num_rows($Level1BusinessQuery) > 0)
                                                 {
@@ -79,7 +81,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                         $BusinessID = $row['BusinessID'];
                                                         $Business_Name = $row['Business_Name'];
                                                         $BusinessCat = $row['categoryName'];
-                                                        $BusinessLoc = $row['BusinessLoc'];
+                                                        $BusinessLoc = $row['Zone'];
                                                         $Manager = $row['Manager'];
                                                         $ManagerAdd = $row['Mgr_Address'];
                                                         $Date_Issued = $row['ExpireDate'];

@@ -98,11 +98,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                               bitdb_r_citizen.Middle_Name,
                               bitdb_r_citizen.Last_Name,
                               bitdb_r_citizen.Name_Ext 
-                      FROM    bitdb_r_config 
-                      INNER JOIN bitdb_r_barangayofficial 
-                      ON  bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_config.Signatory
+                      FROM    bitdb_r_barangayofficial 
+                      INNER JOIN bitdb_r_barangayposition
+                        ON bitdb_r_barangayposition.PosID = bitdb_r_barangayofficial.PosID
                       INNER JOIN bitdb_r_citizen
-                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID';
+                        ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                      WHERE bitdb_r_barangayposition.PosName="Barangay Captain" ';
         $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($CaptainQuery) > 0)
         {
@@ -212,11 +213,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                               bitdb_r_citizen.Middle_Name,
                               bitdb_r_citizen.Last_Name,
                               bitdb_r_citizen.Name_Ext 
-                      FROM    bitdb_r_config 
-                      INNER JOIN bitdb_r_barangayofficial 
-                      ON  bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_config.Signatory
+                      FROM    bitdb_r_barangayofficial 
+                      INNER JOIN bitdb_r_barangayposition
+                        ON bitdb_r_barangayposition.PosID = bitdb_r_barangayofficial.PosID
                       INNER JOIN bitdb_r_citizen
-                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID';
+                        ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                      WHERE bitdb_r_barangayposition.PosName="Barangay Captain" ';
         $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($CaptainQuery) > 0)
         {

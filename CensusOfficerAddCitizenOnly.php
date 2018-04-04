@@ -30,7 +30,8 @@
                     <div class="body">
                         <div class="table-responsive"> 
                                      <!--  table table-bordered table-striped table-hover dataTable js-exportable -->
-                            <table class="ttable table-bordered table-striped table-hover dataTable js-exportable">
+                            <!-- <table class="table table-bordered table-striped table-hover js-basic-example dataTable"> -->
+                        <table class="table table-bordered table-striped table-hover dataTable js-exportable" style="width: 100%;"> 
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>
@@ -39,25 +40,25 @@
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
-                                        <th>Email</th>
-                                        <th>Height</th>
-                                        <th>Weight</th>
-                                        <th>Birthdate</th>
-                                        <th>Birth Place</th>
-                                        <th>Nationality</th>
+                                        <th class="hide">Email</th>
+                                        <th class="hide">Height</th>
+                                        <th class="hide">Weight</th>
+                                        <th class="hide">Birthdate</th>
+                                        <th class="hide">Birth Place</th>
+                                        <th class="hide">Nationality</th>
                                         <th>Status</th>
                                         <th>Civil Status</th>
-                                        <th>Occupation</th>
+                                        <th class="hide">Occupation</th>
                                         <th>Gender</th>
-                                        <th>Blood Type</th>
+                                        <th class="hide">Blood Type</th>
                                         <th class="hide">HouseNo</th>
                                         <th class="hide">Street</th>
+                                        <th class="hide">ZoneID</th>
                                         <th class="hide">Zone</th>
                                         <th>Address</th>
-                                        <th>Person in Contact</th>
-                                        <th>Contact</th>
+                                        <th class="hide">Person in Contact</th>
+                                        <th class="hide">Contact</th>
                                         <th>Date Recorded</th>
-                                        <th class="hide">Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -68,25 +69,25 @@
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
-                                        <th>Email</th>
-                                        <th>Height</th>
-                                        <th>Weight</th>
-                                        <th>Birthdate</th>
-                                        <th>Birth Place</th>
-                                        <th>Nationality</th>
+                                        <th class="hide">Email</th>
+                                        <th class="hide">Height</th>
+                                        <th class="hide">Weight</th>
+                                        <th class="hide">Birthdate</th>
+                                        <th class="hide">Birth Place</th>
+                                        <th class="hide">Nationality</th>
                                         <th>Status</th>
                                         <th>Civil Status</th>
-                                        <th>Occupation</th>
+                                        <th class="hide">Occupation</th>
                                         <th>Gender</th>
-                                        <th>Blood Type</th>
+                                        <th class="hide">Blood Type</th>
                                         <th class="hide">HouseNo</th>
                                         <th class="hide">Street</th>
+                                        <th class="hide">ZoneID</th>
                                         <th class="hide">Zone</th>
                                         <th>Address</th>
-                                        <th>Person in Contact</th>
-                                        <th>Contact</th>
+                                        <th class="hide">Person in Contact</th>
+                                        <th class="hide">Contact</th>
                                         <th>Date Recorded</th>
-                                        <th class="hide">Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -111,7 +112,8 @@
                                                                     IFNULL(bitdb_r_citizen.Occupation,'') AS Occupation,
                                                                     bitdb_r_citizen.Gender,
                                                                     bitdb_r_citizen.Blood_Type,
-                                                                    bitdb_r_citizen.Zone,
+                                                                    bitdb_r_citizen.Zone AS ZoneID,
+                                                                    bitdb_r_barangayzone.Zone,
                                                                     bitdb_r_citizen.Street,
                                                                     bitdb_r_citizen.House_No,
                                                                     IFNULL(bitdb_r_citizen.Person_Con,'') AS Person_Con,
@@ -119,6 +121,8 @@
                                                                     bitdb_r_citizen.Date_Rec
                                                                 FROM
                                                                     bitdb_r_citizen
+                                                                INNER JOIN bitdb_r_barangayzone
+                                                                ON bitdb_r_citizen.Zone = bitdb_r_barangayzone.ZoneID
                                                                 ";
                                             $CitizenQuery = mysqli_query($bitMysqli,$CitizenSQL) or die(mysqli_error($bitMysqli));
                                                 if (mysqli_num_rows($CitizenQuery) > 0)
@@ -142,6 +146,7 @@
                                                         $Gender = $row['Gender'];
                                                         $BloodType = $row['Blood_Type'];
                                                         $Zone = $row['Zone'];
+                                                        $ZoneID = $row['ZoneID'];
                                                         $Street = $row['Street'];
                                                         $House_No = $row['House_No'];
                                                         $Person_Con = $row['Person_Con'];
@@ -166,29 +171,25 @@
                                                             <td>'.$MName.'</td>
                                                             <td>'.$LName.'</td>
                                                             <td>'.$Name_Ext.'</td>
-                                                            <td>'.$Email.'</td>
-                                                            <td>'.$Height.'</td>
-                                                            <td>'.$Weight.'</td>
-                                                            <td>'.$Birthdate.'</td>
-                                                            <td>'.$Birth_Place.'</td>
-                                                            <td>'.$Nationality.'</td>
+                                                            <td class="hide">'.$Email.'</td>
+                                                            <td class="hide">'.$Height.'</td>
+                                                            <td class="hide">'.$Weight.'</td>
+                                                            <td class="hide">'.$Birthdate.'</td>
+                                                            <td class="hide">'.$Birth_Place.'</td>
+                                                            <td class="hide">'.$Nationality.'</td>
                                                             <td>'.$Res_Status.'</td>
                                                             <td>'.$Civil_Status.'</td>
-                                                            <td>'.$Occupation.'</td>
+                                                            <td class="hide">'.$Occupation.'</td>
                                                             <td>'.$Gender.'</td>
-                                                            <td>'.$BloodType.'</td>
+                                                            <td class="hide">'.$BloodType.'</td>
                                                             <td class="hide">'.$House_No.'</td>
                                                             <td class="hide">'.$Street.'</td>
+                                                            <td class="hide">'.$ZoneID.'</td>
                                                             <td class="hide">'.$Zone.'</td>
                                                             <td>'.$Address.'</td>
-                                                            <td>'.$Person_Con.'</td>
-                                                            <td>'.$Contact.'</td>
+                                                            <td class="hide">'.$Person_Con.'</td>
+                                                            <td class="hide">'.$Contact.'</td>
                                                             <td>'.$Date_Rec.'</td>
-                                                            <td class="hide">  <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                 <span>EDIT</span>
-                                                            </button>
-                                                            </td>
                                                         </tr>';
                                                     }
                                                 }
@@ -378,40 +379,56 @@
     <!--Add-->
     <form id="CensusOfficerCitizenAdd" action="CensusOfficerAddCitizen.php" method="POST">
         <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" style="width: 90% !important" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h2>
-                            Add Citizen
+                            Add Citizens
                             <br/>
-                            <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
+                            <div style="height: 0px; overflow: hidden;">
+                                <input type="file" accept=".xls, .xlsx" name="fileInput" id="fileInput"/>
+                            </div>
+                            <script>
+                                function chooseFile(){
+                                    document.getElementById("fileInput").click();
+                                }
+                            </script>
+                            <button type="button" class="btn btn-success waves-effect" onclick="chooseFile()"> Migrate from Excel</button>
+                            <h6 class="pull-right">* = Optional Fields</h6>
                         </h2>
                     </div>
                     <div class="modal-body">
                            <div class="modal-body">
                             <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Salutation</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Salutation" class="form-control" />
-                                        <label class="form-label">Mr./Ms./Mrs.</label>
+                            <div class="panel col-lg-12">
+                                <div class="col-md-1">
+                                    <h4 class="card-inside-title">Salutation</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="Salutation" class="form-control" />
+                                            <label class="form-label">Mr./Ms./Mrs.</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">First Name</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="First_Name" class="form-control" />
-                                        <label class="form-label">First Name</label>
+                                <div class="col-md-3">
+                                    <h4 class="card-inside-title">First Name</h4>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input type="text" name="First_Name" class="form-control" />
+                                            <label class="form-label">First Name</label>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <h4 class="card-inside-title">Middle Name (Optional)</h4>
+                                <div class="col-md-3">
+                                <h4 class="card-inside-title">Middle Name*</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Middle_Name" class="form-control" />
                                         <label class="form-label">Middle Name</label>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-md-3">
                                 <h4 class="card-inside-title">Last Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -419,20 +436,28 @@
                                         <label class="form-label">Last Name</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Extension Name (Optional)</h4>
+                                </div>
+                                <div class="col-md-2">
+                                <h4 class="card-inside-title">Extension Name*</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Name_Ext" class="form-control" />
                                         <label class="form-label">Jr./Sr./III</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Email Address (Optional)</h4>
+                                </div>
+                            </div>
+                            <div class="panel col-lg-12">
+                                <div class="col-md-6">
+                                <h4 class="card-inside-title">Email Address*</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Email" class="form-control" />
                                         <label class="form-label">example@example.com</label>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-md-3">
                                 <h4 class="card-inside-title">Height (ft)</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -440,6 +465,8 @@
                                         <label class="form-label">ft</label>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-md-3">
                                 <h4 class="card-inside-title">Weight (kg)</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -447,6 +474,10 @@
                                         <label class="form-label">kg</label>
                                     </div>
                                 </div>
+                                </div>
+                            </div>
+                            <div class="panel col-lg-12">
+                                <div class="col-md-6">
                                 <h4 class="card-inside-title">Place of Birth</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -454,13 +485,18 @@
                                         <label class="form-label">Place of Birth</label>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-md-6">
                                 <h4 class="card-inside-title">Birthdate</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" name="Birthdate" class="form-control date" />
-                                        <!-- <label class="form-label">YYYY-MM-DD</label> -->
                                     </div>
                                 </div>
+                                </div>
+                            </div>
+                            <div class="panel col-lg-12">
+                                <div class="col-lg-4">
                                 <h4 class="card-inside-title">Nationality</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -468,35 +504,55 @@
                                         <label class="form-label">Nationality</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Occupation (Optional)</h4>
+                                </div>
+                                <div class="col-lg-4">
+                                <h4 class="card-inside-title">Occupation*</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Occupation" class="form-control" />
                                         <label class="form-label">Occupation</label>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-lg-4">
                                 <h4 class="card-inside-title">Gender</h4>
                                 <div class="form-group">
-                                    <input type="radio" name="Gender" id="optGendM" value="Male" class="with-gap">
+                                    <input type="radio" name="Gender" id="optGendM" value="M" class="with-gap">
                                     <label for="optGendM">Male</label>
 
-                                    <input type="radio" name="Gender" id="optGendF" value="Female" class="with-gap">
+                                    <input type="radio" name="Gender" id="optGendF" value="F" class="with-gap">
                                     <label for="optGendF" class="m-l-20">Female</label>       
                                 </div>
+                                </div>
+                            </div>
+                            <div class="panel col-lg-12">
+                                <div class="col-md-6">
                                 <h4 class="card-inside-title">Civil Status</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Civil_Status" class="form-control" />
-                                        <label class="form-label">Civil Status</label>
-                                    </div>
+                                <select class="form-control show-tick" name="Civil_Status" required>
+                                    <option value="">Select Civil Status</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Widowed">Widowed</option>
+                                    <option value="Separated">Separated</option>
+                                </select>
                                 </div>
+                                <div class="col-md-6">
                                 <h4 class="card-inside-title">Blood Type</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Blood_Type" class="form-control" />
-                                        <label class="form-label">O/A/B</label>
-                                    </div>
+                                <select class="form-control show-tick" name="Blood_Type" required>
+                                    <option value="">Select Blood Type</option>
+                                    <option value="O+">O+</option>
+                                    <option value="A+">A+</option>
+                                    <option value="B+">B+</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="O-">O-</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB-">AB-</option>
+                                </select>
                                 </div>
+                            </div>
+                            <div class="panel col-lg-12">
+                                <div class="col-lg-4">
                                 <h4 class="card-inside-title">House Number</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -504,6 +560,8 @@
                                         <label class="form-label">House Number</label>
                                     </div>
                                 </div>
+                                </div>
+                                <div class="col-lg-4">
                                 <h4 class="card-inside-title">Street/Block</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -511,52 +569,64 @@
                                         <label class="form-label">Street/Block</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Zone(Block)</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" name="Zone" class="form-control" />
-                                        <label class="form-label">Zone(Block)</label>
-                                    </div>
                                 </div>
-                                <h4 class="card-inside-title">Person to contact in case of emergencies (Optional)</h4>
+                                <div class="col-lg-4">
+                                <h4 class="card-inside-title">Zone(Block)</h4>
+                                <select class="form-control show-tick" name="Zone">
+                                    <?php
+                                    include_once('dbconn.php');
+                                    $ZoneSQL = "SELECT * FROM bitdb_r_barangayzone";
+                                    $ZoneQuery = mysqli_query($bitMysqli,$ZoneSQL) or die(mysqli_error($bitMysqli));
+                                    if(mysqli_num_rows($ZoneQuery) > 0)
+                                    {
+                                        while($row = mysqli_fetch_assoc($ZoneQuery))
+                                        {
+                                            echo '<option value="'.$row['ZoneID'].'">'.$row['Zone'].'</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="panel col-lg-12">
+                                <div class="col-md-6">
+                                <h4 class="card-inside-title">Person to contact in case of emergencies*</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Person_Con" class="form-control" />
                                         <label class="form-label">Name</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Contact (Optional)</h4>
+                                </div>
+                                <div class="col-md-6">
+                                <h4 class="card-inside-title">Contact*</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" name="Contact" class="form-control" />
                                         <label class="form-label">Contact</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Residence Status</h4>
-                                <div class="form-group">
-                                    <input type="radio" name="Res_Status" id="optCitActive" value="Active" class="with-gap">
-                                    <label for="optCitActive">Active</label>
-
-                                    <input type="radio" name="Res_Status" id="optCitInactive" value="Inactive" class="with-gap">
-                                    <label for="optCitInactive" class="m-l-20">Inactive</label>
                                 </div>
+                            </div>
                                 <!-- <h4 class="card-inside-title">Status</h4>
                                 <div class="demo-switch">
                                     <div class="switch">
-                                        <label>Inactive<input type="checkbox" checked><span class="lever switch-col-orange"></span>Active</label>
+                                        <label>Inactive
+                                            <input id="CitiResStat" type="checkbox" checked>
+                                            <span class="lever switch-col-orange"></span>Active
+                                        </label>
                                     </div>
                                 </div> -->
-
-                            </div>
-                            <br/>
                         </div>
-                        <div class="modal-footer">
+                        <br/>
+                    </div> <br/>
+                    <div class="modal-footer">
                             <button type="submit" class="btn btn-link waves-effect">ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
-                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </form>
 </section>

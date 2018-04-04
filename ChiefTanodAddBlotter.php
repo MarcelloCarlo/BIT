@@ -30,11 +30,13 @@
                         </div>
                         <div class="body">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
                                             <th class="hide">BlotterID</th>
                                             <th>Incident Date</th>
+                                            <th class="hide">Incident Area ID</th>
+                                            <th>Incident Area</th>
                                             <th>Complainant</th>
                                             <th class="hide">CitizenID</th>
                                             <th>Accused</th>
@@ -51,11 +53,13 @@
 
                                         $CTanodSelectBlotterSQL = ' SELECT  bitdb_r_blotter.BlotterID,
                                                                             bitdb_r_blotter.IncidentDate,
+                                                                            bitdb_r_barangayzone.ZoneID,
+                                                                            bitdb_r_barangayzone.Zone,
                                                                             bitdb_r_blotter.Complainant,
                                                                             bitdb_r_blotter.Accused,
-                                                                            bitdb_r_citizen.First_Name,
+                                                                            IFNULL(bitdb_r_citizen.First_Name,"") AS First_Name,
                                                                             IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
-                                                                            bitdb_r_citizen.Last_Name,
+                                                                            IFNULL(bitdb_r_citizen.Last_Name,"") AS Last_Name,
                                                                             IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
                                                                             bitdb_r_blotter.ComplaintStatement,
                                                                             bitdb_r_blotter.ComplaintStatus,
@@ -63,8 +67,10 @@
                                                                             bitdb_r_blotter.BlotterType,
                                                                             bitdb_r_blotter.ComplaintDate
                                                                     FROM    bitdb_r_blotter
-                                                                    INNER JOIN bitdb_r_citizen
-                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused';
+                                                                    LEFT JOIN bitdb_r_citizen
+                                                                    ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused
+                                                                    INNER JOIN bitdb_r_barangayzone
+                                                                    ON bitdb_r_blotter.IncidentArea = bitdb_r_barangayzone.ZoneID';
                                         $CTanodSelectBlotterQuery = mysqli_query($bitMysqli,$CTanodSelectBlotterSQL) or die (mysqli_error($bitMysqli));
                                         if(mysqli_num_rows($CTanodSelectBlotterQuery) > 0)
                                         {
@@ -73,15 +79,17 @@
                                                 $CitizenID = $row['Accused'];
                                                 $BlotterID = $row['BlotterID'];
                                                 $IDate = $row['IncidentDate'];
+                                                $IAreaID = $row['ZoneID'];
+                                                $IArea = $row['Zone'];
                                                 $Complainant = $row['Complainant'];
                                                 $CStatement = $row['ComplaintStatement'];
                                                 if($row['ComplaintStatus'] == 1)
                                                 {
-                                                    $CStatus = "Active";
+                                                    $CStatus = "Unclosed";
                                                 }
                                                 else
                                                 {
-                                                    $CStatus = "Inactive";
+                                                    $CStatus = "Case Closed";
                                                 }
                                                 $Resolution = $row['Resolution'];
                                                 $BlotterType = $row['BlotterType'];
@@ -91,6 +99,8 @@
                                                     <tr>
                                                         <td class="hide">'.$BlotterID.'</td>
                                                         <td>'.$IDate.'</td>
+                                                        <td class="hide">'.$IAreaID.'</td>
+                                                        <td>'.$IArea.'</td>
                                                         <td>'.$Complainant.'</td>
                                                         <td class="hide">'.$CitizenID.'</td>
                                                         <td>'.$Accused.'</td>
@@ -100,14 +110,14 @@
                                                         <td>'.$Resolution.'</td>
                                                         <td>'.$CDate.'</td>
                                                     </tr>
-                                                    ';    
+                                                    ';
                                             }
                                         }
                                    ?>
 
 
 
-<!-- 
+<!--
 1.  Blotter No
 2.  Date of Incident
 3.  Complainant
@@ -123,7 +133,7 @@ c.  Report Print -->
 
 
                                    <!--  unang column nang table -->
-                                   
+
                                     </tbody>
                                 </table>
                             </div>
@@ -137,31 +147,52 @@ c.  Report Print -->
                     <div class="modal-content">
                         <div class="modal-header">
                             <h2>
-                                ADD                                    
+                                ADD
                                 <br/>
                                 <small>Add Blotter</small>
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="ChiefTanodAddBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
+                        <form id="CTanodBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
-                                <h4 class="card-inside-title">Date of incident</h4>
+                                <label class="form-label">Date of incident</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" class="form-control" name="IncidentDate" required/>
-                            
+
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Complaint Date</h4>
+                                <label class="form-label">Area</label>
+                                <select class="form-control browser-default" name="IncidentArea" required>
+                                    <option value="None">None</option>
+                                    <?php
+                                        include_once('dbconn.php');
+
+                                        $ViewSql = "SELECT * FROM bitdb_r_barangayzone ORDER BY bitdb_r_barangayzone.Zone ASC";
+                                        $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($ViewQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($ViewQuery))
+                                            {
+                                                $ID = $row['ZoneID'];
+                                                $Name = $row['Zone'];
+                                                echo '<option value="'.$ID.'">'.$Name.'</option>';
+
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                                <br/>
+                                <br/>
+                                <label class="form-label">Complaint Date</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="date" class="form-control" name="ComplaintDate" required/>
-                                        
+
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Complainant's Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="Complainant" required/>
@@ -169,51 +200,64 @@ c.  Report Print -->
                                     </div>
                                 </div>
 
-                                <h4 class="card-inside-title hide">AccusedID</h4>
+                                <label class="form-label hide">AccusedID</label>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
-                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" required/>
+                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" />
                                     </div>
                                 </div>
 <!--Add Search-->
-                                <h4 class="card-inside-title">Accused' Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
-                                        <input id="AccusedName" type="text" class="form-control" name="Accused" required/>
+                                        <input id="AccusedName" type="text" class="form-control" name="Accused"/>
                                         <label class="form-label">Accused' Name</label>
                                         <div class="result"></div>
                                     </div>
                                 </div>
 <!--end search-->
-                                <h4 class="card-inside-title">Subject</h4>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input type="text" class="form-control" name="BlotterType" required/>
-                                        <label class="form-label">Subject</label>
-                                    </div>
+                                <label class="form-label">Subject</label>
+                                <div class="form-group">
+                                <select class="form-control browser-default" name="Subject" required>
+                                    <option value="None">None</option>
+                                    <?php
+                                        include_once('dbconn.php');
+
+                                        $ViewSql = "SELECT * FROM bitdb_r_blottercategory";
+                                        $ViewQuery = mysqli_query($bitMysqli,$ViewSql) or die (mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($ViewQuery) > 0)
+                                        {
+                                            while($row = mysqli_fetch_assoc($ViewQuery))
+                                            {
+                                                $ID = $row['BlotterCategoryID'];
+                                                $Name = $row['BlotterCategoryName'];
+                                                echo '<option value="'.$ID.'">'.$Name.'</option>';
+
+                                            }
+                                        }
+                                    ?>
+                                </select>
                                 </div>
-                                <h4 class="card-inside-title">Complain Statement</h4>
+                                <label class="form-label">Complaint Statement</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="ComplaintStatement" required/>
                                         <label class="form-label">Complain Statement</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Decision</h4>
+                                <!-- 
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="Resolution" required/>
                                         <label class="form-label">Decision</label>
                                     </div>
-                                </div>
-
-                                <h4 class="card-inside-title">Complaint Status</h4>
-                                <div class="form-group">
+                                </div> -->
+                                <label class="form-label hide">Complaint Status</label>
+                                <div class="form-group hide">
                                     <input type="radio" name="Comp_Status" id="editCheckA" value="Active" class="with-gap" checked>
-                                    <label for="editCheckA">Active</label>
+                                    <label for="editCheckA">Unclosed</label>
 
                                     <input type="radio" name="Comp_Status" id="editCheckI" value="Inactive" class="with-gap">
-                                    <label for="editCheckI" class="m-l-20">Inactive</label>
+                                    <label for="editCheckI" class="m-l-20">Case Closed</label>
                                 </div>
                             <br/>
                         </div>

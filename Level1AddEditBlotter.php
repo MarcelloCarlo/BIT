@@ -58,9 +58,9 @@
                                                                             bitdb_r_barangayzone.Zone,
                                                                             bitdb_r_blotter.Complainant,
                                                                             bitdb_r_blotter.Accused,
-                                                                            bitdb_r_citizen.First_Name,
+                                                                            IFNULL(bitdb_r_citizen.First_Name,"") AS First_Name,
                                                                             IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
-                                                                            bitdb_r_citizen.Last_Name,
+                                                                            IFNULL(bitdb_r_citizen.Last_Name,"") AS Last_Name,
                                                                             IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
                                                                             bitdb_r_blotter.ComplaintStatement,
                                                                             bitdb_r_blotter.ComplaintStatus,
@@ -68,7 +68,7 @@
                                                                             bitdb_r_blotter.BlotterType,
                                                                             bitdb_r_blotter.ComplaintDate
                                                                     FROM    bitdb_r_blotter
-                                                                    INNER JOIN bitdb_r_citizen
+                                                                    LEFT JOIN bitdb_r_citizen
                                                                     ON bitdb_r_citizen.Citizen_ID = bitdb_r_blotter.Accused
                                                                     INNER JOIN bitdb_r_barangayzone
                                                                     ON bitdb_r_blotter.IncidentArea = bitdb_r_barangayzone.ZoneID';
@@ -210,13 +210,13 @@ c.  Report Print -->
                                 <label class="form-label hide">AccusedID</label>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
-                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" required/>
+                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" />
                                     </div>
                                 </div>
 <!--Add Search-->
                                 <div class="form-group form-float">
                                     <div class="form-line search-box">
-                                        <input id="AccusedName" type="text" class="form-control" name="Accused" required/>
+                                        <input id="AccusedName" type="text" class="form-control" name="Accused"/>
                                         <label class="form-label">Accused' Name</label>
                                         <div class="result"></div>
                                     </div>
@@ -400,7 +400,7 @@ c.  Report Print -->
                                 <label class="form-label">Complain Statement</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editComplaintStatement" type="text" class="form-control" name="ComplaintStatement" required/>
+                                        <input id="editComplaintStatement" type="text" class="form-control" name="ComplaintStatement"/>
                                     </div>
                                 </div>
                                 <label class="form-label">Decision</label>

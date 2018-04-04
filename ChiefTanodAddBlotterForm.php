@@ -2,25 +2,54 @@
 	include_once('dbconn.php');
 
 	$IncidentDate = $_POST['IncidentDate'];
+	$IncidentArea = $_POST['IncidentArea'];
 	$ComplaintDate = $_POST['ComplaintDate'];
 	$Complainant = $_POST['Complainant'];
-	$AccusedID = $_POST['AccusedID'];
 	$Accused = $_POST['Accused'];
-	$BlotterType = $_POST['BlotterType'];
+	$BlotterType = $_POST['Subject'];
 	$ComplaintStatement = $_POST['ComplaintStatement'];
-	$Resolution = $_POST['Resolution'];
-	if($_POST['Comp_Status'] == "Active")
+
+	if($_POST['AccusedID'] == '')
 	{
-		$ComplaintStatus = 1;
+		$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter
+												(IncidentDate,
+												IncidentArea,
+												ComplaintDate,
+												Complainant,
+												ComplaintStatement,
+												ComplaintStatus,
+												BlotterType) 
+										VALUES ("'.$IncidentDate.'",
+												'.$IncidentArea.',
+												"'.$ComplaintDate.'",
+												"'.$Complainant.'",
+												"'.$ComplaintStatement.'",
+												1,
+												'.$BlotterType.')';
 	}
 	else
 	{
-		$ComplaintStatus = 0;
+		$AccusedID = $_POST['AccusedID'];
+		$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter
+												(IncidentDate,
+												IncidentArea,
+												ComplaintDate,
+												Complainant,
+												Accused,
+												ComplaintStatement,
+												ComplaintStatus,
+												BlotterType) 
+										VALUES ("'.$IncidentDate.'",
+												'.$IncidentArea.',
+												"'.$ComplaintDate.'",
+												"'.$Complainant.'",
+												'.$AccusedID.',
+												"'.$ComplaintStatement.'",
+												1,
+												'.$BlotterType.')';
 	}
-
-	$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter(IncidentDate,ComplaintDate,Complainant,Accused,ComplaintStatement,ComplaintStatus,Resolution,BlotterType) VALUES ("'.$IncidentDate.'","'.$ComplaintDate.'","'.$Complainant.'",'.$AccusedID.',"'.$ComplaintStatement.'",'.$ComplaintStatus.',"'.$Resolution.'","'.$BlotterType.'")';
+	
 	$Level1AddBlotterQuery = mysqli_query($bitMysqli,$Level1AddBlotterSQL) or die (mysqli_error($bitMysqli));
-
-	$header = 'Location:/BIT/Level1AddEditBlotter.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:/BIT/ChiefTanodAddBlotter.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

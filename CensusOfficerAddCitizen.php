@@ -21,15 +21,7 @@
 	$Zone = $_POST['Zone'];
 	$Person_Con = $_POST['Person_Con'];
 	$Contact = $_POST['Contact'];
-
-	if($_POST['Res_Status'] == "Active")
-	{
-		$Res_Status = 1;
-	}
-	else
-	{
-		$Res_Status = 0;
-	}
+	$Res_Status = 1;
 
 	$CensusOfficerInsertCitizenSQL = 'INSERT INTO bitdb_r_citizen(Salutation,First_Name,Middle_Name,Last_Name,Name_Ext,Citizen_Email,Height,Weight,Birthdate,Birth_Place,Nationality,Res_Status,Civil_Status,Occupation,Gender,Blood_Type,House_No,Street,Zone,Person_Con,Contact,Date_Rec) VALUES("'.$Salutation.'","'.$First_Name.'","'.$Middle_Name.'","'.$Last_Name.'","'.$Name_Ext.'","'.$Email.'","'.$Height.'","'.$Weight.'","'.$Birthdate.'","'.$Birth_Place.'","'.$Nationality.'",'.$Res_Status.',"'.$Civil_Status.'","'.$Occupation.'","'.$Gender.'","'.$Blood_Type.'","'.$House_No.'","'.$Street.'","'.$Zone.'","'.$Person_Con.'","'.$Contact.'",CURRENT_DATE)';
 	

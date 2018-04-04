@@ -166,19 +166,19 @@
                                 <h4 class="card-inside-title hide">CitizenID</h4>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
-                                        <input id="assignCitizenID" type="text" class="form-control hide" name="CitizenID" required/>
+                                        <input id="assignCitizenID" type="text" class="form-control hide" name="CitizenID" required>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title hide">BarangayOfficialID</h4>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
-                                        <input id="assignOfficialID" type="text" class="form-control hide" name="OfficialID" required/>
+                                        <input id="assignOfficialID" type="text" class="form-control hide" name="OfficialID">
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Name</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="assignName" type="text" class="form-control" name="Name" disabled/>
+                                        <input id="assignName" type="text" class="form-control" name="Name" disabled>
                                     </div>
                                 </div>
                                 <h4 class="card-inside-title">Position For: </h4>

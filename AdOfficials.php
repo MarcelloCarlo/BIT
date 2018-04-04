@@ -5,7 +5,6 @@ $currentPage='AdOfficials';
 include('head.php'); 
 include('AdminNavbar.php'); 
 ?>
-
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -47,7 +46,29 @@ include('AdminNavbar.php');
 										<?php
 										include_once('dbconn.php');
 									 
-										$SelectOfficialSQL = "SELECT bitdb_r_barangayofficial.Brgy_Official_ID, bitdb_r_Citizen.Citizen_ID, bitdb_r_barangayposition.PosID, bitdb_r_citizen.Salutation, bitdb_r_citizen.First_Name, IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name, bitdb_r_citizen.Last_Name, IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext, bitdb_r_citizen.Gender, bitdb_r_citizen.Birthdate, bitdb_r_citizen.Street, bitdb_r_citizen.Zone, bitdb_r_barangayposition.PosName FROM bitdb_r_barangayofficial INNER JOIN bitdb_r_citizen ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID INNER JOIN bitdb_r_barangayposition ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID WHERE bitdb_r_barangayposition.PosStat = 1 AND bitdb_r_citizen.Res_Status = 1";
+										$SelectOfficialSQL = "SELECT 
+                                                                    bitdb_r_barangayofficial.Brgy_Official_ID,
+                                                                    bitdb_r_Citizen.Citizen_ID, 
+                                                                    bitdb_r_barangayposition.PosID, 
+                                                                    bitdb_r_citizen.Salutation, 
+                                                                    bitdb_r_citizen.First_Name, 
+                                                                    IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name, 
+                                                                    bitdb_r_citizen.Last_Name, 
+                                                                    IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext, 
+                                                                    bitdb_r_citizen.Gender, 
+                                                                    bitdb_r_citizen.Birthdate, 
+                                                                    bitdb_r_citizen.Street, 
+                                                                    bitdb_r_barangayzone.Zone, 
+                                                                    bitdb_r_barangayposition.PosName 
+                                                            FROM    bitdb_r_barangayofficial 
+                                                            INNER JOIN bitdb_r_citizen 
+                                                                ON bitdb_r_citizen.Citizen_ID = bitdb_r_barangayofficial.CitizenID 
+                                                            INNER JOIN bitdb_r_barangayposition 
+                                                                ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID 
+                                                            INNER JOIN bitdb_r_barangayzone
+                                                                ON bitdb_r_citizen.Zone = bitdb_r_barangayzone.ZoneID
+                                                            WHERE bitdb_r_barangayposition.PosStat = 1 
+                                                                AND bitdb_r_citizen.Res_Status = 1";
 										
 										$SelectOfficialQuery = mysqli_query($bitMysqli,$SelectOfficialSQL) or die(mysqli_error($bitMysqli));
 										if (mysqli_num_rows($SelectOfficialQuery) > 0)
@@ -132,7 +153,7 @@ include('AdminNavbar.php');
 
                                   <h4>Position</h4>
                                     <select id="PositionOption" class="form-control browser-default" name="PositionName">
-                                            <option value="None">None</option>
+                                            <option value="">None</option>
                                             <?php
                                                 include_once('dbconn.php');
 

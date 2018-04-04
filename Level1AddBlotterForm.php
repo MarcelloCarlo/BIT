@@ -5,12 +5,50 @@
 	$IncidentArea = $_POST['IncidentArea'];
 	$ComplaintDate = $_POST['ComplaintDate'];
 	$Complainant = $_POST['Complainant'];
-	$AccusedID = $_POST['AccusedID'];
 	$Accused = $_POST['Accused'];
 	$BlotterType = $_POST['Subject'];
 	$ComplaintStatement = $_POST['ComplaintStatement'];
 
-	$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter(IncidentDate,IncidentArea,ComplaintDate,Complainant,Accused,ComplaintStatement,ComplaintStatus,BlotterType) VALUES ("'.$IncidentDate.'",'.$IncidentArea.',"'.$ComplaintDate.'","'.$Complainant.'",'.$AccusedID.',"'.$ComplaintStatement.'",1,'.$BlotterType.')';
+	if($_POST['AccusedID'] == '')
+	{
+		$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter
+												(IncidentDate,
+												IncidentArea,
+												ComplaintDate,
+												Complainant,
+												ComplaintStatement,
+												ComplaintStatus,
+												BlotterType) 
+										VALUES ("'.$IncidentDate.'",
+												'.$IncidentArea.',
+												"'.$ComplaintDate.'",
+												"'.$Complainant.'",
+												"'.$ComplaintStatement.'",
+												1,
+												'.$BlotterType.')';
+	}
+	else
+	{
+		$AccusedID = $_POST['AccusedID'];
+		$Level1AddBlotterSQL = 'INSERT INTO bitdb_r_blotter
+												(IncidentDate,
+												IncidentArea,
+												ComplaintDate,
+												Complainant,
+												Accused,
+												ComplaintStatement,
+												ComplaintStatus,
+												BlotterType) 
+										VALUES ("'.$IncidentDate.'",
+												'.$IncidentArea.',
+												"'.$ComplaintDate.'",
+												"'.$Complainant.'",
+												'.$AccusedID.',
+												"'.$ComplaintStatement.'",
+												1,
+												'.$BlotterType.')';
+	}
+	
 	$Level1AddBlotterQuery = mysqli_query($bitMysqli,$Level1AddBlotterSQL) or die (mysqli_error($bitMysqli));
 
 	if($_POST['Summon'] == "Active")

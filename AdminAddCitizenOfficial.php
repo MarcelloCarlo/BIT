@@ -95,7 +95,7 @@
 										"'.$Birthdate.'",
 										"'.$Birth_Place.'",
 										"'.$Nationality.'",
-										'.$Res_Status.',
+										1,
 										"'.$Civil_Status.'",
 										"'.$Occupation.'",
 										"'.$Gender.'",

@@ -195,6 +195,7 @@
                                       <label class="form-label">Project</label>
                                       <div class="form-group form-float">
                                               <select id="ProjectItem" class="form-control show-tick">
+                                                <option value="">Select Project</option>
                                                   <?php
                                                       include_once('dbconn.php');
 
@@ -464,7 +465,7 @@
                                   <label class="form-label">Project</label>
                                   <div class="form-group form-float">
                                           <select id="ProjectDonationItem" class="form-control show-tick">
-                                              <option value="">-- Select Project --</option>
+                                              <option value="">Select Project</option>
                                               <?php
                                                   include_once('dbconn.php');
                                                   if(isset($_GET['Project']))
@@ -765,7 +766,7 @@
                             <label class="form-label hide">Project ID</label>
                             <div class="form-group form-float hide">
                                 <div class="form-line hide">
-                                    <input id="addProjectID" type="text" class="form-control hide" name="ProjectID"/>
+                                    <input id="addProjectID" type="text" value="<?php echo $_GET['Project']; ?>" class="form-control hide" name="ProjectID"/>
                                 </div>
                             </div>
                             <div class="form-group form-float">
