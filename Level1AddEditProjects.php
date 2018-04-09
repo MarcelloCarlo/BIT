@@ -847,7 +847,7 @@
                             <label class="form-label hide">Project ID</label>
                             <div class="form-group form-float hide">
                                 <div class="form-line hide">
-                                    <input id="editProjectID" type="text" class="form-control hide" name="ProjectID"/>
+                                    <input id="editProjectID" value="<?php echo $_GET['Project']?>" type="text" class="form-control hide" name="ProjectID"/>
                                 </div>
                             </div>
                             <label class="form-label hide">Activity ID</label>
@@ -859,7 +859,7 @@
                             <label class="form-label">Activity Name</label>
                             <div class="form-group form-float">
                                 <div class="form-line">
-                                    <input id="editActivityName" type="text" class="form-control" name="ActivityName"/>
+                                    <input id="editActivityName" type="text" class="form-control" name="editActivityName"/>
                                 </div>
                             </div>
                             <label class="form-label">Description</label>
