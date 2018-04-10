@@ -107,6 +107,10 @@
                                                         <td>'.$SummonPlace.'</td>
                                                         <td>'.$SummonSched.'</td>
                                                         <td>'.$SummonStatus.'</td>
+                                                    ';
+                                                if($SummonStatus == "Closed")
+                                                {
+                                                    echo'
                                                         <td>
                                                             <button type="button" class="btn btn-success waves-effect editDetails" data-toggle="modal" data-target="#editSummonModal">
                                                                 <i class="material-icons">mode_edit</i>
@@ -115,6 +119,25 @@
                                                         </td>
                                                     </tr>
                                                     ';
+                                                }
+                                                else
+                                                {
+                                                    echo'
+                                                        <td>
+                                                            <button type="button" class="btn btn-primary waves-effect IssueModal" data-toggle="modal" data-target="#issuance1">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>ISSUE</span></a>
+                                                            </button>
+                                                            </br></br>
+                                                            <button type="button" class="btn btn-success waves-effect editDetails" data-toggle="modal" data-target="#editSummonModal">
+                                                                <i class="material-icons">mode_edit</i>
+                                                                <span>EDIT</span>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    ';
+                                                }
+                                                
                                             }
                                         }
                                    ?>
@@ -197,5 +220,12 @@
                 console.log($(this).closest("tbody tr").find("td:eq(0)").html());
             });
         });
-
+         $(document).ready(function()
+        {
+            $(".IssueModal").click(function()
+            {
+                printWindow = window.open(`IssuanceCerts/batch2/patawag.php?SummonID=${$(this).closest("tbody tr").find("td:eq(0)").html()}`);
+                    printWindow.print();
+            });
+        });
     </script>

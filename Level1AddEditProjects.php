@@ -908,6 +908,14 @@
                                     <input type="radio" name="ActStat" id="editActI" value="Inactive" class="with-gap">
                                     <label for="editActI" class="m-l-20">No</label>
                                 </div>
+                            <div id="InactiveDiv" class="hide">
+                              <label class="form-label">Condition for Inactiveness</label>
+                              <div class="form-group form-float">
+                                  <div class="form-line">
+                                      <input id="editInactive" type="text" class="form-control" name="ProjectInactive"/>
+                                  </div>
+                              </div>
+                            </div>
                         </div>
                         <br/>
                     </div>
@@ -1287,6 +1295,9 @@ $(document).ready(function(){
                 $("#editGiven").val($(this).closest("tbody tr").find("td:eq(4)").html());
                 $("#editRecorded").val($(this).closest("tbody tr").find("td:eq(5)").html());
             });
+    $("#editActI").click(function(){
+      console.log("OLOL");
+    });
 });
 </script>
 
