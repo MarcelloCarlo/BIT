@@ -139,19 +139,21 @@
                             <h2>
                                 Add Ordinance
                                 <br/>
-                                <button type="button" class="btn btn-success waves-effect"> Import from Excel</button>
+                                <!-- <button type="button" class="btn btn-success waves-effect"> Import from Excel</button> -->
                             </h2>
                         </div>
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
-                                <h4 class="card-inside-title">Title</h4>
+                               <!--  <h4 class="card-inside-title">Title</h4> -->
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input name="OrdTitle" type="text" class="form-control" />
                                         <label class="form-label">Title</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Category</h4>
+                             <div>
+                                <!-- <h4 class="card-inside-title">Category</h4> -->
+                                 <label class="form-label">Category</label>
                                 <select class="form-control show-tick" name="OrdCategory">
                                     <?php
                                     include_once('dbconn.php');
@@ -166,22 +168,28 @@
                                     }
                                     ?>
                                 </select>
-                                <h4 class="card-inside-title">Authors</h4>
+                                <br/><br/>
+                                <!-- <h4 class="card-inside-title">Authors</h4> -->
+                            </div>
+                            <div>
+                                <label class="form-label">Authors</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         
-                                        <input name="OrdAuthor" type="text" class="form-control" />
-                                        <label class="form-label">Authors</label>
+                                        <input name="OrdAuthor" type="text" class="form-control" data-role="tagsinput" />
+                                       <!--  <label class="form-label">Author Name</label> -->
                                     </div>
-                                </div>
-                                <h4 class="card-inside-title">Person Involve</h4>
+                                <br/>
+                               
+
+                                
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input name="Persons_Involved" type="text" class="form-control" />
-                                        <label class="form-label">Authors</label>
-                                    </div>
+<!-- Live search in officials here -->      <label class="form-label">Official Involved</label>
+                                   </div>
                                 </div>
-                                <h4 class="card-inside-title">Description</h4>
+                               
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <textarea name="OrdDesc" class="form-control" rows="6"></textarea>
@@ -189,14 +197,15 @@
                                     </div>
                                 </div>
                             </div>
-                                <h4 class="card-inside-title">Sanction</h4>
+                       
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <textarea name="OrdSanction" class="form-control" rows="6"></textarea>
                                         <label class="form-label">Sanction</label>
                                     </div>
                                 </div>
-                                <h4 class="card-inside-title">Date</h4>
+                               <!--  <h4 class="card-inside-title">Date</h4> -->
+                                  <label class="form-label">Date</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input name="DateImplemented" type="date" class="form-control" />
