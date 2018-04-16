@@ -1,0 +1,36 @@
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="www.barangayit.pupqc.net" resolutions="1x" timestamp="1523869892079">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="indigency-revised.css" crc="122994967" ref="indigency-revised"/>
+    <file name="ordinance-print.css" crc="4055593127" ref="ordinance-print"/>
+    <file name="index.css" crc="3859615121" ref="index"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:ordinance-print:indigency-revised"/>
+    <file name="museutils.js" crc="4232573551" ref="index:ordinance-print:indigency-revised"/>
+    <file name="whatinput.js" crc="86476730" ref="index:ordinance-print:indigency-revised"/>
+    <file name="museconfig.js" crc="4152223963" ref="index:ordinance-print:indigency-revised"/>
+    <file name="jquery.watch.js" crc="3844535323" ref="index:ordinance-print:indigency-revised"/>
+    <file name="require.js" crc="4234670167" ref="index:ordinance-print:indigency-revised"/>
+  </folder>
+  <folder name="images">
+    <file name="barangay logo.png" crc="3987647798" seo="true" ref="index:indigency-revised">
+      <caption webpage="index" alt=""/>
+      <caption webpage="indigency-revised" alt=""/>
+    </file>
+    <file name="provincelogo.png" crc="3870925005" seo="true" ref="index:ordinance-print:indigency-revised">
+      <caption webpage="index" alt=""/>
+      <caption webpage="indigency-revised" alt=""/>
+      <caption webpage="ordinance-print" alt=""/>
+    </file>
+    <file name="barangay logo117x119.png" crc="447412082" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="barangay logo94x91.png" crc="4088107419" seo="true" ref="ordinance-print">
+      <caption webpage="ordinance-print" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="4166685530" seo="true" mt="1520210228320" redirect="true"/>
+  <file name="ordinance-print.html" crc="98503971" seo="true" mt="1523869674038" redirect="true"/>
+  <file name="indigency-revised.html" crc="3893847601" seo="true" mt="1523868889894" redirect="true"/>
+</manifest>
