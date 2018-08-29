@@ -9,21 +9,20 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>ORDINANCES</h2>
-</div>
+            </div>
             <!-- Basic Examples -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
-                        <h2>
-                        EDIT ORDINANCES
-                        <small>The list of all ordinances of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small>
-                    <br/>
-                    </h2>
-                    <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
-                            <i class="material-icons">add_circle_outline</i>
-                            <span>ADD NEW</span>
-                        </button>
+                            <h2>
+                                EDIT ORDINANCES
+                                <small>The list of all ordinances of the barangay. Click "VIEW" to view all  or "Edit" to modify on the existing record </small><br/>
+                            </h2>
+                            <button type="button" class="btn bg-indigo waves-effect" data-toggle="modal" data-target="#addCitModal">
+                                <i class="material-icons">add_circle_outline</i>
+                                <span>ADD NEW</span>
+                            </button>
                          <!--   <button type="button" class="btn bg-indigo waves-effect">
                             <i class="material-icons">add_circle_outline</i>
                             <a  href="Level1AddCirtizen.php" style= "text-decoration: none;"> 
@@ -70,7 +69,6 @@
                                             $Level1OrdinanceSQL = 'SELECT   bitdb_r_ordinance.OrdinanceID,
                                                                             bitdb_r_ordinance.OrdinanceTitle,
                                                                             bitdb_r_ordinancecategory.OrdinanceTitle AS Category,
-                                                                            bitdb_r_ordinance.Author,
                                                                             bitdb_r_ordinance.Persons_Involved,
                                                                             bitdb_r_ordinance.OrdDesc,
                                                                             bitdb_r_ordinance.DateImplemented,
@@ -87,7 +85,6 @@
                                                     $OrdID = $row['OrdinanceID'];
                                                     $OrdTitle = $row['OrdinanceTitle'];
                                                     $Category = $row['Category'];
-                                                    $Author = $row['Author'];
                                                     $PerInv = $row['Persons_Involved'];
                                                     $OrdDesc = $row['OrdDesc'];
                                                     $Date = $row['DateImplemented'];
@@ -106,16 +103,30 @@
                                                                 <td class="hide">'.$OrdID.'</td>
                                                                 <td>'.$OrdTitle.'</td>
                                                                 <td>'.$Category.'</td>
-                                                                <td>'.$Author.'</td>
+                                                                <td>';
+                                                    $SelectAuthorSQL = 'SELECT * FROM bitdb_r_ordinanceauthor WHERE OrdinanceID ='.$OrdID.' AND Status=1 ';
+                                                    $SelectAuthorQuery = mysqli_query($bitMysqli,$SelectAuthorSQL) or die (mysqli_error($bitMysqli));
+                                                    if(mysqli_num_rows($SelectAuthorQuery) > 0)
+                                                    {
+                                                        while($row2 = mysqli_fetch_assoc($SelectAuthorQuery))
+                                                        {
+                                                            echo'
+                                                                    <span class="tag label label-info">'.$row2['Author'].'
+                                                                    </span></br>
+                                                                ';
+                                                        }
+                                                    }
+                                                    
+                                                    echo '      </td>
                                                                 <td>'.$PerInv.'</td>
                                                                 <td>'.$OrdDesc.'</td>
                                                                 <td>'.$Sanction.'</td>
                                                                 <td>'.$Date.'</td>
                                                                 <td>'.$OrdStatus.'</td>
                                                                 <td>
-                                                                    <button type="button" class="btn btn-success waves-effect editOrd" data-toggle="modal" data-target="#editOrdModal">
-                                                                            <i class="material-icons">mode_edit</i>
-                                                                            <span>EDIT</span>
+                                                                    <button type="button" class="btn btn-primary waves-effect editOrd" data-toggle="modal" data-target="#">
+                                                                            <i class="material-icons">print</i>
+                                                                            <span>PRINT</span>
                                                                     </button>
                                                                 </td>
                                                             </tr>';
@@ -129,7 +140,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
         <form id="Level1AddOrdinance" action="Level1AddOrdinance.php" method="POST">
             <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
@@ -151,42 +161,40 @@
                                         <label class="form-label">Title</label>
                                     </div>
                                 </div>
-                             <div>
-                                <!-- <h4 class="card-inside-title">Category</h4> -->
-                                 <label class="form-label">Category</label>
-                                <select class="form-control show-tick" name="OrdCategory">
-                                    <?php
-                                    include_once('dbconn.php');
-                                    $CategorySQL = "SELECT * FROM bitdb_r_ordinancecategory";
-                                    $CategoryQuery = mysqli_query($bitMysqli,$CategorySQL) or die(mysqli_error($bitMysqli));
-                                    if(mysqli_num_rows($CategoryQuery) > 0)
-                                    {
-                                        while($row = mysqli_fetch_assoc($CategoryQuery))
+                                <div class="form-group">
+                                    <!-- <h4 class="card-inside-title">Category</h4> -->
+                                    <label class="form-label">Category</label>
+                                    <select class="form-control show-tick" name="OrdCategory">
+                                        <?php
+                                        include_once('dbconn.php');
+                                        $CategorySQL = "SELECT * FROM bitdb_r_ordinancecategory";
+                                        $CategoryQuery = mysqli_query($bitMysqli,$CategorySQL) or die(mysqli_error($bitMysqli));
+                                        if(mysqli_num_rows($CategoryQuery) > 0)
                                         {
-                                            echo '<option>'.$row['OrdinanceTitle'].'</option>';
+                                            while($row = mysqli_fetch_assoc($CategoryQuery))
+                                            {
+                                                echo '<option>'.$row['OrdinanceTitle'].'</option>';
+                                            }
                                         }
-                                    }
-                                    ?>
-                                </select>
-                                <br/><br/>
-                                <!-- <h4 class="card-inside-title">Authors</h4> -->
-                            </div>
-                            <div>
-                                <label class="form-label">Authors</label>
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        
-                                        <input name="OrdAuthor" type="text" class="form-control" data-role="tagsinput" />
-                                       <!--  <label class="form-label">Author Name</label> -->
+                                        ?>
+                                    </select>
+                                    <br/><br/>
+                                    <!-- <h4 class="card-inside-title">Authors</h4> -->
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Authors</label>
+                                    <div class="form-group form-float">
+                                        <div class="form-line">
+                                            <input name="OrdAuthor" type="text" class="form-control" data-role="tagsinput" />
+                                           <!--  <label class="form-label">Author Name</label> -->
+                                        </div>
+                                        <br/>
                                     </div>
-                                <br/>
-                               
-
-                                
+                                </div>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input name="Persons_Involved" type="text" class="form-control" />
-<!-- Live search in officials here -->      <label class="form-label">Official Involved</label>
+                                        <label class="form-label">Official Involved</label>
                                    </div>
                                 </div>
                                
@@ -196,7 +204,6 @@
                                         <label class="form-label">Description</label>
                                     </div>
                                 </div>
-                            </div>
                        
                                 <div class="form-group form-float">
                                     <div class="form-line">
@@ -205,7 +212,7 @@
                                     </div>
                                 </div>
                                <!--  <h4 class="card-inside-title">Date</h4> -->
-                                  <label class="form-label">Date</label>
+                                <label class="form-label">Date</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input name="DateImplemented" type="date" class="form-control" />
@@ -223,14 +230,12 @@
                                 </div>
                             </div>
                             <br/>
+                        </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-link waves-effect">ADD</button>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
-                </div>
-        </div>
-</form>
                 </div>
             </div>
         </form>
@@ -245,9 +250,8 @@
                             <small>Modify Position Fields</small>
                         </h2>
                     </div>
-                    
-                        <div class="modal-body">
-                            <div class="row clearfix margin-0">
+                    <div class="modal-body">
+                        <div class="row clearfix margin-0">
                                 <h4 class="card-inside-title hide">ID</h4>
                                 <div class="form-group form-float hide">
                                     <div class="form-line hide">
@@ -280,7 +284,42 @@
                                 <h4 class="card-inside-title">Authors</h4>
                                 <div class="form-group form-float">
                                     <div class="form-line">
-                                        <input id="editOrdAuthors" name="OrdAuthor" type="text" class="form-control" />
+                                       <!--  <input  type="text" class="form-control" data-role="tagsinput" /> -->
+                                        <div class="bootstrap-tagsinput">
+                                            <?php
+                                            include_once('dbconn.php');
+                                            // if(isset($_GET['Ord']))
+                                            // {
+                                            //     $TagSQL = 'SELECT * FROM bitdb_r_ordinanceauthor WHERE OrdinanceID='.$_GET['Ord'].' ';
+                                            //     $TagQuery = mysqli_query($bitMysqli,$TagSQL) or die (mysqli_error($bitMysqli));
+                                            //     if(mysqli_num_rows($TagQuery) > 0)
+                                            //     {
+                                            //         while($row = mysqli_fetch_assoc($TagQuery));
+                                            //         {
+                                            //            echo'<span class="tag label label-info">'.$row['Author'].'
+                                            //                     <span data-role="remove"></span>
+                                            //                 </span> ';
+                                            //         }
+                                            //     }
+                                            // }
+                                            // else
+                                            // {
+                                            //     $TagSQL = 'SELECT * FROM bitdb_r_ordinanceauthor';
+                                            //     $TagQuery = mysqli_query($bitMysqli,$TagSQL) or die (mysqli_error($bitMysqli));
+                                            //     if(mysqli_num_rows($TagQuery) > 0)
+                                            //     {
+                                            //         while($row = mysqli_fetch_assoc($TagQuery));
+                                            //         {
+                                            //            echo'<span class="tag label label-info">'.$row['Author'].'
+                                            //                     <span data-role="remove"></span>
+                                            //                 </span> ';
+                                            //         }
+                                            //     }
+                                            // }
+                                           echo '<h2>'.$_GET['Ord'].'</h2>';
+                                            ?>
+                                        </div>
+                                        <input name="OrdAuthor" class="form-control" data-role="tagsinput" type="text" placeholder="" size="1">
                                         <!-- <label class="form-label">Authors</label> -->
                                     </div>
                                 </div>
@@ -323,11 +362,11 @@
                                 </div>
                             </div>
                             <br/>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-link waves-effect">UPDATE</button>
-                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
-                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-link waves-effect">UPDATE</button>
+                        <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -337,24 +376,34 @@
 
 
 <?php include('footer.php'); ?>
+        <!-- // $(document).ready(function() {
+            //     $(".editOrd").click(function() {
 
+            //         // history.replaceState(null, null,location.href+'&Ord='+$(this).closest("tbody tr").find("td:eq(0)").html());
+            //         window.history.replaceState({}, document.title, "http://localhost/BIT/Level1AddEditOrdinance.php?id=10&pos=1&Ord=" + $(this).closest("tbody tr").find("td:eq(0)").html());
+
+            //         $("#editOrdID").val($(this).closest("tbody tr").find("td:eq(0)").html());
+            //         $("#editOrdTitle").val($(this).closest("tbody tr").find("td:eq(1)").html());
+            //         $("#editOrdCategory").val($(this).closest("tbody tr").find("td:eq(2)").html());
+            //         $("#editOrdPerInv").val($(this).closest("tbody tr").find("td:eq(4)").html());
+            //         $("#editOrdDesc").val($(this).closest("tbody tr").find("td:eq(5)").html());
+            //         $("#editOrdSanction").val($(this).closest("tbody tr").find("td:eq(6)").html());
+            //         $("#editOrdDate").val($(this).closest("tbody tr").find("td:eq(7)").html());
+            //         if ($(this).closest("tbody tr").find("td:ehistory.pushState(null, null, '?Project='+$('#ProjectItem').val());q(8)").text() === "Active") {
+            //             $("#editOrdA").prop("checked", true).trigger('click');
+            //         } else 
+            //         {
+            //             $("#editOrdI").prop("checked", true).trigger('click');
+            //         }
+            //             });
+            //         }); -->
         <script type="text/javascript">
-            $(document).ready(function() {
-                $(".editOrd").click(function() {
-                    $("#editOrdID").val($(this).closest("tbody tr").find("td:eq(0)").html());
-                    $("#editOrdTitle").val($(this).closest("tbody tr").find("td:eq(1)").html());
-                    $("#editOrdCategory").val($(this).closest("tbody tr").find("td:eq(2)").html());
-                    $("#editOrdAuthors").val($(this).closest("tbody tr").find("td:eq(3)").html());
-                    $("#editOrdPerInv").val($(this).closest("tbody tr").find("td:eq(4)").html());
-                    $("#editOrdDesc").val($(this).closest("tbody tr").find("td:eq(5)").html());
-                    $("#editOrdSanction").val($(this).closest("tbody tr").find("td:eq(6)").html());
-                    $("#editOrdDate").val($(this).closest("tbody tr").find("td:eq(7)").html());
-                    if ($(this).closest("tbody tr").find("td:eq(8)").text() === "Active") {
-                        $("#editOrdA").prop("checked", true).trigger('click');
-                    } else 
-                    {
-                        $("#editOrdI").prop("checked", true).trigger('click');
-                    }
-                        });
-                    });
+            $(document).ready(function()
+            {
+                $(".editOrd").click(function()
+                {
+                    printWindow = window.open(`IssuanceCerts/batch3/ordinance-print.php?OrdinanceID=${$(this).closest("tbody tr").find("td:eq(0)").html()}`);
+                        printWindow.print();
+                });
+            });
         </script>

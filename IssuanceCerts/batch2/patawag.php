@@ -131,7 +131,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                   INNER JOIN bitdb_r_citizen
                   ON bitdb_r_blotter.Accused = bitdb_r_citizen.Citizen_ID
                   INNER JOIN bitdb_r_barangayzone
-                  ON bitdb_r_citizen.Zone = bitdb_r_barangayzone.ZoneID';
+                  ON bitdb_r_citizen.Zone = bitdb_r_barangayzone.ZoneID
+                  WHERE bitdb_r_summons.SummonID ='.$_GET['SummonID'].' ';
     $DetailsQuery = mysqli_query($bitMysqli,$DetailsSQL) or die (mysqli_error($bitMysqli));
     if(mysqli_num_rows($DetailsQuery) > 0)
     {
