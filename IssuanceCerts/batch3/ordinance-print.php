@@ -120,6 +120,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                                 bitdb_r_ordinance.DateImplemented,
                                 bitdb_r_ordinance.OrdStatus,
                                 bitdb_r_ordinance.Sanction,
+                                bitdb_r_ordinance.Author,
                                 bitdb_r_ordinancecategory.OrdinanceTitle AS Category
                           FROM bitdb_r_ordinance 
                           INNER JOIN bitdb_r_ordinancecategory
@@ -149,7 +150,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                   <p>Authors: ______________________________________________________________</p>
                  </div>
                  <div class="clearfix grpelem" id="u2069-4">
-                  ';
+                  '.$row['Author']./* ;
             $AuthorSQL = 'SELECT bitdb_r_ordinanceauthor.Author FROM bitdb_r_ordinanceauthor WHERE bitdb_r_ordinanceauthor.OrdinanceID='.$_GET['OrdinanceID'].' ';
             $AuthorQuery = mysqli_query($bitMysqli,$AuthorSQL) or die ($bitMysqli);
             if(mysqli_num_rows($AuthorQuery) > 0)
@@ -161,7 +162,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
               }
               echo'</p>';
             }
-            echo  '
+            echo   */'
                  </div>
                 </div>
                 <div class="clearfix colelem" id="pu1905-4">

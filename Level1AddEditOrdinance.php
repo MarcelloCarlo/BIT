@@ -73,7 +73,8 @@
                                                                             bitdb_r_ordinance.OrdDesc,
                                                                             bitdb_r_ordinance.DateImplemented,
                                                                             bitdb_r_ordinance.OrdStatus,
-                                                                            bitdb_r_ordinance.Sanction
+                                                                            bitdb_r_ordinance.Sanction,
+                                                                            bitdb_r_ordinance.Author
                                                                     FROM bitdb_r_ordinance
                                                                     INNER JOIN bitdb_r_ordinancecategory
                                                                     ON bitdb_r_ordinance.CategoryID = bitdb_r_ordinancecategory.OrdCategoryID';
@@ -89,6 +90,7 @@
                                                     $OrdDesc = $row['OrdDesc'];
                                                     $Date = $row['DateImplemented'];
                                                     $Sanction = $row['Sanction'];
+                                                    $Author = $row['Author'];
 
                                                     if($row['OrdStatus'] == 1)
                                                     {
@@ -103,7 +105,7 @@
                                                                 <td class="hide">'.$OrdID.'</td>
                                                                 <td>'.$OrdTitle.'</td>
                                                                 <td>'.$Category.'</td>
-                                                                <td>';
+                                                                <td>'.$Author./* ;
                                                     $SelectAuthorSQL = 'SELECT * FROM bitdb_r_ordinanceauthor WHERE OrdinanceID ='.$OrdID.' AND Status=1 ';
                                                     $SelectAuthorQuery = mysqli_query($bitMysqli,$SelectAuthorSQL) or die (mysqli_error($bitMysqli));
                                                     if(mysqli_num_rows($SelectAuthorQuery) > 0)
@@ -117,7 +119,7 @@
                                                         }
                                                     }
                                                     
-                                                    echo '      </td>
+                                                    echo '   */    '</td>
                                                                 <td>'.$PerInv.'</td>
                                                                 <td>'.$OrdDesc.'</td>
                                                                 <td>'.$Sanction.'</td>
