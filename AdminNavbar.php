@@ -93,9 +93,10 @@
                 <div class="info-container">
                     <?php
                         include('dbconn.php');
-                        $ID = $_SESSION['Logged_In'];
-
-
+                        
+if (isset($_SESSION['Logged_In']))
+{
+    $ID = $_SESSION['Logged_In'];
                         $UserInfoSQL = 'SELECT bitdb_r_citizen.Salutation,
                                                 bitdb_r_citizen.First_Name,
                                                 IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
@@ -118,6 +119,18 @@
                                 echo '<div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$WName.'</div>
                                         <div class="email">'.$Pos.'</div>';
                             }
+                        } 
+}
+                        else {
+                            $WName = "Admin";
+                                $Pos = "System Admin";
+                            echo '<div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$WName.'</div>
+                            <div class="email">'.$Pos.'</div>';
+
+                        $_SESSION['Logged_In'] = "0";
+                        if(!isset($_SESSION['AccountUserType'])){
+                            $_SESSION['AccountUserType'] = "0";
+                        }
                         }
                     ?>                
                     

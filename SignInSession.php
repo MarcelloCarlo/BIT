@@ -2,6 +2,13 @@
 	include ("dbconn.php");
 	$User = $_POST['username'];
 	$Pass = $_POST['password'];
+
+	$dbh = new PDO('mysql:host=localhost;dbname=bitdb', 'root', '');
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$q = "SELECT AccountUserType 
+	FROM bitdb_r_barangayuseraccounts
+	WHERE AccountUsername = :usr AND AccountPassword = :pass";
+
 	if(empty($User) === true || empty($Pass) === true)
 	{
 		echo 'You need to enter a username and password';
@@ -63,10 +70,19 @@
 			else if ($_SESSION['AccountUserType'] == "0" && $OfficialPosName == "Admin" && $OfficialActUser == 1)
 			{
 				$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
-			}
-
-			else
+			} else
 			{   
+				/* $sth = $dbh->prepare($q);
+				$sth->bindParam(':id', $id);
+				// Execute statement
+				$sth->execute();
+				// Set fetch mode to FETCH_ASSOC to return an array indexed by column name
+				$sth->setFetchMode(PDO::FETCH_ASSOC);
+				// Fetch result
+				$result = $sth->fetchColumn(); */
+
+				 
+				
 	            //Development Build
 	            // $header = 'Location:/BRGYIT-UI/sign-in.php';
 	            //Testing and Deployment Build
@@ -81,10 +97,41 @@
 		}
 		else
 		{   
+
+
+			$stmt = $bitMysqli->prepare("SELECT AccountUserType 
+			FROM bitdb_r_barangayuseraccounts
+			WHERE AccountUsername = ? AND AccountPassword = ?");
+
+				// Bind a variable to the parameter as a string. 
+				$stmt->bind_param("ss", $User,$Pass);
+			 
+				// Execute the statement.
+				$stmt->execute();
+			 
+				// Get the variables from the query.
+				$stmt->bind_result($UsrTyp);
+			 
+				// Fetch the data.
+				$stmt->fetch();
+			 
+				// Display the data.
+				if ($UsrTyp == "0")
+				{
+					$_SESSION['Logged_In'] = $UsrTyp;
+					$_SESSION['AccountUserType'] = $UsrTyp;
+					$header = 'Location:/BIT/indexAdmin.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+				} else {
+					$header = 'Location:/BIT/sign-in.php';
+				}
+			 
+				// Close the prepared statement.
+				$stmt->close();
+			
             //Development Build
             // $header = 'Location:/BRGYIT-UI/sign-in.php';
             //Testing and Deployment Build
-			$header = 'Location:/BIT/sign-in.php';
+			//$header = 'Location:/BIT/sign-in.php';
 			
 		}
 		header($header);
