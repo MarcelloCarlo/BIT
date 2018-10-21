@@ -1,6 +1,6 @@
 <?php 
       session_start(); 
-      include('../../AdminConfig.php');
+      include('../../Level0_Config.php');
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
@@ -117,11 +117,13 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                               bitdb_r_citizen.Middle_Name,
                               bitdb_r_citizen.Last_Name,
                               bitdb_r_citizen.Name_Ext 
-                      FROM    bitdb_r_config 
-                      INNER JOIN bitdb_r_barangayofficial 
-                      ON  bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_config.Signatory
+                      FROM    bitdb_r_barangayofficial
+                      INNER JOIN bitdb_r_barangayposition
+                      ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
                       INNER JOIN bitdb_r_citizen
-                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID';
+                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                      WHERE bitdb_r_barangayposition.PosName LIKE "%captain%"
+                      AND bitdb_r_barangayofficial.Official_Status = 1';
         $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($CaptainQuery) > 0)
         {
@@ -241,11 +243,13 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                               bitdb_r_citizen.Middle_Name,
                               bitdb_r_citizen.Last_Name,
                               bitdb_r_citizen.Name_Ext 
-                      FROM    bitdb_r_config 
-                      INNER JOIN bitdb_r_barangayofficial 
-                      ON  bitdb_r_barangayofficial.Brgy_Official_ID = bitdb_r_config.Signatory
+                      FROM    bitdb_r_barangayofficial
+                      INNER JOIN bitdb_r_barangayposition
+                      ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
                       INNER JOIN bitdb_r_citizen
-                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID';
+                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                      WHERE bitdb_r_barangayposition.PosName LIKE "%captain%"
+                      AND bitdb_r_barangayofficial.Official_Status = 1';
         $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($CaptainQuery) > 0)
         {
@@ -287,26 +291,40 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
         }
       ?>
      </div>
-     <div class="clearfix grpelem" id="u516-4"><!-- content -->
-      <p>123</p>
-     </div>
      <div class="clearfix grpelem" id="u519-4"><!-- content -->
-      <p>Name ng Barangay, City of, Province</p>
+      <p><?php echo ''.$Barangay.', '.$Municipality.', '.$Province.' '?></p>
      </div>
      <div class="clearfix grpelem" id="u522-4"><!-- content -->
-      <p>Purpose of Indigency</p>
+      <p><?php echo $_GET['Purpose']; ?></p>
      </div>
+     <?php
+      $CertSQL = "SELECT DAY(IssuanceDate) AS DAY,
+                          MONTHNAME(IssuanceDate) AS MONTH,
+                          YEAR(IssuanceDate) AS YEAR
+                      FROM    bitdb_r_issuance
+                      WHERE   IssuanceID =".$_GET['Clearance']."";
+        $CertQuery = mysqli_query($bitMysqli,$CertSQL) or die (mysqli_error($bitMysqli));
+        if(mysqli_num_rows($CertQuery) > 0)
+        {
+          while($row3 = mysqli_fetch_assoc($CertQuery))
+          {
+            $Day = $row3['DAY'];
+            $Month = $row3['MONTH'];
+            $Year = $row3['YEAR'];
+          }
+        }
+     ?>
      <div class="clearfix grpelem" id="u528-4"><!-- content -->
-      <p>DAY#</p>
+      <p><?php echo $Day ?></p>
      </div>
      <div class="clearfix grpelem" id="u531-4"><!-- content -->
-      <p>Month Name</p>
+      <p><?php echo $Month ?></p>
      </div>
      <div class="clearfix grpelem" id="u534-4"><!-- content -->
-      <p>Year</p>
+      <p><?php echo $Year ?></p>
      </div>
      <div class="clearfix grpelem" id="u1305-4"><!-- content -->
-      <p>Barangay Address</p>
+      <p><?php echo ''.$Barangay.', '.$Municipality.', '.$Province.' '?></p>
      </div>
     </div>
     <div class="colelem" id="u499"><!-- simple frame --></div>

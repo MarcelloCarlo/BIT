@@ -2,9 +2,9 @@
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
     $currentPage = 'indexLevel1';
-    include('AdminConfig.php');
+    include('Level0_Config.php');
     include('head.php');
-    include('Level1Navbar.php');
+    include('Level1_Navbar.php');
  ?>
 
  <!-- Google Fonts -->
@@ -823,68 +823,69 @@
             </div>
                 <!-- #END# Donut Chart -->
         </div>
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top: 20px;">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        BARANGAY INFORMATION
-                        <small>Current Barangay information. Contact your System Administrator to modify this information.</small>
-                    </h2>
-                </div>
-                <div class="body">
-                    <div class="list-group">
-                        <a href="javascript:void(0);" class="list-group-item">
-                            <h4 class="list-group-item-heading">City/Municipality</h4>
-                            <p class="list-group-item-text">
-                                <?php echo $c_Type?>
-                            </p>
-                        </a>
-                        <a href="javascript:void(0);" class="list-group-item">
-                            <h4 class="list-group-item-heading">Independent/Component</h4>
-                            <p class="list-group-item-text">
-                                <?php echo $b_Type?>
-                            </p>
-                        </a>
-                        <a href="javascript:void(0);" class="list-group-item">
-                            <h4 class="list-group-item-heading">Province Name</h4>
-                            <p class="list-group-item-text">
-                                <?php echo $ProvinceName?>
-                            </p>
-                        </a>
-                        <a href="javascript:void(0);" class="list-group-item">
-                            <h4 class="list-group-item-heading">City/Municipality Name</h4>
-                            <p class="list-group-item-text">
-                                <?php echo $Municipality?>
-                            </p>
-                        </a>
-                        <a href="javascript:void(0);" class="list-group-item">
-                            <h4 class="list-group-item-heading">Barangay Name</h4>
-                            <p class="list-group-item-text">
-                                <?php echo $BarangayName?>
-                            </p>
-                        </a>
-                        <a href="javascript:void(0);" class="list-group-item">
-                            <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
-                            <p class="list-group-item-text">
-                                <?php echo $WName?>
-                            </p>
-                        </a>
-                        <?php 
-                            echo '
+        <div class="col-xs-12" style="margin-top: 20px">
+                <div class="card">
+                    <div class="header">
+                        <h2>
+                            BARANGAY SITE CONFIGURATION
+                            <small>List of currently stored Barangay information. Click "Update" below the list to modify</small>
+                        </h2>
+                    </div>
+                    <div class="body">
+                        <div class="list-group">
                             <a href="javascript:void(0);" class="list-group-item">
-                                <h4 class="list-group-item-heading">City/Municipal Seal</h4>
-                                <img src="images/'.$MunicipalSeal.'" alt="profile image" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                <h4 class="list-group-item-heading">Barangay Name</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $BarangayName;?>
+                                </p>
+                            </a>    
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">City/Municipality Name</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $Municipality;?>
+                                </p>
                             </a>
                             <a href="javascript:void(0);" class="list-group-item">
-                                <h4 class="list-group-item-heading">Barangay Seal</h4>
-                                <img src="images/'.$BarangaySeal.'" alt="profile image" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
-                                
-                            </a>';
-                        ?>
+                                <h4 class="list-group-item-heading">Province Name</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $ProvinceName;?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">City/Municipality</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $CityType;?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Independent/Component</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $BarangayType;?>
+                                </p>
+                            </a>
+                            <a href="javascript:void(0);" class="list-group-item">
+                                <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
+                                <p class="list-group-item-text">
+                                    <?php echo $FullName;?>
+                                </p>
+                            </a>
+                            <?php 
+                                echo '
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">City/Municipal Seal</h4>
+                                    <img src="images/'.$MunicipalSeal.'" alt="" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                </a>
+                                <a href="javascript:void(0);" class="list-group-item">
+                                    <h4 class="list-group-item-heading">Barangay Seal</h4>
+                                    <img src="images/'.$BarangaySeal.'" alt="" class="circle z-depth-2 responsive-img activator" style="width:100px; height:auto;">
+                                    
+                                </a>';
+                            ?>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         <div id="area_chart" class="graph hide"></div>
 </section>
 

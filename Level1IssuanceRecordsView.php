@@ -2,65 +2,9 @@
       session_start();
       $title = 'Welcome | BarangayIT MK.II';
       $currentPage = 'Level1IssuanceRecordsView';
-      include('headblock.php') ?>
-      <!-- Google Fonts -->
-         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
-         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
-         <!-- Offline Google Fonts -->
-         <link href="css/materialIcons.css" rel="stylesheet" type="text/css" />
-         <link href="css/robotoFont.css" rel="stylesheet" type="text/css" />
-
-         <!-- Bootstrap Core Css -->
-         <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
-
-         <!-- Waves Effect Css -->
-         <link href="plugins/node-waves/waves.css" rel="stylesheet" />
-
-         <!-- Animation Css -->
-         <link href="plugins/animate-css/animate.css" rel="stylesheet" />
-
-         <!-- Colorpicker Css -->
-         <link href="plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.css" rel="stylesheet" />
-
-         <!-- Dropzone Css -->
-         <link href="plugins/dropzone/dropzone.css" rel="stylesheet">
-
-         <!-- Multi Select Css -->
-         <link href="plugins/multi-select/css/multi-select.css" rel="stylesheet">
-
-         <!-- Bootstrap Spinner Css -->
-         <link href="plugins/jquery-spinner/css/bootstrap-spinner.css" rel="stylesheet">
-
-         <!-- Bootstrap Tagsinput Css -->
-         <link href="plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
-
-         <!-- Bootstrap Tagsinput Css -->
-         <link href="plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet">
-
-         <!-- JQuery DataTable Css -->
-         <link href="plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css" rel="stylesheet">
-
-         <!-- Custom Css -->
-         <link href="css/style.css" rel="stylesheet">
-
-         <!-- Wait Me Css -->
-         <link href="plugins/waitme/waitMe.css" rel="stylesheet" />
-
-         <!-- Bootstrap Select Css -->
-         <link href="plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
-
-         <!-- noUISlider Css -->
-         <link href="plugins/nouislider/nouislider.min.css" rel="stylesheet" />
-
-         <!-- Sweetalert Css -->
-         <link href="plugins/sweetalert/sweetalert.css" rel="stylesheet" />
-
-         <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
-         <link href="css/themes/all-themes.css" rel="stylesheet" />
-
-</head>
-<?php include('Level1Navbar.php');?>
+      include('head.php');
+      include('Level1_Navbar.php');
+?>
 <section class="content">
     <div class="container-fluid">
         <div class="block-header">
@@ -100,18 +44,7 @@
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th class="hide">Issuance ID</th>
-                                                <th class="hide">Citizen ID</th>
-                                                <th>Name</th>
-                                                <th class="hide">Issuance ID</th>
-                                                <th>Category</th>
-                                                <th>Purpose</th>
-                                                <th>Date Recorded</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </tfoot>
+                                        
                                         <tbody>
                                           <?php
                                             include_once('dbconn.php');
@@ -197,37 +130,27 @@
                                 </div>
                               </div>
                               <div role="tabpanel" class="tab-pane fade" id="business">
-                                  <div class="table-responsive">
-                                    <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th class="hide">Issuance ID</th>
-                                                <th class="hide">Business ID</th>
-                                                <th>Name</th>
-                                                <th class="hide">Issuance TypeID</th>
-                                                <th>Category</th>
-                                                <th>Date Recorded</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th class="hide">Issuance ID</th>
-                                                <th class="hide">Business ID</th>
-                                                <th>Name</th>
-                                                <th class="hide">Issuance TypeID</th>
-                                                <th>Category</th>
-                                                <th>Date Recorded</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                          <?php
-                                            include_once('dbconn.php');
+                                <div class="table-responsive">
+                                  <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                      <thead>
+                                          <tr>
+                                              <th class="hide">Issuance ID</th>
+                                              <th class="hide">Business ID</th>
+                                              <th>Name</th>
+                                              <th class="hide">Issuance TypeID</th>
+                                              <th>Category</th>
+                                              <th>Date Recorded</th>
+                                              <th>Actions</th>
+                                          </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                        <?php
+                                          include_once('dbconn.php');
                                             $BusinessSQL = "SELECT 
                                                                     bitdb_r_business.BusinessID,
                                                                     bitdb_r_business.Business_Name,
-                                                                    bitdb_r_business.Business_Loc,
+                                                                    bitdb_r_business.BusinessLoc,
                                                                     bitdb_r_business.Manager,
                                                                     bitdb_r_business.BusinessCategory,
                                                                     bitdb_r_issuance.IssuanceID,
@@ -238,70 +161,69 @@
                                                                 INNER JOIN bitdb_r_business
                                                                 ON bitdb_r_business.BusinessID = bitdb_r_issuance.BusinessID
                                                                 INNER JOIN bitdb_r_issuancetype
-                                                                ON bitdb_r_issuancetype.IssuanceID = bitdb_r_issuance.IssuanceType
-                                                                ";
-                                            $BusinessQuery = mysqli_query($bitMysqli,$CitizenSQL) or die(mysqli_error($bitMysqli));
-                                                if (mysqli_num_rows($BusinessQuery) > 0)
-                                                {
-                                                    while($row = mysqli_fetch_assoc($CitizenQuery))
-                                                    {   
-                                                        $IssuanceID = $row['IssuanceID'];
-                                                        $BusinessID = $row['BusinessID'];
-                                                        $BusinessName = $row['Business_Name'];
-                                                        $IssuanceTypeID = $row['IssuanceTypeID'];
-                                                        $IssuanceType = $row['IssuanceType'];
-                                                        $IssuanceDate = $row['IssuanceDate'];
+                                                                ON bitdb_r_issuancetype.IssuanceID = bitdb_r_issuance.IssuanceType";
+                                          $BusinessQuery = mysqli_query($bitMysqli,$BusinessSQL) or die(mysqli_error($bitMysqli));
+                                              if (mysqli_num_rows($BusinessQuery) > 0)
+                                              {
+                                                while($row2 = mysqli_fetch_assoc($BusinessQuery))
+                                                {   
+                                                  $BIssuanceID = $row2['IssuanceID'];
+                                                  $BusinessID = $row2['BusinessID'];
+                                                  $BusinessName = $row2['Business_Name'];
+                                                  $BIssuanceTypeID = $row2['IssuanceTypeID'];
+                                                  $BIssuanceType = $row2['IssuanceType'];
+                                                  $BIssuanceDate = $row2['IssuanceDate'];
 
-                                                        echo
-                                                        '<tr>
-                                                            <td class="hide">'.$IssuanceID.'</td>
-                                                            <td class="hide">'.$BusinessID.'</td>
-                                                            <td>'.$BusinessName.'</td>
-                                                            <td class="hide">'.$IssuanceTypeID.'</td>
-                                                            <td>'.$IssuanceType.'</td>
-                                                            <td>'.$IssuanceDate.'</td>';
-                                                            
-                                                        $ButtonShowSQL = 'SELECT * FROM bitdb_r_issuance INNER JOIN bitdb_r_business ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID WHERE bitdb_r_business.BusinessID ='.$BusinessID.' AND bitdb_r_issuance.IssuanceDate < CURRENT_DATE';
-                                                        $ButtonShowQuery = mysqli_query($bitMysqli,$ButtonShowSQL) or die (mysqli_error($bitMysqli));
-                                                        if(mysqli_num_rows($ButtonShowQuery) > 0)
-                                                        {
-                                                            echo '
-                                                        <td>  
-                                                            <button type="button" class="btn btn-success waves-effect">
-                                                                <i class="material-icons">bookmark</i>
-                                                                <span>ACTIVE</span></a>
-                                                            </button>
+                                                  echo
+                                                  '<tr>
+                                                      <td class="hide">'.$BIssuanceID.'</td>
+                                                      <td class="hide">'.$BusinessID.'</td>
+                                                      <td>'.$BusinessName.'</td>
+                                                      <td class="hide">'.$BIssuanceTypeID.'</td>
+                                                      <td>'.$BIssuanceType.'</td>
+                                                      <td>'.$BIssuanceDate.'</td>';
+                                                      
+                                                  $ButtonShowSQL = 'SELECT * FROM bitdb_r_issuance INNER JOIN bitdb_r_business ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID WHERE bitdb_r_business.BusinessID ='.$BusinessID.' AND bitdb_r_issuance.IssuanceDate < CURRENT_DATE';
+                                                  $ButtonShowQuery = mysqli_query($bitMysqli,$ButtonShowSQL) or die (mysqli_error($bitMysqli));
+                                                  if(mysqli_num_rows($ButtonShowQuery) > 0)
+                                                  {
+                                                      echo '
+                                                  <td>  
+                                                      <button type="button" class="btn btn-success waves-effect">
+                                                          <i class="material-icons">bookmark</i>
+                                                          <span>ACTIVE</span></a>
+                                                      </button>
 
-                                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                <span>EDIT</span></a>
-                                                            </button>
-                                                            </td>
-                                                        </tr>';
-                                                        }
-                                                        else
-                                                        {
-                                                            echo '
-                                                        <td>  
-                                                            <button type="button" class="btn btn-primary waves-effect BusinessModal" data-toggle="modal" data-target="#issuance1">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                <span>ISSUE</span></a>
-                                                            </button>
+                                                      <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
+                                                          <i class="material-icons">mode_edit</i>
+                                                          <span>EDIT</span></a>
+                                                      </button>
+                                                      </td>
+                                                  </tr>';
+                                                  }
+                                                  else
+                                                  {
+                                                      echo '
+                                                  <td>  
+                                                      <button type="button" class="btn btn-primary waves-effect BusinessModal" data-toggle="modal" data-target="#issuance1">
+                                                          <i class="material-icons">mode_edit</i>
+                                                          <span>ISSUE</span></a>
+                                                      </button>
 
-                                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                <span>EDIT</span></a>
-                                                            </button>
-                                                        </td>
-                                                        </tr>';
-                                                        }
-                                                    }
+                                                      <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
+                                                          <i class="material-icons">mode_edit</i>
+                                                          <span>EDIT</span></a>
+                                                      </button>
+                                                  </td>
+                                                  </tr>';
+                                                  }
                                                 }
-                                            ?>
-                                        </tbody>
+                                              }
+                                          ?>
+                                      </tbody>
                                     </table>
+                                  </div>
                                 </div>
-                              </div>
                           </div>
                       </div>
                   </div>

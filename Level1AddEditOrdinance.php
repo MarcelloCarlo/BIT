@@ -3,7 +3,7 @@
     $title = 'Welcome | BarangayIT MK.II'; 
     $currentPage = 'Level1AddEditOrdinance';
     include('head.php');
-    include('Level1Navbar.php'); 
+    include('Level1_Navbar.php'); 
 ?>
  <section class="content">
         <div class="container-fluid">
@@ -39,29 +39,15 @@
                                             <th>Title</th>
                                             <th>Category</th>
                                             <th>Authors</th>
+                                            <th class="hide">PerInv</th>
                                             <th>Persons Involved</th>
-                                            <th>Description</th>
-                                            <th>Sanction</th>
+                                            <th class="hide">Description</th>
+                                            <th class="hide">Sanction</th>
                                             <th>Date of Implementation</th>
                                             <th>Status</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-
-                                        <tr>
-                                            <th class="hide">Ordinance ID</th>
-                                            <th>Title</th>
-                                            <th>Category</th>
-                                            <th>Authors</th>
-                                            <th>Persons Involved</th>
-                                            <th>Description</th>
-                                            <th>Sanction</th>
-                                            <th>Date of Implementation</th>                                            
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                     <?php
                                             include_once('dbconn.php');
@@ -74,10 +60,19 @@
                                                                             bitdb_r_ordinance.DateImplemented,
                                                                             bitdb_r_ordinance.OrdStatus,
                                                                             bitdb_r_ordinance.Sanction,
-                                                                            bitdb_r_ordinance.Author
+                                                                            bitdb_r_ordinanceauthor.Author,
+                                                                            bitdb_r_ordinance.Persons_Involved,
+                                                                            IFNULL(bitdb_r_citizen.First_Name,"") AS First_Name,
+                                                                            IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
+                                                                            IFNULL(bitdb_r_citizen.Last_Name,"") AS Last_Name,
+                                                                            IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext
                                                                     FROM bitdb_r_ordinance
                                                                     INNER JOIN bitdb_r_ordinancecategory
-                                                                    ON bitdb_r_ordinance.CategoryID = bitdb_r_ordinancecategory.OrdCategoryID';
+                                                                        ON bitdb_r_ordinance.CategoryID = bitdb_r_ordinancecategory.OrdCategoryID
+                                                                    INNER JOIN bitdb_r_ordinanceauthor
+                                                                        ON bitdb_r_ordinance.OrdinanceID = bitdb_r_ordinanceauthor.OrdinanceID
+                                                                    LEFT JOIN bitdb_r_citizen
+                                                                        ON bitdb_r_citizen.Citizen_ID = bitdb_r_ordinance.Persons_Involved';
                                             $Level1OrdinanceQuery = mysqli_query($bitMysqli,$Level1OrdinanceSQL) or die (mysqli_error($bitMysqli));
                                             if(mysqli_num_rows($Level1OrdinanceQuery) > 0)
                                             {
@@ -87,6 +82,7 @@
                                                     $OrdTitle = $row['OrdinanceTitle'];
                                                     $Category = $row['Category'];
                                                     $PerInv = $row['Persons_Involved'];
+                                                    $PersonInvolve = ''.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].'';
                                                     $OrdDesc = $row['OrdDesc'];
                                                     $Date = $row['DateImplemented'];
                                                     $Sanction = $row['Sanction'];
@@ -120,9 +116,10 @@
                                                     }
                                                     
                                                     echo '   */    '</td>
-                                                                <td>'.$PerInv.'</td>
-                                                                <td>'.$OrdDesc.'</td>
-                                                                <td>'.$Sanction.'</td>
+                                                                <td class="hide">'.$PerInv.'</td>
+                                                                <td>'.$PersonInvolve.'</td>
+                                                                <td class="hide">'.$OrdDesc.'</td>
+                                                                <td class="hide">'.$Sanction.'</td>
                                                                 <td>'.$Date.'</td>
                                                                 <td>'.$OrdStatus.'</td>
                                                                 <td>
@@ -143,7 +140,7 @@
                 </div>
             </div>
         </div>
-        <form id="Level1AddOrdinance" action="Level1AddOrdinance.php" method="POST">
+        <form id="Level1AddOrdinance" action="Level1_AddOrdinance.php" method="POST">
             <div class="modal fade" id="addCitModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -194,9 +191,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-float">
+                                    <label class="form-label">Official Involved</label>
                                     <div class="form-line">
-                                        <input name="Persons_Involved" type="text" class="form-control" />
+                                        <input id="OfficersInv" type="text" class="form-control"/>
+                                        <input id="OfficersInvID" name="Persons_Involved" type="text" class="form-control hide"/>
                                         <label class="form-label">Official Involved</label>
+                                        <div id="OfficerList1">
+
+                                        </div>
                                    </div>
                                 </div>
                                
@@ -407,5 +409,34 @@
                     printWindow = window.open(`IssuanceCerts/batch3/ordinance-print.php?OrdinanceID=${$(this).closest("tbody tr").find("td:eq(0)").html()}`);
                         printWindow.print();
                 });
+                $("#OfficersInv").on('keyup',function(){
+
+                    var Search = $("#OfficersInv").val();
+                    $('#OfficerList1 label').remove();
+
+                    if($("#OfficersInv").val() == "")
+                    {
+                        $('#OfficerList1').empty();
+                    }
+                    else
+                    {
+                        $.ajax({
+                            type: "POST",
+                            url: 'Level1_SearchOfficer.php', 
+                            data: { Search:Search },
+                            success: function(data) 
+                            {
+                                $('#OfficerList1').html(data);
+                            }
+                        });
+                    }
+                });
+                $(document).on('click', '#OfficerList1 li', function(){
+                    $('#OfficersInvID').val($('#OfficerList1 li small').text());
+                    $('#OfficerList1 li small').empty();
+                    $('#OfficersInv').val($('#OfficerList1 li').text());
+                    $('#OfficerList1').empty();
+                  });
             });
+
         </script>

@@ -1,9 +1,10 @@
 <?php 
-session_start();
-$title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1IssuancePersonal';?>
-<?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
+    session_start();
+    $title = 'Welcome | BarangayIT MK.II';
+    $currentPage = 'Level1IssuancePersonal';
+    include('head.php'); 
+    include('Level1_Navbar.php'); 
+?>
 
  <section class="content">
         <div class="container-fluid">
@@ -189,7 +190,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             <!-- #END# Basic Examples -->
      
       <!--Add-->
-    <form id="IssuancePrint" action="Level1AddPersonalIssuance.php" method="POST">
+    <form id="IssuancePrint" action="Level1_AddPersonalIssuance.php" method="POST">
         <div class="modal fade" id="issuance1" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -252,7 +253,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
         </div>
     </form>
 <script type="text/javascript">
-        function disablebutt(){0
+        function disablebutt(){
             var catshere = $("#categorydropdown").val();
                 if (catshere == "Business Permit")
                 {
@@ -288,22 +289,6 @@ $title = 'Welcome | BarangayIT MK.II';?>
                  }
 
         }
-
-        //     {
-        //     window.open("http://philmontscoutranch.org/Camping/75.aspx", "_blank");
-        //     }
-
-        //     $("button[class='btn dropdown-toggle btn-default']").on("click",function(){
-        //         alert($("span[class='filter-option pull-left']").text());
-        //             if($("span[class='filter-option pull-left']").text()=="Indigency"){
-        //                 $("button[data-toggle='modal']").trigger("click");
-        //                     }
-        //     else
-        //     {
-
-        //     }
-        // }
-        // };
 
 
         function PrintIndigency() {

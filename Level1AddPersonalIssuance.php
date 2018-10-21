@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include_once('dbconn.php');
 
 	$CitizenID = $_POST['CitizenID'];
@@ -19,7 +20,7 @@
 	$Level1AddPersonalIssuanceQuery = mysqli_query($bitMysqli,$Level1AddPersonalIssuanceSQL) or die (mysqli_error($bitMysqli));
 
 
-	$header = 'Location:/BIT/Level1IssuancePersonal.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1IssuancePersonal.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 	
 ?>

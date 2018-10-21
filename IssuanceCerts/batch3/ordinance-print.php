@@ -1,6 +1,6 @@
 <?php 
       session_start();
-      include('../../AdminConfig.php');
+      include('../../Level0_Config.php');
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
@@ -120,12 +120,20 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                                 bitdb_r_ordinance.DateImplemented,
                                 bitdb_r_ordinance.OrdStatus,
                                 bitdb_r_ordinance.Sanction,
-                                bitdb_r_ordinance.Author,
+                                bitdb_r_ordinanceauthor.Author,
+                                IFNULL(bitdb_r_citizen.First_Name,"") AS First_Name,
+                                IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
+                                IFNULL(bitdb_r_citizen.Last_Name,"") AS Last_Name,
+                                IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
                                 bitdb_r_ordinancecategory.OrdinanceTitle AS Category
                           FROM bitdb_r_ordinance 
                           INNER JOIN bitdb_r_ordinancecategory
                           ON bitdb_r_ordinance.CategoryID = bitdb_r_ordinancecategory.OrdCategoryID
-                          WHERE OrdinanceID='.$_GET['OrdinanceID'].'';
+                          INNER JOIN bitdb_r_ordinanceauthor
+                          ON bitdb_r_ordinanceauthor.OrdinanceID = bitdb_r_ordinance.OrdinanceID
+                          LEFT JOIN bitdb_r_citizen
+                          ON bitdb_r_citizen.Citizen_ID = bitdb_r_ordinance.Persons_Involved
+                          WHERE bitdb_r_ordinance.OrdinanceID='.$_GET['OrdinanceID'].'';
         $OrdinanceQuery = mysqli_query($bitMysqli,$OrdinanceSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($OrdinanceQuery) > 0)
         {
@@ -170,7 +178,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                   <p>Officials Involved: _______________________________________________________</p>
                  </div>
                  <div class="clearfix grpelem" id="u2072-4">
-                  <p>'.$row['Persons_Involved'].'</p>
+                  <p>'.$row['First_Name'].' '.$row['Middle_Name'].' '.$row['Last_Name'].' '.$row['Name_Ext'].''.'</p>
                  </div>
                 </div>
                 <div class="clearfix colelem" id="u1908-4">

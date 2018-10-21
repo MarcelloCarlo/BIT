@@ -3,7 +3,7 @@ session_start();
 $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'Level1AddEditBusinesses';?>
 <?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
+<?php include('Level1_Navbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
@@ -186,7 +186,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             <!-- #END# Exportable Table -->
         </div>
         
-<form id="BusinessAdd" action="Level1AddBusinesses.php" method="POST" >
+<form id="BusinessAdd" action="Level1_AddBusinesses.php" method="POST" >
 <div class="modal fade" id="addBusinessModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -283,7 +283,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                 </div>
             </div>
         </form>
-        <form id="BusinessEdit" action="Level1EditBusinesses.php" method="POST" >
+        <form id="BusinessEdit" action="Level1_EditBusinesses.php" method="POST" >
             <div class="modal fade" id="editBusinessModal" tabindex="-1" role="dialog">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">

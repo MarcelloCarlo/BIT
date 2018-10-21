@@ -3,7 +3,7 @@ session_start();
 $title = 'Welcome | BarangayIT MK.II';?>
 <?php $currentPage = 'Level1IssuanceBusiness';?>
 <?php include('head.php'); ?>
-<?php include('Level1Navbar.php'); ?>
+<?php include('Level1_Navbar.php'); ?>
 
  <section class="content">
         <div class="container-fluid">
@@ -126,7 +126,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
             <!-- #END# Basic Examples -->
      
       <!--Add-->
-    <form id="IssuancePrint" action="Level1AddBusinessIssuance.php" method="POST">
+    <form id="IssuancePrint" action="Level1_AddBusinessIssuance.php" method="POST">
         <div class="modal fade" id="issuance1" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
