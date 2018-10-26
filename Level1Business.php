@@ -1,9 +1,12 @@
 <?php 
-session_start();
-$title = 'Welcome | BarangayIT MK.II';?>
-<?php $currentPage = 'Level1AddEditBusinesses';?>
-<?php include('head.php'); ?>
-<?php include('Level1_Navbar.php'); ?>
+    session_start();
+    $title = 'Welcome | BarangayIT MK.II';
+    $user = 1;
+    include_once('LoginCheck.php');
+    $currentPage = 'Level1Business';
+    include('head.php');
+    include('Level1_Navbar.php'); 
+?>
 
  <section class="content">
         <div class="container-fluid">
@@ -71,7 +74,7 @@ $title = 'Welcome | BarangayIT MK.II';?>
                                                                                 bitdb_r_business.Manager,
                                                                                 bitdb_r_business.Mgr_Address,
                                                                                 bitdb_r_issuance.IssuanceID,
-                                                                                DATE_ADD(bitdb_r_issuance.IssuanceDate, INTERVAL 1 HOUR) AS ExpireDate,
+                                                                                DATE_ADD(bitdb_r_issuance.IssuanceDate, INTERVAL 1 YEAR) AS ExpireDate,
                                                                                 (CURRENT_DATE) AS CurrentDate
                                                                         FROM    bitdb_r_issuance
                                                                         RIGHT JOIN bitdb_r_business

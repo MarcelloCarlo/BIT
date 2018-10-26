@@ -1,9 +1,11 @@
 <?php
-      session_start();
-      $title = 'Welcome | BarangayIT MK.II';
-      $currentPage = 'Level1IssuanceRecordsView';
-      include('head.php');
-      include('Level1_Navbar.php');
+    session_start();
+    $title = 'Welcome | BarangayIT MK.II';
+    $user = 1;
+    include_once('LoginCheck.php');
+    $currentPage = 'Level1IssuanceRecordsView';
+    include('head.php');
+    include('Level1_Navbar.php');
 ?>
 <section class="content">
     <div class="container-fluid">
@@ -183,7 +185,13 @@
                                                       <td>'.$BIssuanceType.'</td>
                                                       <td>'.$BIssuanceDate.'</td>';
                                                       
-                                                  $ButtonShowSQL = 'SELECT * FROM bitdb_r_issuance INNER JOIN bitdb_r_business ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID WHERE bitdb_r_business.BusinessID ='.$BusinessID.' AND bitdb_r_issuance.IssuanceDate < CURRENT_DATE';
+                                                  $ButtonShowSQL = 'SELECT * 
+                                                                    FROM bitdb_r_issuance 
+                                                                    INNER JOIN bitdb_r_business 
+                                                                      ON bitdb_r_issuance.BusinessID = bitdb_r_business.BusinessID 
+                                                                    WHERE bitdb_r_business.BusinessID = '.$BusinessID.' 
+                                                                      AND DATE_ADD(bitdb_r_issuance.IssuanceDate, INTERVAL 1 YEAR) > CURRENT_DATE
+                                                                      ORDER BY IssuanceID DESC LIMIT 1';
                                                   $ButtonShowQuery = mysqli_query($bitMysqli,$ButtonShowSQL) or die (mysqli_error($bitMysqli));
                                                   if(mysqli_num_rows($ButtonShowQuery) > 0)
                                                   {
@@ -192,11 +200,6 @@
                                                       <button type="button" class="btn btn-success waves-effect">
                                                           <i class="material-icons">bookmark</i>
                                                           <span>ACTIVE</span></a>
-                                                      </button>
-
-                                                      <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
-                                                          <i class="material-icons">mode_edit</i>
-                                                          <span>EDIT</span></a>
                                                       </button>
                                                       </td>
                                                   </tr>';
@@ -208,11 +211,6 @@
                                                       <button type="button" class="btn btn-primary waves-effect BusinessModal" data-toggle="modal" data-target="#issuance1">
                                                           <i class="material-icons">mode_edit</i>
                                                           <span>ISSUE</span></a>
-                                                      </button>
-
-                                                      <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
-                                                          <i class="material-icons">mode_edit</i>
-                                                          <span>EDIT</span></a>
                                                       </button>
                                                   </td>
                                                   </tr>';

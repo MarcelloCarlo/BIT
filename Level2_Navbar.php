@@ -138,60 +138,60 @@
                 <div class="menu">
                     <ul class="list">
                         <li class="header">MAIN NAVIGATION</li>
-                        <li <?php if ($currentPage==='indexCaptain' ) {echo 'class="active"';} ?>>
-                            <a href="indexCaptain.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                        <li <?php if ($currentPage == 'indexLevel2' ) {echo 'class="active"';} ?>>
+                            <a href="indexLevel2.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">home</i>
                                 <span>Home</span>
                             </a>
                         </li>
 
-                         <li <?php if ($currentPage==='CaptainViewCitizen' ) {echo 'class="active"';} ?>>
-                            <a href="CaptainViewCitizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                         <li <?php if ($currentPage == 'Level2Citizen' ) {echo 'class="active"';} ?>>
+                            <a href="Level2Citizen.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">people</i>
                                 <span>Citizens</span>
                             </a>
                         </li>
 
-                         <li <?php if ($currentPage==='CaptainViewBusiness' ) {echo 'class="active"';} ?>>
-                            <a href="CaptainViewBusiness.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                         <li <?php if ($currentPage == 'Level2Business' ) {echo 'class="active"';} ?>>
+                            <a href="Level2Business.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">business</i>
                                 <span>Businesses</span>
                             </a>
                         </li>
 
-                         <li <?php if ($currentPage==='CaptainViewBlotter' ) {echo 'class="active"';} ?>>
-                            <a href="CaptainViewBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                         <li <?php if ($currentPage == 'Level2Blotter' ) {echo 'class="active"';} ?>>
+                            <a href="Level2Blotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">report_problem</i>
                                 <span>Blotter</span>
                             </a>
                         </li>
 
-                         <li <?php if ($currentPage==='CaptainViewOrdinances' ) {echo 'class="active"';} ?>>
-                            <a href="CaptainViewOrdinances.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                         <li <?php if ($currentPage == 'Level2Ordinances' ) {echo 'class="active"';} ?>>
+                            <a href="Level2Ordinances.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">assignment</i>
                                 <span>Ordinances</span>
                             </a>
                         </li>
 
-                        <li <?php if ($currentPage==='CaptainViewExpProjects' ) {echo 'class="active"';} ?>>
-                            <a href="CaptainViewExpProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                        <!-- <li <?php if ($currentPage == 'Level2Projects' ) {echo 'class="active"';} ?>>
+                            <a href="Level2ExpProjects.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                                 <i class="material-icons">assessment</i>
                                 <span>Project Monitoring</span>
                             </a>
-                        </li>
+                        </li> -->
 
 
            </div>
            <!-- #Menu -->
            <!-- Footer -->
-           <div class="legal">
+           <!-- <div class="legal">
             <div class="copyright">
                 &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
             </div>
             <div class="version">
                 <b>Version: </b> 1.0.5
             </div>
-        </div>
+        </div> -->
         <!-- #Footer -->
     </aside>
     <!-- #END# Left Sidebar -->

@@ -1,9 +1,11 @@
 <?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'Level1AddEditBlotter';
+    $user = 1;
+    include_once('LoginCheck.php');
+    $currentPage = 'Level1Blotter';
     include('head.php');
-    include('Level1Navbar.php');
+    include('Level1_Navbar.php');
 ?>
 <section class="content">
         <div class="container-fluid">
@@ -160,7 +162,7 @@ c.  Report Print -->
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="CTanodBlotterForm" action="Level1AddBlotterForm.php" method="POST">
+                        <form id="CTanodBlotterForm" action="Level1_AddBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
@@ -312,7 +314,7 @@ c.  Report Print -->
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="CTanodBlotterForm" action="Level1EditBlotterForm.php" method="POST">
+                        <form id="CTanodBlotterForm" action="Level1_EditBlotterForm.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 

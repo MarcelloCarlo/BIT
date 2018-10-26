@@ -1,7 +1,9 @@
 <?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'Level1AddEditProjects';
+    $user = 1;
+    include_once('LoginCheck.php');
+    $currentPage = 'Level1Projects';
     include('headblock.php');
  ?>
  <!-- Google Fonts -->

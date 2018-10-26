@@ -1,6 +1,8 @@
 <?php 
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
+    $user = 1;
+    include_once('LoginCheck.php');
     $currentPage = 'Level1ProjectMonitoring';
     include('AdminConfig.php');
     include('headblock.php');

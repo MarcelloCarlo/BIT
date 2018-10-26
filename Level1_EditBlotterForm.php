@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include_once('dbconn.php');
 
 	$BlotterID = $_POST['BlotterID'];
@@ -42,6 +43,6 @@
 		$Level1AddSummonSQL = 'INSERT INTO bitdb_r_summons(BlotterID,SummonSched,SummonPlace,SummonStatus) VALUES('.$BlotterID.',"'.$SummonSchedule.'","'.$SummonPlace.'",1)';
 		$Level1AddSummonQuery = mysqli_query($bitMysqli,$Level1AddSummonSQL) or die (mysqli_error($bitMysqli));
 	}
-	$header = 'Location:/BIT/Level1AddEditBlotter.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1Blotter.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

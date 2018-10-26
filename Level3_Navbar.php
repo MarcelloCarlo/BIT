@@ -1,5 +1,5 @@
-<!-- <body class="theme-blue-grey"> -->
-    <body class="theme-teal"><!-- Page Loader -->
+<body class="theme-teal">
+    <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
@@ -55,12 +55,9 @@
                         </ul>
                     </li>
 
-                      <!-- sign out na here newnewnewnew!! -->
-
-                  <li class="dropdown">
+                    <li class="dropdown">
                         <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="material-icons">keyboard_arrow_down</i>
-                            <!--<span class="label-count">7</span>-->
                         </a>
                         <ul class="dropdown-menu">
                             <li class="header">Profile</li>
@@ -89,7 +86,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="images/femaleuser.jpg" width="48" height="48" alt="User" />
+                    <img src="images/user.png" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <?php
@@ -97,18 +94,18 @@
                         $ID = $_SESSION['Logged_In'];
 
 
-                        $UserInfoSQL = 'SELECT bitdb_r_citizen.Salutation,
+                        $UserInfoSQL = "SELECT bitdb_r_citizen.Salutation,
                                                 bitdb_r_citizen.First_Name,
-                                                IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
+                                                IFNULL(bitdb_r_citizen.Middle_Name,'') AS Middle_Name,
                                                 bitdb_r_citizen.Last_Name,
-                                                IFNULL(bitdb_r_citizen.Name_Ext,"") AS Name_Ext,
+                                                IFNULL(bitdb_r_citizen.Name_Ext,'') AS Name_Ext,
                                                 bitdb_r_barangayposition.PosName
                                         FROM bitdb_r_barangayofficial
                                         INNER JOIN bitdb_r_citizen
                                         ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
                                         INNER JOIN bitdb_r_barangayposition
                                         ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
-                                        WHERE bitdb_r_barangayofficial.Brgy_Official_ID = '.$ID.'';
+                                        WHERE bitdb_r_barangayofficial.Brgy_Official_ID = ".$ID.'';
                         $UserInfoSQLQuery = mysqli_query($bitMysqli,$UserInfoSQL) or die (mysqli_error($bitMysqli));
                         if(mysqli_num_rows($UserInfoSQLQuery) > 0)
                         {
@@ -131,56 +128,28 @@
             </div>
             <!-- #User Info -->
             <!-- Menu -->
-            <!-- <div class="menu">
+            <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li <?php if ($currentPage==='CensusOfficerAddEditCitizen' ) {echo 'class="active"';} ?>>
-                        <a href="CensusOfficerAddEditCitizen.php">
-                            <i class="material-icons">people</i>
-                            <span>Census Navigation</span>
-                        </a>
-                    </li>
-
-                     <li <?php if ($currentPage==='CensusOfficerViewExpCitizen' ) {echo 'class="active"';} ?>>
-                        <a href="CensusOfficerViewCitizen.php">
-                            <i class="material-icons">settings_applications</i>
-                            <span>Census Officer View</span>
+                    <li <?php if ($currentPage == 'indexLevel3' ) {echo 'class="active"';} ?>>
+                        <a href="indexLevel3.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <i class="material-icons">report_problem</i>
+                            <span>Blotter</span>
                         </a>
                     </li>
                    
                 </ul>
-            </div> -->
-             <div class="menu">
-                <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
-                                        
-                    <li <?php if ($currentPage==='CensusOfficerAddCitizenOnly' | $currentPage==='CensusOfficerViewExpCitizen') {echo 'class="active"';} ?>>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">people</i>
-                            <span>Citizens</span>
-                        </a>
-                        <ul class="ml-menu">
-                          
-                            <li  <?php if ($currentPage==='CensusOfficerAddCitizenOnly') {echo 'class="active"';} ?>>
-                                 <a href="CensusOfficerAddCitizenOnly.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
-
-
-
             <!-- #Menu -->
             <!-- Footer -->
-            <div class="legal">
+            <!-- <div class="legal">
                 <div class="copyright">
                     &copy; 2016 - 2017 <a href="javascript:void(0);">AdminBSB - Material Design</a>.
                 </div>
                 <div class="version">
                     <b>Version: </b> 1.0.5
                 </div>
-            </div>
+            </div> -->
             <!-- #Footer -->
         </aside>
         <!-- #END# Left Sidebar -->

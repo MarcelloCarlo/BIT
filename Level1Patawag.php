@@ -1,9 +1,11 @@
 <?php
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'Level1AddEditPatawag';
+    $user = 1;
+    include_once('LoginCheck.php');
+    $currentPage = 'Level1Patawag';
     include('head.php');
-    include('Level1Navbar.php');
+    include('Level1_Navbar.php');
 ?>
 <section class="content">
         <div class="container-fluid">
@@ -160,7 +162,7 @@
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="Level1EditSummon" action="Level1EditSummon.php" method="POST">
+                        <form id="Level1EditSummon" action="Level1_EditSummon.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
                                 <h4 class="card-inside-title hide">SummonID</h4>

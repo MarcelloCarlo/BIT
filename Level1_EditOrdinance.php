@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include_once('dbconn.php');
 
 	$OID = $_POST['OrdID'];
@@ -50,6 +51,6 @@
 										bitdb_r_ordinance.Sanction = "'.$OrdSanction.'"
 								WHERE 	bitdb_r_ordinance.OrdinanceID = '.$OID.' ';
 	$Level1EditOrdinanceQuery = mysqli_query($bitMysqli,$Level1EditOrdinanceSQL) or die (mysqli_error($bitMysqli));
-	$header = 'Location:/BIT/Level1AddEditOrdinance.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1Ordinance.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

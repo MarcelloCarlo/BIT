@@ -1,9 +1,11 @@
 <?php 
     session_start();
-    $title = 'Welcome | BarangayIT MK.II'; 
-    $currentPage = 'CensusOfficerAddCitizenOnly'; 
+    $title = 'Welcome | BarangayIT MK.II';
+    $user = 4;
+    include_once('LoginCheck.php'); 
+    $currentPage = 'indexLevel4'; 
     include('head.php'); 
-    include('CensusOfficerNavbar.php'); 
+    include('Level4_Navbar.php'); 
 ?>
 
 <section class="content">
@@ -203,7 +205,7 @@
         </div>
     </div>
     <!--Edit-->
-    <form id="CensusOfficerCitizenEdit" action="CensusOfficerEditCitizen.php" method="POST">
+    <form id="CensusOfficerCitizenEdit" action="Level4_EditCitizen.php" method="POST">
         <div class="modal fade" id="editCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -377,7 +379,7 @@
     </div>
     </form>
     <!--Add-->
-    <form id="CensusOfficerCitizenAdd" action="CensusOfficerAddCitizen.php" method="POST">
+    <form id="CensusOfficerCitizenAdd" action="Level4_AddCitizen.php" method="POST">
         <div class="modal fade" id="addCitizModal" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" style="width: 90% !important" role="document">
                 <div class="modal-content">
@@ -608,15 +610,6 @@
                                 </div>
                                 </div>
                             </div>
-                                <!-- <h4 class="card-inside-title">Status</h4>
-                                <div class="demo-switch">
-                                    <div class="switch">
-                                        <label>Inactive
-                                            <input id="CitiResStat" type="checkbox" checked>
-                                            <span class="lever switch-col-orange"></span>Active
-                                        </label>
-                                    </div>
-                                </div> -->
                         </div>
                         <br/>
                     </div> <br/>

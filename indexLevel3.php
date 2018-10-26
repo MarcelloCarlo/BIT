@@ -1,9 +1,11 @@
 <?php 
     session_start();
     $title = 'Welcome | BarangayIT MK.II';
-    $currentPage = 'ChiefTanodAddBlotter';
+    $user = 3;
+    include_once('LoginCheck.php');
+    $currentPage = 'indexLevel3';
     include('head.php');
-    include('ChiefTanodNavigation.php'); 
+    include('Level3_Navbar.php');
 ?>
 <section class="content">
         <div class="container-fluid">
@@ -115,25 +117,6 @@
                                         }
                                    ?>
 
-
-
-<!--
-1.  Blotter No
-2.  Date of Incident
-3.  Complainant
-4.  Accused
-5.  Subject
-6.  Status
-7.  Resolution
-8.  Date Recorded
-9.  ACTIONS
-a.  Edit
-b.  Disable (Case Solved)
-c.  Report Print -->
-
-
-                                   <!--  unang column nang table -->
-
                                     </tbody>
                                 </table>
                             </div>
@@ -153,7 +136,7 @@ c.  Report Print -->
                             </h2>
                         </div>
                         <div class="body js-sweetalert">
-                        <form id="CTanodBlotterForm" action="ChiefTanodAddBlotterForm.php" method="POST">
+                        <form id="CTanodBlotterForm" action="Level3_AddBlotter.php" method="POST">
                         <div class="modal-body">
                            <div class="row clearfix margin-0">
 
@@ -193,6 +176,7 @@ c.  Report Print -->
 
                                     </div>
                                 </div>
+                                <label class="form-label">Complaint Name</label>
                                 <div class="form-group form-float">
                                     <div class="form-line">
                                         <input type="text" class="form-control" name="Complainant" required/>
@@ -202,19 +186,20 @@ c.  Report Print -->
 
                                 <label class="form-label hide">AccusedID</label>
                                 <div class="form-group form-float hide">
-                                    <div class="form-line hide">
-                                        <input id="AccusedID" type="text" class="form-control hide" name="AccusedID" />
+                                    <div class="form-line">
+                                        <input id="AccusedID" type="text" class="form-control" name="AccusedID"/>
                                     </div>
                                 </div>
 <!--Add Search-->
+                                <label class="form-label">Accused's Name</label>
                                 <div class="form-group form-float">
-                                    <div class="form-line search-box">
+                                    <div class="form-line search-box-edit">
                                         <input id="AccusedName" type="text" class="form-control" name="Accused"/>
-                                        <label class="form-label">Accused' Name</label>
+                                        <label class="form-label">Accused's Name</label>
                                         <div class="result"></div>
                                     </div>
                                 </div>
-<!--end search-->
+
                                 <label class="form-label">Subject</label>
                                 <div class="form-group">
                                 <select class="form-control browser-default" name="Subject" required>
@@ -273,11 +258,11 @@ c.  Report Print -->
             </div>
         </div>
     </div>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<?php include('footer.php'); ?>
+
 <script type="text/javascript">
 $(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
+    $('#AccusedName').on('keyup', function(){
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
@@ -289,14 +274,13 @@ $(document).ready(function(){
             resultDropdown.empty();
         }
     });
-    
     // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
+        
         $("#AccusedName").val($(this).find('#NameResult').text());
         $("#AccusedID").val($(this).find('small').text());
-        $(this).parent(".result").empty();
+        $(".result").empty();
     });
+    
 });
 </script>
-
-<?php include('footer.php'); ?>

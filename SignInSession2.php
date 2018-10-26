@@ -40,17 +40,17 @@
 			else if ($_SESSION['AccountUserType'] == "2" && $OfficialUser  == 1)
 			{
 				//CAPTAIN
-				$header ='Location:indexCaptain.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+				$header ='Location:indexLevel2.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
 			else if ($_SESSION['AccountUserType'] == "3" && $OfficialUser  == 1)
 			{
 				//CHIEF TANOD
-				$header ='Location:ChiefTanodAddBlotter.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+				$header ='Location:indexLevel3.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
 			else if ($_SESSION['AccountUserType'] == "4" && $OfficialUser  == 1)
 			{
 				//CENSUS OFFICER
-				$header = 'Location:CensusOfficerAddCitizenOnly.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+				$header = 'Location:indexLevel4.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			}
 			else if ($_SESSION['AccountUserType'] == "0" && $OfficialUser  == 1)
 			{

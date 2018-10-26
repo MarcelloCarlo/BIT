@@ -28,6 +28,6 @@
 	
 	$Level1InsertCitizenQuery = mysqli_query($bitMysqli,$Level1InsertCitizenSQL) or die (mysqli_error($bitMysqli));
 
-	$header = 'Location:Level1AddEditCitizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1Citizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

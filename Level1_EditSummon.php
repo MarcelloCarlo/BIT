@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include_once('dbconn.php');
 
 	$SummonID = $_POST['SummonID'];
@@ -17,6 +18,6 @@
 	$Level1EditSummonQuery = mysqli_query($bitMysqli,$Level1EditSummonSQL) or die (mysqli_error($bitMysqli));
 	
 
-	$header = 'Location:/BIT/Level1AddEditPatawag.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1Patawag.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 	?>

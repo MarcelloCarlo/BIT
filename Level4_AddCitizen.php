@@ -1,4 +1,5 @@
 <?php
+	session_start();
 	include('dbconn.php');
 
 	$Salutation = $_POST['Salutation'];
@@ -27,6 +28,6 @@
 	
 	$CensusOfficerInsertCitizenQuery = mysqli_query($bitMysqli,$CensusOfficerInsertCitizenSQL) or die (mysqli_error($bitMysqli));
 
-	$header = 'Location:/BIT/CensusOfficerAddEditCitizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:indexLevel4.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

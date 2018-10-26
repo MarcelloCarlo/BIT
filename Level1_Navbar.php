@@ -149,8 +149,8 @@
                         </a>
                     </li>
 
-                    <li <?php if ($currentPage == 'Level1AddEditBusinesses' ) {echo 'class="active"';} ?>>
-                        <a href="Level1AddEditBusinesses.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                    <li <?php if ($currentPage == 'Level1Business' ) {echo 'class="active"';} ?>>
+                        <a href="Level1Business.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                         <i class="material-icons">business</i>
                         <span>Businesses</span>
                         </a>
@@ -180,46 +180,46 @@
                     </li>
 
 
-                    <li <?php if ($currentPage == 'Level1AddEditPatawag' | 
-                                $currentPage == 'Level1AddEditBlotter') 
+                    <li <?php if ($currentPage == 'Level1Patawag' | 
+                                $currentPage == 'Level1Blotter') 
                                 {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">gavel<!-- report_problem --></i>
                             <span>Blotter</span>
                         </a>
                         <ul class="ml-menu">
-                            <li <?php if($currentPage == 'Level1AddEditBlotter') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditBlotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit Blotter</a>
+                            <li <?php if($currentPage == 'Level1Blotter') {echo 'class="active"';}?>>
+                                <a href="Level1Blotter.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Add/Edit Blotter</a>
                             </li>
 
-                            <li <?php if($currentPage == 'Level1AddEditPatawag') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditPatawag.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Patawag</a>
+                            <li <?php if($currentPage == 'Level1Patawag') {echo 'class="active"';}?>>
+                                <a href="Level1Patawag.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Patawag</a>
                             </li>
 
                         </ul>
                     </li>
 
-                    <li <?php if ($currentPage == 'Level1AddEditOrdinance' ) {echo 'class="active"';} ?>>
-                        <a href="Level1AddEditOrdinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                    <li <?php if ($currentPage == 'Level1Ordinance' ) {echo 'class="active"';} ?>>
+                        <a href="Level1Ordinance.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
                         <i class="material-icons">assignment</i>
                         <span>Ordinances</span>
                         </a>
                     </li>
 
 
-                    <!-- <li <?php if ($currentPage == 'Level1AddEditProjects' | 
-                                $currentPage == 'Level1AddEditActivities' | 
-                                $currentPage == 'Level1AddEditProjDonations') 
+                    <!-- <li <?php if ($currentPage == 'Level1Projects' | 
+                                $currentPage == 'Level1Activities' | 
+                                $currentPage == 'Level1ProjectDonations') 
                                 {echo 'class="active"';}?>>
                             <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">assessment</i>
                             <span>Projects</span> </a>
                         <ul class="ml-menu">
                             <li <?php if($currentPage == 'Level1AddEditProjects') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditProjects.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Setup</a>
+                                <a href="Level1Projects.php? <?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Setup</a>
                             </li>
                             <li <?php if($currentPage == 'Level1AddEditActivities') {echo 'class="active"';}?>>
-                                <a href="Level1AddEditActivities.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Monitoring</a>
+                                <a href="Level1Activities.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Project Monitoring</a>
                             </li>
                         </ul>
                     </li> -->

@@ -56,6 +56,6 @@
 									bitdb_r_citizen.Contact = "'.$Contact.'"
 							WHERE 	bitdb_r_citizen.Citizen_ID = "'.$CID.'" ';
 	$Level1EditCitizenQuery = mysqli_query($bitMysqli,$Level1EditCitizenSQL) or die (mysqli_error($bitMysqli));
-	$header = 'Location:Level1AddEditCitizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1Citizen.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

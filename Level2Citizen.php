@@ -1,9 +1,11 @@
 <?php 
-session_start();
-$title = 'Welcome | BarangayIT MK.II';
-$currentPage = 'CaptainViewCitizen';
-include('head.php');
-include('NavbarCaptain.php');
+    session_start();
+    $title = 'Welcome | BarangayIT MK.II';
+    $user = 2;
+    include_once('LoginCheck.php');
+    $currentPage = 'Level2Citizen';
+    include('head.php');
+    include('Level2_Navbar.php');
 ?>
 
 <?php

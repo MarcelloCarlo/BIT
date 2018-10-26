@@ -22,6 +22,6 @@ session_start();
 	$Level1EditBusinessSQL = 'UPDATE bitdb_r_business SET Business_Name="'.$BusinessName.'", BusinessLoc="'.$BusinessLoc.'", Manager="'.$BusinessManager.'", Mgr_Address="'.$ManagerAdd.'", BusinessCategory='.$CategoryID.' WHERE BusinessID ='.$BusinessID.' ';
 	$Level1EditBusinessQuery = mysqli_query($bitMysqli,$Level1EditBusinessSQL) or die (mysqli_error($bitMysqli));
 
-	$header = 'Location:Level1AddEditBusinesses.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+	$header = 'Location:Level1Businesses.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 	header($header);
 ?>

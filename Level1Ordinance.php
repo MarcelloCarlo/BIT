@@ -1,7 +1,9 @@
 <?php
     session_start(); 
-    $title = 'Welcome | BarangayIT MK.II'; 
-    $currentPage = 'Level1AddEditOrdinance';
+    $title = 'Welcome | BarangayIT MK.II';
+    $user = 1;
+    include_once('LoginCheck.php'); 
+    $currentPage = 'Level1Ordinance';
     include('head.php');
     include('Level1_Navbar.php'); 
 ?>
@@ -60,7 +62,6 @@
                                                                             bitdb_r_ordinance.DateImplemented,
                                                                             bitdb_r_ordinance.OrdStatus,
                                                                             bitdb_r_ordinance.Sanction,
-                                                                            bitdb_r_ordinanceauthor.Author,
                                                                             bitdb_r_ordinance.Persons_Involved,
                                                                             IFNULL(bitdb_r_citizen.First_Name,"") AS First_Name,
                                                                             IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
@@ -69,8 +70,6 @@
                                                                     FROM bitdb_r_ordinance
                                                                     INNER JOIN bitdb_r_ordinancecategory
                                                                         ON bitdb_r_ordinance.CategoryID = bitdb_r_ordinancecategory.OrdCategoryID
-                                                                    INNER JOIN bitdb_r_ordinanceauthor
-                                                                        ON bitdb_r_ordinance.OrdinanceID = bitdb_r_ordinanceauthor.OrdinanceID
                                                                     LEFT JOIN bitdb_r_citizen
                                                                         ON bitdb_r_citizen.Citizen_ID = bitdb_r_ordinance.Persons_Involved';
                                             $Level1OrdinanceQuery = mysqli_query($bitMysqli,$Level1OrdinanceSQL) or die (mysqli_error($bitMysqli));
@@ -86,7 +85,6 @@
                                                     $OrdDesc = $row['OrdDesc'];
                                                     $Date = $row['DateImplemented'];
                                                     $Sanction = $row['Sanction'];
-                                                    $Author = $row['Author'];
 
                                                     if($row['OrdStatus'] == 1)
                                                     {
@@ -101,7 +99,8 @@
                                                                 <td class="hide">'.$OrdID.'</td>
                                                                 <td>'.$OrdTitle.'</td>
                                                                 <td>'.$Category.'</td>
-                                                                <td>'.$Author./* ;
+                                                                <td>';
+
                                                     $SelectAuthorSQL = 'SELECT * FROM bitdb_r_ordinanceauthor WHERE OrdinanceID ='.$OrdID.' AND Status=1 ';
                                                     $SelectAuthorQuery = mysqli_query($bitMysqli,$SelectAuthorSQL) or die (mysqli_error($bitMysqli));
                                                     if(mysqli_num_rows($SelectAuthorQuery) > 0)
@@ -114,8 +113,10 @@
                                                                 ';
                                                         }
                                                     }
+                                                                
                                                     
-                                                    echo '   */    '</td>
+                                                    
+                                                    echo '  </td>
                                                                 <td class="hide">'.$PerInv.'</td>
                                                                 <td>'.$PersonInvolve.'</td>
                                                                 <td class="hide">'.$OrdDesc.'</td>
@@ -243,7 +244,7 @@
                 </div>
             </div>
         </form>
-        <form id="OrdinanceEdit" action="Level1EditOrdinance.php" method="POST">
+        <form id="OrdinanceEdit" action="Level1_EditOrdinance.php" method="POST">
         <div class="modal fade" id="editOrdModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">

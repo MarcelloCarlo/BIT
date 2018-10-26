@@ -26,7 +26,7 @@
                 $header ='Location:indexLevel4.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
             break;
             default:
-                $header = 'Location:/BIT/sign-in.php';
+                $header = 'Location:sign-in.php';
                 unset($_SESSION['Logged_In']);
                 unset($_SESSION['AccountUserType']);
                 session_destroy();

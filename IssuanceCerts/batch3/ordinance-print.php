@@ -104,11 +104,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      </div>
     </div>
     <div class="colelem" id="u1687"><!-- simple frame --></div>
-    <div class="clearfix colelem" id="u1887-4"><!-- content -->
-     <p>Ordinance Title</p>
-    </div>
-    <div class="clearfix colelem" id="pu1890-5"><!-- group -->
-     <div class="clearfix grpelem" id="u1890-5"><!-- content -->
+    
       <?php
         include_once('../../dbconn.php');
 
@@ -120,7 +116,6 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                                 bitdb_r_ordinance.DateImplemented,
                                 bitdb_r_ordinance.OrdStatus,
                                 bitdb_r_ordinance.Sanction,
-                                bitdb_r_ordinanceauthor.Author,
                                 IFNULL(bitdb_r_citizen.First_Name,"") AS First_Name,
                                 IFNULL(bitdb_r_citizen.Middle_Name,"") AS Middle_Name,
                                 IFNULL(bitdb_r_citizen.Last_Name,"") AS Last_Name,
@@ -129,8 +124,6 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                           FROM bitdb_r_ordinance 
                           INNER JOIN bitdb_r_ordinancecategory
                           ON bitdb_r_ordinance.CategoryID = bitdb_r_ordinancecategory.OrdCategoryID
-                          INNER JOIN bitdb_r_ordinanceauthor
-                          ON bitdb_r_ordinanceauthor.OrdinanceID = bitdb_r_ordinance.OrdinanceID
                           LEFT JOIN bitdb_r_citizen
                           ON bitdb_r_citizen.Citizen_ID = bitdb_r_ordinance.Persons_Involved
                           WHERE bitdb_r_ordinance.OrdinanceID='.$_GET['OrdinanceID'].'';
@@ -140,10 +133,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
           while($row = mysqli_fetch_assoc($OrdinanceQuery))
           {
             echo'
+                <div class="clearfix colelem" id="u1887-4"><!-- content -->
+                 <p style="font-size:20px;">'.$row['OrdinanceTitle'].'</p>
                 </div>
-                 <div class="clearfix grpelem">
-                  <p>'.$row['OrdinanceTitle'].'</p>
-                 </div>
+                <div class="clearfix colelem" id="pu1890-5"><!-- group -->
+                 <div class="clearfix grpelem" id="u1890-5"><!-- content -->
+                </div>
                 </div>
                 <div class="clearfix colelem" id="pu1899-4">
                  <div class="clearfix grpelem" id="u1899-4">
@@ -158,7 +153,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                   <p>Authors: ______________________________________________________________</p>
                  </div>
                  <div class="clearfix grpelem" id="u2069-4">
-                  '.$row['Author']./* ;
+                  ';
             $AuthorSQL = 'SELECT bitdb_r_ordinanceauthor.Author FROM bitdb_r_ordinanceauthor WHERE bitdb_r_ordinanceauthor.OrdinanceID='.$_GET['OrdinanceID'].' ';
             $AuthorQuery = mysqli_query($bitMysqli,$AuthorSQL) or die ($bitMysqli);
             if(mysqli_num_rows($AuthorQuery) > 0)
@@ -166,11 +161,11 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
               echo'<p>';
               while($row2 = mysqli_fetch_assoc($AuthorQuery))
               {
-                echo''.$row2['Author'].',';
+                echo''.$row2['Author'].', ';
               }
               echo'</p>';
             }
-            echo   */'
+            echo  '
                  </div>
                 </div>
                 <div class="clearfix colelem" id="pu1905-4">
@@ -189,7 +184,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                 </div>
                 <div class="clearfix colelem" id="pu1914-4">
                  <div class="clearfix grpelem" id="u1914-4">
-                  <p>Sanction: _____________________________________________________________</p>
+                  <p>Sanction:</p>
                  </div>
                  <div class="clearfix grpelem" id="u2075-4">
                   <p>'.$row['Sanction'].'</p>
