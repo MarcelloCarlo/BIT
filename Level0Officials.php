@@ -50,7 +50,7 @@ include('Level0_Navbar.php');
 									 
 										$SelectOfficialSQL = "SELECT 
                                                                     bitdb_r_barangayofficial.Brgy_Official_ID,
-                                                                    bitdb_r_Citizen.Citizen_ID, 
+                                                                    bitdb_r_citizen.Citizen_ID, 
                                                                     bitdb_r_barangayposition.PosID, 
                                                                     bitdb_r_citizen.Salutation, 
                                                                     bitdb_r_citizen.First_Name, 
