@@ -1,6 +1,6 @@
 <?php 
       session_start();
-      include('../../AdminConfig.php');
+      include('../../Level0_Config.php');
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
@@ -103,7 +103,7 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                         ON bitdb_r_barangayposition.PosID = bitdb_r_barangayofficial.PosID
                       INNER JOIN bitdb_r_citizen
                         ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
-                      WHERE bitdb_r_barangayposition.PosName="Barangay Captain" ';
+                      WHERE bitdb_r_barangayposition.PosName LIKE "%captain%"';
         $CaptainQuery = mysqli_query($bitMysqli,$CaptainSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($CaptainQuery) > 0)
         {
@@ -131,7 +131,8 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
                       ON  bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
                       INNER JOIN bitdb_r_citizen  
                       ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
-                      WHERE bitdb_r_barangayposition.PosName != "Barangay Captain"';
+                      WHERE bitdb_r_barangayposition.PosName NOT LIKE "%captain%"
+                      AND bitdb_r_barangayofficial.Official_Status = 1';
       $OfficialQuery  = mysqli_query($bitMysqli,$OfficialSQL) or die (mysqli_error($bitMysqli));
       if(mysqli_num_rows($OfficialQuery) > 0)
       {

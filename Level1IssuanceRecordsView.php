@@ -101,10 +101,7 @@
                                                                 <span>PENDING</span></a>
                                                             </button>
 
-                                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                <span>EDIT</span></a>
-                                                            </button>
+                                                            
                                                             </td>
                                                         </tr>';
                                                         }
@@ -117,10 +114,10 @@
                                                                 <span>ISSUE</span></a>
                                                             </button>
 
-                                                            <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
+                                                            <!-- <button type="button" class="btn btn-success waves-effect" data-toggle="modal" data-target="#editIssuance">
                                                                 <i class="material-icons">mode_edit</i>
                                                                 <span>EDIT</span></a>
-                                                            </button>
+                                                            </button> -->
                                                         </td>
                                                         </tr>';
                                                         }

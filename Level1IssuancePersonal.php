@@ -35,39 +35,39 @@
                                 <thead>
                                     <tr>
                                         <th class="hide">ID</th>
-                                        <th>Salutation</th>
+                                        <th class="hide">Salutation</th>
                                         <th>First Name</th>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
                                         <th>Birthdate</th>
-                                        <th>Nationality</th>
+                                        <th class="hide">Nationality</th>
                                         <th>Status</th>
-                                        <th>Civil Status</th>
-                                        <th>Occupation</th>
+                                        <th class="hide">Civil Status</th>
+                                        <th class="hide">Occupation</th>
                                         <th>Gender</th>
                                         <th>Address</th>
                                         <th>Date Recorded</th>
-                                        <th>Actions</th>
+                                        <th width="5%">Actions</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th class="hide">ID</th>
-                                        <th>Salutation</th>
+                                        <th class="hide">Salutation</th>
                                         <th>First Name</th>
                                         <th>Middle Name</th>
                                         <th>Last Name</th>
                                         <th>Name Extension</th>
                                         <th>Birthdate</th>
-                                        <th>Nationality</th>
+                                        <th class="hide">Nationality</th>
                                         <th>Status</th>
-                                        <th>Civil Status</th>
-                                        <th>Occupation</th>
+                                        <th class="hide">Civil Status</th>
+                                        <th class="hide">Occupation</th>
                                         <th>Gender</th>
                                         <th>Address</th>
                                         <th>Date Recorded</th>
-                                        <th>Actions</th>
+                                        <th width="5%">Actions</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
@@ -142,16 +142,16 @@
                                                         echo
                                                         '<tr>
                                                             <td class="hide">'.$ID.'</td>
-                                                            <td>'.$Salutation.'</td>
+                                                            <td class="hide">'.$Salutation.'</td>
                                                             <td>'.$FName.'</td>
                                                             <td>'.$MName.'</td>
                                                             <td>'.$LName.'</td>
                                                             <td>'.$Name_Ext.'</td>
                                                             <td>'.$Birthdate.'</td>
-                                                            <td>'.$Nationality.'</td>
+                                                            <td class="hide">'.$Nationality.'</td>
                                                             <td>'.$Res_Status.'</td>
-                                                            <td>'.$Civil_Status.'</td>
-                                                            <td>'.$Occupation.'</td>
+                                                            <td class="hide">'.$Civil_Status.'</td>
+                                                            <td class="hide">'.$Occupation.'</td>
                                                             <td>'.$Gender.'</td>
                                                             <td>'.$Address.'</td>
                                                             <td>'.$Date_Rec.'</td>';
@@ -160,7 +160,7 @@
                                                         $ButtonShowQuery = mysqli_query($bitMysqli,$ButtonShowSQL) or die (mysqli_error($bitMysqli));
                                                         if(mysqli_num_rows($ButtonShowQuery) > 0)
                                                         {
-                                                            echo '<td>  <button type="button" class="btn btn-warning waves-effect IssueModal">
+                                                            echo '<td>  <button type="button" class="btn btn-warning waves-effect  IssuePending">
                                                                 <i class="material-icons">bookmark</i>
                                                                 
                                                                 <span>PENDING</span></a>
@@ -170,13 +170,13 @@
                                                         }
                                                         else
                                                         {
-                                                            echo '<td>  <button type="button" class="btn btn-primary waves-effect IssueModal" data-toggle="modal" data-target="#issuance1">
-                                                                <i class="material-icons">mode_edit</i>
-                                                                
-                                                                <span>ISSUE</span></a>
-                                                            </button>
-                                                            </td>
-                                                        </tr>';
+                                                            echo '<td>  
+                                                                    <button type="button" class="btn btn-primary waves-effect  IssueModal" data-toggle="modal" data-target="#issuance1">
+                                                                        <i class="material-icons">mode_edit</i>
+                                                                        <span>ISSUE</span></a>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>';
                                                         }
                                                     }
                                                 }
@@ -192,7 +192,7 @@
             <!-- #END# Basic Examples -->
      
       <!--Add-->
-    <form id="IssuancePrint" action="Level1_AddPersonalIssuance.php" method="POST">
+    <form id="IssuancePrint" action="#" method="POST">
         <div class="modal fade" id="issuance1" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -247,7 +247,8 @@
                             <br/>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span>
+                            <!-- <button type="submit" class="btn btn-link waves-effect" onclick="checkthis()" id="issuebutt"> <span>ISSUE</span> -->
+                            <button type="submit" class="btn btn-link waves-effect" id="issuebutt"> <span>ISSUE</span>
                             <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
                         </div>
                     </div>
@@ -267,22 +268,25 @@
                 }
 
         }    
-        function checkthis(){
-                
+        function checkthis(Clearance){
+            var ClearID = Clearance;
             var catshere = $("#categorydropdown").val();
 
                  if (catshere == "Indigency"){
                  //   alert("Indigency");
-                    $("#issuebutt").onclick==PrintIndigency();
+                    // $("#issuebutt").onclick==PrintIndigency();
                     // $('#issuance1').modal('show');
+                    $('#issuebutt').on('click',PrintIndigency(ClearID));
                  }
                  else if (catshere == "Barangay Clearance"){
                    // alert("Clearance");
-                    $("#issuebutt").onclick==PrintBrgyClearance();     
+                    // $("#issuebutt").onclick==PrintBrgyClearance(); 
+                    $('#issuebutt').on('click',PrintBrgyClearance(ClearID));    
                  }
                 else if (catshere == "Business Permit"){
                     //alert("Business Permit");
-                    $("#issuebutt").onclick==PrintBusPermit();     
+                    // $("#issuebutt").onclick==PrintBusPermit();  
+                    $('#issuebutt').on('click',PrintBusPermit(ClearID));   
                  }
 
                 else  
@@ -293,18 +297,18 @@
         }
 
 
-        function PrintIndigency() {
-                 printWindow = window.open(`IssuanceCerts/batch1/indigency.php?CitizenID=${$("#editCitizenID").val()}&Purpose=${$("#txtPurpose").val()}`);
+        function PrintIndigency(ID) {
+                 printWindow = window.open(`IssuanceCerts/batch1/indigency.php?CitizenID=${$("#editCitizenID").val()}&Purpose=${$("#txtPurpose").val()}&Clearance=${ID}`);
                  printWindow.print();
         }
 
-        function PrintBusPermit() {
+        function PrintBusPermit(ID) {
                  printWindow = window.open('IssuanceCerts/batch1/business-permit.php');
                  printWindow.print();
         }
 
-        function PrintBrgyClearance() {
-                 printWindow = window.open(`IssuanceCerts/batch1/barangay-clearance.php?CitizenID=${$("#editCitizenID").val()}&Purpose=${$("#txtPurpose").val()}`);
+        function PrintBrgyClearance(ID) {
+                 printWindow = window.open(`IssuanceCerts/batch1/barangay-clearance.php?CitizenID=${$("#editCitizenID").val()}&Purpose=${$("#txtPurpose").val()}&Clearance=${ID}`);
                  printWindow.print();
         }     
 
@@ -321,5 +325,30 @@
                 // $("#editProjectCategory").val($(this).closest("tbody tr").find("td:eq(2)").html()).trigger("change");
                 
             });
+            $('.IssuePending').on('click',function(){
+                alert("The citizen cannot be given an issuance due to an unsolved issue.");
+            });
         });
+
+        $('#IssuancePrint').on('submit',function(){
+            var CitizenID = $('#editCitizenID').val();
+            var Category = $('#categorydropdown').val();
+            var txtPurpose = $('#txtPurpose').val();
+
+            $.ajax({
+                url:'Level1_AddPersonalIssuance.php',
+                type:'POST',
+                data:{CitizenID:CitizenID,Category:Category,txtPurpose:txtPurpose},
+                success:function(data){
+                    // alert(data);
+                    var ClearanceID = data;
+                    checkthis(ClearanceID);
+                    location.reload();
+                },
+                error:function(){
+                    alert('error');
+                }
+            });
+        });
+
 </script>

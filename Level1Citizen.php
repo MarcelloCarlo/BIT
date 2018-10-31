@@ -174,7 +174,7 @@
                                                         echo
                                                         '<tr>
                                                             <td>  
-                                                                <button type="button" class="btn btn-success waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
+                                                                <button type="button" class="btn btn-warning waves-effect editCiti" data-toggle="modal" data-target="#editCitizModal">
                                                                     <i class="material-icons">mode_edit</i>
                                                                 </button>
                                                             </td>

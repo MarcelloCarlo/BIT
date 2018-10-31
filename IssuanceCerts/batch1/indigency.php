@@ -138,78 +138,132 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
      <div class="clearfix grpelem" id="u277-4"><!-- content -->
       <p>Barangay Captain</p>
      </div>
-     <div class="clearfix grpelem" id="u283-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u284-4"><!-- content -->
-      <p>Official 2 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u285-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u294-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u295-4"><!-- content -->
-      <p>Official 3 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u296-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u303-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u304-4"><!-- content -->
-      <p>Official 4 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u305-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u312-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u313-4"><!-- content -->
-      <p>Official 5 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u314-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u321-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u322-4"><!-- content -->
-      <p>Official 6 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u323-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u330-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u331-4"><!-- content -->
-      <p>Official 7 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u332-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u339-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u340-4"><!-- content -->
-      <p>Official 8 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u341-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
-     <div class="clearfix grpelem" id="u351-4"><!-- content -->
-      <p>Hon.</p>
-     </div>
-     <div class="clearfix grpelem" id="u352-4"><!-- content -->
-      <p>Official 9 name</p>
-     </div>
-     <div class="clearfix grpelem" id="u353-4"><!-- content -->
-      <p>Positiong here Position here&nbsp; position here position here position dessc here din ewan hahahahuhu</p>
-     </div>
+     <?php
+        include('../../dbconn.php');
+
+        $OfficialSQL = 'SELECT bitdb_r_citizen.First_Name,
+                              bitdb_r_citizen.Middle_Name,
+                              bitdb_r_citizen.Last_Name,
+                              bitdb_r_citizen.Name_Ext,
+                              bitdb_r_barangayposition.PosName,
+                              bitdb_r_barangayposition.PosDesc
+                      FROM    bitdb_r_barangayofficial
+                      INNER JOIN bitdb_r_barangayposition
+                      ON bitdb_r_barangayofficial.PosID = bitdb_r_barangayposition.PosID
+                      INNER JOIN bitdb_r_citizen
+                      ON bitdb_r_barangayofficial.CitizenID = bitdb_r_citizen.Citizen_ID
+                      WHERE bitdb_r_barangayposition.PosName NOT LIKE "%captain%"
+                      AND bitdb_r_barangayposition.PosName NOT LIKE "%system%"
+                      AND bitdb_r_barangayofficial.Official_Status = 1';
+        $OfficialQuery = mysqli_query($bitMysqli,$OfficialSQL) or die (mysqli_error($bitMysqli));
+        if(mysqli_num_rows($OfficialQuery) > 0)
+        {
+          $ctr = 0;
+          while($row2 = mysqli_fetch_assoc($OfficialQuery))
+          {
+
+            $Name = ''.$row2['First_Name'].' '.$row2['Middle_Name'].' '.$row2['Last_Name'].' '.$row2['Name_Ext'].' ';
+            $Desc = $row2['PosDesc'];
+
+            switch ($ctr) {
+              case '0':
+                echo '<div class="clearfix grpelem" id="u283-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u284-4"><!-- content -->
+                      <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u285-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '1':
+                echo '<div class="clearfix grpelem" id="u294-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u295-4"><!-- content -->
+                      <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u296-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '2':
+                echo '<div class="clearfix grpelem" id="u303-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u304-4"><!-- content -->
+                     <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u305-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '3':
+                echo '<div class="clearfix grpelem" id="u312-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u313-4"><!-- content -->
+                      <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u314-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '4':
+                echo '<div class="clearfix grpelem" id="u321-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u322-4"><!-- content -->
+                      <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u323-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '5':
+                echo '<div class="clearfix grpelem" id="u330-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u331-4"><!-- content -->
+                      <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u332-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '6':
+                echo '<div class="clearfix grpelem" id="u339-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u340-4"><!-- content -->
+                      <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u341-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              case '7':
+                echo '<div class="clearfix grpelem" id="u351-4"><!-- content -->
+                      <p>Hon.</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u352-4"><!-- content -->
+                       <p>'.$Name.'</p>
+                     </div>
+                     <div class="clearfix grpelem" id="u353-4"><!-- content -->
+                      <p>'.$Desc.'</p>
+                     </div>';
+                break;
+              default:
+                
+                break;
+            }
+            // echo '<p>'.$Name.'</p>';
+            $ctr += 1;
+          }
+        }
+      ?>
+     
      <div class="clearfix grpelem" id="u372-4"><!-- content -->
       <p>CERTIFICATE OF INDIGENCY</p>
      </div>
@@ -298,11 +352,12 @@ if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required
       <p><?php echo $_GET['Purpose']; ?></p>
      </div>
      <?php
-      $CertSQL = "SELECT DAY(IssuanceDate) AS DAY,
+
+      $CertSQL = 'SELECT DAY(IssuanceDate) AS DAY,
                           MONTHNAME(IssuanceDate) AS MONTH,
                           YEAR(IssuanceDate) AS YEAR
                       FROM    bitdb_r_issuance
-                      WHERE   IssuanceID =".$_GET['Clearance']."";
+                      WHERE   IssuanceID ='.$_GET["Clearance"].'';
         $CertQuery = mysqli_query($bitMysqli,$CertSQL) or die (mysqli_error($bitMysqli));
         if(mysqli_num_rows($CertQuery) > 0)
         {

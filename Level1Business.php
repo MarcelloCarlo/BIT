@@ -100,11 +100,11 @@
                                                         
                                                         if(strtotime($Date_Issued) > strtotime($Date))
                                                         {
-                                                            $BusinessStatus = "Active";
+                                                            $BusinessStatus = "<label>Active</label>";
                                                         }
                                                         else
                                                         {
-                                                            $BusinessStatus = "Inactive";
+                                                            $BusinessStatus = "<label>Inactive</label>";
                                                         }
 
                                                         echo '  

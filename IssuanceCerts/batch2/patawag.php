@@ -1,6 +1,6 @@
 <?php 
       session_start();
-      include('../../AdminConfig.php');
+      include('../../Level0_Config.php');
 ?>
 <!DOCTYPE html>
 <html class="nojs html css_verticalspacer" lang="en-US">
