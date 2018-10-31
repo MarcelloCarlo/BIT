@@ -154,44 +154,8 @@
                             <span>Positions</span>
                         </a>
                     </li>
-                    <!-- ADD OFFICIALS -->
-                    <li <?php if ($currentPage == 'Level0Citizens' | 
-                                $currentPage == 'Level0OfficialFromCitizens') 
-                                    {echo 'class="active"';} ?>>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">people</i>
-                            <span>Add Officials</span>
-                        </a>
-                        <ul class="ml-menu">
-                            <!-- NEW CITIZEN RECORD -->
-                            <li <?php if($currentPage == 'Level0Citizens') {echo 'class="active"';}?>>
-                                <a href="Level0Citizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">person_add</i>
-                            <span>New Citizen Record</span></a>
-                            </li>
-                            <!-- FROM CITIZEN RECORD -->
-                            <li <?php if($currentPage == 'Level0OfficialFromCitizens') {echo 'class="active"';}?>>
-                                <a href="Level0OfficialFromCitizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">person</i>
-                            <span>From Existing Record</span></a>
-                            </li>
-                            
-                        </ul>
-                    </li>
-                    <!-- OFFICIAL -->
-                    <li <?php if ($currentPage == 'Level0Officials' ) {echo 'class="active"';} ?>>
-                        <a href="Level0Officials.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">people_outline</i>
-                            <span>Officials</span>
-                        </a>
-                    </li>
-                    <!-- USER AUTHORITIES -->
-                    <li <?php if ($currentPage == 'Level0Users' ) {echo 'class="active"';} ?>>
-                        <a href="Level0Users.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
-                            <i class="material-icons">account_circle</i>
-                            <span>User Authorities</span>
-                        </a>
-                    </li>
-                    <!-- CATEGORY SETUP -->
-                    <li <?php if ($currentPage == 'Level0CategoryOrdinance' | 
+                      <!-- CATEGORY SETUP -->
+                      <li <?php if ($currentPage == 'Level0CategoryOrdinance' | 
                                 $currentPage == 'Level0CategoryBusiness' | 
                                 $currentPage == 'Level0CategoryIssuance' | 
                                 $currentPage == 'Level0BlotterSubjects' | 
@@ -236,7 +200,42 @@
                             
                         </ul>
                     </li>
-
+                    <!-- ADD OFFICIALS -->
+                    <li <?php if ($currentPage == 'Level0Citizens' | 
+                                $currentPage == 'Level0OfficialFromCitizens') 
+                                    {echo 'class="active"';} ?>>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">people</i>
+                            <span>Add Officials</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <!-- NEW CITIZEN RECORD -->
+                            <li <?php if($currentPage == 'Level0Citizens') {echo 'class="active"';}?>>
+                                <a href="Level0Citizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">person_add</i>
+                            <span>New Citizen Record</span></a>
+                            </li>
+                            <!-- FROM CITIZEN RECORD -->
+                            <li <?php if($currentPage == 'Level0OfficialFromCitizens') {echo 'class="active"';}?>>
+                                <a href="Level0OfficialFromCitizens.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>"><i class="material-icons">person</i>
+                            <span>From Existing Record</span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <!-- OFFICIAL -->
+                    <li <?php if ($currentPage == 'Level0Officials' ) {echo 'class="active"';} ?>>
+                        <a href="Level0Officials.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <i class="material-icons">people_outline</i>
+                            <span>Officials</span>
+                        </a>
+                    </li>
+                    <!-- USER AUTHORITIES -->
+                    <li <?php if ($currentPage == 'Level0Users' ) {echo 'class="active"';} ?>>
+                        <a href="Level0Users.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">
+                            <i class="material-icons">account_circle</i>
+                            <span>User Authorities</span>
+                        </a>
+                    </li>
                  </ul>
             </div>
             <!-- #Menu -->
