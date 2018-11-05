@@ -31,7 +31,7 @@
             //Testing and Deployment Build
             move_uploaded_file($_FILES["BarangaySeal"]["tmp_name"], $DirTargetB);
             move_uploaded_file($_FILES["MunicipalSeal"]["tmp_name"], $DirTargetM);
-			$header = 'Location:/BIT/indexLevel0.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].''; 
+			$header = 'Location:indexLevel0.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].''; 
 			header($header);
 		}
 		else
@@ -43,7 +43,7 @@
             //Testing and Deployment Build
             move_uploaded_file($_FILES["BarangaySeal"]["tmp_name"], $DirTargetB);
             move_uploaded_file($_FILES["MunicipalSeal"]["tmp_name"], $DirTargetM);
-			$header = 'Location:/BIT/indexLevel0.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
+			$header = 'Location:indexLevel0.php?id='.$_SESSION['Logged_In'].'&pos='.$_SESSION['AccountUserType'].'';
 			header($header);
 		}
 		
