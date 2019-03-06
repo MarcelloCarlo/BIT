@@ -2,6 +2,14 @@
 session_start();
 	include_once('dbconn.php');
 
+	if(isset($_POST['method']))
+	{
+		$RID = $_POST['RID'];
+		$UpdateRequestSQL = 'UPDATE bitdb_r_issuancerequest SET RequestStatus = 0 WHERE RequestID = '.$RID.' ';
+		mysqli_query($bitMysqli,$UpdateRequestSQL) or die (mysqli_error($bitMysqli));
+	}
+
+
 	$CitizenID = $_POST['CitizenID'];
 	$Category = $_POST['Category'];
 	$Purpose = $_POST['txtPurpose'];

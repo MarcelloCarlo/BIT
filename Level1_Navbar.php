@@ -158,7 +158,8 @@
 
                     <li <?php if ($currentPage == 'Level1IssuancePersonal' | 
                                 $currentPage == 'Level1IssuanceBusiness' | 
-                                $currentPage == 'Level1IssuanceRecordsView') 
+                                $currentPage == 'Level1IssuanceRecordsView' |
+                                $currentPage == 'Level1IssuanceRequest') 
                                 {echo 'class="active"';} ?>>
                         <a href="javascript:void(0);" class="menu-toggle">
                              <i class="material-icons">featured_play_list</i>
@@ -175,7 +176,9 @@
                             <li <?php if($currentPage == 'Level1IssuanceRecordsView') {echo 'class="active"';}?>>
                                 <a href="Level1IssuanceRecordsView.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">History</a>
                             </li>
-
+                            <li <?php if($currentPage == 'Level1IssuanceRequest') {echo 'class="active"';}?>>
+                                <a href="Level1IssuanceRequest.php?<?php echo "id=".$_SESSION['Logged_In']."&pos=".$_SESSION['AccountUserType']."";?>">Online Requests</a>
+                            </li>
                         </ul>
                     </li>
 

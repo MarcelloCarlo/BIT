@@ -862,13 +862,13 @@
                                 <p class="list-group-item-text">
                                     <?php echo $BarangayType;?>
                                 </p>
-                            </a>
+                            </a><!-- 
                             <a href="javascript:void(0);" class="list-group-item">
                                 <h4 class="list-group-item-heading">Signatory (Barangay Chairman)</h4>
                                 <p class="list-group-item-text">
                                     <?php echo $FullName;?>
                                 </p>
-                            </a>
+                            </a> -->
                             <?php 
                                 echo '
                                 <a href="javascript:void(0);" class="list-group-item">

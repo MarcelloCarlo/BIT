@@ -95,10 +95,10 @@
                         <div class="col-xs-12">
                              <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>   
                         </div>
-                    </div>
+                    </div><!-- 
                      <div class=" align-right">
                             <a href="forgot-password.php">Forgot Password?</a>
-                        </div>
+                        </div> -->
                     <div class="row m-t-15 m-b--20">
                        <!-- <div class="col-xs-6">
                             <a href="sign-up.html">Register Now!</a>
